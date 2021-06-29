@@ -1,0 +1,540 @@
+<div class="container" id="product-tabs">
+    <a href="#" name="back-to-top"></a>
+    <ul class="nav nav-pills" role="tablist">
+        <li role="presentation" class="active"><a href="#1c1p">1 Color 1 Location</a></li>
+        <li role="presentation"><a href="#4cp">4 Color Process</a>
+        </li>
+        <li role="presentation"><a href="#4cpdm">4 Color Process Dome</a></li>
+        <li role="presentation"><a href="#em">Embroidery</a></li>
+        <li role="presentation"><a href="#laser">Laser</a></li>
+        <li role="presentation"><a href="#debossed">Debossed</a>
+        </li>
+    </ul>
+
+    <br/><br/>
+
+    <div class="tab-content">
+
+        <!-- Begin Nav tabs for 1C1P -->
+
+        <div role="tabpanel" class="tab-pane active" id="">
+            <a href="#" name="1c1p"></a>
+            <div class="row">
+                <div class="col-md-6 col-sm-6"><p><strong>Imprint Method/Thickness: 1 Color 1 Location</strong></p></div>
+                <div class="col-md-6 col-sm-6">
+                    <p class="pull-right"><strong><a class="back-to-top" href="#back-to-top">[Bact to Top]</a></strong></p>
+                </div>
+            </div>
+
+
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th colspan="2" class="text-center">Shipping Information</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Item Weight:</td>
+                    <td>{{itemweight}} lbs.</td>
+                </tr>
+                <tr>
+                    <td>Production Time:</td>
+                    <td>{{prodtimelo_tp}} to {{prodtimehi_tp}} days</td>
+                </tr>
+                <tr>
+                    <td>Ship From:</td>
+                    <td>{{ship_from}}</td>
+                </tr>
+                <tr>
+                    <td>Standard Shipment Package:</td>
+                    <td>{{stdshipmentpkg}} in.</td>
+                </tr>
+                <tr>
+                    <td>Number Per Box:</td>
+                    <td>{{numberperbox}}</td>
+                </tr>
+                <tr>
+                    <td>Shipment Weight:</td>
+                    <td>{{shipweightinlbs}} lbs</td>
+                </tr>
+                <tr>
+                    <td>Quick Ship Available:</td>
+                    <td>{{quickshipavailable_tp}}</td>
+                </tr>
+                <tr>
+                    <td>Quick Ship Max Qty:</td>
+                    <td>{{quickshipmaxqty_tp}}</td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="text-center">Product Charges</th>
+                </tr>
+                <tr>
+                    <td>Setup Charge:</td>
+                    <td>${{setupchargecatalogprice_tp}} ({{setupchargediscountcode_tp}})</td>
+                </tr>
+
+                <tr>
+                    <td>Repeat Setup Charge:</td>
+                    <td>${repeatsetupcarge_tp}</td>
+                </tr>
+                <tr>
+                    <td>
+                        Drop Shipment Charge:
+                    </td>
+                    <td>${{dropshipchg}}</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Handling Fee- 3rd Party Shipping:
+                    </td>
+                    <td>
+                        ${{handlingfee3rdparty}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Less than Minimum Qty:</td>
+                    <td>${{minimumorderqty}}</td>
+                </tr>
+
+                <tr>
+                    <td>Less than Minimum Qty Chg:</td>
+                    <td>${{ltm_min_charge}}</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div><!-- /End Nav tabs for 1C1P -->
+
+        <!-- Begin Nav tabs for 4CP -->
+
+        <div class="tab-pane" id="4cp">
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6"><p><strong>Imprint Method/Thickness: 4 Color Process</strong></p></div>
+                <div class="col-md-6 col-sm-6">
+                    <p class="pull-right"><strong><a class="back-to-top" href="#back-to-top">[Bact to Top]</a></strong></p>
+                </div>
+            </div>
+
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th colspan="2" class="text-center">Shipping Information</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Item Weight:</td>
+                    <td>{{itemweight}} lbs.</td>
+                </tr>
+                <tr>
+                    <td>Production Time:</td>
+                    <td>{{prodtimelo_4cp}} to {{prodtimehi_4cp}} days</td>
+                </tr>
+                <tr>
+                    <td>Ship From:</td>
+                    <td>{{ship_from}}</td>
+                </tr>
+                <tr>
+                    <td>Standard Shipment Package:</td>
+                    <td>{{stdshipmentpkg}} in.</td>
+                </tr>
+                <tr>
+                    <td>Number Per Box:</td>
+                    <td>{{numberperbox}}</td>
+                </tr>
+                <tr>
+                    <td>Shipment Weight:</td>
+                    <td>{{shipweightinlbs}} lbs</td>
+                </tr>
+                <tr>
+                    <td>Quick Ship Available:</td>
+                    <td>{{quickshipavailable_tp}}</td>
+                </tr>
+                <tr>
+                    <td>Quick Ship Max Qty:</td>
+                    <td>{{quickshipmaxqty_tp}}</td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="text-center">Product Charges</th>
+                </tr>
+                <tr>
+                    <td>Setup Charge:</td>
+                    <td>${{setupchargecatalogprice_tp}} ({{setupchargediscountcode}})</td>
+                </tr>
+
+                <tr>
+                    <td>Repeat Setup Charge:</td>
+                    <td>${repeatsetupcharge_1C1L_bag}</td>
+                </tr>
+                <tr>
+                    <td>
+                        Drop Shipment Charge:
+                    </td>
+                    <td>${{dropshipchg}}</td>
+                </tr>
+                <tr>
+                    <td>Handling Fee- 3rd Party Shipping:</td>
+                    <td>${{handlingfee3rdparty}}</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Less than Minimum Qty Chg:
+                    </td>
+                    <td>
+                        ${{less_than_minimum_qty}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div><!-- /End Nav tabs for 4CP -->
+
+        <!-- Begin Nav tabs for 4CPDM -->
+
+        <div role="tabpanel" class="tab-pane" id="4cpdm">
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6"><p><strong>Imprint Method/Thickness: 4 Color Process Dome</strong></p></div>
+                <div class="col-md-6 col-sm-6">
+                    <p class="pull-right"><strong><a class="back-to-top" href="#back-to-top">[Bact to Top]</a></strong></p>
+                </div>
+            </div>
+
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th colspan="2" class="text-center">Shipping Information</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Item Weight:</td>
+                    <td>{{itemweight}} lbs.</td>
+                </tr>
+                <tr>
+                    <td>Production Time:</td>
+                    <td>{{prodtimelo_4cpdm}} to {{prodtimehi_4cpdm}} days</td>
+                </tr>
+                <tr>
+                    <td>Ship From:</td>
+                    <td>{{ship_from}}</td>
+                </tr>
+                <tr>
+                    <td>Standard Shipment Package:</td>
+                    <td>{{stdshipmentpkg}} in.</td>
+                </tr>
+                <tr>
+                    <td>Number Per Box:</td>
+                    <td>{{numberperbox}}</td>
+                </tr>
+                <tr>
+                    <td>Shipment Weight:</td>
+                    <td>{{shipweightinlbs}} lbs</td>
+                </tr>
+                <tr>
+                    <td>Quick Ship Available:</td>
+                    <td>{{quickshipavailable_dm}}</td>
+                </tr>
+                <tr>
+                    <td>Quick Ship Max Qty:</td>
+                    <td>{{quickshipmaxqty_dm}}</td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="text-center">Product Charges</th>
+                </tr>
+                <tr>
+                    <td>Setup Charge:</td>
+                    <td>${{setupchargecatalogprice_dm}} ({{setupchargediscountcode}})</td>
+                </tr>
+
+                <tr>
+                    <td>Repeat Setup Charge:</td>
+                    <td>${repeatsetupcharge_4CPDM_bag}</td>
+                </tr>
+                <tr>
+                    <td>
+                        Drop Shipment Charge:
+                    </td>
+                    <td>${{dropshipchg}}</td>
+                </tr>
+                <tr>
+                    <td>Handling Fee- 3rd Party Shipping:</td>
+                    <td>${{handlingfee3rdparty}}</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Less than Minimum Qty Chg:
+                    </td>
+                    <td>
+                        ${{less_than_minimum_qty}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div><!-- /End Nav tabs for 4CPDM -->
+
+        <!-- Begin Nav tabs for EM-->
+
+        <div role="tabpanel" class="tab-pane" id="em">
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6"><p><strong>Imprint Method/Thickness: Embroidery</strong></p></div>
+                <div class="col-md-6 col-sm-6">
+                    <p class="pull-right"><strong><a class="back-to-top" href="#back-to-top">[Bact to Top]</a></strong></p>
+                </div>
+            </div>
+
+
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th colspan="2" class="text-center">Shipping Information</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Item Weight:</td>
+                    <td>{{itemweight}} lbs.</td>
+                </tr>
+                <tr>
+                    <td>Production Time:</td>
+                    <td>{{prodtimelo_em}} to {{prodtimehi_em}} days</td>
+                </tr>
+                <tr>
+                    <td>Ship From:</td>
+                    <td>{{ship_from}}</td>
+                </tr>
+                <tr>
+                    <td>Standard Shipment Package:</td>
+                    <td>{{stdshipmentpkg}} in.</td>
+                </tr>
+                <tr>
+                    <td>Number Per Box:</td>
+                    <td>{{numberperbox}}</td>
+                </tr>
+                <tr>
+                    <td>Shipment Weight:</td>
+                    <td>{{shipweightinlbs}} lbs</td>
+                </tr>
+                <tr>
+                    <td>Quick Ship Available:</td>
+                    <td>{{quickshipavailable_em}}</td>
+                </tr>
+                <tr>
+                    <td>Quick Ship Max Qty:</td>
+                    <td>{{quickshipmaxqty_em}}</td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="text-center">Product Charges</th>
+                </tr>
+                <tr>
+                    <td>Setup Charge:</td>
+                    <td>${{setupchargecatalogprice_em}} ({{setupchargediscountcode}})</td>
+                </tr>
+
+                <tr>
+                    <td>Repeat Setup Charge:</td>
+                    <td>${repeatsetupcharge_em_bag}</td>
+                </tr>
+                <tr>
+                    <td>
+                        Drop Shipment Charge:
+                    </td>
+                    <td>${{dropshipchg}}</td>
+                </tr>
+                <tr>
+                    <td>Handling Fee- 3rd Party Shipping:</td>
+                    <td>${{handlingfee3rdparty}}</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Less than Minimum Qty Chg:
+                    </td>
+                    <td>
+                        ${{less_than_minimum_qty}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+        </div><!-- /End Nav tabs for EM -->
+
+        <!-- Begin Nav tabs for Laser-->
+
+        <div role="tabpanel" class="tab-pane" id="laser">
+            <div class="row">
+                <div class="col-md-6 col-sm-6"><p><strong>Imprint Method/Thickness: Laser</strong></p></div>
+                <div class="col-md-6 col-sm-6">
+                    <p class="pull-right"><strong><a class="back-to-top" href="#back-to-top">[Bact to Top]</a></strong></p>
+                </div>
+            </div>
+
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th colspan="2" class="text-center">Shipping Information</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Item Weight:</td>
+                    <td>{{itemweight}} lbs.</td>
+                </tr>
+                <tr>
+                    <td>Production Time:</td>
+                    <td>{{prodtimelo_laser}} to {{prodtimehi_laser}} days</td>
+                </tr>
+                <tr>
+                    <td>Ship From:</td>
+                    <td>{{ship_from}}</td>
+                </tr>
+                <tr>
+                    <td>Standard Shipment Package:</td>
+                    <td>{{stdshipmentpkg}} in.</td>
+                </tr>
+                <tr>
+                    <td>Number Per Box:</td>
+                    <td>{{numberperbox}}</td>
+                </tr>
+                <tr>
+                    <td>Shipment Weight:</td>
+                    <td>{{shipweightinlbs}} lbs</td>
+                </tr>
+                <tr>
+                    <td>Quick Ship Available:</td>
+                    <td>{{quickshipavailable_laser}}</td>
+                </tr>
+                <tr>
+                    <td>Quick Ship Max Qty:</td>
+                    <td>{{quickshipmaxqty_laser}}</td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="text-center">Product Charges</th>
+                </tr>
+                <tr>
+                    <td>Setup Charge:</td>
+                    <td>${{setupchargecatalogprice_laser}} ({{setupchargediscountcode}})</td>
+                </tr>
+
+                <tr>
+                    <td>Repeat Setup Charge:</td>
+                    <td>${repeatsetupcharge_laser_bag}</td>
+                </tr>
+                <tr>
+                    <td>
+                        Drop Shipment Charge:
+                    </td>
+                    <td>${{dropshipchg}}</td>
+                </tr>
+                <tr>
+                    <td>Handling Fee- 3rd Party Shipping:</td>
+                    <td>${{handlingfee3rdparty}}</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Less than Minimum Qty Chg:
+                    </td>
+                    <td>
+                        ${{less_than_minimum_qty}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div><!-- /End Nav tabs for Laser -->
+
+        <!-- Begin Nav tabs for Debossed-->
+
+        <div role="tabpanel" class="tab-pane" id="debossed">
+            <div class="row">
+                <div class="col-md-6 col-sm-6"><p><strong>Imprint Method/Thickness: Debossed</strong></p></div>
+                <div class="col-md-6 col-sm-6">
+                    <p class="pull-right"><strong><a class="back-to-top" href="#back-to-top">[Bact to Top]</a></strong></p>
+                </div>
+            </div>
+
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th colspan="2" class="text-center">Shipping Information</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Item Weight:</td>
+                    <td>{{itemweight}} lbs.</td>
+                </tr>
+                <tr>
+                    <td>Production Time:</td>
+                    <td>{{prodtimelo_deboss}} to {{prodtimehi_deboss}} days</td>
+                </tr>
+                <tr>
+                    <td>Ship From:</td>
+                    <td>{{ship_from}}</td>
+                </tr>
+                <tr>
+                    <td>Standard Shipment Package:</td>
+                    <td>{{stdshipmentpkg}} in.</td>
+                </tr>
+                <tr>
+                    <td>Number Per Box:</td>
+                    <td>{{numberperbox}}</td>
+                </tr>
+                <tr>
+                    <td>Shipment Weight:</td>
+                    <td>{{shipweightinlbs}} lbs</td>
+                </tr>
+                <tr>
+                    <td>Quick Ship Available:</td>
+                    <td>{{quickshipavailable_debossed}}</td>
+                </tr>
+                <tr>
+                    <td>Quick Ship Max Qty:</td>
+                    <td>{{quickshipmaxqty_debossed}}</td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="text-center">Product Charges</th>
+                </tr>
+                <tr>
+                    <td>Setup Charge:</td>
+                    <td>${{setupchargecatalogprice_debossed}} ({{setupchargediscountcode}})</td>
+                </tr>
+
+                <tr>
+                    <td>Repeat Setup Charge:</td>
+                    <td>${repeatsetupcharge_debossed_bag}</td>
+                </tr>
+                <tr>
+                    <td>
+                        Drop Shipment Charge:
+                    </td>
+                    <td>${{dropshipchg}}</td>
+                </tr>
+                <tr>
+                    <td>Handling Fee- 3rd Party Shipping:</td>
+                    <td>${{handlingfee3rdparty}}</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Less than Minimum Qty Chg:
+                    </td>
+                    <td>
+                        ${{less_than_minimum_qty}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div><!-- /End Nav tabs for Debossed -->
+    </div>
+</div>

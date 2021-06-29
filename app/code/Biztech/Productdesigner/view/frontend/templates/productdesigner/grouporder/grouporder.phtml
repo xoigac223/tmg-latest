@@ -1,0 +1,216 @@
+<?php
+$_product = $this->getProduct();
+$product_type = $_product->getTypeId();
+$attrs = $_product->getTypeInstance(true)->getConfigurableAttributesAsArray($_product);
+
+foreach ($attrs as $attr) {
+    if (0 == strcmp("size", $attr['attribute_code'])) {
+        $sizes = $attr['values'];
+    }
+}
+
+
+$isGoogleFontEnable = $block->getEnableFont();
+
+if ($isGoogleFontEnable):
+    $googleFontList = $block->getFontList();
+    $googleFontListCss = str_replace(',', '|', $googleFontList);
+    ?>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=<?php echo $googleFontListCss ?> ">
+<?php endif; ?>
+
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$model = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Productdesignerfonts\Collection')->addFieldToFilter('disabled', 0)->setOrder('font_label', 'asc');
+$font_styles = $model->getData();
+?>
+
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$colors = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Pcolor\Collection');
+$config = $objectManager->create('Magento\Framework\App\Config\ScopeConfigInterface');
+$enable_color_picker = $config->getValue('productdesigner/colorpicker/colorpicker');
+?>
+
+<form action="<?php echo $this->getUrl('productdesigner/index/addToCart', array('_secure' => $this->getRequest()->isSecure())); ?>" method="post" id="designer_product_addtocart_form">
+    <h4 class="inline-block a-left"><?php echo __('Add Names and Numbers'); ?></h4>
+    <h4 id="change_nameno_side" style="display:none;" class="inline-block f-right"><a id="change_name_no_side" href="javascript:void(0)"><?php echo __("Change Side"); ?></a></h4>
+    <div id="group-order-container">
+        <div id="group-order-content">
+
+            <div class="name-content">
+
+                <label> <input type="checkbox" name="isname" id="isname"> <?php echo __('Names'); ?></label>
+                <label><input type="checkbox" name="isnumber" id="isnumber"> <?php echo __('Numbers'); ?></label>
+                <label id="group_side_label" style="display:none;" class="side-view"><span class="label"><?php echo __('Added in ') ?></span><span id="group_side_value" class="value"></span><span class="label"><?php echo __(' Side') ?></span></label>
+            </div>
+
+            <div class="disable-block"></div>
+
+
+            <div class="text_styles font_properties disabled" id="group_font_properties">
+
+                <select id="group_font_selection" class="font_selection">
+                    <?php foreach ($font_styles as $font): ?>
+                        <option class="font_option" value="<?php echo $font['font_label']; ?>"><?php echo $font['font_label']; ?></option>
+                    <?php endforeach; ?>
+                    <?php if ($isGoogleFontEnable): ?>
+                        <?php foreach (explode(',', $googleFontList) as $googleFont): ?>
+                            <option class="font_option" value="<?php echo $googleFont; ?>"><?php echo str_replace('+', ' ', $googleFont); ?></option>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </select>
+                <div class="gropu-font-color">
+
+
+
+
+
+                    <button type="button" id="group_text_color" name="group_text_color" class="text-color" title="<?php echo __('Font Color'); ?>"><span style="border-color:#000000 "><?php echo __('A'); ?></span></button>
+
+
+                    <?php if ($enable_color_picker == "0"): ?>
+                        <ul id="grouptext-color-container" class="color-container grouptext-color-container" style="display:none;">
+                            <li class="color-title"><span class="label"><?php echo __("Color"); ?>: </span><span id="grouptext_color_title"><?php echo __("Black"); ?></span></li>
+                            <?php
+                            if (count($colors) != 0) {
+                                foreach ($colors as $_color):
+                                    $bgColor = $_color->getColorCode();
+                                    ?>
+
+                                    <li><span style="background-color: <?php echo $bgColor ?>" title="<?php echo $_color->getColorName(); ?>" class="color-img grouptext-color-img" data-color_id = "<?php echo $bgColor ?>" data-color_name ="<?php echo $_color->getColorName(); ?>"></span></li>
+                                <?php endforeach; ?>
+                            <?php }else { ?>
+                                <li class="text-color-content"><span><?php echo __('No colors available'); ?>.</span>
+                                </li>
+
+                            <?php } ?>
+                        </ul>
+                    <?php endif; ?>
+
+
+                </div>
+                <?php
+                $defautlt_font_size = $block->getFontSize();
+                ?>
+                <div class="font-selection">
+                    <?php echo __("Size"); ?>
+                    <span id="group_size_label"><?php echo " (" . $defautlt_font_size . ")"; ?></span>
+                    <input type="range" step="1" max="100" min="24" id="group_font_size_selection" value="<?php echo $defautlt_font_size ?>">
+                </div>
+
+
+            </div>
+
+
+            <div id="name-number-content" class="group-orders">
+                <div id='group-table-content' style='display:none'>
+                    <table id='group-table' cellpadding="0" cellspacing="0" width="100%;">
+                        <colgroup>
+                            <col width="150" />
+                            <col width="1"  />
+                            <col <?php if (!isset($sizes)) { ?>style='display:none;'<?php } ?> width="1" />
+                            <col />
+                            <col width="1"/>
+                        </colgroup>
+
+                        <thead>
+                            <tr>
+                                <th class="add-name-text"><?php echo __('Name'); ?></th>
+                                <th class="add-number-text"><?php echo __('No.'); ?></th>
+                                <th <?php if (!isset($sizes)) { ?>style='display:none;'<?php } ?>><?php echo __('Size'); ?></th>
+                                <th><?php echo __('Qty'); ?></th>
+                                <th><?php echo __(''); ?></th>
+                            </tr>
+                        </thead>
+
+                        <tbody id='group-table-body'>
+                        </tbody>
+                    </table>
+                </div>
+                <button class="pd-button btn-add" type="button" id="add_another_button" style="display: none" title="Add"><span><span><?php echo __('Add'); ?></span></span></button>
+
+            </div>
+
+        </div>
+    </div>
+    <input type="hidden" value="0" id="is_group_order" name="is_group_order">
+
+</form>
+
+<!-- For Group Product -->
+<?php
+$jsonConfig = $this->getJsonConfigSwatch();
+$jsonConfig1 = json_decode($jsonConfig, true);
+$_attributes = $this->getAttributeCollection();
+$sizeArray = Array();
+?>
+
+
+
+
+<?php foreach ($_attributes as $_attribute): ?>       
+    <?php if ($_attribute->getAttributeCode() == "size") { ?>
+        <?php $attributeId = $_attribute->getAttributeId(); ?>
+        <div class="size-chart" id="size-chart">
+            <ul>
+                <?php
+                if (isset($sizes)) {
+                    foreach ($sizes as $size) {
+                        ?>
+                        <?php
+                        $ass_prods = $jsonConfig1[$attributeId][$size['value_index']];
+                        $sizeTemp['value_index'] = $size['value_index'];
+                        $sizeTemp['label'] = $size['store_label'];
+                        $sizeTemp['products'] = $ass_prods;
+                        $sizeArray[] = $sizeTemp;
+                    }
+                }
+                ?>
+            </ul>
+        </div>
+        <?php
+    }
+    ?>
+<?php endforeach; ?>
+
+
+<script type="text/javascript">
+    require(['jquery', 'jquery/ui'], function ($) {
+
+        var enable_color_picker = '<?php echo $enable_color_picker ?>';
+
+        if (enable_color_picker == 1) {
+
+            var c1 = jQuery("#group_text_color").ColorPicker({
+                onChange: function (hsb, hex, rgb) {
+                    TextDesigner.setTextColor("#" + hex);
+                }
+            });
+        }
+
+
+
+    });
+</script> 
+
+<script type="text/javascript">
+
+    require(['jquery', 'jquery/ui'], function ($) {
+        var $j = jQuery.noConflict();
+        $j(function () {
+            $j('#group_font_selection').selectric();
+        });
+    });
+
+    //var cp9 = new colorPicker('group_text_color');
+    var textSize = "<?php echo $this->getFontSize() ?>";
+    var textFamily = "<?php echo $this->getFontFamily() ?>";
+    var sizeArray = '<?php echo json_encode($sizeArray, true); ?>';
+    require(['jquery', 'jquery/ui'], function ($) {
+        Groupdesigner = new GroupDesigner();
+        Groupdesigner.initialize(textSize, textFamily, sizeArray);
+    });
+
+</script>
+

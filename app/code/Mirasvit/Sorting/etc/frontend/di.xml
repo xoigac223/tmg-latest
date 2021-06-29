@@ -1,0 +1,30 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Model\Config">
+        <plugin name="mstSortingReplaceOptions" type="Mirasvit\Sorting\Plugin\Frontend\Catalog\Model\Config\ReplaceOptionsPlugin" />
+    </type>
+
+    <type name="Magento\Catalog\Block\Product\ProductList\Toolbar">
+        <plugin name="mstSortingInitDefaultOrder" type="Mirasvit\Sorting\Plugin\Frontend\Catalog\Block\Product\ProductList\Toolbar\InitDefaultOrderPlugin" />
+    </type>
+
+    <type name="Magento\Catalog\Model\ResourceModel\Product\Collection">
+        <plugin name="mstSortingApplySorting" type="Mirasvit\Sorting\Plugin\Frontend\Catalog\Model\ResourceModel\Product\Collection\ApplySortingPlugin" />
+    </type>
+
+    <type name="Magento\CatalogSearch\Model\ResourceModel\Fulltext\Collection">
+        <plugin name="mstSortingApplySorting" type="Mirasvit\Sorting\Plugin\Frontend\Catalog\Model\ResourceModel\Product\Collection\ApplySortingPlugin" />
+    </type>
+
+    <type name="Mirasvit\LayeredNavigation\Model\ResourceModel\Fulltext\Collection">
+        <plugin name="sortLrnCollection" type="Mirasvit\Sorting\Plugin\Frontend\Catalog\Model\ResourceModel\Product\Collection\ApplySortingPlugin" />
+    </type>
+
+    <type name="Mirasvit\LayeredNavigation\Model\ResourceModel\Fulltext\SearchCollection">
+        <plugin name="sortLrnCollection" type="Mirasvit\Sorting\Plugin\Frontend\Catalog\Model\ResourceModel\Product\Collection\ApplySortingPlugin" />
+    </type>
+
+    <type name="Magento\CatalogWidget\Block\Product\ProductsList">
+        <plugin name="mstSortingApplySorting" type="Mirasvit\Sorting\Plugin\Frontend\CatalogWidget\Block\Product\ProductsList\ApplySortingPlugin" />
+    </type>
+</config>

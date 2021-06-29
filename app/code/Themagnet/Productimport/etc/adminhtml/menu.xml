@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Themagnet_Productimport::productimport" title="TheMagnet Product Import" module="Themagnet_Productimport" sortOrder="51" resource="Themagnet_Productimport::productimport"/>
+        <add id="Themagnet_Productimport::import" title="Product Import" module="Themagnet_Productimport" sortOrder="10" action="themagnet_productimport/import" resource="Themagnet_Productimport::import" parent="Themagnet_Productimport::productimport"/>
+        <add id="Themagnet_Productimport::productimport_configuration" title="Configuration" module="Themagnet_Productimport" sortOrder="99" parent="Themagnet_Productimport::productimport" action="adminhtml/system_config/edit/section/themagnet" resource="Themagnet_Productimport::productimport_configuration"/>
+    </menu>
+</config>

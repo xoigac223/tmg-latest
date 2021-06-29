@@ -1,0 +1,43 @@
+<div id ="masking_container" class="masking_container">
+    <h4><?php echo __('Choose Masking Image'); ?></h4>
+    <?php
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $model = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Masking\Collection')->addFieldToFilter("is_root_category", array("eq" => 1))->addFieldToFilter("status", array("eq" => 1));
+    $masking_categories = $model->getData();
+    $defaultCatId = $block->getDefaultMaskingCategory();
+    ?>
+    <ul id="masking_categories_container">
+        <li>
+            <select id="masking_categories" name="masking_category_id" class="masking-categories">
+                <?php foreach ($masking_categories as $maskingcategory): ?>
+                    <?php $root_cat_id = $maskingcategory['masking_id']; ?>
+                    <option value="<?php echo $root_cat_id; ?>" <?php if ($defaultCatId == $root_cat_id): echo "selected";
+                endif; ?>><?php echo $maskingcategory['masking_title']; ?></option>
+                    <?php
+                    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                    $model = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Masking\Collection')->addFieldToFilter("is_root_category", array("eq" => 0))->addFieldToFilter("parent_categories", array("eq" => $root_cat_id))->addFieldToFilter("status", array("eq" => 1));
+                    $masking_sub_categories = $model->getData();
+                    ?>
+                    <?php foreach ($masking_sub_categories as $masking_sub_category): ?>
+                    <option value="<?php echo $masking_sub_category['masking_id']; ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $masking_sub_category['masking_title']; ?></option>
+    <?php endforeach; ?>
+<?php endforeach; ?>
+            </select>
+        </li>
+        <li>
+            <input type="text" class="input-text" placeholder="Search by tags" id="search_tag_field_masking" name="search_tag_field">
+        </li>
+    </ul>
+</div>
+
+
+
+<script type="text/javascript">
+    require(['jquery', 'jquery/ui'], function ($) {
+        var $j = jQuery.noConflict();
+        $j(function () {
+            $j('#masking_categories').selectric();
+        });
+    });
+
+</script>

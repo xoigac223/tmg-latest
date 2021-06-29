@@ -1,0 +1,65 @@
+.mst-sorting-preview__cell-factor {
+    &:extend(.abs-clearfix all);
+
+    margin-bottom: .8rem;
+    width: 40rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    .info {
+        float: left;
+        width: 20rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+        padding-right: 1rem;
+
+        label {
+            display: inline-block;
+        }
+
+        span {
+            display: inline-block;
+            float: right;
+            color: #999;
+        }
+    }
+
+    .bar {
+        @height: 1.6rem;
+
+        float: right;
+        width: 20rem;
+        min-width: 20rem;
+        height: @height;
+        background: #d6d6d6;
+        position: relative;
+
+        &:after {
+            position: absolute;
+            right: 50%;
+            width: 1px;
+            height: @height;
+            content: '';
+            background: #fff;
+        }
+
+        .positive, .negative {
+            height: @height;
+            position: absolute;
+        }
+
+        .positive {
+            background: #87BC24;
+            left: 50%;
+        }
+
+        .negative {
+            background: #D91A00;
+            right: 50%;
+        }
+    }
+}

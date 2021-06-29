@@ -1,0 +1,159 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+/** @var $block \Magento\Backend\Block\Media\Uploader */
+
+?>
+<?php $id = $this->getRequest()->getParam('id');?>
+
+
+<div id="shapes_gallery_content"
+     class='gallery'
+     data-mage-init='{"productGallery":{"template":"#shapes_gallery_content-template"}}'
+     data-images="<?php /* @escapeNotVerified */ echo $block->escapeHtml($block->getImagesJson($id)) ?>"
+     data-types=""
+    >
+    <!-- uploader.phtml -->  
+    <div class="image image-placeholder clipart-wrapper">
+            <!-- uploader.phtml -->
+            <div id="shapes_uploader" class="uploader">
+                <div class="fileinput-button form-buttons button">
+                    <span><?php /* @escapeNotVerified */ echo __('Browse Files...') ?></span>
+                    <input id="fileupload" type="file" name="shapes-image"
+                        data-url="<?php /* @escapeNotVerified */ echo $this->getUrl('productdesigner/shapes_gallery/upload') ?>" multiple="multiple"/>
+                </div>
+                <div class="clear"></div>
+                <script id="shapes_uploader-template" type="text/x-magento-template">
+                    
+                </script>
+            </div>
+            <img class="spacer"
+                     src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/spacer.gif')?>"/>
+            <p class="image-placeholder-text">
+            <?php /* @escapeNotVerified */ echo __('Click here or drag and drop to add images.'); echo ' (';echo __('Accepted Files : JPG, JPEG, PNG , GIF, SVG');echo ' )'; ?>
+            </p>
+    </div>
+    <script>
+        require([
+            "jquery",
+            'mage/template',
+            'Magento_Ui/js/modal/alert',
+            "mage/translate",
+            "jquery/file-uploader"
+        ], function ($, mageTemplate, alert) {
+
+
+        $('#fileupload').fileupload({
+
+            dataType: 'json',
+            dropZone: '[data-tab-panel=image-management]',
+            sequentialUploads: true,
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+            add: function (e, data) {
+
+                
+                var progressTmpl = mageTemplate('#shapes_uploader-template'),
+                        fileSize,
+                        tmpl;
+
+
+                $.each(data.files, function (index, file) {
+                        debugger;
+                        fileSize = typeof file.size == "undefined" ?
+                            $.mage.__('We could not detect a size.') :
+                            //byteConvert(file.size);
+
+                        data.fileId = Math.random().toString(33).substr(2, 18);
+
+                        tmpl = progressTmpl({
+                            data: {
+                                name: file.name,
+                                size: fileSize,
+                                id: data.fileId
+                            }
+                        });
+
+                        $(tmpl).appendTo('#shapes_uploader');
+                });
+
+                $(this).fileupload('process', data).done(function () {
+                    data.submit();
+                });
+            },
+            done: function (e, data) {
+                debugger;
+                        if(!data.result.error) {
+                            $('#shapes_gallery_content').trigger('addItem', data.result);
+                        } else {
+                            alert({
+                                content: data.result.error,
+                                actions: {
+                                    always: function(){}
+                                }
+                            });
+                        }                      
+                    },
+        });
+           
+        $('#fileupload').fileupload('option', {
+                process: [{
+                    action: 'load',
+                    fileTypes: /^image\/(gif|jpeg|png)$/
+                }, {
+                    action: 'resize',
+                    maxWidth: <?php /* @escapeNotVerified */ echo \Magento\Framework\File\Uploader::MAX_IMAGE_WIDTH ?> ,
+                    maxHeight: <?php /* @escapeNotVerified */ echo \Magento\Framework\File\Uploader::MAX_IMAGE_HEIGHT ?>
+                }, {
+                    action: 'save'
+                }]
+        }); 
+
+
+        });
+    </script>
+    <!-- uploader.phtml -->  
+
+
+
+<script id="shapes_gallery_content-template" type="text/x-magento-template">
+        <div class="image item clipart-wrapper <% if (data.disabled == 1) { %>hidden-for-front<% } %>"
+             data-role="image">
+             <input type="hidden"
+                   name="shapes[<%- data.file %>][image_id]"
+                   value="<%- data.image_id %>"
+                   class="path"/>
+            <input type="hidden"
+                   name="shapes[<%- data.file %>][file]"
+                   value="<%- data.file %>"
+                   class="path"/>
+            <input type="hidden"
+                   name="shapes[<%- data.file %>][state]"
+                   value="<%- data.state %>"
+                   class="path"/>
+            
+            <img class="clipart-image" src="<%- data.url %>" alt="<%- data.label %>"/>
+            
+
+            <input type="text" value="<%- data.label %>" class="clipart-label" name="shapes[<%- data.file %>][label]" placeholder="Label"/>
+            <input type="text" value="<%- data.tags %>" class="clipart-tags" name="shapes[<%- data.file %>][tags]" placeholder="Tags"/>
+            <input type="text" value="<%- data.position %>" class="clipart-sort" name="shapes[<%- data.file %>][sort]" placeholder="Position"/>            
+
+            <span><?php /* @escapeNotVerified */ echo __('Remove');?></span>
+            <input type="checkbox" class="clipart-remove" name="shapes[<%- data.file %>][remove]"/>
+
+            <span><?php /* @escapeNotVerified */ echo __('Exclude');?></span>
+            <input type="checkbox" class="clipart-exclude" name="shapes[<%- data.file %>][exclude]" <% if (data.disabled == 1) { %>checked<% } %>/>
+            
+            
+        </div>
+</script>
+    
+
+
+
+
+

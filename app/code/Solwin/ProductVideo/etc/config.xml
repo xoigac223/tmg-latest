@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Solwin Infotech
+ * Solwin Advanced Product Video Extension
+ *
+ * @category   Solwin
+ * @package    Solwin_ProductVideo
+ * @copyright  Copyright © 2006-2016 Solwin (https://www.solwininfotech.com)
+ * @license    https://www.solwininfotech.com/magento-extension-license/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+    <default>
+        <productvideosection>
+            <productvideogroup>
+                <enable>0</enable>
+                <videooption>fancybox</videooption>
+                <videowidth>600</videowidth>
+                <videoheight>400</videoheight>
+            </productvideogroup>
+            <videotabgroup>
+                <videotab>1</videotab>
+                <displayslider>1</displayslider>
+                <sliderautoplay>1</sliderautoplay>
+                <autoplayspeed>3000</autoplayspeed>
+                <slideitem>3</slideitem>
+                <slidespeed>300</slidespeed>
+            </videotabgroup>
+            <videoblockgroup>
+                <videoblock>1</videoblock>
+                <displayslider>1</displayslider>
+                <sliderautoplay>1</sliderautoplay>
+                <autoplayspeed>3000</autoplayspeed>
+                <slideitem>3</slideitem>
+                <slidespeed>300</slidespeed>
+                <thumbnailwidth>300</thumbnailwidth>
+                <thumbnailheight>300</thumbnailheight>
+            </videoblockgroup>
+            <videomediagroup>
+                <videomedia>1</videomedia>
+                <displayslider>1</displayslider>
+                <sliderautoplay>1</sliderautoplay>
+                <autoplayspeed>3000</autoplayspeed>
+                <slideitem>3</slideitem>
+                <slidespeed>300</slidespeed>
+            </videomediagroup>
+        </productvideosection>
+    </default>
+</config>

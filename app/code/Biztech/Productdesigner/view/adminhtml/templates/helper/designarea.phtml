@@ -1,0 +1,108 @@
+<?php
+$image_id = $this->getImageId();
+$image_url = $this->getProductImgUrl();
+$product_id = $this->getProductId();
+$image_side = $this->getImageSide();
+
+$current_design_area_id = $this->getCurrentDesignAreaId();
+$next_design_area_id = $this->getNextDesignAreaId();
+
+$selection_data = $this->getSelectionData();
+
+
+$design_id = $this->getDesignId();
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$maskingCollection = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Maskingmedia\Collection');
+$helper_image = $objectManager->create('Magento\Catalog\Helper\Image');
+$obj_product = $objectManager->create('Magento\Catalog\Model\Product');
+$product = $obj_product->load($product_id);
+$resize_width = $block->getWidth();
+$resize_height = $block->getHeight();
+$path = $block->getBaseUrl();
+$path = $path . "catalog/product" . $image_url;
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+
+if (!isset($resize_width) && $resize_width == null) {
+    $resize_width = 650;
+}
+if (!isset($resize_height) && $resize_height == null) {
+    $resize_height = 650;
+}
+$url = $_imagehelper->init($product, 'product_page_image')->setImageFile($image_url)->resize($resize_width, $resize_height)->keepAspectRatio(true)->constrainOnly(false)->getUrl();
+$mid = $objectManager->create('Biztech\Productdesigner\Model\Selectionarea')->load($current_design_area_id)->getMaskingImageId();
+?>  
+<div id="selection_area_edit">
+
+    <div id="design_area">
+        <div id="select_area_size">
+            <strong><?php echo __('Width:'); ?></strong> <input type="text" class="input-text" value="0" id="areaWidth" name="areaWidth"> <?php echo __('px'); ?>&nbsp;&nbsp;&nbsp;&nbsp;
+            <strong><?php echo __('Height:'); ?></strong> <input type="text" value="0" class="input-text" id="areaHeight" name="areaHeight"> <?php echo __('px'); ?>
+            <input type="hidden" id="x1">
+            <input type="hidden" id="y1">
+            <input type="hidden" id="x2">
+            <input type="hidden" id="y2">
+            <input type="hidden" value="<?php echo $image_id; ?>" id="image_id">
+            <input type="hidden" value="<?php echo $image_side; ?>" id="image_side">
+            <input type="hidden" value="<?php echo $current_design_area_id; ?>" id="current_design_area_id">
+        </div>
+        <div id="image_area">
+            <img src="<?php echo $url; ?>" alt="" id="design_image">
+        </div>
+        <div class="save-settings" id="save-settings">
+            <input style="display:none" type="checkbox" id="apply_for_all_images"><?php //echo __("(Apply selection area to all images)");   ?>
+            <select id="category_masking" style="width: 140px;">
+                        <option value=""><?php echo __('--Select Maskingfile--') ?></option>
+                        <?php foreach ($maskingCollection as $mask) : ?>
+                            <?php if(($mask->getLabel() != null) || ($mask->getLabel() != '')):?>
+                            <option value="<?php echo $mask->getImageId(); ?>" <?php if ($mid == $mask->getImageId()) {
+                                ?>selected<?php } ?>><?php echo $mask->getLabel(); ?></option>
+                                <?php endif;?>
+                                <?php endforeach; ?>  
+                        
+                            
+                    </select> 
+            <button id="save_design_area" class="btn" type="button" onclick="saveDesignArea()"><?php echo __('Save Design Area'); ?></button>
+            <?php if ($next_design_area_id != "false"): ?>
+                <button id="add_new_area" class="btn" type="button" onclick="addNewArea(<?php echo $next_design_area_id ?>);"><?php echo __('Edit Next Area'); ?></button>
+            <?php else: ?>
+                <button id="add_new_area" class="btn" type="button" onclick="addNewArea(<?php echo $next_design_area_id ?>);"><?php echo __('Save and Add New Area'); ?></button> 
+            <?php endif; ?>
+
+        </div>
+    </div>
+
+</div>
+<div id="selection_areas">
+    <?php
+    if ($selection_data) {
+        foreach ($selection_data as $key => $value) {
+            $selection_area = json_decode($value);
+            ?>
+
+            <div id="all_design_area_<?php echo $design_id[$key] ?>" class="all-design-area">
+                <?php
+                $url = $_imagehelper->init($product, 'product_page_image')->setImageFile($image_url)->resize(150, 150)->keepAspectRatio(true)->constrainOnly(false)->getUrl();
+                ?>
+                <img onclick="getDesignAreaImage(globalFile, globalImageId, globalProductId,<?php echo $key ?>)" src="<?php echo $url; ?>" alt="" style="padding: 10px;cursor:pointer;">
+                <?php
+                $canvas_width = ($selection_area->width * ((150 / $resize_width) * 100)) / 100;
+                $canvas_height = ($selection_area->height * ((150 / $resize_height) * 100)) / 100;
+                $canvas_left = ($selection_area->x1 * ((150 / $resize_width) * 100)) / 100;
+                $canvas_top = (($selection_area->y1 + 19) * ((150 / $resize_height) * 100)) / 100;
+                $canvas_top2 = (($selection_area->y1) * ((150 / $resize_height) * 100)) / 100;
+                ?>
+                <input type="hidden" id="canvas_width_<?php echo $design_id[$key] ?>" value="<?php echo ($canvas_width - 9) ?>" />
+                <input type="hidden" id="canvas_height_<?php echo $design_id[$key] ?>" value="<?php echo $canvas_height ?>" />
+                <input type="hidden" id="canvas_left_<?php echo $design_id[$key] ?>" value="<?php echo ($canvas_left + 17) ?>" />
+                <input type="hidden" id="canvas_top_<?php echo $design_id[$key] ?>" value="<?php echo $canvas_top ?>" />
+                <input type="hidden" id="canvas_top2_<?php echo $design_id[$key] ?>" value="<?php echo ($canvas_top2 + 9) ?>" />                 
+
+                <button id="delete_area_<?php echo ($key) ?>" class="btn" type="button" onclick="DeleteArea(<?php echo $key ?>,<?php echo $design_id[$key] ?>, true, '')"><?php echo __('Delete'); ?></button>
+
+            </div>
+        <?php }
+    }
+    ?>
+</div>
+

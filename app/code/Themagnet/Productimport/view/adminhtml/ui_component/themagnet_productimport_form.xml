@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">themagnet_productimport_form.productimport_form_data_source</item>
+            <item name="deps" xsi:type="string">themagnet_productimport_form.productimport_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Sample Form</item>
+        <item name="layout" xsi:type="array">
+            <item name="type" xsi:type="string">tabs</item>
+        </item>
+
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">Themagnet\Productimport\Block\Adminhtml\Productimport\Edit\BackButton</item>
+            <item name="reset" xsi:type="string">Themagnet\Productimport\Block\Adminhtml\Productimport\Edit\ResetButton</item>
+            <item name="save" xsi:type="string">Themagnet\Productimport\Block\Adminhtml\Productimport\Edit\SaveButton</item>
+        </item>
+    </argument>
+
+    <dataSource name="productimport_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Themagnet\Productimport\Model\Productimport\DataProvider</argument>
+            <argument name="name" xsi:type="string">productimport_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">productimport_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="themagnet_productimport/import/save"/>
+                </item>
+            </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+
+    <fieldset name="productimport">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Productimport Fieldset</item>
+            </item>
+        </argument>
+
+        <!-- This field represents form id and is hidden -->
+        <field name="productimport_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">productimport</item>
+                </item>
+            </argument>
+        </field>
+
+        <!-- This field has data type 'text' and standard 'input' form element and looks like input -->
+        <field name="on_event">
+        <argument name="data" xsi:type="array">
+            <item name="options" xsi:type="object">Themagent\Productimport\Model\Data\Attribute\Source\Files</item>
+        <item name="config" xsi:type="array">
+            <item name="dataType" xsi:type="string">text</item>
+            <item name="label" xsi:type="string" translate="true">Select file from server</item>
+            <item name="formElement" xsi:type="string">select</item>
+            <item name="source" xsi:type="string">Files</item>
+            <item name="dataScope" xsi:type="string">Files</item>
+            <item name="validation" xsi:type="array">
+                <item name="required-entry" xsi:type="boolean">true</item>
+            </item>
+        </item>
+        </argument>
+        </field>
+
+    </fieldset>
+</form>

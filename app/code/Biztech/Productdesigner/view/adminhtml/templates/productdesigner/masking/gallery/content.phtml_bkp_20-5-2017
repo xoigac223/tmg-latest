@@ -1,0 +1,148 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+/** @var $block \Magento\Backend\Block\Media\Uploader */
+
+?>
+<?php $id = $this->getRequest()->getParam('id');?>
+
+
+<div id="masking_gallery_content"
+     class='gallery'
+     data-mage-init='{"productGallery":{"template":"#masking_gallery_content-template"}}'
+     data-images="<?php /* @escapeNotVerified */ echo $block->escapeHtml($block->getImagesJson($id)) ?>"
+     data-types=""
+    >
+    <!-- uploader.phtml -->  
+    <div class="image image-placeholder clipart-wrapper">
+            <!-- uploader.phtml -->
+            <div id="masking_uploader" class="uploader">
+                <div class="fileinput-button form-buttons button">
+                    <span><?php /* @escapeNotVerified */ echo __('Browse Files...') ?></span>
+                    <input id="fileupload" type="file" name="masking-image"
+                        data-url="<?php /* @escapeNotVerified */ echo $this->getUrl('productdesigner/masking_gallery/upload') ?>" multiple="multiple"/>
+                </div>
+                <div class="clear"></div>
+                <script id="masking_uploader-template" type="text/x-magento-template">
+                    
+                </script>
+            </div>
+            <img class="spacer"
+                     src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/spacer.gif')?>"/>
+            <p class="image-placeholder-text">
+                    <?php /* @escapeNotVerified */ echo __('Click here or drag and drop to add images.');
+            ?></p>
+    </div>
+    <script>
+        require([
+            "jquery",
+            'mage/template',
+            'Magento_Ui/js/modal/alert',
+            "mage/translate",
+            "jquery/file-uploader"
+        ], function ($, mageTemplate, alert) {
+
+
+        $('#fileupload').fileupload({
+
+            dataType: 'json',
+            dropZone: '[data-tab-panel=image-management]',
+            sequentialUploads: true,
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+            add: function (e, data) {
+
+                
+                var progressTmpl = mageTemplate('#masking_uploader-template'),
+                        fileSize,
+                        tmpl;
+
+
+                $.each(data.files, function (index, file) {
+                        debugger;
+                        fileSize = typeof file.size == "undefined" ?
+                            $.mage.__('We could not detect a size.') :
+                            //byteConvert(file.size);
+
+                        data.fileId = Math.random().toString(33).substr(2, 18);
+
+                        tmpl = progressTmpl({
+                            data: {
+                                name: file.name,
+                                size: fileSize,
+                                id: data.fileId
+                            }
+                        });
+
+                        $(tmpl).appendTo('#masking_uploader');
+                });
+
+                $(this).fileupload('process', data).done(function () {
+                    data.submit();
+                });
+            },
+            done: function (e, data) {
+                debugger;
+                $('#masking_gallery_content').trigger('addItem', data.result);
+            },
+        });
+           
+        $('#fileupload').fileupload('option', {
+                process: [{
+                    action: 'load',
+                    fileTypes: /^image\/(gif|jpeg|png)$/
+                }, {
+                    action: 'resize',
+                    maxWidth: <?php /* @escapeNotVerified */ echo \Magento\Framework\File\Uploader::MAX_IMAGE_WIDTH ?> ,
+                    maxHeight: <?php /* @escapeNotVerified */ echo \Magento\Framework\File\Uploader::MAX_IMAGE_HEIGHT ?>
+                }, {
+                    action: 'save'
+                }]
+        }); 
+
+
+        });
+    </script>
+    <!-- uploader.phtml -->  
+
+
+
+<script id="masking_gallery_content-template" type="text/x-magento-template">
+        <div class="image item clipart-wrapper <% if (data.disabled == 1) { %>hidden-for-front<% } %>"
+             data-role="image">
+             <input type="hidden"
+                   name="masking[<%- data.file %>][image_id]"
+                   value="<%- data.image_id %>"
+                   class="path"/>
+            <input type="hidden"
+                   name="masking[<%- data.file %>][file]"
+                   value="<%- data.file %>"
+                   class="path"/>
+            <input type="hidden"
+                   name="masking[<%- data.file %>][state]"
+                   value="<%- data.state %>"
+                   class="path"/>
+            <img class="spacer"
+                 src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/spacer.gif')?>"/>
+            <img class="clipart-image" src="<%- data.url %>" alt="<%- data.label %>"/>
+           
+            
+           <input type="text" value="<%- data.label %>" class="clipart-label" name="masking[<%- data.file %>][label]" placeholder="Label"/>
+            <input type="text" value="<%- data.tags %>" class="clipart-tags" name="masking[<%- data.file %>][tags]" placeholder="Tags"/>
+            <input type="text" value="<%- data.position %>" class="clipart-sort" name="masking[<%- data.file %>][sort]" placeholder="Position"/>
+            <span><?php /* @escapeNotVerified */ echo __('Remove');?></span>
+            <input type="checkbox" class="clipart-remove" name="masking[<%- data.file %>][remove]"/>
+            <span><?php /* @escapeNotVerified */ echo __('Exclude');?></span>
+            <input type="checkbox" class="clipart-exclude" name="masking[<%- data.file %>][exclude]"/>
+            
+        </div>
+</script>
+    
+
+
+
+
+

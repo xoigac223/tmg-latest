@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="firebear" translate="label" sortOrder="200">
+            <label>Firebear Studio</label>
+        </tab>
+        <section id="firebear_configurableproducts" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Improved Configurable Products</label>
+            <tab>firebear</tab>
+            <resource>Firebear_ConfigurableProducts::config_configurableproducts</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="change_url" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Change browser history URL?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="change_name" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Change product name?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="name_id_class" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product title block html class or id</label>
+                    <comment>
+                        <![CDATA[
+                        HTML class (.some-class) or id (#some-id) for product title block.
+                        ]]>
+                    </comment>
+                </field>
+                <field id="change_sku" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Change product SKU?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sku_id_class" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product SKU block html class or id</label>
+                    <comment>
+                        <![CDATA[
+                        HTML class (.some-class) or id (#some-id) for product SKU block.
+                        ]]>
+                    </comment>
+                </field>
+                <field id="change_short_description" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Change product short description?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="short_description_id_class" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product short description block html class or id</label>
+                    <comment>
+                        <![CDATA[
+                        HTML class (.some-class) or id (#some-id) for product short description block.
+                        ]]>
+                    </comment>
+                </field>
+                <field id="change_description" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Change product description?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="description_id_class" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product description block html class or id</label>
+                    <comment>
+                        <![CDATA[
+                        HTML class (.some-class) or id (#some-id) for product description block.
+                        ]]>
+                    </comment>
+                </field>
+                <field id="change_tier_prices" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Change product tier prices?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="tier_prices_id_class" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product tier prices block html class or id</label>
+                    <comment>
+                        <![CDATA[
+                        HTML class (.some-class) or id (#some-id) for tier prices block.
+                        ]]>
+                    </comment>
+                </field>
+                <field id="change_attributes_block" translate="label" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Change product "More Information" block?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="attributes_block_class" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product "More Information" block html class or id</label>
+                    <comment>
+                        <![CDATA[
+                        HTML class (.some-class) or id (#some-id) for tier prices block.
+                        ]]>
+                    </comment>
+                </field>
+                <field id="custom_block_1" translate="label" type="select" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom content</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="custom_block_1_id_class" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom block html class or id</label>
+                    <comment>
+                        <![CDATA[
+                        HTML class (.some-class) or id (#some-id) for custom block.
+                        ]]>
+                    </comment>
+                </field>
+                <field id="custom_block_1_data" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product attribute</label>
+                    <comment>
+                        <![CDATA[
+                        Example: <i>{name}</i>.
+                        ]]>
+                    </comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

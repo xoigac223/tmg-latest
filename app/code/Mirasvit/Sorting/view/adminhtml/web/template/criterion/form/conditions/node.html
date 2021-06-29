@@ -1,0 +1,56 @@
+<li>
+    <!-- ko if: $index() == 0 -->
+    <label>Sort By</label>
+    <!-- /ko -->
+
+    <!-- ko if: $index() > 0 -->
+    <label>Then Sort By</label>
+    <!-- /ko -->
+
+    <ul>
+        <!-- ko foreach: {data: node.items, as: 'item' } -->
+        <li>
+            <div class="switcher">
+                <!-- ko foreach: {data: element.sortBySource, as: 'source' } -->
+                <div data-bind="text: source.label,
+                    css: { _active: item.sortBy() == source.value },
+                    click: function() { item.sortBy(source.value); }"/>
+                <!-- /ko -->
+            </div>
+
+            <select data-bind="options: element.sortByAttributeSource,
+                optionsText: 'label',
+                optionsValue: 'value',
+                value: item.attribute,
+                visible: item.sortBy() == 'attribute'" class="admin__control-select"
+            />
+
+            <select data-bind="options: element.sortByRankingFactorSource,
+                optionsText: 'label',
+                optionsValue: 'value',
+                value: item.rankingFactor,
+                visible: item.sortBy() == 'ranking_factor'" class="admin__control-select"
+            />
+
+            <div class="switcher">
+                <div data-bind="css: { _active: item.direction() == 'asc' },
+                    click: function() { item.direction('asc'); }">
+                    ASC <span>A-Z, 0-9</span>
+                </div>
+                <div data-bind="css: { _active: item.direction() == 'desc' },
+                    click: function() { item.direction('desc'); }">
+                    DESC <span>Z-A, 9-0</span>
+                </div>
+            </div>
+
+            <input data-bind="value: item.weight,
+                visible: item.sortBy() == 'ranking_factor'" class="admin__control-text" placeholder="50" type="text"
+            />
+
+            <button data-bind="click: function() {element.removeItem(item);}" class="action-delete"/>
+        </li>
+        <!-- /ko -->
+    </ul>
+
+    <button data-bind="click: function() {element.addItem(node);}" class="action-add">Add New Sub Condition</button>
+</li>

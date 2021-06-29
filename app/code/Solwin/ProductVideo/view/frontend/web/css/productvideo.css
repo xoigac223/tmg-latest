@@ -1,0 +1,195 @@
+/**
+ * Solwin Infotech
+ * Solwin Advanced Product Video Extension
+ *
+ * @category   Solwin
+ * @package    Solwin_ProductVideo
+ * @copyright  Copyright © 2006-2016 Solwin (https://www.solwininfotech.com)
+ * @license    https://www.solwininfotech.com/magento-extension-license/
+ */
+
+.clear {
+    clear: both;
+}
+.pv-main {
+    clear: both;
+    width: 100%;
+    float: left;
+}
+.product-info-main .pv-main {
+    clear: both;
+}
+.product-info-main .pv-main .pv-inner {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0 5px;
+  width: auto;
+}
+.pv-inner .pv-video {
+    position: relative;
+    float: left;
+}
+.product-info-main .pv-inner .pv-video {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+.pv-inner .pv-video .vid-icon {
+    position: absolute;
+    width: 60px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    color: #ffffff;
+    margin-top: 0;
+    transform: translateY(-50%);
+}
+.pv-inner .pv-video .vid-icon > img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+.pv-inner h2 {
+  display: block;
+  margin: 10px 0 15px;
+  font-weight: normal;
+  font-size: 18px;
+  color: #1979c3;
+  line-height: 24px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.pv-main .video-content {
+    float: left;
+    width: 100%;
+    word-wrap: break-word;
+    text-align: center;
+}
+.pv-gallery {
+    margin-top: 10px;
+}
+.pv-gallery .pv-inner {
+  float: left;
+  margin-right: 5px;
+}
+
+.regular_videosblock.slick-slider .fa,
+.regular_video_media.slick-slider .fa,
+.regular_videos.slick-slider .fa {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    background: rgba(75, 70, 68, 0.48);
+    padding: 5px;
+    text-align: center;
+}
+.regular_videosblock.slick-slider .fa {
+    top: calc(50% + 24px);
+    transform: translateY(-57%);
+    font-size: 14px;
+    line-height: 30px;
+    height: 30px;
+    width: 30px;
+    left: 5px;
+}
+.regular_video_media.slick-slider .fa {
+    top: 66%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    line-height: 15px;
+    height: 15px;
+    width: 15px;
+}
+.regular_videos.slick-slider .fa {
+    top: 45%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    line-height: 30px;
+    height: 30px;
+    width: 30px;
+    left: 0px;
+}
+.regular_videosblock.slick-slider .fa:hover,
+.regular_video_media.slick-slider .fa:hover,
+.regular_videos.slick-slider .fa:hover {
+    background: rgba(126, 117, 113, 0.2);
+    cursor: pointer;
+}
+
+.regular_videosblock.slick-slider .fa-arrow-right,
+.regular_video_media.slick-slider .fa-arrow-right,
+.regular_videos.slick-slider .fa-arrow-right {
+    left: auto;
+}
+
+.regular_videosblock.slick-slider .fa-arrow-right {
+    right: 3px;
+}
+
+.regular_video_media.slick-slider .fa-arrow-right {
+    right: 2px;
+}
+.regular_videos.slick-slider .fa-arrow-right {
+    right: 8px;
+}
+.pv-gallery .pv-inner {
+    display: inline-block;
+    margin-right: 8px;
+    text-align: center;
+    vertical-align: middle;
+}
+.pv-gallery .pv-inner .pv-video img {
+    display: block;
+    border: 1px solid #ccc;
+}
+.pv-gallery .pv-inner .pv-video .vid-icon img {
+  border: 0px;
+}
+.pv-main .pv-inner {
+  display: inline-block;
+  text-align: justify;
+  vertical-align: middle;
+  width: 33%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  vertical-align: baseline;
+}
+.pv-main .pv-inner .pv-video img {
+    display: block;
+    border: 1px solid #ccc;
+}
+.pv-main .pv-inner .pv-video .vid-icon img {
+    border: 0px;
+}
+.info.detailed .pv-inner .pv-video {
+    margin-bottom: 15px;
+}
+.info.detailed .pv-inner .video-content p {
+    font-size: 14px;
+}
+.pv-gallery.onpage_media .pv-inner {
+	margin-bottom: 8px;
+}
+.pv-main.onpage_videos .pv-inner {
+	float: left;
+	padding: 15px;
+}
+.pv-main.onpage_videos .pv-inner:nth-child(3n + 1) {
+	clear: both;
+}
+@media screen and (max-width: 480px) {
+	.pv-main.onpage_videos .pv-inner {
+		width: 100%;
+	}
+}
+@media screen and (min-width: 481px) and (max-width: 991px) {
+	.pv-main.onpage_videos .pv-inner {
+		width: 50%;
+	}
+	.pv-main.onpage_videos .pv-inner:nth-child(2n + 1) {
+		clear: both;
+	}
+}

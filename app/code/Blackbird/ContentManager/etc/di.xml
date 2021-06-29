@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Blackbird ContentManager Module
+ *
+ * NOTICE OF LICENSE
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to contact@bird.eu so we can send you a copy immediately.
+ *
+ * @category        Blackbird
+ * @package         Blackbird_ContentManager
+ * @copyright       Copyright (c) 2017 Blackbird (https://black.bird.eu)
+ * @author          Blackbird Team
+ * @license         https://www.advancedcontentmanager.com/license/
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Service Contract -->
+
+    <!-- ContentType package -->
+    <preference for="Blackbird\ContentManager\Api\Data\ContentTypeInterface"
+                type="Blackbird\ContentManager\Model\ContentType" />
+    <preference for="Blackbird\ContentManager\Api\Data\ContentType\CustomFieldsetInterface"
+                type="Blackbird\ContentManager\Model\ContentType\CustomFieldset" />
+    <preference for="Blackbird\ContentManager\Api\Data\ContentType\CustomFieldInterface"
+                type="Blackbird\ContentManager\Model\ContentType\CustomField" />
+    <preference for="Blackbird\ContentManager\Api\Data\ContentType\CustomField\OptionInterface"
+                type="Blackbird\ContentManager\Model\ContentType\CustomField\Option" />
+    <!-- LayoutManager package -->
+    <preference for="Blackbird\ContentManager\Api\Data\ContentType\Layout\BlockInterface"
+                type="Blackbird\ContentManager\Model\ContentType\Layout\Block" />
+    <preference for="Blackbird\ContentManager\Api\Data\ContentType\Layout\FieldInterface"
+                type="Blackbird\ContentManager\Model\ContentType\Layout\Field" />
+    <preference for="Blackbird\ContentManager\Api\Data\ContentType\Layout\GroupInterface"
+                type="Blackbird\ContentManager\Model\ContentType\Layout\Group" />
+    <!-- Content package -->
+    <preference for="Blackbird\ContentManager\Api\Data\ContentInterface"
+                type="Blackbird\ContentManager\Model\Content" />
+    <!-- ContentList package -->
+    <preference for="Blackbird\ContentManager\Api\Data\ContentListInterface"
+                type="Blackbird\ContentManager\Model\ContentList" />
+    <!-- StoreFlag package -->
+    <preference for="Blackbird\ContentManager\Api\Data\FlagInterface"
+                type="Blackbird\ContentManager\Model\Flag" />
+
+    <preference for="Blackbird\ContentManager\Model\ContentType\CustomField\ConfigInterface"
+                type="Blackbird\ContentManager\Model\ContentType\CustomField\Config" />
+    <preference for="Blackbird\ContentManager\Model\Layouts\ConfigInterface"
+                type="Blackbird\ContentManager\Model\Layouts\Config" />
+    <preference for="Blackbird\ContentManager\Api\ContentMetadataInterface"
+                type="Blackbird\ContentManager\Model\Metadata\ContentCachedMetadata" />
+    <preference for="Magento\Backend\Model\Menu\Director\Director"
+                type="Blackbird\ContentManager\Model\Menu\Director\Director" />
+    <preference for="Magento\Sitemap\Model\Sitemap"
+                type="Blackbird\ContentManager\Model\Sitemap" />
+    <preference for="Magento\Framework\Search\Adapter\Mysql\Field\ResolverInterface"
+                type="Blackbird\ContentManager\Model\Adapter\Mysql\Field\Resolver" />
+    <!-- Content Fulltext Search Indexer -->
+    <type name="Magento\Framework\Search\Adapter\Mysql\Mapper">
+        <arguments>
+            <argument name="indexProviders" xsi:type="array">
+                <item name="blackbird_contenttype_fulltext" xsi:type="object">Blackbird\ContentManager\Model\Search\IndexBuilder</item>
+            </argument>
+            <argument name="entityMetadata" xsi:type="object">Magento\Framework\Search\ProductEntityMetadata</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Search\Adapter\Mysql\Aggregation\DataProviderContainer">
+        <arguments>
+            <argument name="dataProviders" xsi:type="array">
+                <item name="blackbird_contenttype_fulltext" xsi:type="object">Blackbird\ContentManager\Model\Adapter\Mysql\Aggregation\DataProvider</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Blackbird\ContentManager\Model\Indexer\IndexerHandler">
+        <arguments>
+            <argument name="indexStructure" xsi:type="object">Blackbird\ContentManager\Model\Indexer\IndexStructure</argument>
+        </arguments>
+    </type>
+    <!-- @todo Temporary EAV Debug -->
+    <type name="Magento\Eav\Model\Entity\AttributeCache">
+        <arguments>
+            <argument name="unsupportedTypes" xsi:type="array">
+                <item name="0" xsi:type="string">contenttype_content</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- ContentType grid UI Component -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="contentmanager_contenttype_listing_data_source" xsi:type="string">Blackbird\ContentManager\Model\ResourceModel\ContentType\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Blackbird\ContentManager\Model\ResourceModel\ContentType\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">blackbird_contenttype</argument>
+            <argument name="eventPrefix" xsi:type="string">contentmanager_contenttype_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">contenttype_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Blackbird\ContentManager\Model\ResourceModel\ContentType</argument>
+        </arguments>
+    </type>
+    <!-- ContentList grid UI Component -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="contentmanager_contentlist_listing_data_source" xsi:type="string">Blackbird\ContentManager\Model\ResourceModel\ContentList\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Blackbird\ContentManager\Model\ResourceModel\ContentList\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">blackbird_contenttype_list</argument>
+            <argument name="eventPrefix" xsi:type="string">contentmanager_contentlist_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">contentlist_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Blackbird\ContentManager\Model\ResourceModel\ContentList</argument>
+        </arguments>
+    </type>
+    <!-- Url Rewrite Plugin -->
+    <type name="Magento\Store\Model\ResourceModel\Store">
+        <plugin name="contentmanager_store_plugin" type="Blackbird\ContentManager\Plugin\Store\Model\View"/>
+    </type>
+    <type name="Magento\Store\Model\ResourceModel\Group">
+        <plugin name="contentmanager_group_plugin" type="Blackbird\ContentManager\Plugin\Store\Model\Group"/>
+    </type>
+</config>

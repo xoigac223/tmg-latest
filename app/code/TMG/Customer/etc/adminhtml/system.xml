@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="tmg_customer" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>TMG - Customer</label>
+            <tab>customer</tab>
+            <resource>TMG_Customer::config_tmg_customer</resource>
+            <group id="tmg_customer_error" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Error Message</label>
+                <field id="error_message" translate="label" type="textarea" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Error Message</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

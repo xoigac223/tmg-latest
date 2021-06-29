@@ -1,0 +1,74 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$session = $objectManager->get('Magento\Customer\Model\Session');
+//$session = Mage::getSingleton('customer/session'); 
+$limit = (intval(filter_input(INPUT_GET, 'limit')) != 0 ) ? filter_input(INPUT_GET, 'limit') : 12;
+//$offset = (intval(filter_input(INPUT_GET, 'offset')) != 0 ) ? filter_input(INPUT_GET, 'offset') : 0;
+?>
+<?php if (!$session->isLoggedIn()): ?>
+    <button id="get_stored_designs" class="pd-button fluid login-store-img" title="Login to get stored images">Login to get stored images</button>
+<?php endif; ?>
+
+<?php if ($session->isLoggedIn()): ?>
+
+    <ul id="mydesign_list" class="product_list">
+
+
+
+        <?php
+         $customerData = $session->getCustomer();
+        $customer_id = $customerData->getId();
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $obj_product = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Designs\Collection')->addFieldToFilter('customer_id', Array('eq' => $customer_id))->setOrder('design_id','DESC');
+
+        $obj_product->getSelect()->limit($limit);  
+        $collections = $obj_product->getData();
+        
+       
+        //$collections->setOrder('design_id',\Magento\Framework\Data\Collection::SORT_ORDER_DESC);
+//$collections = Mage::getModel('productdesigner/designs')->getCollection();
+//$collections->setOrder('design_id','DESC');
+        $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+        if (count($collections) != 0):
+
+            foreach ($collections as $mydesign):
+                $design_id = $mydesign['design_id'];
+                $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                $obj_product = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Designimages\Collection')->addFieldToFilter('design_id', Array('eq' => $design_id))->addFieldToFilter('design_image_type', 'base_high');
+                $designImages = $obj_product->getData();
+
+                /*echo "<pre>";
+                print_r($designImages[0]);
+                die;*/
+                if (isset($designImages[0]) && array_key_exists("image_path",$designImages[0])):
+
+                $path = $designImages[0]['image_path'];
+                $obj_product = $objectManager->create('Magento\Catalog\Model\Product');
+                $product = $obj_product->load($mydesign['product_id']);
+                $status = $product->getStatus();
+                $url = $_imagehelper->init($product, 'product_page_image_small')->setImageFile($path)->resize(135)->getUrl(); 
+                ?>
+
+                <?php if (($status == 1)): ?>
+                    <li>
+                        <img class="product-image design" width="50" height="50" alt="" design-id="<?php echo $design_id ?>" src="<?php echo $url; ?>">
+
+                        <a id="design_id" class="sprite delete_design_image" href="javascript:void(0)" data-design_id="<?php echo $design_id ?>">Delete</a>
+
+                    </li>
+                <?php endif; ?>
+                <?php endif; ?>
+
+
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <ul>
+            <li class="note-message"> <span class="a-center" > Sorry, No Designs Stored</span> </li>
+        </ul>
+
+    <?php endif; ?>
+
+    
+<?php endif; ?>
+

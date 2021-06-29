@@ -1,0 +1,8 @@
+.product-options-bottom #product-addtocart-button{width: 49%;line-height: 2.2rem;padding: 14px 17px;font-size: 1.8rem; max-width: 100%; text-align: center; border-radius: 0;}
+.product-options-bottom #product-addtocart-button {
+    margin-bottom: 10px;
+}
+.product-options-bottom .box-tocart {
+    margin-bottom: 10px;
+}
+#itoris_dynamicproductoptions .options-list label, .itoris_dynamicproductoptions .options-list label {max-width: none;}

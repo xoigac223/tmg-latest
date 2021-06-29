@@ -1,0 +1,40 @@
+<div id ="clipart_container" class="clipart_container">
+    <?php
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $model = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Clipart\Collection')->addFieldToFilter("is_root_category", array("eq" => 1))->addFieldToFilter("status", array("eq" => 1));
+    $clipart_categories = $model->getData();
+    $defaultCatId = $block->getDefaultClipartCategory();
+    ?>   
+    <ul id="clipart_categories_container">
+        <li>
+            <select id="clipart_categories" class="clipart-categories" name="clipart_category_id">
+                <?php foreach ($clipart_categories as $clipart_category): ?>
+                    <?php $root_cat_id = $clipart_category['clipart_id']; ?>
+                    <option value="<?php echo $root_cat_id; ?>" <?php if ($defaultCatId == $root_cat_id): echo "selected";
+                endif;
+                    ?> ><?php echo $clipart_category['clipart_title']; ?></option>
+                            <?php
+                            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                            $model = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Clipart\Collection')->addFieldToFilter("is_root_category", array("eq" => 0))->addFieldToFilter("parent_categories", array("eq" => $root_cat_id))->addFieldToFilter("status", array("eq" => 1));
+                            $clipart_sub_categories = $model->getData();
+                            ?>
+                    <?php foreach ($clipart_sub_categories as $clipart_sub_category): ?>
+                        <option value="<?php echo $clipart_sub_category['clipart_id']; ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $clipart_sub_category['clipart_title']; ?></option>
+                    <?php endforeach; ?>
+<?php endforeach; ?>
+            </select>
+        </li>
+        <li>
+            <input type="text" class="input-text" placeholder="Search by tags" id="search_tag_field" name="search_tag_field">
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    require(['jquery', 'jquery/ui'], function ($) {
+        var $j = jQuery.noConflict();
+        $j(function () {
+            $j('#clipart_categories').selectric();
+        });
+    });
+
+</script>

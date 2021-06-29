@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="themagnet" translate="label" sortOrder="10">
+            <label>TheMagnet</label>
+        </tab>
+        <section id="themagnet" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Product Import</label>
+            <tab>themagnet</tab>
+            <resource>Themagnet_Productimport::productimport_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="ftp_host" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>FTP Host</label>
+                </field>
+                <field id="ftp_username" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>FTP Username</label>
+                </field>
+                <field id="ftp_password" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>FTP Password</label>
+                </field>
+                <field id="ftp_image_source_path" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Image Source Path</label>
+                </field>
+                <field id="ftp_connect" translate="label comment" type="button" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <frontend_model>Themagnet\Productimport\Block\System\Config\Connect</frontend_model>
+                </field>
+                <field id="blank_product_sku" translate="label" sortOrder="68" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Define Product Sku for Blank</label>
+                    <frontend_model>Themagnet\Productimport\Block\Adminhtml\Form\Field\Productsku</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                     <comment>Add product sku which is use blank template</comment>
+                </field>
+                <field id="blank_with_variations_product_sku" translate="label" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Define Product Sku for Blank with Variations</label>
+                    <frontend_model>Themagnet\Productimport\Block\Adminhtml\Form\Field\Productsku</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                     <comment>Add product sku which is use blank with variations template</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

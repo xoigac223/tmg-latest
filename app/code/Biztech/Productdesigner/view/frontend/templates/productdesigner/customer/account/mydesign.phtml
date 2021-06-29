@@ -1,0 +1,111 @@
+<div id="main-content">
+    <?php
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $session = $objectManager->get('Magento\Customer\Model\Session');
+    $scopeConfig = $objectManager->get('\Magento\Framework\App\Config\ScopeConfigInterface');
+    ?>
+    <?php if ($this->helper('Biztech\Productdesigner\Helper\Data')->isEnable()): ?>
+        <?php if ($session->isLoggedIn()): ?>            
+            <div class="">                
+                <div class="box-account box-info">
+                    <?php
+                    $customerData = $session->getCustomer();
+                    $customer_id = $customerData->getId();
+                    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                    $obj_product = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Designs\Collection')->addFieldToFilter('customer_id',
+                        Array('eq' => $customer_id));
+                    $collections = $obj_product->getData();
+                    ?>
+                    <?php if (count($collections) == 0): ?>
+                        <p><?php echo $this->__('You have not save any product designs.') ?></p>  
+                    <?php else : ?>
+                        <div id="designs_box">
+
+                            <?php $_collectionSize = count($collections); ?>
+                            <?php $_columnCount = 3; ?>
+                            <?php
+                            $demo = $objectManager->create('\Magento\Store\Model\StoreManagerInterface');
+                            $path = $demo->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'productdesigner/designs/catalog/product/base/';
+                            ?>                            
+                            <?php
+                            $i = 0;
+                            ?>
+                            <ul class="products-grid">
+                                <?php
+                                if ($collections) {
+                                    rsort($collections);
+                                }
+                                foreach ($collections as $mydesign):
+                                    ?>                                
+                                    <?php $design_id = $mydesign['design_id']; ?>
+                                    <?php
+                                    $obj_product = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Designimages\Collection')->addFieldToFilter('design_id',
+                                        Array('eq' => $design_id))->addFieldToFilter('design_image_type',
+                                        'base_high');
+                                        $designImages = $obj_product->getData();
+                                 ?>
+
+                                 <?php
+                                 $obj_product = $objectManager->create('Magento\Catalog\Model\Product');
+                                 $product = $obj_product->load($mydesign['product_id']);
+                                 $prod_name = $product->getName();
+                                 $status = $product->getStatus();
+                                 ?>
+                                 <?php if ($status == 1): ?>
+                                    <?php if (isset($designImages[0]['image_path'])) {
+
+        // $layout=$this->scopeConfig->getValue('productdesigner/selectview/selectview',\Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+          /*  $websitecode =  $this->_request->getParam('website');
+            $websiteId = $this->_store->load($websitecode)->getWebsiteId(); */
+            $layout = $scopeConfig->getValue('productdesigner/selectview/Selectview');
+
+
+            if ($layout == 'full_view'){
+
+            $prod_url =  $this->getUrl('productdesigner/index/full', array('_secure' => $this->getRequest()->isSecure(),'id'=>$product->getId(),'design' => ($design_id)));
+
+            }else{
+            $prod_url =  $this->getUrl('productdesigner', array('_secure' => $this->getRequest()->isSecure(),'id'=>$product->getId(),'design' => ($design_id)));
+            }
+
+                                     ?>
+
+                                    <li class="item">                                                    
+                                        <img width="135" height="135" alt="" src="<?php echo $path . $designImages[0]['image_path']; ?>">
+                                        <h2 class="product-name">
+                                            <span><?php echo $prod_name ?></span>
+                                        </h2>
+                                        <div class="actions">
+                                            <button type="button" title="<?php echo __('Edit Design') ?>" class="button btn-design-it" onclick="location.href = ('<?php echo $prod_url;?>')"><span><span><?php echo __('Edit Design') ?></span></span></button>
+                                            <button onclick="deleteDesign('<?php
+                                                echo $this->getUrl('productdesigner/index/deleteDesign',
+                                                array('_secure' => $this->getRequest()->isSecure()))
+                                                ?>design_id/<?php echo $design_id; ?>');" class="button" title="<?php echo __('Delete'); ?>" type="button"><span><span><?php echo __('Delete'); ?></span></span></button>
+                                            </div>
+                                        </li>
+                                        <?php } ?>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <?php //echo $block->getPagerHtml(); ?>
+        <?php else: ?>
+            <?php
+            $demo = $objectManager->create('\Magento\Store\Model\StoreManagerInterface');
+            $url = $demo->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'customer/account/login/';
+            $this->getResponse()->setRedirect($url);
+            ?>
+        <?php endif; ?>
+    <?php endif; ?>
+</div>
+<script type="text/javascript">
+    function deleteDesign(url)
+    {
+        if (confirm('Are you sure want to remove this design?')) {
+            location.href = url;
+        }
+    }
+</script>

@@ -1,0 +1,146 @@
+<?php
+$product_id = $this->getRequest()->getParam('id');
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$demo = $objectManager->create('\Magento\Store\Model\StoreManagerInterface');
+$url = $demo->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+$obj_product = $objectManager->create('Magento\Catalog\Model\Product');
+$product = $obj_product->load($product_id);
+
+$product_type = $product->getTypeId();
+$default_color = $this->helper('Biztech\Productdesigner\Helper\Info')->getDefaultImage($product_id);
+//$design_id = Mage::app()->getRequest()->getParam('design');
+//$jsonConfig = $this->getJsonConfigSwatch();
+//$jsonConfig1 = json_decode($jsonConfig, true);
+
+
+if ($product_type == 'configurable') {
+    $obj_product = $objectManager->create('Magento\ConfigurableProduct\Model\Product\Type\Configurable');
+
+    $childProducts = $product->getTypeInstance()->getUsedProducts($product);
+    //$childProducts = Mage::getModel('catalog/product_type_configurable')->getUsedProducts(null, $product);
+}
+
+//if ($design_id) {
+//    $designModel = Mage::getModel('productdesigner/designs')->getCollection()->addFieldToFilter('design_id', $design_id)->getFirstItem();
+//    $default_color = $designModel->getColorId();
+//}
+?>
+<?php if ($product_type == 'configurable') { ?>
+<?php
+$colors=[];
+$attrs = $product->getTypeInstance(true)->getConfigurableAttributesAsArray($product);
+foreach ($attrs as $attr) {
+    if (0 == strcmp("color", $attr['attribute_code'])) {
+        $colors = $attr['values'];
+    }
+}
+?>
+<div id="product-colors" class="pd-block product-colors">
+    <h4 ><?php echo __('Choose Color'); ?></h4>
+    <?php 
+
+    foreach ($colors as $color): 
+
+        $swatch_value = $color['value_index'];
+        
+
+
+
+        
+        $swatchesCol = $objectManager->create('Magento\Swatches\Model\ResourceModel\Swatch\Collection');
+
+       /* var_dump(count($swatchesCol));
+       die;*/
+
+       foreach($swatchesCol as $swatchesC){
+        if($swatchesC->getOptionId() == $swatch_value){
+            $obj_swatch = $objectManager->create('Magento\Swatches\Model\Swatch')->load($swatchesC->getId());
+            $swatchValue = $obj_swatch->getValue();
+        }           
+    }
+    ?>            
+    <div title="<?= $color['label'] ?>" class="color-img <?php if ($default_color == $color['value_index']) { ?> selected <?php } ?>" data-color_id = "<?php echo $color['value_index'] ?>" style="background:<?php if (strspn($swatchValue,'#')>0) {?>   <?php echo $swatchValue; } else { ?> url(<?php echo $url; ?>attribute/swatch<?php echo $swatchValue; ?>)<?php } ?>;"></div> 
+<?php endforeach; ?>
+</div>
+<?php } ?>
+
+
+
+<div id="product-sides" class="pd-block product-sides">
+    <h4><?php echo __('Choose Side'); ?></h4>
+    <?php
+    $side_images = '';
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $obj_product = $objectManager->create('Magento\Catalog\Model\Product');
+    if ($product_type == 'configurable') {
+        foreach ($childProducts as $childProduct) {
+            if ($default_color == $childProduct->getColor()) {
+                $childProduct = $obj_product->load($childProduct->getId());
+                $side_images = $childProduct->getAllMediaGalleryImages();
+            }
+        }
+    } else {
+       $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+       
+       
+       $product = $obj_product->load($product_id);
+       $product->getResource()->getAttribute('media_gallery')
+       ->getBackend()->afterLoad($product);
+       $side_images = $product->getAllMediaGalleryImages();
+
+        // $demo->load('media_gallery'); 
+        // $side_images = $demo->getAllMediaGalleryImages();
+   }
+   ?>
+
+
+
+   <ul>
+
+    <?php
+    $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+    if (empty($side_images)) {
+        return;
+    }
+    foreach ($side_images as $media_image) {
+            /*print_r($media_image->getData());
+            $imageSideCollection = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Side\Collection')*/
+
+            
+
+                /*foreach ($imageSideCollections as $imageSideCollection):
+                if ($media_image->getImageSideDefault() == $*/
+
+                   
+
+
+                   if ($media_image->getDisabled()!=1) {
+                    continue;
+                }
+
+                $imageSideCollection = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Side\Collection')->addFieldToFilter('imageside_id', array('eq' => $media_image->getImageSideDefault()))->getData();
+                
+
+                $image_url = $_imagehelper->init($product, 'product_page_image_small')->setImageFile($media_image->getFile())->resize(200)->getUrl();
+                $sidename='';
+                ?>
+              <?php 
+              if (isset($imageSideCollection[0]['imageside_title'])): ?>
+              <?php $sidename =  $imageSideCollection[0]['imageside_title'] ?>
+              <?php endif ?>
+
+                <?php if ($product_type == 'configurable') { ?>
+            <li><img title="<?= $sidename ?>"
+               src="<?php echo $image_url ?>" width="50px" height="50px" data-image_id="@<?php echo $media_image->getId() ?>" class="product-side-img" ></li>
+
+               <?php } else { ?>
+               <li><img title="<?= $sidename ?>" src="<?php echo $image_url ?>" width="50px" height="50px" data-image_id="@<?php echo $media_image->getId() ?>" class="product-side-img" ></li>
+
+               <?php } ?>
+
+
+               <?php }?>
+
+           </ul>
+           
+       </div>

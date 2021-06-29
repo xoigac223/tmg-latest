@@ -1,0 +1,30 @@
+<?php
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php /* @var $block \Biztech\Productdesigner\Block\System\Config\Collect */ ?>
+<script type="text/javascript">
+    //<![CDATA[
+    function watermarkcheck() {
+        var data = {};
+        data['watermarktext'] = $('productdesigner_downloaddesign_general_watermark_text').value;
+        new Ajax.Request('<?php echo $this->getUrl('productdesigner/system_config/collect/'); ?>', {
+            method:     'get',
+            parameters: data,
+            onSuccess: function(transport){
+                
+                if (data['watermarktext'] == ''){
+                    alert('Please enter Text for watermark image !!');
+                    return false;
+                }
+                
+                if (transport.responseText){
+                    alert('Text Watermark image generated successfully.....');
+                }
+            }
+        });
+    }
+</script>
+<?php echo $block->getButtonHtml() ?>

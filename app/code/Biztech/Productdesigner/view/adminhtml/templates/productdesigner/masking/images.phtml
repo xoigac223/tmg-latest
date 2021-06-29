@@ -1,0 +1,60 @@
+<?php
+$cat_id = $this->getCatId();
+$tags = $this->getTags();
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$images = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Maskingmedia\Collection')->addFieldToFilter('tags',
+                array('like' => '%' . $tags . '%'))->addFieldToFilter('disabled',
+        array('neq' => '1'));
+
+//$images =  Mage::getModel('productdesigner/maskingmedia')->getCollection()->addFieldToFilter('tags',array('like'=>'%'.$tags.'%'))->addFieldToFilter('disabled',array('neq'=>'1'));
+//$images->getSelect()->order('position',ASC);
+
+if (!$cat_id) {
+    $cat_id = $block->getDefaultMaskingCategory();
+}
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$model = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Masking\Collection')->addFieldToFilter('parent_categories',
+                array('eq' => $cat_id))->addFieldToFilter('status',
+        array('eq' => 1));
+$masking_col = $model->getData();
+$maskingIds = array();
+foreach ($masking_col as $maskingc) {
+    $maskingIds[] = $maskingc['masking_id'];
+}
+$sub_cat_id = implode(',',
+        $maskingIds);
+?>
+<?php if ($cat_id): ?>
+    <?php
+    if ($sub_cat_id) {
+        $Cats = array();
+        foreach (explode(',',
+                $sub_cat_id) as $subCats) {
+            $Cats[] = $subCats;
+        }
+        $Cats[] = $cat_id;
+        $images = $images->addFieldToFilter('masking_id',
+                array('in' => $Cats));
+    } else {
+        $images = $images->addFieldToFilter("masking_id",
+                array("eq" => $cat_id));
+    }
+endif;
+?>
+<ul id="masking_image_list" class="image_list product_list">
+    <?php $base_url = $block->getbaseurl(); ?>
+    <?php foreach ($images as $image): ?>
+        <li>
+            <img src="<?php echo $base_url . 'productdesigner/masking/' . $image['image_path']; ?>" class="product-image masking-image" data-orig-url="<?php echo $base_url . 'productdesigner/masking/' . $image['image_path']; ?>" data-price="<?php echo $image['price'] ?>" alt="<?php echo $image['label'] ?>" title="<?php echo $image['label'] ?>">
+        </li>
+<?php endforeach; ?>
+<?php if (count($images) > 0): ?>
+
+<?php endif; ?>
+<?php if (count($images) == 0): ?>
+        <li class="note-message"> <span class="a-center"> <?php echo __("Sorry, no images found."); ?></span></li>
+<?php endif; ?>
+</ul>
+<div class="remove-mask">
+    <span class="pd-button"><?php echo __('Remove Masking'); ?></span>
+</div>

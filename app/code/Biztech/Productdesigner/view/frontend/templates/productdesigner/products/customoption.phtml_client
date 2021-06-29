@@ -1,0 +1,266 @@
+<?php
+$product_id = $this->getRequest()->getParam('id');
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$obj_product = $objectManager->create('Magento\Catalog\Model\Product');
+$product = $obj_product->load($product_id);
+$storeManager = $objectManager->get('Magento\Store\Model\StoreManagerInterface');
+$storeid = $storeManager->getStore()->getId();
+$default_color = $this->helper('Biztech\Productdesigner\Helper\Info')->getDefaultImage($product_id);
+
+$customOptions = !empty($this->getRequest()->getParam('customoption')) ? $this->getRequest()->getParam('customoption') : '';
+$customOptionsArray = isset($customOptions) ?  json_decode(base64_decode($customOptions),true) : '';
+?>
+<form name="customOptionFormProdSettings" id="customOptionFormProdSettings" data-mage-init='{"validation":{}}' onsubmit="return false" method="POST" >
+    <div id = "custom-option">
+        <?php
+        $all_options = $product->getOptions();
+        if ($all_options) {
+            $dropcnt = 0;
+            $newcount = 2;
+
+            foreach ($all_options as $option) {
+
+
+                $optionType = $option->getType();
+
+                if ($optionType == 'multiple') {
+                    ?>
+                    <div class="multiple-select" >
+                        <div>
+                            <label for="<?php echo $option->getDefaultTitle(); ?>" class="captionSmall" name="option-custom">
+                                <?php echo $option->getDefaultTitle(); ?>
+                            </label>
+                        </div>
+                        <div>
+                            <select multiple id="custom-multiple-select" class="multiselect admin__control-multiselect <?php if ($option->getIsRequire() == 1) { ?> required <?php } ?> product-custom-option" name="<?php echo $option->getOptionId(); ?>" aria-required="true">
+                                <?php
+                                foreach ($option->getValues() as $value) :
+
+                                    if ($value->getPriceType() == 'fixed') {
+                                        $price = $value->getDefaultPrice();
+                                    } else {
+                                        $price = ($value->getDefaultPrice() * $product->getFinalPrice() / 100);
+                                    }
+                                    $price = $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($price, true, false);
+                                    ?>
+                                    <option value="<?php echo $value->getOptionTypeId(); ?>"
+                                        <?php 
+                                        if (!empty($customOptionsArray)) {
+                                        foreach ($customOptionsArray as $customOptions) {
+                                            if ($value->getOptionTypeId() == $customOptions['value']) {
+                                                echo 'selected="selected"';
+                                            }
+                                        }} ?>
+                                        >
+                                        <?php echo $value->getDefaultTitle() . ' + ' . $price; ?>
+                                    </option>  
+                                <?php endforeach; ?>
+                            </select>
+                        </div>                                   
+                    </div>
+                    <?php
+                }
+                if ($optionType == 'drop_down') {
+                    $values = $option->getValues();
+                    ?>  
+                    <div class="drop_down"><div id="drop_down_title"><label for="<?php echo $option->getDefaultTitle(); ?>" class="captionSmall" name="option-custom"><?php echo $option->getDefaultTitle(); ?></label></div>
+                        <div class="optionDiv">
+
+                            <select name="<?php echo $option->getOptionId(); ?>" id="select_option" class="<?php if ($option->getIsRequire() == 1) { ?> required <?php } ?> product-custom-option admin__control-select"  title="Choose your option" aria-required="true">
+                                <option value="">--- Please Select ---</option>
+                                <?php
+                                foreach ($option->getValues() as $value) :
+                                    
+                                    if ($value->getPriceType() == 'fixed') {
+                                        $price = $value->getDefaultPrice();
+                                    } else {
+                                        $price = ($value->getDefaultPrice() * $product->getFinalPrice() / 100);
+                                    }
+                                    $price = $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($price, true, false);
+                                    ?>
+                                    <option value="<?php echo $value->getOptionTypeId(); ?>"
+                                        <?php 
+                                        if (!empty($customOptionsArray)) {
+                                        foreach ($customOptionsArray as $customOptions) {
+                                            if ($value->getOptionTypeId() == $customOptions['value']) {
+                                                echo 'selected="selected"';
+                                            }
+                                        }} ?>
+                                        >
+                                        <?php echo $value->getDefaultTitle() . ' + ' . $price; ?>
+                                    </option>  
+                                <?php endforeach; ?>
+
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <?php
+                }
+
+                if ($optionType == 'checkbox') {
+                    $values = $option->getValues();
+                    ?>  
+                    <div class="checkbox">
+                        <ul class="options-list" id="options-checkbox" name="option-custom">
+                            <label class="<?php if ($option->getIsRequire() == 1) { ?> required <?php } ?>"><?php echo $option->getDefaultTitle(); ?></label>
+                            <?php
+                            foreach ($option->getValues() as $value) :
+                                if ($value->getPriceType() == 'fixed') {
+                                    $price = $value->getDefaultPrice();
+                                } else {
+                                    $price = ($value->getDefaultPrice() * $product->getFinalPrice() / 100);
+                                }
+                                $price = $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($price, true, false);
+                                ?>
+                                <li>
+                                    <div class="field choice admin__field admin__field-option">
+                                        <input type="checkbox" value="<?php echo $value->getOptionTypeId(); ?>" id="options_<?php echo $newcount; ?>" name="<?php echo $option->getOptionId(); ?>"  
+                                         <?php 
+                                        if (!empty($customOptionsArray)) {
+                                        foreach ($customOptionsArray as $customOptions) {
+                                            if ($value->getOptionTypeId() == $customOptions['value']) {
+                                                echo 'checked';
+                                            }
+                                        }} ?>
+                                        class="checkbox admin__control-checkbox <?php if ($option->getIsRequire() == 1) { ?> required <?php } ?> product-custom-option">
+                                        <span class="label"><label for="options_<?php echo $option->getOptionId(); ?>_<?php echo $newcount; ?>"><?php echo $value->getDefaultTitle() . '+ ' . $price; ?></label></span>
+                                    </div>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>                                   
+                    </div>
+
+                    <?php
+                }
+
+
+                if ($optionType == 'radio') {
+                    $values = $option->getValues();
+                    ?>  
+                    <div class="input-box">
+                        <ul class="options-list" id="options-list" name="option-custom">
+                            <label class="<?php if ($option->getIsRequire() == 1) { ?> required <?php } ?>"><?php echo $option->getDefaultTitle(); ?></label>
+                            <?php
+                            foreach ($option->getValues() as $value) :
+                                if ($value->getPriceType() == 'fixed') {
+                                    $price = $value->getDefaultPrice();
+                                } else {
+                                    $price = ($value->getDefaultPrice() * $product->getFinalPrice() / 100);
+                                }
+                                $price = $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($price, true, false);
+                                ?>
+                                <li>
+                                    <div class="field admin__field-option">
+                                        <input type="radio" value="<?php echo $value->getOptionTypeId() ?>" id="options_<?php echo $option->getOptionId(); ?>" name="<?php echo $option->getOptionId(); ?>"  class="radio admin__control-radio  <?php if ($option->getIsRequire() == 1) { ?> required <?php } ?> product-custom-option" aria-required="true"
+                                         <?php 
+                                        if (!empty($customOptionsArray)) {
+                                        foreach ($customOptionsArray as $customOptions) {
+                                            if ($value->getOptionTypeId() == $customOptions['value']) {
+                                                echo 'checked';
+                                            }
+                                        }} ?>
+                                        >                                    
+                                        <span class="label"><label for="options_<?php echo $option->getOptionId(); ?>"><?php echo $value->getDefaultTitle() . '+ ' . $price; ?></label></span>
+                                    </div>
+                                </li>
+
+                                <?php
+                            endforeach;
+                            ?>
+                        </ul>                             
+                    </div>
+
+                    <?php
+                }
+                if ($optionType == 'area' || $optionType == 'field') {
+                    if ($option->getPriceType() == 'fixed') {
+                        $price = $option->getDefaultPrice();
+                    } else {
+                        $price = ($option->getDefaultPrice() * $product->getFinalPrice() / 100);
+                    }
+                    $price = $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($price, true, false);
+                    ?>  
+                    <div class="input-box">
+                        <?php 
+                        $inputCustomOptionValue = '';
+                        if (!empty($customOptionsArray)) {
+                        foreach ($customOptionsArray as $customOptions) {
+                            if ('options['.$option->getOptionId().']' == $customOptions['name']) {
+                                $inputCustomOptionValue =  $customOptions['value'];
+                            }
+                        }} ?>
+                        <label class="required"><?php echo $option->getDefaultTitle() . '+ ' . $price; ?></label>                                    
+                        <input type="text" value="<?php echo $inputCustomOptionValue; ?>" name="<?php echo $option->getOptionId(); ?>" class="input-text required-entry product-custom-option " id="options_<?php echo $option->getOptionId(); ?>_text" <?php if ($option->getIsRequire() == 1) { ?>data-validate="{required:true}"<?php } ?>>
+
+                    </div>
+                    <?php
+                }
+                if ($optionType == 'date' || $optionType == 'date_time' || $optionType == 'time') {
+                    ?>
+                    <div class="field date required">
+                        <fieldset class="fieldset fieldset-product-options-inner required">
+                            <label class="required"><?php echo $option->getDefaultTitle() . '+ ' . $option->getDefaultPrice(); ?></label> 
+                            <div class="control">
+                                <?php if ($option->getType() == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_DATE_TIME || $option->getType() == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_DATE):
+                                    ?>
+
+                                    <?php echo $block->getDateHtml() ?>
+
+                                <?php endif; ?>
+                                <?php if ($option->getType() == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_DATE_TIME || $option->getType() == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_TIME):
+                                    ?>
+                                    <span class="time-picker"><?php echo $block->getTimeHtml() ?></span>
+                                <?php endif; ?>
+                                <?php if ($option->getIsRequire()): ?>
+                                    <input type="hidden"
+                                           name="validate_datetime_<?php /* @escapeNotVerified */ echo $option->getOptionId() ?>"
+                                           class="validate-datetime-<?php /* @escapeNotVerified */ echo $option->getOptionId() ?>"
+                                           value=""
+                                           data-validate="{'validate-required-datetime':<?php /* @escapeNotVerified */ echo $option->getOptionId() ?>}"/>
+                                       <?php else: ?>
+                                    <input type="hidden"
+                                           name="validate_datetime_<?php /* @escapeNotVerified */ echo $option->getOptionId() ?>"
+                                           class="validate-datetime-<?php /* @escapeNotVerified */ echo $option->getOptionId() ?>"
+                                           value=""
+                                           data-validate="{'validate-optional-datetime':<?php /* @escapeNotVerified */ echo $option->getOptionId() ?>}"/>
+                                       <?php endif; ?>
+                                <script type="text/x-magento-init">
+                                    {
+                                    "#customOptionFormProdSettings": {
+                                    "validation": {
+                                    "ignore": ":hidden:not(input[name^='validate_datetime_'])"
+                                    }
+                                    }
+                                    }
+                                </script>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <?php
+                }
+
+                $newcount = $newcount + 1;
+            }
+        }
+        ?>
+    </div>
+    <input type="hidden" id="added_products" name="added_products" value="">
+    <input type="hidden" id="added_products_price" name="added_products_price" value="">
+    <input type="hidden" id="product_color_by_side" name="product_color_by_side" value="">
+    <input type="hidden" id="total_qty" name="total_qty" value="">
+    <input type="hidden" id="isNameNumberOnly" name="isNameNumberOnly" value="">
+    <input type="hidden" id="design_id_old" name="design_id_old" value="">    
+
+    <div class="progress-bar-wrapper add-to-cart">
+        <div class="bar-div">
+            <span id="display1" class="display-count"></span>
+            <span id="progress_message1" class="progress-message"></span>
+        </div>
+    </div>
+</form>
+
+
+

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Solwin Infotech
+ * Solwin Advanced Product Video Extension
+ *
+ * @category   Solwin
+ * @package    Solwin_ProductVideo
+ * @copyright  Copyright © 2006-2016 Solwin (https://www.solwininfotech.com)
+ * @license    https://www.solwininfotech.com/magento-extension-license/
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Solwin_ProductVideo::css/productvideo.css"/>
+        <css src="Solwin_ProductVideo::css/fancybox/jquery.fancybox.css"/>
+        <css src="Solwin_ProductVideo::css/slick.css"/>
+    </head>
+    <body>
+        <referenceBlock name="product.info.details">
+            <block class="Magento\Catalog\Block\Product\View" name="video.tab" as="videos"
+                   template="Solwin_ProductVideo::videos.phtml" group="detailed_info" ifconfig="productvideosection/productvideogroup/enable">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Product Videos</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceContainer name="product.info.main">
+                <block class="Magento\Catalog\Block\Product\View" name="videosblock" template="Solwin_ProductVideo::videosblock.phtml" before="product.info.overview" ifconfig="productvideosection/productvideogroup/enable"/>
+        </referenceContainer>
+        <referenceContainer name="product.info.media">
+             <block class="Magento\Catalog\Block\Product\View" name="video_media" template="Solwin_ProductVideo::video_media.phtml" ifconfig="productvideosection/productvideogroup/enable" />
+        </referenceContainer>
+    </body>
+</page>

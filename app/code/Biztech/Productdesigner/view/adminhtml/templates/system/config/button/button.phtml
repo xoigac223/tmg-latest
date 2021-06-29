@@ -1,0 +1,37 @@
+<div class="pp-buttons-container">
+    <button id="<?php echo $block->getId() ?>" onclick="return false;">
+        <span><span><span><?php echo $block->escapeHtml($block->getButtonLabel()); ?></span></span></span>
+    </button>
+</div>
+
+
+<script type="text/javascript">
+	
+	jQuery('#addbutton_button1').on('click', function (e) {
+		var primaryColor = jQuery('#productdesigner_themedesigner_general_primary_background').val();
+		var secondaryColor = jQuery('#productdesigner_themedesigner_general_secondary_background').val();
+		var streColorUrl = '<?php echo $this->getUrl("productdesigner/theme/index", array("_secure" => $this->getRequest()->isSecure()))
+        ?>';
+
+		var data = {};
+		data['primaryColor'] = primaryColor;
+        data['secondaryColor'] = secondaryColor;
+        
+
+		jQuery.ajax({
+            url: streColorUrl,
+            method: 'post',
+            data: {
+                data: data
+            },
+            success: function (data, textStatus, jqXHR) {
+
+            }.bind(this), onFailure: function () {
+                alert('Something is wrong... Please try again.');
+            }
+        });
+
+
+	}.bind(this));
+
+</script>

@@ -1,0 +1,14 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2017 Amasty (https://www.amasty.com)
+ * @package Amasty_Extrafee
+ */
+?>
+<script>
+    require([
+        'Amasty_Extrafee/js/order/create/extrafee'
+    ], function (amExtraFee) {
+        window.amExtraFee = amExtraFee.initFeeOrderCreate();
+    });
+</script>

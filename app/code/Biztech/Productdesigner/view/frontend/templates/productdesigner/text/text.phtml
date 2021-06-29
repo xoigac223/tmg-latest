@@ -1,0 +1,377 @@
+<?php
+$isGoogleFontEnable = $block->getEnableFont();
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$demo = $objectManager->create('\Magento\Store\Model\StoreManagerInterface');
+$baseurl = $demo->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+if ($isGoogleFontEnable):
+    $googleFontList = $block->getFontList();
+    $googleFontListCss = str_replace(',', '|', $googleFontList);
+    ?>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=<?php echo $googleFontListCss; ?>">
+<?php endif; ?>
+<?php
+// $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$colors = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Pcolor\Collection');
+$config = $objectManager->create('Magento\Framework\App\Config\ScopeConfigInterface');
+$enable_color_picker = $config->getValue('productdesigner/colorpicker/colorpicker');
+?>
+<?php
+// $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$model = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Productdesignerfonts\Collection')->addFieldToFilter('disabled', 0)->setOrder('font_label', 'asc');
+$font_styles = $model->getData();
+?>
+
+
+<?php
+$colorsCode_msg = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('productdesigner/import_xml/import_colors_msg');
+$product_id = $this->getRequest()->getParam('id');
+$_productdata = $objectManager->create('Magento\Catalog\Model\Product')->load($product_id);
+$pmsAllowcolor = 0;
+if ($_productdata->getAllowPmsColor()) {
+    $pmsAllowcolor = 1;
+}
+
+$colormodel = $objectManager->create('Biztech\Productdesigner\Model\Stockcolors'); //$this->_dataStockColor;                                          
+$colors_data = $colormodel->getCollection()->addFieldToFilter('stockcolor_product_id', array('eq' => $product_id))->getFirstItem();
+$jsonColordata = $colors_data->getStockcolorProductColorsinfo();
+$colorcodeObj = json_decode($jsonColordata);
+?>  
+
+
+
+<style type="text/css">
+<?php foreach ($font_styles as $font): ?>
+        @font-face {
+            font-family: <?php echo $font['font_label'] ?>;
+            src: url("<?php echo $baseurl . 'productdesigner/fonts/' . $font['font_file'] ?>");
+        }
+<?php endforeach; ?>
+</style>
+
+<ul>
+    <li class="text_styles text_area">
+        <!-- text alignment -->
+        <textarea type="text" id="add_text_area" class="input-text" placeholder="<?php echo __('Enter text here'); ?>"></textarea>
+        <!-- ends -->
+      <!--   <button class="button btn-text" id="add_text_button"><span><span><?php echo __('Add'); ?></span></span></button> -->
+    </li>
+    <li class="text_styles font_properties" id="font_properties">
+
+        <select id="font_selection" class="font_selection">
+            <?php foreach ($font_styles as $font): ?>
+                <option class="font_option" value="<?php echo $font['font_label'] ?>"><?php echo $font['font_label']; ?></option>
+            <?php endforeach; ?>
+            <?php if ($isGoogleFontEnable): ?>
+                <?php
+                foreach (explode(',', $googleFontList) as $googleFont):
+                    ?>
+                    <option class="font_option" value="<?php echo $googleFont; ?>"><?php
+                        echo str_replace('+', ' ', $googleFont);
+                        ?></option>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </select>
+
+    </li>
+</ul>
+
+<?php
+$defautlt_font_size = $block->getFontSize();
+?>
+
+
+<div id="text_prop_container" class="disabled"> 
+    <ul>
+        <li>
+
+            <div class="font-controls">
+                <ul>
+                    <li class="productdesigner-relative">               
+                        <button id="add_btn_bold" class="bold" title="<?php echo __('Bold'); ?>"><?php echo __('B'); ?></button>
+
+                        <button id="add_btn_italic" class="" title="<?php echo __('Italic'); ?>"><?php echo __('I'); ?></button>
+                        <button id="add_btn_underline" class="" title="<?php echo __('Underline'); ?>"><?php echo __('U'); ?></button>
+                        <button id="text_color" name="text_color" class="text-color" title="<?php echo __('Font Color'); ?>"><span style="border-color:#000000 "><?php echo __('A'); ?></span></button>
+
+
+                        <div class="color-pallet">
+                            <!--Code added for color platter --> 
+                            <?php if ($enable_color_picker == "0"): ?>
+                                <ul id="text-color-container" class="color-container text-color-container" style="display:none;">
+
+                                    <li class="color-title"><span class="label"><?php echo __("Color"); ?>: </span><span id="text_color_title"><?php echo __("Black"); ?></span></li>
+                                    <?php if (count($colorcodeObj) != 0) { ?>
+                                        <?php
+                                        foreach ($colorcodeObj as $colordata) {
+
+                                            $ColorSwatchFile = $baseurl . 'import/ColorSwatch/' . $colordata->ColorSwatch;
+
+                                            $filesystem = $objectManager->get('Magento\Framework\Filesystem');
+                                            $reader = $filesystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA);
+                                            $ColorSwatchfile2 = $reader->getAbsolutePath() . 'import/ColorSwatch/' . $colordata->ColorSwatch;
+                                            $checkImg = 0;
+                                            if (file_exists($ColorSwatchfile2)) {
+                                                $checkImg = 1;
+                                            }
+                                            ?>
+
+                                            <li><span <?php if($checkImg==1){?>style="background:url(<?= $ColorSwatchFile; ?>);background-repeat: no-repeat;"<?php }else{?>style="background-color: <?php echo $colordata->PMSColorID; ?>" <?php }?> title="<?php echo $colordata->StockColorCode; ?>" class="color-img text-color-img" data-color_id = "<?php echo $colordata->PMSColorID; ?>" data-color_name ="<?php echo $colordata->StockColorCode; ?>"></span></li>
+                                        <?php } ?>
+                                    <?php } else { ?>
+                                        <li class="text-color-content"><span><?php echo __('No colors available'); ?>.</span>
+                                        </li>
+                                    <?php } ?>
+                                   <?php if($pmsAllowcolor!=0){?>
+                                        <li class="text-color-content-msg"><span><?php  echo $colorsCode_msg; ?>.</span>
+                                    </li>
+                                   <?php }?> 
+                                </ul>
+                            <?php endif; ?>    
+                            <input type="hidden" name="text_shadow_color_field" id="text_shadow_color_field"/>
+                        </div>
+
+                        <p class="background_content">
+                            <button title="Background Color" class="button-bg" name="text_bg_color" id="text_bg_color" type="button"><span style="border-color:#FFFFFF ">A</span>
+                            </button>
+                        </p>
+                        <button  id="text_bg_null" class="remove-bg btn-clear" title="<?php echo __('Clear') ?>">
+                            <span>
+                                <span><?php echo __('Clear') ?></span>
+                            </span>
+                        </button>
+                        <ul id="text-bgcolor-container" class="color-container text-bgcolor-container" style="display:none;">
+                            <li class="color-title"><span class="label"><?php echo __("Background Color"); ?>: </span><span id="text_bgcolor_title"><?php echo __("No Color"); ?></span></li>
+
+
+                            <?php if (count($colorcodeObj) != 0) { ?>
+                                <?php  foreach ($colorcodeObj as $colordata) {
+
+                                            $ColorSwatchFile = $baseurl . 'import/ColorSwatch/' . $colordata->ColorSwatch;
+
+                                            $filesystem = $objectManager->get('Magento\Framework\Filesystem');
+                                            $reader = $filesystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA);
+                                            $ColorSwatchfile2 = $reader->getAbsolutePath() . 'import/ColorSwatch/' . $colordata->ColorSwatch;
+                                            $checkImg = 0;
+                                            if (file_exists($ColorSwatchfile2)) {
+                                                $checkImg = 1;
+                                            }
+                                            ?>
+
+                                            <li><span <?php if($checkImg==1){?>style="background:url(<?= $ColorSwatchFile; ?>);background-repeat: no-repeat;"<?php }else{?>style="background-color: <?php echo $colordata->PMSColorID; ?>" <?php }?> title="<?php echo $colordata->StockColorCode; ?>" class="color-img text-bgcolor-img" data-color_id = "<?php echo $colordata->PMSColorID; ?>" data-color_name ="<?php echo $colordata->StockColorCode; ?>"></span></li>
+                                        <?php } ?>
+                            <?php } else { ?>
+                                <li class="text-color-content"><span><?php echo __('No colors available'); ?>.</span>
+                                </li>
+                            <?php } ?>
+                            <?php if($pmsAllowcolor!=0){?>
+                                        <li class="text-color-content-msg"><span><?php  echo $colorsCode_msg; ?>.</span>
+                                    </li>
+                                   <?php }?> 
+                        </ul>
+                        <input type="hidden" name="text_stroke_color_field" id="text_stroke_color_field"/>
+
+
+                    </li>
+
+
+                    <li class="algin-controls">
+                        <button type="button" id="btn_left_align" title="<?php echo __("Left Align"); ?>"><span class="sprite ico-left"></span></button>
+                        <button type="button" id="btn_center_align" title="<?php echo __("Center Align"); ?>"><span class="sprite ico-center"></span></button>
+                        <button type="button" id="btn_right_align" title="<?php echo __("Right Align"); ?>"><span class="sprite ico-right"></span></button>
+                    </li>    
+
+                </ul>
+
+
+
+            </div>
+
+
+
+
+        </li>
+        <?php
+        $defautlt_font_size = $block->getFontSize();
+        ?>
+
+        <li class="size-ranger">
+
+            <!-- slider to choose size -->
+            <span class="size-label"><?php echo __("Size"); ?>
+                <span id="size_label" class="label"><?php echo " (" . $defautlt_font_size . ")"; ?></span><span class="size-px"></span>
+            </span>
+            <input type="range" step="1" max="72" min="18" id="font_size_selection" value="<?php echo $defautlt_font_size ?>"></li>
+        <!-- ends -->
+
+        <!-- ends -->
+
+        </li>
+
+
+        <li class="size-ranger ppacity-ranger ">
+            <!-- slider to set opacity -->
+            <span class="size-label"><?php echo __("Opacity"); ?>
+                <span id="opacity_label" class="label"> (1)</span><span class="size-px"></span>
+            </span>
+            <input type="range" step="0.1" max="1" min="0.1" id="opacity" value="1" />
+        </li>
+
+
+        <li class="text_styles font_effects">    
+
+            <ul class="tab-design productdesigner-relative">
+                <li class="tab-detail shadow"><a id="add_btn_shadow" href="javascript:void(0)"><?php echo __('Shadow'); ?></a></li>
+                <li class="tab-detail outline"><a id="add_btn_stroke" href="javascript:void(0)"><?php echo __('Outline'); ?></a></li>
+                <li class="tab-detail arc"><a id="add_btn_arc" href="javascript:void(0)"><?php echo __('Arc'); ?></a></li>
+                <script type="text/javascript">
+                    require(['jquery', 'jquery/ui'], function ($) {
+                        jQuery('.no_click').click(function () {
+                            return false;
+                        });
+                    });
+                </script>
+            </ul>            
+
+            <ul id="add_btn_shadow_config" class="text_effect_popup">     
+                <li><?php echo __("X-offset"); ?><span id="xoffset_label"> (0)</span><input type="range" step="1" max="25" min="-25" id="shadow_x_range" value="0"></li>
+                <li><?php echo __("Y-offset"); ?><span id="yoffset_label"> (0)</span><input type="range" step="1" max="25" min="-25" id="shadow_y_range" value="0"></li>
+                <li><?php echo __("Blur"); ?><span id="blur_label"> (0)</span><input type="range" step="1" max="50" min="0" id="shadow_blur" value="0"></li>
+                <li class="last productdesigner-relative"><div class="color-pallet">
+
+                        <button id="text_shadow_color" name="text_shadow_color" class="text-shadow-color" title="<?php echo __('Color'); ?>"><span style="border-color:#000000 "><?php echo __('A'); ?></span></button>
+
+
+                        <?php if ($enable_color_picker == "0"): ?>
+                            <ul id="text-shadowcolor-container" class="color-container text-shadowcolor-container" style="display:none;">
+                                <li class="color-title"><span class="label"><?php echo __("Color"); ?>: </span><span id="text_shadowcolor_title"><?php echo __("Black"); ?></span></li>
+                                <?php if (count($colorcodeObj) != 0) { ?>
+                                    <?php  foreach ($colorcodeObj as $colordata) {
+
+                                            $ColorSwatchFile = $baseurl . 'import/ColorSwatch/' . $colordata->ColorSwatch;
+
+                                            $filesystem = $objectManager->get('Magento\Framework\Filesystem');
+                                            $reader = $filesystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA);
+                                            $ColorSwatchfile2 = $reader->getAbsolutePath() . 'import/ColorSwatch/' . $colordata->ColorSwatch;
+                                            $checkImg = 0;
+                                            if (file_exists($ColorSwatchfile2)) {
+                                                $checkImg = 1;
+                                            }
+                                            ?>
+
+                                            <li><span <?php if($checkImg==1){?>style="background:url(<?= $ColorSwatchFile; ?>);background-repeat: no-repeat;"<?php }else{?>style="background-color: <?php echo $colordata->PMSColorID; ?>" <?php }?> title="<?php echo $colordata->StockColorCode; ?>" class="color-img text-shadowcolor-img" data-color_id = "<?php echo $colordata->PMSColorID; ?>" data-color_name ="<?php echo $colordata->StockColorCode; ?>"></span></li>
+                                       <?php } ?>
+                                <?php } else { ?>
+                                    <li class="text-color-content"><span><?php echo __('No colors available'); ?>.</span>
+                                    </li>
+                                <?php } ?>
+                               <?php if($pmsAllowcolor!=0){?>
+                                        <li class="text-color-content-msg"><span><?php  echo $colorsCode_msg; ?>.</span>
+                                    </li>
+                                   <?php }?> 
+                            </ul>
+                        <?php endif; ?>
+                    </div>
+                    <button class="button btn-clear" id="reset_shadow" title="Clear"><span><span><?php echo __('Clear'); ?></span></span></button>
+            </ul>  
+            <ul id="add_btn_stroke_config" class="text_effect_popup" style="display: none;">
+                <li><?php echo __("Width"); ?><span id="stroke_width_label">(1)</span><input type="range" step="0.1" max="2" min="1" id="stroke_width" value="0"></li>
+                <li class="productdesigner-relative"><div class="color-pallet"><button id="text_stroke_color" name="text_stroke_color" class="text-stroke-color" title="<?php echo __('Color'); ?>"><span style="border-color:#000000 "><?php echo __('A'); ?></span></button></div>
+
+
+                    <?php if ($enable_color_picker == "0"): ?>
+                        <ul id="text-strokecolor-container" class="color-container text-strokecolor-container" style="display:none;">
+                            <li class="color-title"><span class="label"><?php echo __("Color"); ?>: </span><span id="text_strokecolor_title"><?php echo __("Black"); ?></span></li>
+                            <?php if (count($colorcodeObj) != 0) { ?>
+                                    <?php  foreach ($colorcodeObj as $colordata) {
+
+                                            $ColorSwatchFile = $baseurl . 'import/ColorSwatch/' . $colordata->ColorSwatch;
+
+                                            $filesystem = $objectManager->get('Magento\Framework\Filesystem');
+                                            $reader = $filesystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA);
+                                            $ColorSwatchfile2 = $reader->getAbsolutePath() . 'import/ColorSwatch/' . $colordata->ColorSwatch;
+                                            $checkImg = 0;
+                                            if (file_exists($ColorSwatchfile2)) {
+                                                $checkImg = 1;
+                                            }
+                                            ?>
+
+                                            <li><span <?php if($checkImg==1){?>style="background:url(<?= $ColorSwatchFile; ?>);background-repeat: no-repeat;"<?php }else{?>style="background-color: <?php echo $colordata->PMSColorID; ?>" <?php }?> title="<?php echo $colordata->StockColorCode; ?>" class="color-img text-strokecolor-img" data-color_id = "<?php echo $colordata->PMSColorID; ?>" data-color_name ="<?php echo $colordata->StockColorCode; ?>"></span></li>
+                                       <?php } ?>
+                            <?php }else { ?>
+                                <li class="text-color-content"><span><?php echo __('No colors available'); ?>.</span>
+                                </li>
+
+                            <?php } ?>
+                            <?php if($pmsAllowcolor!=0){?>
+                                        <li class="text-color-content-msg"><span><?php  echo $colorsCode_msg; ?>.</span>
+                                    </li>
+                                   <?php }?> 
+                        </ul>
+                    <?php endif; ?>
+                    <button class="button btn-clear" id="reset_stroke" title="Clear"><span><span><?php echo __('Clear'); ?></span></span></button>
+                    <!-- <button class="button btn-clear" id="reset_stroke"><span><span><?php //echo __('Clear');               ?></span></span></button> -->
+
+
+                </li>
+                <li class="last"></li>
+            </ul>
+            <ul id="add_btn_arc_config" class="text_effect_popup" style="display: none;">
+                <li><?php echo __("Arc Text"); ?><span id="arc_label"> (0)</span><input type="range" value="0" step="15" max="360" min="-360"  id="text_arc" ></li>
+                <li style="display: none;"><?php echo __("Text Spacing"); ?><span id="spacing_label"> (0)</span><input type="range" value="0" step="0.5" max="50" min="0"  class="spacing" id="text_spacing"></li>
+            </ul>
+
+        </li>
+
+    </ul>
+</div>
+
+
+
+<script type="text/javascript">
+    require(['jquery', 'jquery/ui'], function ($) {
+
+        var enable_color_picker = '<?php echo $enable_color_picker ?>';
+
+        if (enable_color_picker == 1) {
+            var c1 = jQuery("#text_color").ColorPicker({
+                onChange: function (hsb, hex, rgb) {
+                    TextDesigner.setTextColor("#" + hex);
+                }
+            });
+            var c2 = jQuery("#text_bg_color").ColorPicker({
+                onChange: function (hsb, hex, rgb) {
+
+                    TextDesigner.setTextBgColor("#" + hex);
+                }
+            });
+            var c3 = jQuery("#text_shadow_color").ColorPicker({
+                onChange: function (hsb, hex, rgb) {
+
+                    TextDesigner.setTextShadowColor("#" + hex);
+                }
+            });
+            var c4 = jQuery("#text_stroke_color").ColorPicker({
+                onChange: function (hsb, hex, rgb) {
+
+                    TextDesigner.setTextStrokeColor("#" + hex);
+                }
+            });
+        }
+    });
+
+
+</script>
+
+
+
+<script src="<?php //echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS)."biztech/productdesigner/jquery.js"                        ?>"></script>
+<script src="<?php //echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS)."biztech/productdesigner/select.js"                        ?>"></script>
+
+<script type="text/javascript">
+    require(['jquery', 'jquery/ui'], function ($) {
+        var $j = jQuery.noConflict();
+        $j(function () {
+            $j('#font_selection').selectric();
+        });
+    });
+</script>

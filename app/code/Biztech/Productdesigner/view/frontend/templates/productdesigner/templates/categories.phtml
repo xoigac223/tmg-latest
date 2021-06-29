@@ -1,0 +1,56 @@
+<div id ="template_container" class="template_container">
+    <?php
+    $product_id = $this->getRequest()->getParam('id');
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $obj_product = $objectManager->create('Biztech\Productdesigner\Model\Producttemplate');
+    $template_obj = $obj_product->load($product_id, 'product_id');
+
+    $templates = explode(',', $template_obj->getTemplates());
+
+
+    if ($template_obj->getTemplates() != null):
+        ?>
+        <?php $defaultCatId = $block->getDefaultTempalateCategory(); ?>
+        <ul id="template_categories_container">
+            <li>            
+                <select id="template_categories" name="template_category_id">
+                    <option><?php echo __("Select a Category");?></option>
+                    <?php foreach ($templates as $template): ?>
+                        <?php
+                        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                        $obj_product = $objectManager->create('Biztech\Productdesigner\Model\Designtemplatecategory');
+                        $templateModel = $obj_product->load($template);
+                        $catid = $templateModel['designtemplatescategory_id'];
+                        $defaultCatId = $template;
+
+                        if ($catid):
+                            ?>
+                            <option value="<?php echo $catid; ?>" <?php
+                            if ($defaultCatId == $catid): echo "selected";
+                            endif;
+                            ?>><?php echo $templateModel['category_title']; ?>
+                            </option>
+                            <?php
+                            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                            $model = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Designtemplatecategory\Collection')->addFieldToFilter("is_root_category", array("eq" => 0))->addFieldToFilter("parent_categories", array("eq" => $catid))->addFieldToFilter("status", array("eq" => 1));
+                            $templates_sub_categories = $model->getData();
+                            ?>
+                            <?php foreach ($templates_sub_categories as $templates_sub_category): ?>
+                                <option value="<?php echo $templates_sub_category['designtemplatescategory_id']; ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $templates_sub_category['category_title']; ?></option>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+    <?php endforeach; ?>
+                </select>
+            </li>
+        </ul>
+<?php endif; ?>
+</div>
+
+<script type="text/javascript">
+    require(['jquery', 'jquery/ui'], function ($) {
+        var $j = jQuery.noConflict();
+        $j(function () {
+            $j('#template_categories').selectric();
+        });
+    });
+</script>

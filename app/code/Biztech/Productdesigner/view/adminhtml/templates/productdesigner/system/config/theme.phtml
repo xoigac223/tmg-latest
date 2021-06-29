@@ -1,0 +1,118 @@
+<?php $primary_background = $this->getPrimaryBackground();
+   $secondary_background   = $this->getSecondaryBackground() ; ?>
+<?php
+$css = <<<CONTENT
+.resp-vtabs .resp-tabs-list li { background-color: $primary_background; }
+.resp-vtabs li.resp-tab-active{background-color: #fff;}
+.productdesigner-view.fluid-layout .tab-design .selected a { color: #1979c3;}
+.tab-design li.selected { border-color: $primary_background; }
+.tab-design li:hover { border-color: $primary_background; }
+.design-browse { background-color: $primary_background;}
+.productdesigner-view button {background-color: $secondary_background;}
+.productdesigner-view .note-msg, .productdesigner-view .notice-msg{color: $secondary_background;}
+.desgin-detail h4 { color: $secondary_background;}
+
+
+.block-special .pd-button:hover { background: $secondary_background; }
+.pd-header .f-right .button.back-store { background-color: $secondary_background; }
+.pd-header .f-right .button { background-color: $secondary_background;}
+.pd-header .social-share { background-color: $secondary_background; }
+.pd-header .social-share li a { background-color: $secondary_background; }
+.desgin-detail .load-more a:hover { background: $secondary_background; }
+.desgin-detail h4 a { color: $secondary_background;}
+.desgin-detail h6 a:hover { color: $secondary_background;}
+.product-sides > h4, .product-colors > h4 { color: $secondary_background;}
+.special-title .label { color: $secondary_background;}
+.tab-detail1.selected1, .custom-inner li:hover{ color: $secondary_background; border-color: $secondary_background; }
+.tab-detail1.selected1 a, .custom-inner li:hover a { color: $secondary_background; }
+.pd-left-panel .group-orders .pd-button.btn-add:hover { background-color: $secondary_background; }
+.desgin-name-number .name-content { background-color: $secondary_background;}
+.layers .layer-btn { background: $secondary_background;}
+.share-save .social-icons { background: $secondary_background none repeat scroll 0 0;}
+.pd-container .price-detail{background-color: $secondary_background;}
+#designs_box .pd-button:hover { background-color: $secondary_background; }
+.desgin-detail .color-container{border-color: $secondary_background;}
+#add_btn_stroke_config .color-container, .desgin-detail .text-bgcolor-container, .color-container.text-shadowcolor-container {border-color: $secondary_background;}
+.desgin-detail .color-container:before { border-bottom-color: $secondary_background !important;}
+.color-container .color-img:hover { border-color: $secondary_background; }
+.desgin-detail .font_effects .color-container:before, .desgin-detail1 .font_effects .color-container:before {border-top-color: $secondary_background;}
+.pd-button {background-color: $secondary_background;}
+.pd-button:hover, .btn-clear:hover, .productdesigner-view button:focus { background-color: $primary_background; }
+.block-special .pd-button { background: $primary_background;}
+.productdesigner-view .color-pallet button:hover, .text-stroke-color:hover { background: $primary_background; }
+.pd-header{ border-color: $primary_background;}
+.pd-header .f-right .button.back-store:hover { background-color: $primary_background; }
+.pd-header .f-right .button:hover { background-color: $primary_background; }
+.desgin-detail .product_list li.selected { border-color: $primary_background; }
+.desgin-detail .product_list li a:hover { color: $primary_background; }
+.desgin-detail .load-more a { background: $primary_background;}
+.desgin-detail h6 a { color: $primary_background; }
+.resp-tabs-container #close_tabs { background: $primary_background; border-color: $primary_background; }
+.pd-left-panel .selectric-items li.level-0 { background-color: $primary_background; }
+.product-sides li:hover, .product-sides li.selected, .desgin-detail .product-name { border-color: $primary_background; }
+.font-controls li button:hover { background: $primary_background;}
+.tab-design a:hover { color: $primary_background; }
+.pd-left-panel .group-orders .pd-button.btn-add { background-color: $primary_background;}
+.desgin-name-number .name-content .value { background: $primary_background;}
+.productdesigner-view .dialog .magento_title { color: $primary_background; }
+.layers_manager {border-color: $primary_background;}
+.layers_manager:before { border-right-color: $primary_background; }
+.layers_manager li.layer-title:first-child { background: $primary_background; }
+.layers .layer-btn:hover { background: $primary_background; }
+.layers_manager:before { border-left-color: $primary_background !important;}
+.preview-option .zoom_count span { color: $primary_background; }
+.preview-option li:hover { background: $primary_background; }
+.share-save  .social-icons > a:hover { background-color: $primary_background; }
+.product-controls li:hover { background-color: $primary_background; }
+#designs_box .pd-button { background-color: $primary_background; }
+.pd-right-panel .product-colors img.selected {border-color: $primary_background;}
+.font-controls .selected { background: $primary_background none repeat scroll 0 0;}
+#customOptionFormProdSettings #proper-size { color: $primary_background; }
+.printing-method-description { border-color: $primary_background; color: $primary_background;}
+
+.productdesigner-view .remove-mask .pd-button{ background-color: $secondary_background; }
+.productdesigner-view .remove-mask .pd-button:hover{ background-color: $primary_background; }
+
+
+
+.sent-to-frnd-btn a{ display: inline-block; padding: 8px 12px; color: #fff; border: none;background-color : $secondary_background;cursor:pointer}
+.sent-to-frnd-btn a:hover{ background-color: $primary_background; color: #fff; border:none !important;}
+.pd-button.action.back {background: $primary_background;}
+
+
+.pd-container .block-btn-process button, 
+.pd-left-panel .resp-tabs-container .btn-clear, 
+.pd-left-panel .resp-tabs-container #image_upload_btn, 
+.pd-left-panel .resp-tabs-container .login-store-img, 
+.pd-right-panel .panel-control .pd-button, 
+.productdesigner-login .actions-toolbar .pd-button, 
+#receipent-mail-container .sent-to-frnd-btn a, 
+.load_more_clipart, 
+.load_more_shapes, 
+.load_more_masking, 
+.load_more_products, 
+.load_more_templates, 
+#product-designer .share-save .social-icons a, 
+.share-save .social-icons .label{background-color :$secondary_background !important;}
+
+.pd-container .block-btn-process button:hover, 
+.pd-left-panel .resp-tabs-container .btn-clear:hover, 
+.pd-left-panel .resp-tabs-container #image_upload_btn:hover, 
+.pd-left-panel .resp-tabs-container .login-store-img:hover, 
+.pd-right-panel .panel-control .pd-button:hover, 
+.productdesigner-login .actions-toolbar .pd-button:hover, 
+#receipent-mail-container .sent-to-frnd-btn a:hover, 
+.load_more_clipart:hover, 
+.load_more_shapes:hover, 
+.load_more_masking:hover, 
+.load_more_products:hover, 
+.load_more_templates:hover, 
+#product-designer .share-save .social-icons a:hover, 
+.share-save .social-icons .label:hover{background-color :$primary_background !important;}
+
+
+.productdesigner-view.fluid-layout .tab-design .selected a{color :$secondary_background !important;}
+CONTENT;
+
+echo $css;
+?>

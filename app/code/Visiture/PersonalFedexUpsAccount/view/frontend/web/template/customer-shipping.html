@@ -1,0 +1,39 @@
+<!-- ko if: isAllow -->
+	<div>
+	    <fieldset class="fieldset create info">
+	        <legend class="legend"><span data-bind="text: shippingMessage"></span></legend><br>
+	        <div class="field field-name-account-number required">
+	            <label class="label" for="personal_ac_number">
+	                <span><!-- ko i18n: 'Account Number' --><!-- /ko --></span>
+	            </label>
+	            <div class="control">
+	                <input type="text" id="personal_ac_number" name="personal_ac_number" data-bind="attr:{'value':acnumber}" title="personal a/c number" class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true">
+	            </div>
+	        </div>
+	        <div class="field field-name-account-type required">
+	            <label class="label" for="account-type">
+	                <span><!-- ko i18n: 'Account Type' --><!-- /ko --></span>
+	            </label>
+	            <div class="control">
+	            	<select id="personal_ac_type" name="personal_ac_type" class="required-entry" data-bind='options: availableAcType, optionsCaption: optionsCaption, value: actype' title="personal a/c type"  data-validate="{required:true}" autocomplete="off" aria-required="true"></select>
+	            </div>
+	        </div>
+	        <div style="display:none;" class="page messages customer-shipping-message">
+		        <div class="messages">
+		            <div class="message-notice notice message">
+		                <div><span data-bind="text: custommsg"></span></div>
+		            </div>
+		        </div>
+		    </div>
+	    </fieldset>
+    </div>
+<!-- /ko -->
+<!-- ko if: iscustommsg -->
+    <div class="page messages">
+        <div class="messages">
+            <div class="message-notice notice message">
+                <div><span data-bind="text: custommsg"></span></div>
+            </div>
+        </div>
+    </div>
+<!-- /ko -->

@@ -1,0 +1,10 @@
+<?php if ($block->isHomePage()):?>
+<?php else: ?>
+<div id="newnewsletter-block-wrapper">
+    <div id="newsletter-block-inner-wrapper">
+        <div class="container">
+            <?php echo $this->getLayout() ->createBlock('Magento\Cms\Block\Block') ->setBlockId('custom-block') ->toHtml(); ?>
+        </div>
+    </div>
+</div>
+<?php endif ?>

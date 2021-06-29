@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Blackbird ContentManager Module
+ *
+ * NOTICE OF LICENSE
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to contact@bird.eu so we can send you a copy immediately.
+ *
+ * @category        Blackbird
+ * @package         Blackbird_ContentManager
+ * @copyright       Copyright (c) 2017 Blackbird (https://black.bird.eu)
+ * @author          Blackbird Team
+ * @license         https://www.advancedcontentmanager.com/license/
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Blackbird_ContentManager::css/content.css" />
+        <css src="Blackbird_ContentManager::css/html5imageupload.css" />
+        <css src="Blackbird_ContentManager::css/category-selector.css" />
+    </head>
+    <body>
+        <referenceContainer name="page.main.actions">
+            <block class="Magento\Backend\Block\Store\Switcher" name="store_switcher">
+                <action method="setUseConfirm">
+                    <argument name="params" xsi:type="string">1</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Blackbird\ContentManager\Block\Adminhtml\Content\Edit\Tabs" name="contentmanager_content_edit_tabs">
+                <!-- Define blocks -->
+                <block class="Blackbird\ContentManager\Block\Adminhtml\Content\Edit\Tab\Form" name="contentmanager_content_edit_tab_form"/>
+                <block class="Blackbird\ContentManager\Block\Adminhtml\Content\Edit\Tab\Url" name="contentmanager_content_edit_tab_url"/>
+                <block class="Blackbird\ContentManager\Block\Adminhtml\Content\Edit\Tab\Meta" name="contentmanager_content_edit_tab_meta"/>
+                <!-- Add tabs -->
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">general</argument>
+                    <argument name="block" xsi:type="string">contentmanager_content_edit_tab_form</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">url_section</argument>
+                    <argument name="block" xsi:type="string">contentmanager_content_edit_tab_url</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">default_meta_tag_section</argument>
+                    <argument name="block" xsi:type="string">contentmanager_content_edit_tab_meta</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Blackbird\ContentManager\Block\Adminhtml\Content\Edit" name="contentmanager_content_edit"/>
+        </referenceContainer>
+    </body>
+</page>

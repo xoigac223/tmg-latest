@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Biztech_Productdesigner::css/colorpicker.css"/>
+        <css src="Biztech_Productdesigner::css/font-awesome.css"/>
+        <css src="Biztech_Productdesigner::css/productdesigner.css"/>
+        <css src="Biztech_Productdesigner::css/brushyourdesigner.css"/>
+        
+        <link src="Biztech_Productdesigner::js/easyResponsiveTabs.js"/>
+        <link src="Biztech_Productdesigner::js/rgbcolor.js"/>
+        <link src="Biztech_Productdesigner::js/colorpicker.js"/>
+        <link src="Biztech_Productdesigner::js/select.js"/>                
+        <link src="Biztech_Productdesigner::js/jquery.tmpl.js"/>
+        <link src="Biztech_Productdesigner::js/grouporder.js"/>
+
+        <css src="Itoris_DynamicProductOptions::css/main.css"/>
+        <!-- <link src="Itoris_DynamicProductOptions::js/options.js"/> -->
+        <!-- <link src="Magento_Catalog::js/requirejs-config.js"/> -->
+        <!-- <link src="Magento_Catalog::js/price-options.js"/> -->
+        <link src="Itoris_ProductPriceFormula::js/formula.js"/>
+
+        <!--        <link src="Biztech_Productdesigner::js/groupDesigner.js"/>-->
+        <link src="Biztech_Productdesigner::js/product.js"/>
+        <link src="Biztech_Productdesigner::js/productdesigner.js"/>
+        <link src="Biztech_Productdesigner::js/js.js"/>
+        <link src="Biztech_Productdesigner::js/fabric.min.js"/>      
+
+        
+    </head>
+    <body>   
+        <attribute name="class" value="productdesigner view" />
+        <attribute name="class" value="boxed layout"/>
+        
+        <referenceBlock name="page.main.title" remove = "true"/>  
+        <referenceContainer name="content">            
+            <!-- <block class="Itoris\DynamicProductOptions\Block\Options\Config" name="itoris_dynamicoptions_config" cacheable="true" /> -->
+            <block class="Biztech\Productdesigner\Block\Productdesigner" name="Custom" as="product_list" template="Biztech_Productdesigner::productdesigner/productdesigner.phtml" cacheable="false">
+                <block class="Biztech\Productdesigner\Block\Designer" name="product_categories" as="product_categories" template="Biztech_Productdesigner::productdesigner/products/product_categories.phtml" />
+                <block class="Biztech\Productdesigner\Block\Designer" name="products" as="products" template="Biztech_Productdesigner::productdesigner/products/products.phtml" />
+
+                <block class="Biztech\Productdesigner\Block\Designer" name="text" as="text" template="Biztech_Productdesigner::productdesigner/text/text.phtml" />
+                
+                <block class="Biztech\Productdesigner\Block\Designer" name="quotes_categories" template="Biztech_Productdesigner::productdesigner/quotes/categories.phtml" />
+                <block class="Biztech\Productdesigner\Block\Designer" name="quotes_list" template="Biztech_Productdesigner::productdesigner/quotes/list.phtml" />
+                
+                <block class="Biztech\Productdesigner\Block\Designer" name="uploadImage" template="Biztech_Productdesigner::productdesigner/upload/upload.phtml" />
+                
+                <block class="Biztech\Productdesigner\Block\Designer" name="shapes_categories" template="Biztech_Productdesigner::productdesigner/shapes/categories.phtml" />
+                <block class="Biztech\Productdesigner\Block\Designer" name="shapes_images" template="Biztech_Productdesigner::productdesigner/shapes/images.phtml" />
+                
+                <block class="Biztech\Productdesigner\Block\Designer" name="clipart_categories" template="Biztech_Productdesigner::productdesigner/clipart/categories.phtml" />
+                <block class="Biztech\Productdesigner\Block\Designer" name="clipart_images" template="Biztech_Productdesigner::productdesigner/clipart/images.phtml" />
+                
+                <block class="Biztech\Productdesigner\Block\Designer" name="masking_categories" as="masking_categories" template="Biztech_Productdesigner::productdesigner/masking/categories.phtml" />
+                <block class="Biztech\Productdesigner\Block\Designer" name="masking_images" as="masking_images" template="Biztech_Productdesigner::productdesigner/masking/images.phtml" />
+                
+                <block class="Biztech\Productdesigner\Block\Designer" name="template_categories" template="Biztech_Productdesigner::productdesigner/templates/categories.phtml" />
+                <block class="Biztech\Productdesigner\Block\Designer" name="template_images" template="Biztech_Productdesigner::productdesigner/templates/list.phtml" />
+
+                <block class="Biztech\Productdesigner\Block\Designer" name="mydesigns" template="Biztech_Productdesigner::productdesigner/mydesigns/list.phtml" />    
+
+                <block class="Biztech\Productdesigner\Block\Designer" name="customoption" template="Biztech_Productdesigner::productdesigner/products/customoption.phtml" />  
+
+                    <block class="Itoris\DynamicProductOptions\Block\Options\Config" name="itoris_dynamicoptions_config" cacheable="true" />
+                    <block class="Itoris\ProductPriceFormula\Block\Formula" name="itoris_formula" cacheable="false"/>        
+
+                    <block class="Biztech\Productdesigner\Block\Group" name="grouporder" template="Biztech_Productdesigner::productdesigner/grouporder/grouporder.phtml" />    
+
+                    <block class="Biztech\Productdesigner\Block\Designer" name="priceHtml" as="priceHtml" template="Biztech_Productdesigner::productdesigner/additional/price.phtml" />
+                    <block class="Biztech\Productdesigner\Block\Designer" name="pd_additional_info" as="pd_additional_info" template="Biztech_Productdesigner::productdesigner/additional/colors.phtml" />
+
+
+                    <block class="Magento\Customer\Block\Form\Login" name="customer_login" template="Biztech_Productdesigner::productdesigner/customer/login.phtml" />
+
+                    <block class="Magento\Customer\Block\Form\Register" name="customer_register" template="Biztech_Productdesigner::productdesigner/customer/register.phtml" />
+
+                    <!-- <block class="Biztech\Productdesigner\Block\Addtocart" name="add_to_cart" as="add_to_cart" template="Biztech_Productdesigner::productdesigner/addtocart/addtocart.phtml" /> -->
+
+                    <block class="Biztech\Productdesigner\Block\Addtocart" name="add_to_cart" as="add_to_cart" template="Biztech_Productdesigner::productdesigner/addtocart/addtocart.phtml">
+                        <block class="Biztech\Productdesigner\Block\Addtocart" name="colorsize" as="colorsize" template="Biztech_Productdesigner::productdesigner/addtocart/colorsize.phtml" />
+                    </block>
+
+
+                </block>                        
+            </referenceContainer>
+        </body>
+    </page>

@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<carriers>
+			<pfedexups>
+				<model>Visiture\PersonalFedexUpsAccount\Model\Carrier\Personalfedexupsaccount</model>
+				<active>0</active>
+				<title>Personal_fedex_ups_account</title>
+				<name>Personal_fedex_ups_account</name>
+				<price>0.00</price>
+				<specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+				<sallowspecific>0</sallowspecific>
+			</pfedexups>
+		</carriers>
+	</default>
+</config>

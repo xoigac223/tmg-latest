@@ -1,0 +1,94 @@
+<?php
+$cat_id = $this->getCatId();
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$obj_product = $objectManager->create('Biztech\Productdesigner\Model\Producttemplate');
+$limit = (intval(filter_input(INPUT_GET, 'limit')) != 0 ) ? filter_input(INPUT_GET, 'limit') : 12;
+$offset = (intval(filter_input(INPUT_GET, 'offset')) != 0 ) ? filter_input(INPUT_GET, 'offset') : 0;
+if (!$cat_id) {
+    //$cat_id = $block->getDefaultTempalateCategory();
+   // echo $cat_id; die;
+    $product_id = $this->getRequest()->getParam('id');
+    
+    //echo $product_id; die;
+    $template_obj = $obj_product->load($product_id,
+            'product_id');
+
+    $templates = explode(',',
+            $template_obj->getTemplates());
+    //print_r($templates); die;
+    if (!in_array($cat_id,
+                    $templates)) {
+
+        /* $designs = Mage::getModel('productdesigner/designtemplatescategory')->load($templates[0])->getDesigns();
+          $designs_col = explode(',', $designs); */
+        $designs_col = array();
+    } else {
+        $obj_product = $objectManager->create('Biztech\Productdesigner\Model\Designtemplatecategory');
+        $designs = $obj_product->load($cat_id)->getDesigns();
+        $designs_col = explode(',',
+                $designs);
+    }
+} else {
+    $designs = $objectManager->create('Biztech\Productdesigner\Model\Designtemplatecategory');
+    $templateModel = $designs->load($cat_id)->getDesigns();
+    $designs_col = explode(',',
+            $templateModel);
+}
+
+?>
+
+<ul id="template_list" class="product_list">
+
+    <?php if (isset($designs)):
+        $counter = 0;
+     ?>
+
+        <?php
+        if (empty($templateModel)) { ?>
+            <li class="note-message"> <span class="a-center"><?php echo __('Sorry, No Templates Found'); ?></span></li>
+        <?php } 
+        foreach ($designs_col as $d):
+            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+            $obj_product = $objectManager->create('Biztech\Productdesigner\Model\Designtemplates');
+            $design_obj = $obj_product->load($d);
+            $collectcount = count($design_obj);
+            $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+            if(count($collectcount) > 0)
+            {
+            // $design_obj = Mage::getModel('productdesigner/designtemplates')->load($d);
+            $product_id = $design_obj->getProductId();
+
+            if ($product_id != null):
+                $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                $obj_product = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Designtemplateimages\Collection')->addFieldToFilter('designtemplates_id',
+                                Array('eq' => $d))->addFieldToFilter('design_image_type',
+                        'base_high');
+                $designImages = $obj_product->getData();
+                if($counter == $limit)
+                {
+                    break;
+                }
+                $counter++;
+                //$designImages = Mage::getModel('productdesigner/designtemplatesimages')->getCollection()->addFieldToFilter('designtemplates_id', Array('eq' => $d))->addFieldToFilter('design_image_type', 'base')->getFirstItem()->getData();
+                
+                $obj_product = $objectManager->create('Magento\Catalog\Model\Product');
+                $product = $obj_product->load($product_id);
+                //$product = Mage::getModel('catalog/product')->load($product_id);
+                $url = $_imagehelper->init($product,
+                                'product_page_image_small')->setImageFile($designImages[0]['image_path'])->resize(135)->getUrl();
+                ?>
+                <li>
+                    <img class="product-image design" width="50" height="50" alt="" design-id="<?php echo $d; ?>" src="<?php echo $url; ?>">
+                </li>
+                <?php
+            endif;
+        }
+        endforeach;
+        ?>
+    <?php else:
+        if ($cat_id):
+    ?>
+        <li class="note-message"> <span class="a-center"> <?php echo __("Sorry, no designs found."); ?></span></li>
+        <?php endif; ?>    
+    <?php endif; ?>    
+</ul>

@@ -1,0 +1,43 @@
+<div style="display: none;" id="customer-login-container" class="account-login">
+    <form id="login-form" method="post" class="form form-login" data-mage-init='{"validation":{}}'>
+        <div class="col-2 registered-users">
+            <div class="content">
+                <ul style="display: none" class="messages">
+                    <li id="login-error-msg" class="error-msg">
+                        <ul>
+                        </ul>
+                    </li>
+                </ul>
+                <p><?php echo __("If you have an account with us, please log in."); ?></p>
+                <ul class="form-list">
+                    <li>
+                        <label class="required" for="email"><em><?php echo __('*'); ?></em><?php echo __("Email Address"); ?></label>
+                        <div class="input-box">
+                            <input type="text" title="Email Address" class="input-text required-entry validate-email" id="email" name="login_user" >
+                        </div>
+                    </li>
+                    <li>
+                        <label class="required" for="pass"><em><?php echo __('*'); ?></em><?php echo __("Password"); ?></label>
+                        <div class="input-box">
+                            <input type="password" title="Password" id="pass" class="input-text required-entry validate-password" name="login_password"  >
+                        </div>
+                    </li>
+                </ul>
+                <p class="required"><?php echo __("* Required Fields"); ?></p>
+            </div>
+        </div>
+        <div class="col-2 registered-users">
+            <div class="buttons-set">
+                <button id="customer-login-btn" title="Login" class="pd-button" type="button"><span><span><?php echo __("Login"); ?></span></span></button>
+                <button class="pd-button" title="Create an Account" id="customer-register-btn" type="button"><span><span><?php echo __("Create an Account"); ?></span></span></button>
+                 <div class="pd-loader" id="pd_loading_img" style="display: none;">
+                     <span id="product-images-loader">
+                        <img src="<?php //echo $this->getSkinUrl('productdesigner/images/opc-ajax-loader.gif');?>" class="v-middle" alt="">
+                     </span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+

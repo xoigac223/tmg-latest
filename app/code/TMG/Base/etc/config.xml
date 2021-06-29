@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <tmg_base>
+            <api_global>
+                <api_user>obinvapi</api_user>
+                <api_pass>0b1nv@p1</api_pass>
+                <error_msg>Can't connect to the service</error_msg>
+                <soap_options>
+                    <soap_version>1</soap_version>
+                    <exceptions>1</exceptions>
+                </soap_options>
+            </api_global>
+        </tmg_base>
+    </default>
+</config>

@@ -1,0 +1,36 @@
+<p>Get Product Test</p>
+
+
+<?php
+
+$_product = $this->getProduct();
+
+echo '<h1><strong>PRODUCT INFO</strong></h1><pre>';
+print_r($_product);
+echo '</pre>';
+?>
+
+<div class="tabs">
+    <div class="tab">
+        <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">
+        <label for="tab-1" class="tab-label">Tab One</label>
+        <div class="tab-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec elit et est malesuada semper ultrices vitae mauris. </div>
+    </div>
+    <div class="tab">
+        <input type="radio" name="css-tabs" id="tab-2" class="tab-switch">
+        <label for="tab-2" class="tab-label">Tab Two</label>
+        <div class="tab-content">Quisque rhoncus justo vitae augue scelerisque auctor. Morbi non lorem nec tortor volutpat bibendum vel ac nisl.  </div>
+    </div>
+    <div class="tab">
+        <input type="radio" name="css-tabs" id="tab-3" class="tab-switch">
+        <label for="tab-3" class="tab-label">Tab Three</label>
+        <div class="tab-content">Donec vitae risus aliquet, mollis enim et, dignissim lectus. Duis nibh nibh, rutrum at cursus sit amet, placerat eget justo. .</div>
+    </div>
+    <div class="example"><a href="#" id="yourid">Click Me Test</a></div>
+</div>
+
+<script type="text/javascript">
+    require([ 'jquery', 'jquery/ui'], function($){ $( "#yourid" ).click(function() {
+        alert("Hello World!");
+    }); });
+</script>

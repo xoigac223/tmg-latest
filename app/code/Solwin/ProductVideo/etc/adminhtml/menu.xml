@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Solwin Infotech
+ * Solwin Advanced Product Video Extension
+ *
+ * @category   Solwin
+ * @package    Solwin_ProductVideo
+ * @copyright  Copyright © 2006-2016 Solwin (https://www.solwininfotech.com)
+ * @license    https://www.solwininfotech.com/magento-extension-license/ 
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Solwin_ProductVideo::productvideo" title="Product Videos" module="Solwin_ProductVideo" sortOrder="5" parent="Solwin_Extensions::extensions" resource="Solwin_ProductVideo::productvideo"/>
+        <add id="Solwin_ProductVideo::video" title="Manage Videos" module="Solwin_ProductVideo" sortOrder="10" action="solwin_productvideo/video" resource="Solwin_ProductVideo::video" parent="Solwin_ProductVideo::productvideo"/>
+        <add id="Solwin_ProductVideo::productvideo_config" title="Configuration" module="Solwin_ProductVideo" sortOrder="20" parent="Solwin_ProductVideo::productvideo" action="adminhtml/system_config/edit/section/productvideosection" resource="Solwin_ProductVideo::productvideo_config"/>
+    </menu>
+</config>

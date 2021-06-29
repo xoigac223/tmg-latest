@@ -1,0 +1,161 @@
+<?php
+/**
+ * BSS Commerce Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://bsscommerce.com/Bss-Commerce-License.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * BSS Commerce does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BSS Commerce does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   BSS
+ * @package    Bss_ConfigurableProductWholesale
+ * @author     Extension Team
+ * @copyright  Copyright (c) 2015-2016 BSS Commerce Co. ( http://bsscommerce.com )
+ * @license    http://bsscommerce.com/Bss-Commerce-License.txt
+ */
+?>
+
+<?php
+    $_product    = $block->getProduct();
+    $_attributes = $block->decorateArray($block->getAllowAttributes());
+    $_helper = $this->helper('Bss\ConfigurableProductWholesale\Helper\Data');
+    $helper_customize = $this->helper('Bss\ConfigurableProductWholesaleCustomize\Helper\Data');
+    $tableData = $block->getJsonConfigTable();
+    $childInfo = $block->getJsonChildInfo();
+?>
+<?php if ($_product->isSaleable() && count($_attributes)):?>
+    <?php
+        $i = 1;
+        $count = count($_attributes);
+    ?>
+    <?php foreach ($_attributes as $_attribute): ?>
+        <?php
+            if ($i == $count) {
+                $class = 'bss-hidden bss-last-select';
+                $required = 'data-validate="{required:false}"';
+            } else {
+                $class = 'bss-show';
+                $required = 'data-validate="{required:true}"';
+            }
+        ?>
+        <div class="field configurable required <?php echo $class; ?>">
+            <label class="label" for="attribute<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>">
+                <span><?php echo $block->escapeHtml($_attribute->getProductAttribute()->getStoreLabel()) ?></span>
+            </label>
+            <div class="control">
+                <select name="super_attribute[<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+                        data-selector="super_attribute[<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+                        <?php echo $required; ?>
+                        id="attribute<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>"
+                        class="super-attribute-select swatch-attribute" attribute-id="<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>">
+                    <option value=""><?php /* @escapeNotVerified */ echo __('Choose an Option...') ?></option>
+                </select>
+            </div>
+        </div>
+        <?php $i++; ?>
+    <?php endforeach; ?>
+    <table id="bss-ptd-table" class="bss-hidden" style="position: relative;">
+        <thead>
+            <tr>
+                <th><?php echo $tableData['label'];?></th>
+                <?php if ($_helper->getDisplayAttribute('sku')) :?>
+                    <th <?php echo $_helper->getClassAdvanced('sku');?>><?php echo __('Sku');?></th>
+                <?php endif;?>
+                <?php /* if ($_helper->getDisplayAttribute('availability')) :?>
+                    <th <?php echo $_helper->getClassAdvanced('availability');?>><?php echo __('Availability');?></th>
+                <?php endif; */?> 
+                <?php if ($_helper->getDisplayAttribute('unit_price') && !$_helper->checkCustomer('hide_price')) :?>
+                    <?php if ($childInfo['isLoggedIn']) :?>
+                        <th class="login_price"><?php echo __('Price');?></th>
+                    <?php endif;?>
+                    <?php if ($_helper->getDisplayAttribute('tier_price')) :?>
+                        <?php if(!empty($childInfo['tierPriceRange'])): ?>
+                            <?php foreach($childInfo['tierPriceRange'] as $child) : ?>
+                                <th <?php echo $_helper->getClassAdvanced('unit_price');?>><?php echo $child;?></th>
+                            <?php endforeach ?>
+                        <?php endif;?>
+                    <?php endif;?>
+                <?php endif;?>
+                <?php if ($_helper->getDisplayAttribute('subtotal') && !$_helper->checkCustomer('hide_price')) :?>
+                    <th <?php echo $_helper->getClassAdvanced('subtotal');?>><?php echo __('Subtotal');?></th>
+                <?php endif;?>
+                <th><?php echo __('Qty');?></th>
+            </tr>
+        </thead>
+
+        <tfoot>
+            <tr>
+                <td><?php echo __('Total Qty');?></td>
+                <td class="bss-totals-qty"></td>
+            </tr>
+            <tr>
+                <td><?php echo __('Total');?></td>
+                <td class="bss-totals"></td>
+            </tr>
+        </tfoot>
+
+        <tbody></tbody>
+    </table>
+    <div class="message message-warning warning mess-specical-price" style="display: none;margin-top: 10px;">
+        <span>
+            <?= __($helper_customize->getMessageSpecialPrice()); ?>
+        </span>
+    </div>
+    <input type="hidden" id="bss-option-price" class="bss-option-price" value="0" name="bss-option-price">
+    <?php if ($_helper->getDisplayAttribute('unit_price') && !$_helper->checkCustomer('hide_price')) :?>
+        <?php if ($_helper->getDisplayAttribute('tier_price')) :?>
+            <?php if(!empty($childInfo['tierPriceRange'])): ?>
+                <?php foreach($childInfo['tierPriceRange'] as $child) : ?>
+                    <input type="hidden" id="bss-option-price<?php echo $child ?>" class="bss-option-price" value="0" name="bss-option-price<?php echo $child ?>">
+                <?php endforeach ?>
+            <?php endif;?>
+        <?php endif;?>
+    <?php endif;?>
+    <input type="hidden" id="bss-no-swatch" value="<?php echo $count; ?>" >
+    <input type="hidden" id="bss-table-ordering" name="bss-table-ordering" value="1">
+    <input type="hidden" id="bss-check-type-pricing" name="bss-check-type-pricing" value="">
+    <input type="hidden" id="bss-total-price" name="bss-total-price" value="">
+    <input type="hidden" id="qty" value="0">
+    <input type="hidden" id="qty_order_sample" value="<?php $_product->getQtyOrderSample() ?>">
+    <input type="hidden" id="text_qty_order_sample" value="<?php echo __('The maximum sample quantity can be ordered for this product is ').$_product->getQtyOrderSample().'.' ?>">
+    <script type="text/x-magento-init">
+        {
+            "#product_addtocart_form": {
+                "configurable": {
+                    "spConfig": <?php /* @escapeNotVerified */ echo $block->getJsonConfig() ?>,
+                    "gallerySwitchStrategy": "<?php /* @escapeNotVerified */ echo $block->getVar('gallery_switch_strategy',
+                        'Magento_ConfigurableProduct') ?: 'replace'; ?>"
+                }
+            },
+
+            "#bss-ptd-table": {
+                "Bss_ConfigurableProductWholesaleCustomize/js/configurableproductwholesale": {
+                    "jsonChildInfo": <?php /* @escapeNotVerified */ echo $childInfo['jsonChildInfo'] ?>,
+                    "jsonChildName": <?php /* @escapeNotVerified */ echo $block->getChildName() ?>,
+                    <?php if ($block->getProductEdit()) :?>
+                        "jsonEditInfo": <?php /* @escapeNotVerified */ echo $block->getProductEdit() ?>,
+                    <?php endif;?>
+                    <?php if ($block->getPriceTableOrdering()) :?>
+                        "jsonPriceTableOrdering": <?php /* @escapeNotVerified */ echo $block->getPriceTableOrdering();?>,
+                    <?php endif;?>
+                    "jsonSystemConfig": <?php /* @escapeNotVerified */ echo $_helper->getJsonSystemConfig($_product);?>,
+                    "fomatPrice": <?php /* @escapeNotVerified */ echo $_helper->getFomatPrice();?>,
+                    "jsonSwatchConfig": <?php /* @escapeNotVerified */
+                        echo $block->getJsonSwatchConfig(); ?>
+                }
+            }
+        }
+    </script>
+<?php endif;?>

@@ -1,0 +1,111 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * @see \Magento\Sales\Block\Adminhtml\Items\Column\Name
+ */
+?><?php
+$order_id = $this->getRequest()->getParam('order_id');
+?>
+
+<?php if ($_item = $block->getItem()): ?>
+    <div id="order_item_<?php /* @escapeNotVerified */ echo $_item->getId() ?>_title"
+         class="product-title">
+        <?php echo $block->escapeHtml($_item->getName()) ?>
+    </div>
+
+    <div class="product-sku-block">
+        <span><?php /* @escapeNotVerified */ echo __('SKU') ?>:</span> <?php echo implode('<br />', $this->helper('Magento\Catalog\Helper\Data')->splitSku($block->escapeHtml($block->getSku()))); ?>
+    </div>
+
+    <?php if ($block->getOrderOptions()): ?>
+        <dl class="item-options">
+            <?php 
+            
+                
+
+                
+
+            foreach ($block->getOrderOptions() as $_option):
+                
+                $allOption = $_option;
+
+             ?>
+                <dt><?php /* @escapeNotVerified */ echo $_option['label'] ?>:</dt>
+                <dd>
+                    <?php if (isset($_option['custom_view']) && $_option['custom_view']):
+
+                        
+                        
+
+
+                    ?>
+
+
+
+
+
+                    <?php /* @escapeNotVerified */ echo $block->getCustomizedOptionValue($_option); ?>
+                    <?php else: 
+
+
+
+                    ?>
+                        <?php $_option = $block->getFormattedOption($_option['value']); ?>
+                        
+                        
+                        <?php /* @escapeNotVerified */ 
+
+
+
+                        
+                            if(isset($allOption['code']) && ($allOption['code'] == 'product_design')){
+
+                                $design_id = $allOption['design_id'];
+                                $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                                $priceHelper = $objectManager->create('Magento\Framework\Pricing\Helper\Data');
+                                $designModel = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Designs\Collection')->addFieldToFilter('design_id', array('eq' => $design_id))->getData();
+                                $sub_total = $priceHelper->currency(json_decode($designModel[0]['prices'])->sub_total);
+
+
+                            ?>
+                            <span><?php /* @escapeNotVerified */ echo $allOption['label'] . '(' . $sub_total . ')' ?>:</span>
+                             <a target="_blank" href="<?php echo $this->getUrl('productdesigner/view/viewDesign') ?>design_id/<?php echo $design_id; ?>/order_id/<?php echo $order_id; ?> ">
+                            <span>View Design</span></a>
+                        <?php 
+
+                        }
+
+
+                         ?>
+
+                        <?php if (isset($_option['remainder']) && $_option['remainder']): ?>
+                            <span id="<?php /* @escapeNotVerified */ echo $_dots = 'dots' . uniqid()?>"> ...</span><span id="<?php /* @escapeNotVerified */ echo $_id = 'id' . uniqid()?>"><?php /* @escapeNotVerified */ echo $_option['remainder'] ?></span>
+                            <script>
+                                require(['prototype'], function() {
+                                    $('<?php /* @escapeNotVerified */ echo $_id ?>').hide();
+                                    $('<?php /* @escapeNotVerified */ echo $_id ?>').up().observe('mouseover', function(){$('<?php /* @escapeNotVerified */ echo $_id ?>').show();});
+                                    $('<?php /* @escapeNotVerified */ echo $_id ?>').up().observe('mouseover', function(){$('<?php /* @escapeNotVerified */ echo $_dots?>').hide();});
+                                    $('<?php /* @escapeNotVerified */ echo $_id ?>').up().observe('mouseout',  function(){$('<?php /* @escapeNotVerified */ echo $_id ?>').hide();});
+                                    $('<?php /* @escapeNotVerified */ echo $_id ?>').up().observe('mouseout',  function(){$('<?php /* @escapeNotVerified */ echo $_dots ?>').show();});
+                                });
+                            </script>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </dd>
+
+            <?php endforeach; 
+            
+
+            ?>
+        </dl>
+    <?php endif; ?>
+    <?php echo $block->escapeHtml($_item->getDescription()) ?>
+<?php endif; ?>

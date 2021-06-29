@@ -1,0 +1,19 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$demo = $objectManager->create('\Magento\Store\Model\StoreManagerInterface');
+$base_url = $demo->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+?>
+<?php  
+$images = $this->getFiles() ;
+$result = $this->getResult() ; ?>
+<?php if(!isset($result['error_message'])): ?>
+	<?php if(isset($images)): ?>
+		<?php foreach($images as $image): ?>
+			<li>
+				<div class="upload-img-wrapper">
+					<img src="<?php echo $base_url.'productdesigner/upload'. $image['file'] ;?>" class="clipart-image" data-orig-url="<?php echo  $base_url.'productdesigner/upload'.$image['file']; ?>" alt="" />
+				</div>
+			</li>
+		<?php endforeach; ?>
+	<?php endif;  ?>
+<?php endif; ?>

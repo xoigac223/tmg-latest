@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Biztech. All rights reserved.
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+<head>
+       
+                                        <css src="Biztech_Productdesigner::css/productdesigner.css"/>               
+
+         <!-- <script src="Biztech_Productdesigner::js/prototype.js"/> -->
+      
+          
+       <!-- src="Webkul_Grid::js/grid.js" that mean from here get file -->
+       <!-- Webkul_Grid is module name, js/grid.js and css/grid.css are location of files in web folder of module  -->
+</head>
+    <body>
+        <referenceContainer name="left">
+            <block class="Biztech\Productdesigner\Block\Adminhtml\Fonts\Edit\Tabs" name="biztech_productdesigner_fonts_edit_tabs">
+                <block class="Biztech\Productdesigner\Block\Adminhtml\Fonts\Edit\Tab\Main" name="biztech_productdesigner_fonts_edit_tab_main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">biztech_productdesigner_fonts_edit_tab_main</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Biztech\Productdesigner\Block\Adminhtml\Fonts\Edit" name="productdesigner_fonts_edit"/>
+              <field id="upload_image_id" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Select Image</label>
+               
+            </field>
+            <!-- <block class="Biztech\Productdesigner\Block\Adminhtml\Clipart\Edit" name="productdesigner_clipart_edit1" template="browsefile.html"/>   -->
+        </referenceContainer>
+    </body>
+</page>

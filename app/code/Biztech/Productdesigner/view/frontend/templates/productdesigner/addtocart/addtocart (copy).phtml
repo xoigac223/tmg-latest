@@ -1,0 +1,386 @@
+<?php
+$product_id = $this->getRequest()->getParam('id');
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$obj_product = $objectManager->create('Magento\Catalog\Model\Product');
+$product = $obj_product->load($product_id);
+$storeManager = $objectManager->get('Magento\Store\Model\StoreManagerInterface');
+$storeid = $storeManager->getStore()->getId();
+$default_color = $this->helper('Biztech\Productdesigner\Helper\Info')->getDefaultImage($product_id);
+$printingMethod = $product->getprintingmethodattr();
+if(isset($printingMethod) && $printingMethod != '')
+{
+    $printingMethods = explode(',', $printingMethod);
+}
+?>
+<form name="customOptionFormProdSettings" id="customOptionFormProdSettings" data-mage-init='{"validation":{}}' onsubmit="return false" method="POST" >
+    <div class="printing-method-block" id="printing-method-block">
+        <?php
+        if($product->getprintingmethodattr() != '') {
+        if ($product->getTypeId() == 'configurable') {
+            $printingCollection = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Printingmethod\Collection')->addFieldToFilter('status', array('eq' => 1))->addFieldToFilter('store_id', array('in' => array(0, $storeid)));
+            if (count($printingCollection) != 0) {
+                ?>
+                <h3 id="quantity"><?php echo __('Printing Method'); ?></h3>
+                <?php
+            }
+        } else {
+            $simpleprintingCollection = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Simpleprintingmethod\Collection')->addFieldToFilter('status', array('eq' => 1))->addFieldToFilter('store_id', array('in' => array(0, $storeid)));
+            if (count($simpleprintingCollection) != 0) {
+                ?>
+                <h3 id="quantity"><?php echo __('Printing Method'); ?></h3>
+                <?php
+            }
+        }
+    }
+        ?>
+        <ul>
+            <?php if ($product->getTypeId() == 'configurable'): ?>
+
+                <?php
+                $printingCollection = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Printingmethod\Collection')->addFieldToFilter('status', array('eq' => 1))->addFieldToFilter('store_id', array('in' => array(0, $storeid)));
+
+                if (count($printingCollection) != 0):
+                    foreach ($printingCollection as $printing):
+                        if ($printing->getStatus() == 1 && isset($printingMethods) && in_array($printing->getId(), $printingMethods)):
+                            ?>
+                            <li>
+                                <label>
+                                    <input type="radio" name="printing_type" id="printing_type" data-code="<?php echo $printing->getPrintingCode() ?>" value="<?php echo $printing->getId(); ?>">
+                                    <?php echo $printing->getPrintingName(); ?></label>
+                            </li>
+                            <?php
+                        endif;
+                    endforeach;
+                endif;
+                ?>
+
+
+            <?php else: ?>
+
+                <?php
+                $simpleprintingCollection = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Simpleprintingmethod\Collection')->addFieldToFilter('status', array('eq' => 1))->addFieldToFilter('store_id', array('in' => array(0, $storeid)));
+
+                if (count($simpleprintingCollection) != 0):
+                    foreach ($simpleprintingCollection as $simpleprinting):
+                        if ($simpleprinting->getStatus() == 1 && isset($printingMethods) && in_array($simpleprinting->getId(), $printingMethods)):
+                            ?>
+                            <li>
+                                <label>
+                                    <input type="radio" name="printing_type" id="printing_type" data-code="<?php echo $simpleprinting->getSimpleprintingCode() ?>" value="<?php echo $simpleprinting->getId(); ?>">
+                                    <?php echo $simpleprinting->getSimpleprintingName(); ?></label>
+                            </li>
+                            <?php
+                        endif;
+                    endforeach;
+                endif;
+                ?>
+
+
+            <?php endif; ?>
+        </ul>
+
+        <?php if ($product->getTypeId() == 'configurable'): ?>
+            <?php
+            foreach ($printingCollection as $printing) {
+                if ($printing->getStatus() == 1):
+                    if (count($printingCollection) != 0):
+                        ?>
+                        <div style="display:none" class="printing-method-description" id="<?php echo $printing->getPrintingCode() . '-des' ?>">DESCRIPTION ::<?php echo $printing->getPrintingDescription(); ?></div>
+                        <?php
+                    endif;
+                endif;
+            }
+            ?>  
+        <?php else: ?>
+            <?php
+            foreach ($simpleprintingCollection as $simpleprinting) {
+                if ($simpleprinting->getStatus() == 1):
+                    if (count($simpleprintingCollection) != 0):
+                        ?>
+                        <div style="display:none" class="printing-method-description" id="<?php echo $simpleprinting->getSimpleprintingCode() . '-des' ?>">DESCRIPTION ::<?php echo $simpleprinting->getSimpleprintingDescription(); ?></div>
+                        <?php
+                    endif;
+                endif;
+            }
+            ?>
+        <?php endif; ?>
+    </div>
+    <?php
+    if ($product->getTypeId() == 'configurable') {
+        $attrs = $product->getTypeInstance(true)->getConfigurableAttributesAsArray($product);
+        $productTypeInstance = $product->getTypeInstance();
+                $usedProducts = $productTypeInstance->getUsedProducts($product);
+                foreach ($usedProducts as $used) {
+                    if ($used->getColor() == $default_color) {
+                        $availablesize[] = $used->getSize();
+                    }
+                }
+        foreach ($attrs as $attr) {
+            if (0 == strcmp("size", $attr['attribute_code'])) {
+                $sizes = $attr['values'];
+            }
+        }
+        foreach ($attrs as $attr):
+            ?>
+            <?php if ($attr['attribute_code'] == "color") {
+                ?>
+                <input type="hidden" id="color" value="<?php echo $attr['attribute_id']; ?>" />
+                <?php
+            }
+            ?>
+            <?php if ($attr['attribute_code'] == "size") { ?>
+
+                <?php $attributeId = $attr['attribute_id']; ?>
+                <div class="chart-size" id="size-chart" >
+                    <h3 id="quantity"><?php echo __('Quantity & Sizes'); ?></h3>
+                    <h3 id="proper-size"><?php echo __("Find your size") ?></h3>
+                   <div id="colorsize_container">
+                        <?php echo $this->getChildHtml("colorsize");
+                    ?>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
+            <?php
+        endforeach;
+        if (!isset($sizes)) {
+            ?>
+            <ul class = "messages">
+                <li id = "cart-error-msg" class = "error-msg" style = "color:red;font-size:large">
+                </li>
+            </ul>
+            <span class="qty-label">Qty</span><input type = "text" value = "1" id = "qty" class = "size-qty" data-validate = "{'required-number':true,'validate-item-quantity':{'minAllowed':1}}">
+            <?php
+        }
+        ?>
+
+        <ul class="messages">
+            <li id="cart-error-msg" class="error-msg" style="color:red;font-size:large">          
+            </li>
+        </ul>
+
+        <?php
+    }
+    ?>
+    <div id = "custom-option">
+        <?php
+        $all_options = $product->getOptions();
+        if ($all_options) {
+            $dropcnt = 0;
+            $newcount = 2;
+
+            foreach ($all_options as $option) {
+
+
+                $optionType = $option->getType();
+
+                if ($optionType == 'multiple') {
+                    ?>
+                    <div class="multiple-select" >
+                        <div>
+                            <label for="<?php echo $option->getDefaultTitle(); ?>" class="captionSmall" name="option-custom">
+                                <?php echo $option->getDefaultTitle(); ?>
+                            </label>
+                        </div>
+                        <div>
+                            <select multiple id="custom-multiple-select" class="multiselect admin__control-multiselect <?php if ($option->getIsRequire() == 1) { ?> required <?php } ?> product-custom-option" name="<?php echo $option->getOptionId(); ?>" aria-required="true">
+                                <?php
+                                foreach ($option->getValues() as $value) :
+                                    if ($value->getPriceType() == 'fixed') {
+                                        $price = $value->getDefaultPrice();
+                                    } else {
+                                        $price = ($value->getDefaultPrice() * $product->getFinalPrice() / 100);
+                                    }
+                                    $price = $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($price, true, false);
+                                    ?>
+                                    <option value="<?php echo $value->getOptionTypeId(); ?>">
+                                        <?php echo $value->getDefaultTitle() . ' + ' . $price; ?>
+                                    </option>  
+                                <?php endforeach; ?>
+                            </select>
+                        </div>                                   
+                    </div>
+                    <?php
+                }
+                if ($optionType == 'drop_down') {
+                    $values = $option->getValues();
+                    ?>  
+                    <div class="drop_down"><div id="drop_down_title"><label for="<?php echo $option->getDefaultTitle(); ?>" class="captionSmall" name="option-custom"><?php echo $option->getDefaultTitle(); ?></label></div>
+                        <div class="optionDiv">
+
+                            <select name="<?php echo $option->getOptionId(); ?>" id="select_option" class="<?php if ($option->getIsRequire() == 1) { ?> required <?php } ?> product-custom-option admin__control-select"  title="Choose your option" aria-required="true">
+                                <option value="">--- Please Select ---</option>
+                                <?php
+                                foreach ($option->getValues() as $value) :
+                                    if ($value->getPriceType() == 'fixed') {
+                                        $price = $value->getDefaultPrice();
+                                    } else {
+                                        $price = ($value->getDefaultPrice() * $product->getFinalPrice() / 100);
+                                    }
+                                    $price = $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($price, true, false);
+                                    ?>
+                                    <option value="<?php echo $value->getOptionTypeId(); ?>">
+                                        <?php echo $value->getDefaultTitle() . ' + ' . $price; ?>
+                                    </option>  
+                                <?php endforeach; ?>
+
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <?php
+                }
+
+                if ($optionType == 'checkbox') {
+                    $values = $option->getValues();
+                    ?>  
+                    <div class="checkbox">
+                        <ul class="options-list" id="options-checkbox" name="option-custom">
+                            <label class="<?php if ($option->getIsRequire() == 1) { ?> required <?php } ?>"><?php echo $option->getDefaultTitle(); ?></label>
+                            <?php
+                            foreach ($option->getValues() as $value) :
+                                if ($value->getPriceType() == 'fixed') {
+                                    $price = $value->getDefaultPrice();
+                                } else {
+                                    $price = ($value->getDefaultPrice() * $product->getFinalPrice() / 100);
+                                }
+                                $price = $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($price, true, false);
+                                ?>
+                                <li>
+                                    <div class="field choice admin__field admin__field-option">
+                                        <input type="checkbox" value="<?php echo $value->getOptionTypeId(); ?>" id="options_<?php echo $newcount; ?>" name="<?php echo $option->getOptionId(); ?>"  class="checkbox admin__control-checkbox <?php if ($option->getIsRequire() == 1) { ?> required <?php } ?> product-custom-option">
+                                        <span class="label"><label for="options_<?php echo $option->getOptionId(); ?>_<?php echo $newcount; ?>"><?php echo $value->getDefaultTitle() . '+ ' . $price; ?></label></span>
+                                    </div>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>                                   
+                    </div>
+
+                    <?php
+                }
+
+
+                if ($optionType == 'radio') {
+                    $values = $option->getValues();
+                    ?>  
+                    <div class="input-box">
+                        <ul class="options-list" id="options-list" name="option-custom">
+                            <label class="<?php if ($option->getIsRequire() == 1) { ?> required <?php } ?>"><?php echo $option->getDefaultTitle(); ?></label>
+                            <?php
+                            foreach ($option->getValues() as $value) :
+                                if ($value->getPriceType() == 'fixed') {
+                                    $price = $value->getDefaultPrice();
+                                } else {
+                                    $price = ($value->getDefaultPrice() * $product->getFinalPrice() / 100);
+                                }
+                                $price = $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($price, true, false);
+                                ?>
+                                <li>
+                                    <div class="field admin__field-option">
+                                        <input type="radio" value="<?php echo $value->getOptionTypeId() ?>" id="options_<?php echo $option->getOptionId(); ?>" name="<?php echo $option->getOptionId(); ?>"  class="radio admin__control-radio  <?php if ($option->getIsRequire() == 1) { ?> required <?php } ?> product-custom-option" aria-required="true">                                    
+                                        <span class="label"><label for="options_<?php echo $option->getOptionId(); ?>"><?php echo $value->getDefaultTitle() . '+ ' . $price; ?></label></span>
+                                    </div>
+                                </li>
+
+                                <?php
+                            endforeach;
+                            ?>
+                        </ul>                             
+                    </div>
+
+                    <?php
+                }
+                if ($optionType == 'area' || $optionType == 'field') {
+                    if ($option->getPriceType() == 'fixed') {
+                        $price = $option->getDefaultPrice();
+                    } else {
+                        $price = ($option->getDefaultPrice() * $product->getFinalPrice() / 100);
+                    }
+                    $price = $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($price, true, false);
+                    ?>  
+                    <div class="input-box">
+                        <label class="required"><?php echo $option->getDefaultTitle() . '+ ' . $price; ?></label>                                    
+                        <input type="text" value="" name="<?php echo $option->getOptionId(); ?>" class="input-text required-entry product-custom-option " id="options_<?php echo $option->getOptionId(); ?>_text" <?php if ($option->getIsRequire() == 1) { ?>data-validate="{required:true}"<?php } ?>>
+
+                    </div>
+                    <?php
+                }
+                if ($optionType == 'date' || $optionType == 'date_time' || $optionType == 'time') {
+                    ?>
+                    <div class="field date required">
+                        <fieldset class="fieldset fieldset-product-options-inner required">
+                            <label class="required"><?php echo $option->getDefaultTitle() . '+ ' . $option->getDefaultPrice(); ?></label> 
+                            <div class="control">
+                                <?php if ($option->getType() == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_DATE_TIME || $option->getType() == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_DATE):
+                                    ?>
+
+                                    <?php echo $block->getDateHtml() ?>
+
+                                <?php endif; ?>
+                                <?php if ($option->getType() == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_DATE_TIME || $option->getType() == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_TIME):
+                                    ?>
+                                    <span class="time-picker"><?php echo $block->getTimeHtml() ?></span>
+                                <?php endif; ?>
+                                <?php if ($option->getIsRequire()): ?>
+                                    <input type="hidden"
+                                           name="validate_datetime_<?php /* @escapeNotVerified */ echo $option->getOptionId() ?>"
+                                           class="validate-datetime-<?php /* @escapeNotVerified */ echo $option->getOptionId() ?>"
+                                           value=""
+                                           data-validate="{'validate-required-datetime':<?php /* @escapeNotVerified */ echo $option->getOptionId() ?>}"/>
+                                       <?php else: ?>
+                                    <input type="hidden"
+                                           name="validate_datetime_<?php /* @escapeNotVerified */ echo $option->getOptionId() ?>"
+                                           class="validate-datetime-<?php /* @escapeNotVerified */ echo $option->getOptionId() ?>"
+                                           value=""
+                                           data-validate="{'validate-optional-datetime':<?php /* @escapeNotVerified */ echo $option->getOptionId() ?>}"/>
+                                       <?php endif; ?>
+                                <script type="text/x-magento-init">
+                                    {
+                                    "#customOptionFormProdSettings": {
+                                    "validation": {
+                                    "ignore": ":hidden:not(input[name^='validate_datetime_'])"
+                                    }
+                                    }
+                                    }
+                                </script>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <?php
+                }
+
+                $newcount = $newcount + 1;
+            }
+        }
+        ?>
+    </div>
+    <?php
+    if ($product->getTypeId() != 'configurable') {
+        ?>
+        <ul class="messages">
+            <li id="cart-error-msg" class="error-msg" style="color:red;font-size:large">          
+            </li>
+        </ul>        
+        <span class="qty-label">Qty</span><input type="text" value="1" id="qty" class="size-qty" data-validate="{'required-number':true,'validate-item-quantity':{'minAllowed':1}}">
+        <?php
+    }
+    ?>
+    <input type="hidden" id="added_products" name="added_products" value="">
+    <input type="hidden" id="added_products_price" name="added_products_price" value="">
+    <input type="hidden" id="product_color_by_side" name="product_color_by_side" value="">
+    <input type="hidden" id="total_qty" name="total_qty" value="">
+    <input type="hidden" id="isNameNumberOnly" name="isNameNumberOnly" value="">
+    <input type="hidden" id="design_id_old" name="design_id_old" value="">    
+    <button type="submit" id="cart-add" class="pd-button primary tocart"><span id="add-to-cart"><?php /* @escapeNotVerified */ echo __('Add To Cart') . " - "; ?></span><span id="total_cost"></span></button>
+
+    <div class="progress-bar-wrapper add-to-cart">
+        <div class="bar-div">
+            <span id="display1" class="display-count"></span>
+            <span id="progress_message1" class="progress-message"></span>
+        </div>
+    </div>
+</form>
+

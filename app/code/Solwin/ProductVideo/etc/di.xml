@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Solwin Infotech
+ * Solwin Advanced Product Video Extension
+ *
+ * @category   Solwin
+ * @package    Solwin_ProductVideo
+ * @copyright  Copyright © 2006-2016 Solwin (https://www.solwininfotech.com)
+ * @license    https://www.solwininfotech.com/magento-extension-license/ 
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <virtualType name="SolwinProductVideoGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Solwin\ProductVideo\Model\ResourceModel\Video\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">solwin_productvideo_video</argument>
+            <argument name="eventPrefix" xsi:type="string">solwin_productvideo_video_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">video_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Solwin\ProductVideo\Model\ResourceModel\Video</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="solwin_productvideo_video_listing_data_source" xsi:type="string">Solwin\ProductVideo\Model\ResourceModel\Video\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

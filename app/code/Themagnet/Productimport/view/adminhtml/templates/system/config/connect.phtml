@@ -1,0 +1,45 @@
+<?php
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php /* @var $block \MageWorx\AlsoBought\Block\System\Config\Collect */ ?>
+
+<script>
+    require([
+        'jquery',
+        'prototype'
+    ], function(jQuery){
+
+        var collectSpan = jQuery('#connect_span');
+
+        jQuery('#connect_button').click(function () {
+            var params = {};
+            new Ajax.Request('<?php echo $block->getAjaxUrl() ?>', {
+                parameters:     params,
+                loaderArea:     false,
+                asynchronous:   true,
+                onCreate: function() {
+                    collectSpan.find('.collected').hide();
+                    collectSpan.find('.processing').show();
+                    jQuery('#collect_message_span').text('');
+                    jQuery('#error-custom').remove();
+                },
+                onSuccess: function(response) {
+                    var responce = response.responseJSON;
+                    if(responce.error){
+                        jQuery('#connect_button').css({"color": "white", "background": "red"});
+                        jQuery('#connect_button').parent().append('<p id="error-custom" style="color:red;">'+responce.error+'</p>');
+                    } 
+                    else {
+                       jQuery('#connect_button').css({"color": "white", "background": "green"});
+                    }
+                }
+            });
+        });
+
+    });
+</script>
+
+<?php echo $block->getButtonHtml() ?>

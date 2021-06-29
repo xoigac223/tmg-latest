@@ -1,0 +1,11 @@
+<script>
+
+var isAllowChargeFreight3rdpartyHandling = "<?php echo $block->isAllowChargeFreight3rdpartyHandling()?>";
+var formAction = "<?php echo $block->getFormAction()?>";
+var accountNumber = "<?php echo $block->getAccountNumber()?>";
+var accountType = "<?php echo $block->getAccountType()?>";
+var customMessage = "<?php echo $block->getCustomMessage()?>";
+var shippingCode = "<?php echo $block->getShippingCode()?>";
+var accountTypes = <?php echo json_encode($block->getAccountTypes());?>;
+var shippingMessage = <?php echo json_encode($block->getshippingMessage());?>;
+</script>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="themagnet" translate="label" sortOrder="10">
+            <label>TheMagnet</label>
+        </tab>
+        <section id="orderstatus" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Order Status</label>
+            <tab>themagnet</tab>
+            <resource>Themagnet_Orderstatus::orderstatus_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="svc_user" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Svc User API</label>
+                     <comment>Add Svc user for API</comment>
+                </field>
+                <field id="svc_password" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Svc Password API</label>
+                     <comment>Add Svc password for API</comment>
+                </field>
+
+                <!-- <field id="svc_account" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Svc Account API</label>
+                     <comment>Add Svc Account for API</comment>
+                </field> -->
+                <field id="wsdl_url" translate="label" type="text" sortOrder="35" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>WSDL api url</label>
+                     <comment>Add WSDL for api call</comment>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>

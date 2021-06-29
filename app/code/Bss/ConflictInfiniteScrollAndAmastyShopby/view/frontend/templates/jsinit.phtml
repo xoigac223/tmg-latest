@@ -1,0 +1,23 @@
+<?php
+// @codingStandardsIgnoreFile
+?>
+<?php
+/** @var \Amasty\Shopby\Block\Navigation\JsInit $block */
+?>
+<div data-am-js="js-init">
+    <script type="text/x-magento-init">
+        {
+            "[data-am-js='filter-item-default']": {
+                "amShopbyFilterItemDefault": {
+                    "collectFilters": <?= /* @noEscape */ $block->collectFilters(); ?>
+                }
+            }
+        }
+    </script>
+</div>
+<?php
+// fix conflict with amasty
+if ($block->getRequest()->getParam('shopbyAjax')) {
+    echo /* @escapeNotVerified */ $this->getLayout()->createBlock('Bss\InfiniteScroll\Block\InfiniteScroll')->setTemplate('Bss_InfiniteScroll::js.phtml')->toHtml();
+}
+?>

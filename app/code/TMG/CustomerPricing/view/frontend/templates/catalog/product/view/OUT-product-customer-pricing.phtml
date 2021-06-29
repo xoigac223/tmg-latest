@@ -1,0 +1,14 @@
+<?php  /** @var $block \TMG\CustomerPricing\Block\Catalog\Product */ ?>
+<script type="text/x-magento-init">
+{ "*": {
+     "Magento_Ui/js/core/app": {
+         "components": {
+             "tmgProductCustomerPricing": {
+                 "component": "TMG_CustomerPricing/js/view/product-customer-pricing",
+                 "sku": "<?php /* @escapeNotVerified */ echo $block->getProduct()->getSku() ?>"
+             }
+         }
+     }
+ }
+}
+</script>

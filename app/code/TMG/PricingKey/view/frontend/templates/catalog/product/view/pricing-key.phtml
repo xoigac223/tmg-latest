@@ -1,0 +1,110 @@
+<?php  /** @var $block \TMG\PricingKey\Block\Catalog\Product\View\PricingKey */ ?>
+<script type="text/javascript">
+    
+    require(['jquery'], function($) {
+        
+        var initTimeout;
+        var $printMethodSelect;
+        var $buyOptionSelect;
+        var buyOptionSelectMap = {};
+        var options;
+        
+        var pricingKeyMapping = <?php echo $block->getPricingKeyMappingJson(); ?>
+        
+        var initPricingKey = function() {
+            
+            // console.log('initPricingKey',pricingKeyMapping);
+            
+            clearTimeout(initTimeout);
+            if(window.dynamicOptions<?php echo $block->getProduct()->getId() ?> == undefined){
+                initTimeout = setTimeout(function() {
+                    initPricingKey();
+                }, 100);
+                return;
+            }
+            options = window.dynamicOptions<?php echo $block->getProduct()->getId() ?>.options;
+            
+            // Create Field
+            $('#product_addtocart_form').append('<input type="hidden" id="tmg-pricing-key-value" name="tmg-pricing-key-value" value="0" />');
+            
+            // Retrieve Select
+            getPrintMethodSelect().on('change',function(ev) {
+                updatePricingKey();
+            });
+            getBuyOptionSelect().on('change',function(ev) {
+                updatePricingKey();
+            });
+            
+            
+        }
+        
+        var getPrintMethodSelectMapping = function () {
+            var result = {};
+            $.each(pricingKeyMapping, function(pricingKeyLabel,pricingKeyValue) {
+                $("#" + getPrintMethodSelect().attr('id') + " > option").each(function() {
+                    var optionLabel = this.text.split('+')[0].trim();
+                    if(optionLabel == pricingKeyLabel) {
+                        result[this.value] = pricingKeyValue;
+                    }
+                });
+            });
+            return result;
+        }
+        
+        var updatePricingKey = function() {
+            var printMethodSelectMap = getPrintMethodSelectMapping();
+            var printMethod = getPrintMethodSelect().val();
+            var buyOption = getBuyOptionSelect().val();
+            var pricingKey = (buyOptionSelectMap[buyOption] == '') ? printMethodSelectMap[printMethod] : buyOptionSelectMap[buyOption];
+            getPricingKeyField().val(pricingKey);
+            // console.log('printMethodSelectMap:',printMethodSelectMap,'printMethod:',printMethodSelectMap[printMethod],'buyOption:', buyOptionSelectMap[buyOption], 'pricingKey',pricingKey);
+            return;
+        }
+        
+        var getPricingKeyField = function(){
+            return $('#tmg-pricing-key-value');
+        }
+        
+        var getPrintMethodSelect = function() {
+            
+            if($printMethodSelect == undefined) {
+                var option = getOptionByTitle('Choose an Imprint Method/Option');
+                // console.log('getPrintMethodSelect', option);
+                $printMethodSelect = $('#select_' + option.id);
+            }
+            // console.log(' :::::: Mapping', printMethodSelectMap);
+            return $printMethodSelect;
+        }
+        
+        var getBuyOptionSelect = function() {
+            
+            if($buyOptionSelect == undefined) {
+                
+                var option = getOptionByTitle('Select an Option Below')
+                $buyOptionSelect = $('#select_' + option.id);
+                
+                $.each(option.items, function(i,buyOption) {
+                    var optionValue = buyOption.title  == 'Order Sample' ? 'RS' : '';
+                    buyOptionSelectMap[buyOption.option_type_id] = optionValue;
+                });
+            }
+            return $buyOptionSelect
+        }
+        
+        var getOptionByTitle = function(title) {
+            var option = {};
+            $.each(options, function(k,v) {
+                if(v.title == title) {
+                    option = v;
+                    return false;
+                }
+            });
+            return option;
+        }
+        
+        initPricingKey();
+        
+        
+    });
+    
+</script>

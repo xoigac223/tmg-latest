@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Themagnet_Orderstatus::orderstatus" title="TheMagnet Status" module="Themagnet_Orderstatus" sortOrder="51" resource="Themagnet_Orderstatus::orderstatus"/>
+        <add id="Themagnet_Orderstatus::status" title="Order Status" module="Themagnet_Orderstatus" sortOrder="10" action="themagnet_orderstatus/index/index" resource="Themagnet_Orderstatus::status" parent="Themagnet_Orderstatus::orderstatus"/>
+    </menu>
+</config>

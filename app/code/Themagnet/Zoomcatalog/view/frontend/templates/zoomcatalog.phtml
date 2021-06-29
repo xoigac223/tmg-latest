@@ -1,0 +1,77 @@
+<?php $collections =  $block->getCollection(); ?>
+<div class="section">
+	<div id="content-area">
+		<div class="content">
+			<div id="gallery_catalogs">
+				<div class="subdomain_headers">
+					<div class="frontpage-title"><?php echo $block->getCatalogPageTitle(); ?></div>
+					<div class="frontpage-subtitle"><?php echo $block->getCatalogPageSubTitle(); ?></div>
+					<div id="gallery_catalogs">
+						<div class="item-list">
+							<ul class="subcompanies-items clearfix">
+								<li>
+									<a href="/" class="view_all_buttom_subcompany active">
+										<div><?php echo __('VIEW ALL'); ?></div>
+									</a>
+								</li>
+								<li>
+									<a href="<?php echo $block->getZoomCustomizeUrl();?>?subcompany=64294" nid="64294" supplier="89" class="">
+										<img src="<?php echo $block->getZoomCatalogUrl();?>sites/default/files/Castelli-logo.png" alt="" title="">
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="inner">
+							<gallery class="nodivided catalog tile long">
+								<?php if(isset($collections['error'])):?>
+									<h2 style="text-align: center;"><?php echo isset($collections['detail'])?$collections['detail']:$collections['message'];?></h2>
+								<?php else:?>
+								<?php foreach ($collections as $obj_key =>$collection){
+										foreach ($collection as $key=>$value){
+							?>
+										<?php //echo "<pre>"; print_r($value); exit; ?>
+											<thumbnail>
+												<a href="<?php echo $value['personalize']; ?>" nid="<?php echo $value['id']; ?>">
+													<img src="<?php echo $value['images']['widepreview']; ?>" class="" >
+													<span class="preview-icon"></span>
+												</a>
+												<div class="info">
+													<div class="name" title="<?php echo $value['title']; ?>"><?php echo $value['title']; ?></div>
+													<?php 
+														$date = $value['expiration'];
+														$expirationDate = new DateTime("@$date");
+														$expiration = $expirationDate->format('F d,Y');
+													?>
+
+													<p class="exp_date"><?php echo __('Expires: ').$expiration; ?></p>
+													<div class="slimScrollDiv"><div class="description" ><?php echo $value['description']; ?>
+													</div>
+													</div>
+												</div>
+												<div class="customization">
+
+													<a href="<?php echo $block->getZoomCustomizeItemUrl($value['personalize']); ?>" target="_blank" class="button blue personalize"><?php echo __('Customize'); ?></a>
+													<a href="<?php echo $value['url']; ?>" class="has-icon button blue no-label catalog" target="_blank" original-title="Sample"><span class="icon"></span><span class="label">&nbsp;</span></a>
+													<?php if($block->getIsPdfEnable() === true):?>
+													<a href="<?php echo $block->getpdfUrl($value['id']);?>" class="has-icon button blue no-label pdf" target="_blank" original-title="Download PDF"><span class="icon"></span><span class="label">&nbsp;</span>
+													</a>
+													<?php endif;?>			
+													<div class="flags">
+														<a version="<?php echo $value['version']; ?>" href="javascript:" class="flag <?php echo $value['version']; ?> last"></a>	
+													</div>
+												</div>
+											</thumbnail>
+
+								<?php				
+										}
+									  }
+								?>
+							<?php endif;?>
+							</gallery>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

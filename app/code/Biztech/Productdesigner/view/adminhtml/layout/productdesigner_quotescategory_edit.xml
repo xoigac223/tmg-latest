@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Biztech. All rights reserved.
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <block class="Biztech\Productdesigner\Block\Adminhtml\Quotescategory\Edit\Tabs" name="biztech_quotescategory_quotescategory_edit_tabs">
+                <block class="Biztech\Productdesigner\Block\Adminhtml\Quotescategory\Edit\Tab\Main" name="biztech_productdesigner_quotescategory_edit_tab_main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">biztech_productdesigner_quotescategory_edit_tab_main</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Biztech\Productdesigner\Block\Adminhtml\Quotescategory\Edit" name="productdesigner_quotescategory_edit"/>
+        </referenceContainer>
+       
+    </body>
+</page>

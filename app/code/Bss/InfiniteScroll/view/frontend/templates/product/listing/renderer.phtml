@@ -1,0 +1,55 @@
+<?php
+/**
+ * BSS Commerce Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://bsscommerce.com/Bss-Commerce-License.txt
+ *
+ * @category   BSS
+ * @package    Bss_InfiniteScroll
+ * @author     Extension Team
+ * @copyright  Copyright (c) 2018-2019 BSS Commerce Co. ( http://bsscommerce.com )
+ * @license    http://bsscommerce.com/Bss-Commerce-License.txt
+ */
+?>
+<?php
+/** @var $block \Magento\Swatches\Block\Product\Renderer\Listing\Configurable */
+$productId = $block->getProduct()->getId();
+$helperBss = $this->helper('Bss\InfiniteScroll\Helper\Data');
+?>
+<div class="swatch-opt-<?= /* @escapeNotVerified */ $productId ?>"
+     data-role="swatch-option-<?= /* @escapeNotVerified */ $productId ?>"></div>
+
+<script type="text/x-magento-init" <?php if($helperBss->isNoDeferJs()): ?>noDeferJs<?php endif;?>>
+    {
+        "[data-role=swatch-option-<?= /* @escapeNotVerified */ $productId ?>]": {
+            "Magento_Swatches/js/swatch-renderer": {
+                "selectorProduct": ".product-item-details",
+                "onlySwatches": true,
+                "enableControlLabel": false,
+                "numberToShow": <?= /* @escapeNotVerified */ $block->getNumberSwatchesPerProduct(); ?>,
+                "jsonConfig": <?= /* @escapeNotVerified */ $block->getJsonConfig(); ?>,
+                "jsonSwatchConfig": <?= /* @escapeNotVerified */ $block->getJsonSwatchConfig(); ?>,
+                "mediaCallback": "<?= /* @escapeNotVerified */ $block->getMediaCallback() ?>",
+                "jsonSwatchImageSizeConfig": <?= /* @noEscape */ $block->getJsonSwatchSizeConfig() ?>
+            }
+        }
+    }
+</script>
+
+<script type="text/x-magento-init" <?php if($helperBss->isNoDeferJs()): ?>noDeferJs<?php endif;?>>
+    {
+        "[data-role=priceBox][data-price-box=product-id-<?= /* @escapeNotVerified */ $productId ?>]": {
+            "priceBox": {
+                "priceConfig": {
+                    "priceFormat": <?= /* @escapeNotVerified */ $block->getPriceFormatJson(); ?>,
+                    "prices": <?= /* @escapeNotVerified */ $block->getPricesJson(); ?>
+                }
+            }
+        }
+    }
+</script>

@@ -1,0 +1,198 @@
+<?php
+$product_id = $this->getRequest()->getParam('id');
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$obj_product = $objectManager->create('Magento\Catalog\Model\Product');
+$product = $obj_product->load($product_id);
+$storeManager = $objectManager->get('Magento\Store\Model\StoreManagerInterface');
+$storeid = $storeManager->getStore()->getId();
+$default_color = $this->helper('Biztech\Productdesigner\Helper\Info')->getDefaultImage($product_id);
+$printingMethod = $product->getprintingmethodattr();
+if(isset($printingMethod) && $printingMethod != '')
+{
+    $printingMethods = explode(',', $printingMethod);
+}
+?>
+<form name="customOptionFormProdSettings1" id="customOptionFormProdSettings1" data-mage-init='{"validation":{}}' onsubmit="return false" method="POST" >
+    <div class="printing-method-block" id="printing-method-block">
+        <?php
+        if($product->getprintingmethodattr() != '') {
+        if ($product->getTypeId() == 'configurable') {
+            $printingCollection = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Printingmethod\Collection')->addFieldToFilter('status', array('eq' => 1))->addFieldToFilter('store_id', array('in' => array(0, $storeid)));
+            if (count($printingCollection) != 0) {
+                ?>
+                <h3 id="quantity"><?php echo __('Printing Method'); ?></h3>
+                <?php
+            }
+        } else {
+            $simpleprintingCollection = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Simpleprintingmethod\Collection')->addFieldToFilter('status', array('eq' => 1))->addFieldToFilter('store_id', array('in' => array(0, $storeid)));
+            if (count($simpleprintingCollection) != 0) {
+                ?>
+                <h3 id="quantity"><?php echo __('Printing Method'); ?></h3>
+                <?php
+            }
+        }
+    }
+        ?>
+        <ul>
+            <?php if ($product->getTypeId() == 'configurable'): ?>
+
+                <?php
+                $printingCollection = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Printingmethod\Collection')->addFieldToFilter('status', array('eq' => 1))->addFieldToFilter('store_id', array('in' => array(0, $storeid)));
+
+                if (count($printingCollection) != 0):
+                    foreach ($printingCollection as $printing):
+                        if ($printing->getStatus() == 1 && isset($printingMethods) && in_array($printing->getId(), $printingMethods)):
+                            ?>
+                            <li>
+                                <label>
+                                    <input type="radio" name="printing_type" id="printing_type" data-code="<?php echo $printing->getPrintingCode() ?>" value="<?php echo $printing->getId(); ?>">
+                                    <?php echo $printing->getPrintingName(); ?></label>
+                            </li>
+                            <?php
+                        endif;
+                    endforeach;
+                endif;
+                ?>
+
+
+            <?php else: ?>
+
+                <?php
+                $simpleprintingCollection = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Simpleprintingmethod\Collection')->addFieldToFilter('status', array('eq' => 1))->addFieldToFilter('store_id', array('in' => array(0, $storeid)));
+
+                if (count($simpleprintingCollection) != 0):
+                    foreach ($simpleprintingCollection as $simpleprinting):
+                        if ($simpleprinting->getStatus() == 1 && isset($printingMethods) && in_array($simpleprinting->getId(), $printingMethods)):
+                            ?>
+                            <li>
+                                <label>
+                                    <input type="radio" name="printing_type" id="printing_type" data-code="<?php echo $simpleprinting->getSimpleprintingCode() ?>" value="<?php echo $simpleprinting->getId(); ?>">
+                                    <?php echo $simpleprinting->getSimpleprintingName(); ?></label>
+                            </li>
+                            <?php
+                        endif;
+                    endforeach;
+                endif;
+                ?>
+
+
+            <?php endif; ?>
+        </ul>
+
+        <?php if ($product->getTypeId() == 'configurable'): ?>
+            <?php
+            foreach ($printingCollection as $printing) {
+                if ($printing->getStatus() == 1):
+                    if (count($printingCollection) != 0):
+                        ?>
+                        <div style="display:none" class="printing-method-description" id="<?php echo $printing->getPrintingCode() . '-des' ?>">DESCRIPTION ::<?php echo $printing->getPrintingDescription(); ?></div>
+                        <?php
+                    endif;
+                endif;
+            }
+            ?>  
+        <?php else: ?>
+            <?php
+            foreach ($simpleprintingCollection as $simpleprinting) {
+                if ($simpleprinting->getStatus() == 1):
+                    if (count($simpleprintingCollection) != 0):
+                        ?>
+                        <div style="display:none" class="printing-method-description" id="<?php echo $simpleprinting->getSimpleprintingCode() . '-des' ?>">DESCRIPTION ::<?php echo $simpleprinting->getSimpleprintingDescription(); ?></div>
+                        <?php
+                    endif;
+                endif;
+            }
+            ?>
+        <?php endif; ?>
+    </div>
+    <?php
+    if ($product->getTypeId() == 'configurable') {
+        $attrs = $product->getTypeInstance(true)->getConfigurableAttributesAsArray($product);
+        $productTypeInstance = $product->getTypeInstance();
+                $usedProducts = $productTypeInstance->getUsedProducts($product);
+                foreach ($usedProducts as $used) {
+                    if ($used->getColor() == $default_color) {
+                        $availablesize[] = $used->getSize();
+                    }
+                }
+        foreach ($attrs as $attr) {
+            if (0 == strcmp("size", $attr['attribute_code'])) {
+                $sizes = $attr['values'];
+            }
+        }
+
+      
+      
+
+        foreach ($attrs as $attr):
+            ?>
+            <?php if ($attr['attribute_code'] == "color") {
+                ?>
+                <input type="hidden" id="color" value="<?php echo $attr['attribute_id']; ?>" />
+                <?php
+            }
+            ?>
+            <?php if ($attr['attribute_code'] == "size") { ?>
+
+                <?php $attributeId = $attr['attribute_id']; ?>
+                <div class="chart-size" id="size-chart" >
+                    <h3 id="quantity"><?php echo __('Quantity & Sizes'); ?></h3>
+                    <h3 id="proper-size"><?php echo __("Find your size") ?></h3>
+                   <div id="colorsize_container">
+                        <?php echo $this->getChildHtml("colorsize");
+                    ?>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
+            <?php
+        endforeach;
+        if (!isset($sizes)) {
+            ?>
+            <ul class = "messages">
+                <li id = "cart-error-msg" class = "error-msg" style = "color:red;font-size:large">
+                </li>
+            </ul>
+            <span class="qty-label">Qty</span><input type = "text" value = "1" id = "qty" class = "size-qty" data-validate = "{'required-number':true,'validate-item-quantity':{'minAllowed':1}}">
+            <?php
+        }
+        ?>
+
+        <ul class="messages">
+            <li id="cart-error-msg" class="error-msg" style="color:red;font-size:large">          
+            </li>
+        </ul>
+
+        <?php
+    }
+    ?>
+
+    <?php
+    if ($product->getTypeId() != 'configurable') {
+        ?>
+        <ul class="messages">
+            <li id="cart-error-msg" class="error-msg" style="color:red;font-size:large">          
+            </li>
+        </ul>        
+        <span class="qty-label">Qty</span><input type="text" value="1" id="qty" class="size-qty" data-validate="{'required-number':true,'validate-item-quantity':{'minAllowed':1}}">
+        <?php
+    }
+    ?>
+    <input type="hidden" id="added_products" name="added_products" value="">
+    <input type="hidden" id="added_products_price" name="added_products_price" value="">
+    <input type="hidden" id="product_color_by_side" name="product_color_by_side" value="">
+    <input type="hidden" id="total_qty" name="total_qty" value="">
+    <input type="hidden" id="isNameNumberOnly" name="isNameNumberOnly" value="">
+    <input type="hidden" id="design_id_old" name="design_id_old" value="">    
+    <button type="submit" id="cart-add" class="pd-button primary tocart"><span id="add-to-cart"><?php /* @escapeNotVerified */ echo __('Add To Cart') . " - "; ?></span><span id="total_cost"></span></button>
+
+    <div class="progress-bar-wrapper add-to-cart">
+        <div class="bar-div">
+            <span id="display1" class="display-count"></span>
+            <span id="progress_message1" class="progress-message"></span>
+        </div>
+    </div>
+</form>
+

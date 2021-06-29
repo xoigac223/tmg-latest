@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Itoris\DynamicProductOptions\Model\Rewrite\Option\Type\Select" type="Bss\DynamicProductOptionsProductionCharge\Model\Rewrite\Option\Type\Select" />
+    <type name="Magento\Tax\Model\Sales\Total\Quote\CommonTaxCollector">
+        <plugin name="bss_sales_total_quote" type="Bss\DynamicProductOptionsProductionCharge\Plugin\Model\Sales\Total\Quote\CommonTaxCollector"/>
+    </type>
+</config>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2017 Amasty (https://www.amasty.com)
+ * @package Amasty_Extrafee
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Amasty_Extrafee::css/extrafee_order_create.css"/>
+    </head>
+    <body>
+        <referenceContainer name="js">
+            <block class="Magento\Backend\Block\Template" template="Amasty_Extrafee::order/create/js.phtml" name="create"/>
+        </referenceContainer>
+        <referenceBlock name="items_grid">
+            <block class="Amasty\Extrafee\Block\Adminhtml\Order\Create\Fee" before="-" template="Magento_Sales::order/create/abstract.phtml" name="order_create_amasty_extrafee">
+                <block class="Amasty\Extrafee\Block\Adminhtml\Order\Create\Fee\Form" template="Amasty_Extrafee::order/create/extrafee/form.phtml" name="order_create_amasty_extrafee_form" as="form"/>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,15 @@
+<?php
+/**
+ * @var \Bss\LiveChat\Block\LiveChat $block
+ */
+?>
+
+<?= /** @noescape */ $block->getLiveChatConfig(); ?>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Bss_LiveChat/js/callus" : {}
+        }
+    }
+</script>

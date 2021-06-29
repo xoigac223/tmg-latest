@@ -1,0 +1,201 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Checkout\Block\Cart\Item\Renderer */
+
+$_item = $block->getItem();
+
+$params = $_item->getProduct()->getCustomOptions();
+//$params = $_item->getProduct()->getTypeInstance(true)->getOrderOptions($_item->getProduct());
+//$params = $_item->getProductOptions();
+foreach ($params as $key => $pram) {
+    if($key == 'additional_options'){
+        $designData = $pram->getData();
+        $designdata1 = unserialize($designData['value']);
+        foreach($designdata1 as $dData){
+            if($dData['code'] == 'product_design'){
+                $design_id = $dData['design_id'];
+
+               
+
+            }
+            else{
+                $design_id = '';
+            }
+        }
+    }
+    else{
+        $design_id = '';
+    }
+
+}
+
+$product = $_item->getProduct();
+$isVisibleProduct = $product->isVisibleInSiteVisibility();
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$config = $objectManager->create('Magento\Framework\App\Config\ScopeConfigInterface');
+$layout = $config->getValue('productdesigner/selectview/Selectview');
+$demo = $objectManager->create('\Magento\Store\Model\StoreManagerInterface');
+/** @var \Magento\Msrp\Helper\Data $helper */
+/** @var $block \Magento\Catalog\Block\Product\Image */
+$helper = $this->helper('Magento\Msrp\Helper\Data');
+$canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinimalPriceLessMsrp($product);
+?>
+<tbody class="cart item">
+    <tr class="item-info">
+        <td data-th="<?php echo $block->escapeHtml(__('Item')); ?>" class="col item">
+            <?php if ($block->hasProductUrl()):?>
+               <a href="<?php /* @escapeNotVerified */if($design_id != '') { if($layout == "box_view") { echo $this->getUrl('productdesigner/index/index', array('_secure' => $this->getRequest()->isSecure(),'id' => $product->getId(),'design' => $design_id)); } else { echo $this->getUrl('productdesigner/index/full', array('_secure' => $this->getRequest()->isSecure(),'id' => $product->getId(),'design' => $design_id)); } } else { echo $block->getProductUrl(); } ?>"
+                   title="<?php echo $block->escapeHtml($block->getProductName()) ?>"
+                   tabindex="-1"
+                   class="product-item-photo">
+            <?php else:?>
+                <span class="product-item-photo">
+            <?php endif;?>
+                
+
+                <?php 
+            
+
+            if($design_id != ''){
+                $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+                $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                $obj_product = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Designimages\Collection')->addFieldToFilter('design_id', Array('eq' => $design_id))->addFieldToFilter('design_image_type', 'base_high');
+                $designImages = $obj_product->getData();
+                $path = $designImages[0]['image_path'];
+                $obj_product = $objectManager->create('Magento\Catalog\Model\Product');
+                /*$product = $obj_product->load(1);*/
+                $status = $product->getStatus();
+                $url = $_imagehelper->init($product, 'cart_page_product_thumbnail')->setImageFile($path)->resize(135)->getUrl();
+
+
+                ?>
+
+            <span class="product-image-container"
+                  style="width:165px;">
+                <span class="product-image-wrapper"
+                      style="padding-bottom: 100%;">
+                    <img class="product-image-photo"
+                         
+                         src="<?php echo $url;?>"
+                         width=""
+                         height=""
+                         alt=""/></span>
+            </span>
+
+
+
+            <?php }
+            else{
+            echo $block->getImage($block->getProductForThumbnail(), 'cart_page_product_thumbnail')->toHtml(); 
+            }
+            ?>
+
+
+            <?php if ($block->hasProductUrl()):?>
+                </a>
+            <?php else: ?>
+                </span>
+            <?php endif; ?>
+            <div class="product-item-details">
+                <strong class="product-item-name">
+                    <?php if($design_id != '') { if ($block->hasProductUrl()):?>
+                        <a href="<?php /* @escapeNotVerified */ if($layout == "box_view") { echo $this->getUrl('productdesigner/index/index', array('_secure' => $this->getRequest()->isSecure(),'id' => $product->getId(),'design' => $design_id)); } else { echo $this->getUrl('productdesigner/index/full', array('_secure' => $this->getRequest()->isSecure(),'id' => $product->getId(),'design' => $design_id)); } ?>"><?php echo $block->escapeHtml($block->getProductName()) ?></a>
+                    <?php else: ?>
+                        <?php echo $block->escapeHtml($block->getProductName()) ?>
+                    <?php endif;  } else {   ?>
+                    <?php if ($block->hasProductUrl()):?>
+                        <a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl() ?>"><?php echo $block->escapeHtml($block->getProductName()) ?></a>
+                    <?php else: ?>
+                        <?php echo $block->escapeHtml($block->getProductName()) ?>
+                    <?php endif; } ?>
+                </strong>
+                <?php if ($_options = $block->getOptionList()): ?>
+                    <dl class="item-options">
+                        <?php foreach ($_options as $_option) : ?>
+                            <?php $_formatedOptionValue = $block->getFormatedOptionValue($_option) ?>
+                            <dt><?php echo $block->escapeHtml($_option['label']) ?></dt>
+                            <dd>
+                                <?php if (isset($_formatedOptionValue['full_view'])): ?>
+                                    <?php /* @escapeNotVerified */ echo $_formatedOptionValue['full_view'] ?>
+                                <?php else: 
+                                
+
+                                ?>
+                                   <?php if(isset($_option['value'])):?>
+                                    <?php echo (isset($_option['code']) && $_option['code'] == 'product_design') ? "yes" :  $_formatedOptionValue['value'] ?>
+                                    <?php endif;?>
+                                <?php endif; ?>
+                            </dd>
+                        <?php endforeach; ?>
+                    </dl>
+                <?php endif;?>
+                <?php if ($messages = $block->getMessages()): ?>
+                    <?php foreach ($messages as $message): ?>
+                        <div class="cart item message <?php /* @escapeNotVerified */ echo $message['type'] ?>"><div><?php echo $block->escapeHtml($message['text']) ?></div></div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <?php $addInfoBlock = $block->getProductAdditionalInformationBlock(); ?>
+                <?php if ($addInfoBlock): ?>
+                    <?php echo $addInfoBlock->setItem($_item)->toHtml() ?>
+                <?php endif;?>
+            </div>
+        </td>
+
+        <?php if ($canApplyMsrp): ?>
+            <td class="col msrp" data-th="<?php echo $block->escapeHtml(__('Price')); ?>">
+                <span class="pricing msrp">
+                    <span class="msrp notice"><?php /* @escapeNotVerified */ echo __('See price before order confirmation.'); ?></span>
+                    <?php $helpLinkId = 'cart-msrp-help-' . $_item->getId(); ?>
+                    <a href="#" class="action help map" id="<?php /* @escapeNotVerified */ echo($helpLinkId); ?>" data-mage-init='{"addToCart":{"helpLinkId": "#<?php /* @escapeNotVerified */ echo $helpLinkId;?>","productName": "<?php /* @escapeNotVerified */ echo $product->getName(); ?>","showAddToCart": false}}'>
+                        <span><?php /* @escapeNotVerified */ echo __("What's this?"); ?></span>
+                    </a>
+                </span>
+            </td>
+        <?php else: ?>
+            <td class="col price" data-th="<?php echo $block->escapeHtml(__('Price')); ?>">
+                <?php echo $block->getUnitPriceHtml($_item); ?>
+            </td>
+        <?php endif; ?>
+        <td class="col qty" data-th="<?php echo $block->escapeHtml(__('Qty')); ?>">
+            <div class="field qty">
+                <label class="label" for="cart-<?php /* @escapeNotVerified */ echo $_item->getId() ?>-qty">
+                    <span><?php /* @escapeNotVerified */ echo __('Qty') ?></span>
+                </label>
+                <div class="control qty">
+                    <input id="cart-<?php /* @escapeNotVerified */ echo $_item->getId() ?>-qty"
+                           name="cart[<?php /* @escapeNotVerified */ echo $_item->getId() ?>][qty]"
+                           data-cart-item-id="<?php /* @escapeNotVerified */ echo $_item->getSku() ?>"
+                           value="<?php /* @escapeNotVerified */ echo $block->getQty() ?>"
+                           type="number"
+                           size="4"
+                           title="<?php echo $block->escapeHtml(__('Qty')); ?>"
+                           class="input-text qty"
+                           maxlength="12"
+                           data-validate="{required:true,'validate-greater-than-zero':true}"
+                           data-role="cart-item-qty"/>
+                </div>
+            </div>
+        </td>
+
+        <td class="col subtotal" data-th="<?php echo $block->escapeHtml(__('Subtotal'));?>">
+            <?php if ($canApplyMsrp): ?>
+                <span class="cart msrp subtotal">--</span>
+            <?php else: ?>
+                <?php echo $block->getRowTotalHtml($_item); ?>
+            <?php endif; ?>
+        </td>
+    </tr>
+    <tr class="item-actions">
+        <td colspan="100">
+            <div class="actions-toolbar">
+                <?php /* @escapeNotVerified */ echo $block->getActions($_item) ?>
+            </div>
+        </td>
+    </tr>
+</tbody>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Customer\CustomerData\SectionPoolInterface">
+        <arguments>
+            <argument name="sectionSourceMap" xsi:type="array">
+                <item name="tmg-customer-pricing" xsi:type="string">TMG\CustomerPricing\CustomerData\CustomerPricing</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Itoris\DynamicProductOptions\Model\Rewrite\Option\Type\Select">
+        <plugin name="tmg_customer_pricing::ItorisDynamicProductOptionsModelRewriteOptionTypeSelect"
+            type="TMG\CustomerPricing\Plugin\Itoris\DynamicProductOptions\Model\Rewrite\Option\Type\SelectPlugin"/>
+    </type>
+    
+    <preference for="Magento\Customer\Model\Session" type="TMG\CustomerPricing\Model\Session" />
+</config>

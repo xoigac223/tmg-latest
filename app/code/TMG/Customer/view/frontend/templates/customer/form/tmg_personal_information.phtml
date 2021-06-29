@@ -1,0 +1,47 @@
+<?php /** @var $block \TMG\Customer\Block\Customer\Form\PersonalInformation */ ?>
+<fieldset class="fieldset create info tmg-register-personal-information" style="float: left!important;">
+    
+    <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Personal Information') ?></span></legend><br>
+    <input type="hidden" name="success_url" value="<?php /* @escapeNotVerified */ echo $block->getSuccessUrl() ?>">
+    <input type="hidden" name="error_url" value="<?php /* @escapeNotVerified */ echo $block->getErrorUrl() ?>">
+    
+    <!-- Custom Hidden -->
+    <input type="hidden" name="tmg_account_id" id="tmg_account_id" value="<?php /* @escapeNotVerified */ echo $block->getFormData()->getTmgAccountId() ?>">
+    <input type="hidden" name="tmg_encrypt_account" id="tmg_encrypt_account" value="<?php /* @escapeNotVerified */ echo $block->getFormData()->getTmgEncryptAccount() ?>">
+    <input type="hidden" name="tmg_slx_contact_id" id="tmg_slx_contact_id" value="<?php /* @escapeNotVerified */ echo $block->getFormData()->getTmgSlxContactId() ?>">
+
+    <div class="field required two-columns">
+        <label for="firstname" class="label"><span><?php /* @escapeNotVerified */ echo __('First Name') ?></span></label>
+        <div class="control">
+            <input type="text" name="firstname" autocomplete="" id="firstname"
+                   value="<?php echo $block->escapeHtml($block->getFormData()->getFirstname()) ?>"
+                   title="<?php /* @escapeNotVerified */ echo __('First Name') ?>"
+                   class="input-text" data-validate="{required:true}">
+        </div>
+        <label for="lastname" class="label"><span><?php /* @escapeNotVerified */ echo __('Last Name') ?></span></label>
+        <div class="control">
+            <input type="text" name="lastname" autocomplete="" id="lastname"
+                   value="<?php echo $block->escapeHtml($block->getFormData()->getLastname()) ?>"
+                   title="<?php /* @escapeNotVerified */ echo __('Last Name') ?>"
+                   class="input-text" data-validate="{required:true}">
+        </div>
+    </div>
+    
+    <div class="field required two-columns">
+        <label for="tmg_telephone" class="label"><span><?php /* @escapeNotVerified */ echo __('Phone (xxx) xxx-xxxx') ?></span></label>
+        <div class="control">
+            <input type="text" name="tmg_telephone" autocomplete="" id="tmg_telephone"
+                   value="<?php echo $block->escapeHtml($block->getFormData()->getTmgTelephone()) ?>"
+                   title="<?php /* @escapeNotVerified */ echo __('Phone (xxx) xxx-xxxx') ?>"
+                   class="input-text" data-validate="{required:true}">
+        </div>
+        <label for="tmg_fax" class="label"><span><?php /* @escapeNotVerified */ echo __('Fax (xxx) xxx-xxxx') ?></span></label>
+        <div class="control">
+            <input type="text" name="tmg_fax" autocomplete="" id="tmg_fax"
+                   value="<?php echo $block->escapeHtml($block->getFormData()->getTmgFax()) ?>"
+                   title="<?php /* @escapeNotVerified */ echo __('Fax (xxx) xxx-xxxx') ?>"
+                   class="input-text" data-validate="{required:false}">
+        </div>
+    </div>
+    
+</fieldset>

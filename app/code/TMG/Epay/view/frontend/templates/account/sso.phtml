@@ -1,0 +1,18 @@
+<?php 
+    /** @var \Magento\Framework\View\Element\Template $block */
+    /** @var \TMG\Epay\Helper\Config $helper */
+    $helper = $this->helper('TMG\Epay\Helper\Config');
+    $url = $helper->getCustomerSSOLinkUrl();
+?>
+<?php if($url): ?>
+<div style="padding: 1em; background-color: #dce2ed; border: 1px solid #8996c4; border-radius: 5px;">
+    <p class="text-center" style="font-size: 24px; line-height: 200%;"><strong>Due to recent security changes your
+            invoice information will now open in a new window. Click the button below to view your invoices.</strong>
+    </p>
+</div>
+<div class="ob-magnet-register-main">
+    <div id="my_invoice_frame"><a href="<?php echo $url; ?>" target="_blank" class="action save primary">View Invoices</a></div>
+</div>
+<?php else: ?>
+<div><span>You can't access your Epay account now.</span></div>
+<?php endif; ?>

@@ -1,0 +1,56 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+$block = $block->getLayout()->getBlock('itoris.reviews.tab');
+if (!$block) return;
+$size = $block->getCollectionSize();
+?>
+<div id="product-review-container" data-role="product-review"></div>
+<?php echo $block->getChildHtml('',false); ?>
+<script>
+    requirejs([
+        'jquery',
+    ], function ($) {
+        $(function(){
+            var container = jQuery('#product-review-container');
+            if(container[0]){
+                var elem =container.closest('.item').prev().children('a');
+                var text=elem.text();
+                text = text + '(<?php echo $size; ?>)';
+                elem.text(text);
+                $('.reviews-actions').on('click','.action',function(){
+                    var elem =container.closest('.item').prev().children('a');
+                    var href = $(this).attr('href');
+                    var hrefArr = href.split('#');
+                    hrefArr = hrefArr[1];
+                    if(hrefArr=='reviews'){
+                        elem.click();
+                        var id = elem.attr('id');
+                        window.location.hash='';
+                        window.location.hash='product-review-container';
+                    }else if(hrefArr=='review-form'){
+                        elem.click();
+                        window.location.hash='';
+                        window.location.hash='review-form';
+                    }
+
+                });
+                var reviewListUpdate = function(url) {
+                    container.load(url, function(){
+                        container.trigger('processStop');
+                        container.find('a').click(function(){
+                            container[0].scrollIntoView();
+                            container.trigger('processStart');
+                            reviewListUpdate(this.href);
+                            return false;
+                        });
+                    });
+                }
+                reviewListUpdate('<?php echo $block->getProductReviewUrl(); ?>');
+            }
+        });
+    });
+</script>
+

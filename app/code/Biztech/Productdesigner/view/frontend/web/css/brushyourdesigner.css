@@ -1,0 +1,110 @@
+.resp-vtabs .resp-tabs-list li { background-color: #000333; }
+.resp-vtabs li.resp-tab-active{background-color: #fff;}
+.productdesigner-view.fluid-layout .tab-design .selected a { color: #1979c3;}
+.tab-design li.selected { border-color: #000333; }
+.tab-design li:hover { border-color: #000333; }
+.design-browse { background-color: #000333;}
+.productdesigner-view button {background-color: #cc2525;}
+.productdesigner-view .note-msg, .productdesigner-view .notice-msg{color: #cc2525;}
+.desgin-detail h4 { color: #cc2525;}
+
+
+.block-special .pd-button:hover { background: #cc2525; }
+.pd-header .f-right .button.back-store { background-color: #cc2525; }
+.pd-header .f-right .button { background-color: #cc2525;}
+.pd-header .social-share { background-color: #cc2525; }
+.pd-header .social-share li a { background-color: #cc2525; }
+.desgin-detail .load-more a:hover { background: #cc2525; }
+.desgin-detail h4 a { color: #cc2525;}
+.desgin-detail h6 a:hover { color: #cc2525;}
+.product-sides > h4, .product-colors > h4 { color: #cc2525;}
+.special-title .label { color: #cc2525;}
+.tab-detail1.selected1, .custom-inner li:hover{ color: #cc2525; border-color: #cc2525; }
+.tab-detail1.selected1 a, .custom-inner li:hover a { color: #cc2525; }
+.pd-left-panel .group-orders .pd-button.btn-add:hover { background-color: #cc2525; }
+.desgin-name-number .name-content { background-color: #cc2525;}
+.layers .layer-btn { background: #cc2525;}
+.share-save .social-icons { background: #cc2525 none repeat scroll 0 0;}
+.pd-container .price-detail{background-color: #cc2525;}
+#designs_box .pd-button:hover { background-color: #cc2525; }
+.desgin-detail .color-container{border-color: #cc2525;}
+#add_btn_stroke_config .color-container, .desgin-detail .text-bgcolor-container, .color-container.text-shadowcolor-container {border-color: #cc2525;}
+.desgin-detail .color-container:before { border-bottom-color: #cc2525 !important;}
+.color-container .color-img:hover { border-color: #cc2525; }
+.desgin-detail .font_effects .color-container:before, .desgin-detail1 .font_effects .color-container:before {border-top-color: #cc2525;}
+.pd-button {background-color: #cc2525;}
+.pd-button:hover, .btn-clear:hover, .productdesigner-view button:focus { background-color: #000333; }
+.block-special .pd-button { background: #000333;}
+.productdesigner-view .color-pallet button:hover, .text-stroke-color:hover { background: #000333; }
+.pd-header{ border-color: #000333;}
+.pd-header .f-right .button.back-store:hover { background-color: #000333; }
+.pd-header .f-right .button:hover { background-color: #000333; }
+.desgin-detail .product_list li.selected { border-color: #000333; }
+.desgin-detail .product_list li a:hover { color: #000333; }
+.desgin-detail .load-more a { background: #000333;}
+.desgin-detail h6 a { color: #000333; }
+.resp-tabs-container #close_tabs { background: #000333; border-color: #000333; }
+.pd-left-panel .selectric-items li.level-0 { background-color: #000333; }
+.product-sides li:hover, .product-sides li.selected, .desgin-detail .product-name { border-color: #000333; }
+.font-controls li button:hover { background: #000333;}
+.tab-design a:hover { color: #000333; }
+.pd-left-panel .group-orders .pd-button.btn-add { background-color: #000333;}
+.desgin-name-number .name-content .value { background: #000333;}
+.productdesigner-view .dialog .magento_title { color: #000333; }
+.layers_manager {border-color: #000333;}
+.layers_manager:before { border-right-color: #000333; }
+.layers_manager li.layer-title:first-child { background: #000333; }
+.layers .layer-btn:hover { background: #000333; }
+.layers_manager:before { border-left-color: #000333 !important;}
+.preview-option .zoom_count span { color: #000333; }
+.preview-option li:hover { background: #000333; }
+.share-save  .social-icons > a:hover { background-color: #000333; }
+.product-controls li:hover { background-color: #000333; }
+#designs_box .pd-button { background-color: #000333; }
+.pd-right-panel .product-colors img.selected {border-color: #000333;}
+.font-controls .selected { background: #000333 none repeat scroll 0 0;}
+#customOptionFormProdSettings #proper-size { color: #000333; }
+.printing-method-description { border-color: #000333; color: #000333;}
+
+.productdesigner-view .remove-mask .pd-button{ background-color: #cc2525; }
+.productdesigner-view .remove-mask .pd-button:hover{ background-color: #000333; }
+
+
+
+.sent-to-frnd-btn a{ display: inline-block; padding: 8px 12px; color: #fff; border: none;background-color : #cc2525;cursor:pointer}
+.sent-to-frnd-btn a:hover{ background-color: #000333; color: #fff; border:none !important;}
+.pd-button.action.back {background: #000333;}
+
+
+.pd-container .block-btn-process button, 
+.pd-left-panel .resp-tabs-container .btn-clear, 
+.pd-left-panel .resp-tabs-container #image_upload_btn, 
+.pd-left-panel .resp-tabs-container .login-store-img, 
+.pd-right-panel .panel-control .pd-button, 
+.productdesigner-login .actions-toolbar .pd-button, 
+#receipent-mail-container .sent-to-frnd-btn a, 
+.load_more_clipart, 
+.load_more_shapes, 
+.load_more_masking, 
+.load_more_products, 
+.load_more_templates, 
+#product-designer .share-save .social-icons a, 
+.share-save .social-icons .label{background-color :#cc2525 !important;}
+
+.pd-container .block-btn-process button:hover, 
+.pd-left-panel .resp-tabs-container .btn-clear:hover, 
+.pd-left-panel .resp-tabs-container #image_upload_btn:hover, 
+.pd-left-panel .resp-tabs-container .login-store-img:hover, 
+.pd-right-panel .panel-control .pd-button:hover, 
+.productdesigner-login .actions-toolbar .pd-button:hover, 
+#receipent-mail-container .sent-to-frnd-btn a:hover, 
+.load_more_clipart:hover, 
+.load_more_shapes:hover, 
+.load_more_masking:hover, 
+.load_more_products:hover, 
+.load_more_templates:hover, 
+#product-designer .share-save .social-icons a:hover, 
+.share-save .social-icons .label:hover{background-color :#000333 !important;}
+
+
+.productdesigner-view.fluid-layout .tab-design .selected a{color :#cc2525 !important;}

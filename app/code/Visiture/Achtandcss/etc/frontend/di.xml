@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <virtualType name="Visiture\Achtandcss\Model\CcConfigProvider" type="Magento\Payment\Model\CcGenericConfigProvider">
+        <arguments>
+            <argument name="methodCodes" xsi:type="array">
+                <item name="visiture_cc" xsi:type="const">Visiture\Achtandcss\Model\Payment\Cc::CODE</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Visiture\Achtandcss\Model\AchtConfigProvider" type="Magento\Payment\Model\CcGenericConfigProvider">
+        <arguments>
+            <argument name="methodCodes" xsi:type="array">
+                <item name="visiture_acht" xsi:type="const">Visiture\Achtandcss\Model\Payment\Acht::CODE</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="visiture_cc_config_provider" xsi:type="object">Visiture\Achtandcss\Model\CcConfigProvider</item>
+                <item name="visiture_acht_config_provider" xsi:type="object">Visiture\Achtandcss\Model\AchtConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Edit Personal Information</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="customer_edit">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">TMG_Customer::customer/form/edit.phtml</argument>
+            </action>
+            <container name="form.additional.info" as="form_additional_info"/>
+        </referenceBlock>
+    </body>
+</page>

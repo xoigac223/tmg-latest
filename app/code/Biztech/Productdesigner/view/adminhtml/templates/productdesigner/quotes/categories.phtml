@@ -1,0 +1,41 @@
+<div id ="quotes_container" class="quotes_container">
+    <?php
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $model = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Quotescategory\Collection')->addFieldToFilter("is_root_category", array("eq" => 1))->addFieldToFilter("status", array("eq" => 1));
+
+
+    $quote_categories = $model->getData();
+
+    $defaultCatId = $block->getDefaultQuotesCategory();
+    ?>
+    <ul id="quotes_categories_container">
+        <li>
+            <select id="quote_categories" name="quotes_category_id" class="quote-categories">
+                <?php foreach ($quote_categories as $quotescategory): ?>
+                    <?php $root_cat_id = $quotescategory['quotescategory_id']; ?>
+                    <option value="<?php echo $root_cat_id; ?>" <?php if ($defaultCatId == $root_cat_id): echo "selected";
+                endif; ?>><?php echo $quotescategory['category_title']; ?></option>
+                    <?php
+                    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                    $model = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Quotescategory\Collection')->addFieldToFilter("is_root_category", array("eq" => 0))->addFieldToFilter("parent_categories", array("eq" => $root_cat_id))->addFieldToFilter("status", array("eq" => 1));
+                    $quote_sub_categories = $model->getData();
+                    
+                    ?>
+                    <?php foreach ($quote_sub_categories as $quote_sub_category): ?>
+                        <option value="<?php echo $quote_sub_category['quotescategory_id']; ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $quote_sub_category['category_title']; ?></option>
+                    <?php endforeach; ?>
+                <?php endforeach; ?>
+            </select>
+        </li>
+    </ul>
+
+</div>
+
+<script type="text/javascript">
+      require(['jquery', 'jquery/ui'], function ($) {
+        var $j = jQuery.noConflict();
+        $j(function () {
+            $j('#quote_categories').selectric();
+        });
+    });
+</script>

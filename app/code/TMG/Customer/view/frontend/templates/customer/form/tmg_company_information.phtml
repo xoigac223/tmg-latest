@@ -1,0 +1,37 @@
+<?php /** @var $block \TMG\Customer\Block\Customer\Form\CompanyInformation */ ?>
+
+<?php $readonly = ($block->getIsReadonly())  ? ' readonly="readonly" ' : ''; ?>
+
+<fieldset class="fieldset create tmg-register-company-information" style="float: left!important;" >
+    <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Company Information') ?></span></legend><br>
+    <div class="field required one-column">
+        <label for="tmg_company_name" class="label"><span><?php /* @escapeNotVerified */ echo __('Company Name') ?></span></label>
+        <div class="control">
+            <input type="text" name="tmg_company_name" autocomplete="false" <?php echo $readonly; ?> id="tmg_company_name" value="<?php echo $block->escapeHtml($block->getFormData()->getTmgCompanyName()) ?>" title="<?php /* @escapeNotVerified */ echo __('Company Name') ?>" class="input-text" data-validate="{required:false}">
+        </div>
+    </div>
+    <div class="field required two-columns">
+        <label for="tmg_magnet_account_id" class="label"><span><?php /* @escapeNotVerified */ echo __('The Magnet Group') ?></span></label>
+        <div class="control">
+            <input type="text" name="tmg_magnet_account_id" autocomplete="false" <?php echo $readonly; ?> id="tmg_magnet_account_id" value="<?php echo $block->escapeHtml($block->getFormData()->getTmgMagnetAccountId()) ?>" title="<?php /* @escapeNotVerified */ echo __('The Magnet Group') ?>" class="input-text" data-validate="{required:false}">
+        </div>
+    </div>
+    <div class="field required two-columns">
+        <label for="tmg_asi_account_id" class="label"><span><?php /* @escapeNotVerified */ echo __('ASI') ?></span></label>
+        <div class="control">
+            <input type="text" name="tmg_asi_account_id" autocomplete="false" <?php echo $readonly; ?> id="tmg_asi_account_id" value="<?php echo $block->escapeHtml($block->getFormData()->getTmgAsiAccountId()) ?>" title="<?php /* @escapeNotVerified */ echo __('ASI') ?>" class="input-text" data-validate="{required:false}">
+        </div>
+    </div>
+    <div class="field required two-columns">
+        <label for="tmg_ppai_account_id" class="label"><span><?php /* @escapeNotVerified */ echo __('PPAI') ?></span></label>
+        <div class="control">
+            <input type="text" name="tmg_ppai_account_id" autocomplete="false" <?php echo $readonly; ?> id="tmg_ppai_account_id" value="<?php echo $block->escapeHtml($block->getFormData()->getTmgPpaiAccountId()) ?>" title="<?php /* @escapeNotVerified */ echo __('PPAI') ?>" class="input-text" data-validate="{required:false}">
+        </div>
+    </div>
+    <div class="field required two-columns">
+        <label for="tmg_sage_account_id" class="label"><span><?php /* @escapeNotVerified */ echo __('SAGE') ?></span></label>
+        <div class="control">
+            <input type="text" name="tmg_sage_account_id" autocomplete="false" <?php echo $readonly; ?> id="tmg_sage_account_id" value="<?php echo $block->escapeHtml($block->getFormData()->getTmgSageAccountId()) ?>" title="<?php /* @escapeNotVerified */ echo __('SAGE') ?>" class="input-text" data-validate="{required:false}">
+        </div>
+    </div>
+</fieldset>

@@ -1,0 +1,20 @@
+.amasty_extrafee {
+    margin-bottom: 30px;
+}
+.amasty_extrafee .amasty-extrafee-fees {
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+.amasty_extrafee .amasty-extrafee-title {
+    font-weight: 700;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+.amasty_extrafee .amasty-extrafee-options {
+    margin: 0 0 16px;
+}
+.amasty_extrafee .action-secondary {
+    float:none;
+    margin: 0;
+    width: 170px;
+}

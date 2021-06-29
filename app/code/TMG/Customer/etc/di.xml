@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Customer\Model\AccountManagement">
+        <plugin name="tmg_customer::MagentoCustomerModelAccountManagement" type="TMG\Customer\Plugin\Customer\Model\AccountManagementPlugin"/>
+    </type>
+    <type name="Magento\Customer\Model\ResourceModel\CustomerRepository">
+        <plugin name="tmg_customer::MagentoCustomerModelResourceModelCustomerRepository" type="TMG\Customer\Plugin\Customer\Model\ResourceModel\CustomerRepositoryPlugin"/>
+    </type>
+    <type name="Magento\Customer\Controller\Account\EditPost">
+        <plugin name="tmg_customer::MagentoCustomerControllerAccountEditPost" type="TMG\Customer\Plugin\Customer\Controller\Account\EditPostPlugin"/>
+    </type>
+    <type name="Magento\Customer\Model\ResourceModel\AddressRepository">
+        <plugin name="tmg_customer::MagentoCustomerModelResourceModelAddressRepository" type="TMG\Customer\Plugin\Customer\Model\ResourceModel\AddressRepositoryPlugin"/>
+    </type>
+    <type name="Magento\Customer\Controller\Address\FormPost">
+        <plugin name="tmg_customer::MagentoCustomerControllerAddressFormPost" type="TMG\Customer\Plugin\Customer\Controller\Address\FormPostPlugin"/>
+    </type>
+
+    <!--<preference for="Magento\Customer\Api\Data\CustomerInterface" type="TMG\Customer\Api\Data\CustomerInterface" />-->
+    <!--<preference for="TMG\Customer\Api\Data\CustomerInterface" type="TMG\Customer\Model\Rewrite\Customer\Data\Customer" />-->
+    <!--<preference for="Magento\Customer\Api\Data\AddressInterface" type="TMG\Customer\Api\Data\AddressInterface" />-->
+    <!--<preference for="TMG\Customer\Api\Data\AddressInterface" type="TMG\Customer\Model\Rewrite\Customer\Data\Address" />-->
+
+</config>

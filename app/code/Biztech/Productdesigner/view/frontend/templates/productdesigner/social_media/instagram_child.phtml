@@ -1,0 +1,30 @@
+
+<?php
+$insta_code = $this->getInstaCode();
+$user_id = $this->getUserId();
+
+
+
+?>
+<script type="text/javascript">
+	
+	var insta_code = '<?php echo $insta_code?>';
+	var user_id = '<?php echo $user_id?>';
+		
+	/*if(window.opener != null){
+		eval(window.opener.document.getElementById('insta_code').value = insta_code);
+		eval(self.close());	
+	}*/
+
+	window.foo = function()
+	{
+		if(window.opener != null){
+			window.opener.document.getElementById('insta_code').value = insta_code;
+			window.opener.document.getElementById('user_id').value = user_id;
+			window.opener.getInstaMedia();
+
+
+		}
+	};
+	foo();
+</script>

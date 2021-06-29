@@ -1,0 +1,53 @@
+<?php
+/**
+ * BSS Commerce Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://bsscommerce.com/Bss-Commerce-License.txt
+ *
+ * @category   BSS
+ * @package    Bss_InfiniteScroll
+ * @author     Extension Team
+ * @copyright  Copyright (c) 2018-2019 BSS Commerce Co. ( http://bsscommerce.com )
+ * @license    http://bsscommerce.com/Bss-Commerce-License.txt
+ */
+?>
+<?php
+/**
+ * Product list toolbar
+ *
+ * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
+ */
+?>
+<?php
+$helper = $this->helper('Bss\InfiniteScroll\Helper\Data');
+?>
+<?php if ($block->getCollection()->getSize()) : ?>
+    <div class="toolbar toolbar-products" data-mage-init='<?php /* @escapeNotVerified */ echo $block->escapeHtml($block->getWidgetOptionsJson()); ?>'>
+        <?php if ($block->isExpanded()) : ?>
+            <?php echo $block->getChildHtml('catalog_viewmode'); ?>
+        <?php endif; ?>
+
+        <?php
+        if ($helper->checkActive()) {
+            $block->getChildBlock('bss_amount')->setCollection($block->getCollection());
+            echo $block->getChildHtml('bss_amount');
+        } else {
+            $block->getChildBlock('catalog_amount')->setCollection($block->getCollection());
+            echo $block->getChildHtml('catalog_amount');
+        }
+        ?>
+
+        <?php echo $block->getPagerHtml() ?>
+
+        <?php echo $block->getChildHtml('catalog_limiter'); ?>
+
+        <?php if ($block->isExpanded()) : ?>
+            <?php echo $block->getChildHtml('catalog_sorter');?>
+        <?php endif; ?>
+    </div>
+<?php endif ?>

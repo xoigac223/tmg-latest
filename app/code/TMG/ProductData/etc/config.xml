@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <tmg_product_data>
+            <inventory_service>
+                <wsdl_url>https://api.themagnetgroup.com/inventory/InventoryService.svc?wsdl</wsdl_url>
+                <ws_version>1.2.1</ws_version>
+                <debug_mode>1</debug_mode>
+            </inventory_service>
+            <customer_pricing_service>
+                <wsdl_url>https://api.themagnetgroup.com/CustomerPricing/CustomerPricingService.svc?wsdl</wsdl_url>
+                <debug_mode>1</debug_mode>
+            </customer_pricing_service>
+        </tmg_product_data>
+    </default>
+</config>

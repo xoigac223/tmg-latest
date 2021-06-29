@@ -1,0 +1,23 @@
+& when (@media-common = true) {
+	#bss-ptd-table tfoot { 
+		.delete {
+			display: inline-block;
+	    	text-decoration: none;
+	    	float: right;
+		}
+		.delete:before {
+			content: '\e604';
+		    -webkit-font-smoothing: antialiased;
+		    font-size: 18px;
+		    line-height: 20px;
+		    color: #8f8f8f;
+		    font-family: 'luma-icons';
+		    vertical-align: middle;
+		    display: inline-block;
+		    font-weight: normal;
+		    overflow: hidden;
+		    speak: none;
+		    text-align: center;
+		}
+	}
+}

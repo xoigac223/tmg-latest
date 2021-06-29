@@ -1,0 +1,46 @@
+<?php $value = $block->checkConnection();?>
+<?php if($value !== true):?>
+<?php $url = $this->getUrl('adminhtml/system_config/edit/section/themagnet'); $redirect = ', Please check login detail <a href="'.$url.'" target="_blank">click here</a>';?>
+<span style="color: red"><?php echo __($value.$redirect);?></span>
+<?php else: ?>
+<script type="text/javascript">
+function redirectSimple(){
+    window.location.href='<?php echo $block->getPostUrl() ?>';
+}
+function redirectConfig(){
+    window.location.href='<?php echo $block->getPostUrlConfig() ?>';
+}
+</script>
+<?php $simpleFile = $this->isLokExixts('simple');
+      $configFile = $this->isLokExixts('config');
+      $simpleDisable = "";
+      $ConfigDisable = "";
+?>
+<div>
+    <?php if($simpleFile == false && $configFile == false):?>
+        <p><?php echo __('You need to import simple product first'); ?></p>
+        <p><?php echo __('after simple you import configurable product'); ?></p>
+        <?php $ConfigDisable = 'disabled="disabled"'; ?>
+    <?php elseif($simpleFile == true && $configFile == false):?>
+        <p><?php echo __('Simple product already imported'); ?></p>
+        <p><?php echo __('You nedd to import configurable product'); ?></p>
+        <?php $simpleDisable = 'disabled="disabled"'; ?>
+    <?php elseif($simpleFile == true && $configFile == true):?>
+        <p><?php echo __('Simple and configurable product already imported'); ?></p>
+        <?php $simpleDisable = 'disabled="disabled"'; ?>
+        <?php $ConfigDisable = 'disabled="disabled"'; ?>
+    <?php endif;?>
+</div>
+<div class="actions-toolbar page-actions-buttons" style="float: left;">
+    <div class="action-default primary">
+        <button type="button" onclick="redirectSimple()" <?php echo $simpleDisable;?> class="action submit primary" title="<?php echo __('Import Simple') ?>">
+            <span><?php echo __('Import Simple') ?></span>
+        </button>
+    </div>
+    <div class="action-default primary">
+        <button type="button" onclick="redirectConfig()" class="action submit primary" <?php echo $ConfigDisable;?> title="<?php echo __('Import Config') ?>">
+            <span><?php echo __('Import Config') ?></span>
+        </button>
+    </div>
+</div>
+<?php endif; ?>

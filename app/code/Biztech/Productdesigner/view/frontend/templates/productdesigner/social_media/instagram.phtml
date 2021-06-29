@@ -1,0 +1,79 @@
+<input type="hidden" name="insta_code" id="insta_code">
+<input type="hidden" name="user_id" id="user_id">
+<?php
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$config = $objectManager->create('Magento\Framework\App\Config\ScopeConfigInterface');
+$instaClientID = $config->getValue('productdesigner/social_media_upload/instagram_clientid');
+?>
+<?php echo $this->getLayout()->createBlock("Magento\Framework\View\Element\Template")->setTemplate("Biztech_Productdesigner::productdesigner/social_media/instagram_child.phtml")->toHtml();?>
+
+
+
+<script type="text/javascript">
+
+
+  function onclickInstgram(){
+
+  var instaClientID = '<?php echo $instaClientID?>';
+  
+  var instagramResUrl  = '<?php echo $this->getUrl('productdesigner/index/resInstagram', array('_secure' => $this->getRequest()->isSecure())); ?>';
+
+    var validateURL = "https://api.instagram.com/oauth/authorize/?client_id="+instaClientID+"&redirect_uri="+instagramResUrl+"&response_type=code&scope=public_content";
+    instawindow = window.open(validateURL, 'instagram', 'height=500,width=600');
+
+  }
+  function getInstaMedia(){
+    instawindow.close();
+    jQuery('#pd_loading_img_social').show();
+    var instaToken = jQuery('#insta_code').val();
+    var userId = jQuery('#user_id').val();
+    var aurl = 'https://api.instagram.com/v1/users/'+userId+'/media/recent?access_token='+instaToken;
+
+
+    jQuery.ajax({
+        type: "GET",
+        dataType: "jsonp",
+        cache: false,
+        url: aurl,
+        success: function(data)  {
+          
+          jQuery('#insta_package').show();
+          jQuery('#facebook_package').hide();
+          
+          jQuery("#insta_ul").html('');
+          var insta_photos = jQuery("#insta_ul");
+          for (var i = 0; i < data.data.length; i++){ 
+            var insta_li = document.createElement('li');
+            var insta_img = document.createElement('img');
+            insta_img.setAttribute('src', data.data[i].images.thumbnail.url);
+            insta_img.setAttribute('data-orig-url', data.data[i].images.standard_resolution.url);
+            insta_img.setAttribute('class', 'insta-image');
+            insta_li.append(insta_img);
+            insta_photos.append(insta_li);
+            jQuery('#pd_loading_img_social').hide();
+
+          }
+        }
+    });
+
+
+
+
+
+
+  }
+
+</script>
+
+
+
+<div id="insta_package" style="">
+  <ul id="insta_ul" class="insta_ul product_list">
+  </ul>
+</div>
+
+
+
+
+

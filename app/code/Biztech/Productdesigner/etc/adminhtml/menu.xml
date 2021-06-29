@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Biztech. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Backend/etc/menu.xsd">
+    <menu>
+
+        <add id="biztech_productdesigner::base" title="Product Designer" module="Biztech_Productdesigner" sortOrder="40" resource="Biztech_Productdesigner::sample"/>
+        
+        <add id="biztech_Productdesigner::masking" title="Manage Masking Images" module="Biztech_Productdesigner" sortOrder="10" parent="biztech_productdesigner::base" action="productdesigner/masking/" resource="Biztech_Productdesigner::masking"/>
+        
+        <add id="biztech_Productdesigner::clipart" title="Manage Cliparts" module="Biztech_Productdesigner" sortOrder="10" parent="biztech_productdesigner::base" action="productdesigner/clipart/" resource="Biztech_Productdesigner::clipart"/>
+        
+        <add id="biztech_Productdesigner::shapes" title="Manage Shapes" module="Biztech_Productdesigner" sortOrder="10" parent="biztech_productdesigner::base" action="productdesigner/shapes/" resource="Biztech_Productdesigner::shapes"/>
+        
+        <add id="biztech_Productdesigner::fonts" title="Manage Fonts" module="Biztech_Productdesigner" sortOrder="10" parent="biztech_productdesigner::base" action="productdesigner/fonts/edit/" resource="Biztech_Productdesigner::fonts"/>               
+
+        <add id="biztech_Productdesigner::quotecategory" title="Manage Quotes Category" module="Biztech_Productdesigner" sortOrder="10" parent="biztech_productdesigner::base" action="productdesigner/quotescategory/" resource="Biztech_Productdesigner::quotescategory"/>
+        
+        <add id="biztech_Productdesigner::quotes" title="Manage Quotes" module="Biztech_Productdesigner" sortOrder="10" parent="biztech_productdesigner::base" action="productdesigner/quotes/" resource="Biztech_Productdesigner::quotes"/>
+        
+        <!-- <add id="biztech_Productdesigner::designtemplate" title="Manage Design Templates" module="Biztech_Productdesigner" sortOrder="10" parent="biztech_productdesigner::base" action="productdesigner/designtemplates/" resource="Biztech_Productdesigner::designtemplates"/> -->
+        
+        <!-- <add id="biztech_Productdesigner::designtemplatecategory" title="Manage Design Templates Category" module="Biztech_Productdesigner" sortOrder="10" parent="biztech_productdesigner::base" action="productdesigner/designtemplatecategory/" resource="Biztech_Productdesigner::designtemplatecategory"/> -->
+        
+
+        <add id="biztech_Productdesigner::side" title="Manage Image Side" module="Biztech_Productdesigner" sortOrder="10" parent="biztech_productdesigner::base" action="productdesigner/side/" resource="Biztech_Productdesigner::side"/>
+
+        <!-- <add id="biztech_Productdesigner::simpleprintingmethod" title="Manage Simple Printing Method" module="Biztech_Productdesigner" sortOrder="11" parent="biztech_productdesigner::base" action="productdesigner/simpleprintingmethod/" resource="Biztech_Productdesigner::simpleprintingmethod"/> -->
+
+        <!-- <add id="biztech_Productdesigner::printingmethod" title="Manage Printing Method" module="Biztech_Productdesigner" sortOrder="11" parent="biztech_productdesigner::base" action="productdesigner/printingmethod/" resource="Biztech_Productdesigner::printingmethod"/> -->
+
+        <!-- <add id="biztech_Productdesigner::colors" title="Manage Color Counter" module="Biztech_Productdesigner" sortOrder="11" parent="biztech_productdesigner::base" action="productdesigner/colors/" resource="Biztech_Productdesigner::colors"/> -->
+
+        <!-- <add id="biztech_Productdesigner::areasize" title="Manage Area Size" module="Biztech_Productdesigner" sortOrder="11" parent="biztech_productdesigner::base" action="productdesigner/areasize/" resource="Biztech_Productdesigner::areasize"/> -->
+
+
+        <add id="biztech_Productdesigner::pcolor" title="Manage Printable Color" module="Biztech_Productdesigner" sortOrder="11" parent="biztech_productdesigner::base" action="productdesigner/pcolor/" resource="Biztech_Productdesigner::pcolor"/>
+
+    </menu>
+</config>

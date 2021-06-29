@@ -1,0 +1,27 @@
+<?php
+/**
+ * Copyright © 2017-2018 AppJetty. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php /* @var $block \Biztech\Productdesigner\Block\System\Config\ImportMasking */ ?>
+<script type="text/javascript">
+    //<![CDATA[
+    function importimprintcolorsxml() {
+        var data = {};
+        new Ajax.Request('<?php echo $this->getUrl('productdesigner/system_config/importimprintcolorsxml/'); ?>', {
+            method: 'get',
+            parameters: data,
+            onSuccess: function(transport) {
+                alert("Imprint Colors imported successfully!");
+            },
+            onFailure: function(transport) { 
+                debugger;
+                var json = transport.responseText;
+                obj = JSON.parse(json);
+                alert(obj.error_message);
+            }
+        });
+    }
+</script>
+<?php echo $block->getButtonHtml() ?>

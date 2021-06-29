@@ -1,0 +1,44 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+
+//IXF: save the be_ixf_client.php file to your server, then use "require" to include it in your template.
+require BP .'/be_ixf_client.php';
+use BrightEdge\BEIXFClient;
+
+//IXF: the following array and constructor must be placed before any HTML is written to the page.
+$be_ixf_config = array(
+    BEIXFClient::$CAPSULE_MODE_CONFIG => BEIXFClient::$REMOTE_PROD_CAPSULE_MODE,
+    BEIXFClient::$ACCOUNT_ID_CONFIG => "f00000000173731",
+    BEIXFClient::$WHITELIST_PARAMETER_LIST_CONFIG => "ixf",
+);
+$be_ixf = new BEIXFClient($be_ixf_config);
+?>
+<!doctype html>
+
+<html <?php /* @escapeNotVerified */ echo $htmlAttributes ?>>
+    <head <?php /* @escapeNotVerified */ echo $headAttributes ?>>
+        <?php
+        //IXF: place getHeadOpen just inside of the HTML head, used for to append SEO-related header elements.
+        print $be_ixf->getHeadOpen();
+        ?>
+        <?php /* @escapeNotVerified */ echo $requireJs ?>
+        <?php /* @escapeNotVerified */ echo $headContent ?>
+        <?php /* @escapeNotVerified */ echo $headAdditional ?>
+    </head>
+    <body data-container="body" data-mage-init='{"loaderAjax": {}, "loader": { "icon": "<?php /* @escapeNotVerified */ echo $loaderIcon; ?>"}}' <?php /* @escapeNotVerified */ echo $bodyAttributes ?>>
+        <?php /* @escapeNotVerified */ echo $layoutContent ?>
+    </body>
+    <?php
+    //IXF: place getBodyOpen and close just inside of the HTML body, used for to append SEO-related body elements.
+    print $be_ixf->getBodyOpen();
+    print $be_ixf->close();
+    ?>
+</html>

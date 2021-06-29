@@ -1,0 +1,39 @@
+<div id ="shapes_container" class="shapes_container">
+    <?php
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $model = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Shapes\Collection')->addFieldToFilter("is_root_category", array("eq" => 1))->addFieldToFilter("status", array("eq" => 1));
+    $shape_categories = $model->getData();
+    $defaultCatId = $block->getDefaultShapesCategory();
+    ?>
+    <ul id="shapes_categories_container">
+        <li>            
+            <select id="shapes_categories" class="shapes-categories" name="shapes_category_id">
+                <?php foreach ($shape_categories as $shape_category): ?>
+                    <?php $root_cat_id = $shape_category['shapes_id']; ?>
+                    <option value="<?php echo $root_cat_id; ?>" <?php if ($defaultCatId == $root_cat_id): echo "selected";
+                endif; ?>><?php echo $shape_category['shapes_title']; ?></option>
+                    <?php
+                    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                    $model = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Shapes\Collection')->addFieldToFilter("is_root_category", array("eq" => 0))->addFieldToFilter("parent_categories", array("eq" => $root_cat_id))->addFieldToFilter("status", array("eq" => 1));
+                    $shapes_sub_categories = $model->getData();
+                    ?>
+                    <?php foreach ($shapes_sub_categories as $shape_sub_category): ?>
+                        <option value="<?php echo $shape_sub_category['shapes_id']; ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $shape_sub_category['shapes_title']; ?></option>
+                    <?php endforeach; ?>
+<?php endforeach; ?>
+            </select>
+        </li>
+        <li>
+            <input type="text" class="input-text" placeholder="Search by tags" id="search_tag_field_shape" name="search_tag_field_shape">
+        </li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    require(['jquery', 'jquery/ui'], function ($) {
+        var $j = jQuery.noConflict();
+        $j(function () {
+            $j('#shapes_categories').selectric();
+        });
+    });
+</script>

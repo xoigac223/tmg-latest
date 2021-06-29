@@ -1,0 +1,150 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+/** @var $block \Magento\Backend\Block\Media\Uploader */
+
+
+
+?>
+
+
+
+<div id="fonts_gallery_content"
+     class='gallery'
+     data-mage-init='{"productGallery":{"template":"#fonts_gallery_content-template"}}'
+     data-images="<?php /* @escapeNotVerified */ echo $block->escapeHtml($block->getImagesJson()) ?>"
+     data-types=""
+    >
+    <!-- uploader.phtml -->  
+    <div class="image image-placeholder clipart-wrapper" id="font-upload">
+            <!-- uploader.phtml -->
+            <div id="fonts_uploader" class="uploader">
+                <div class="fileinput-button form-buttons button">
+                    <span><?php /* @escapeNotVerified */ echo __('Browse Files...') ?></span>
+                    <input id="fileupload" type="file" name="fonts-image"
+                        data-url="<?php /* @escapeNotVerified */ echo $this->getUrl('productdesigner/fonts_gallery/upload') ?>" multiple="multiple"/>
+                </div>
+                <div class="clear"></div>
+                <script id="fonts_uploader-template" type="text/x-magento-template">
+                    
+                </script>
+            </div>
+            <img class="spacer"
+                     src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/spacer.gif')?>"/>
+            <p class="image-placeholder-text">
+                    <?php /* @escapeNotVerified */ echo __('Click here or drag and drop to add fonts.');
+            ?></p>
+    </div>
+    <script>
+        require([
+            "jquery",
+            'mage/template',
+            'Magento_Ui/js/modal/alert',
+            "mage/translate",
+            "jquery/file-uploader"
+        ], function ($, mageTemplate, alert) {
+
+
+        $('#fileupload').fileupload({
+
+            dataType: 'json',
+            dropZone: '[data-tab-panel=image-management]',
+            sequentialUploads: true,
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+            add: function (e, data) {
+
+                
+                var progressTmpl = mageTemplate('#fonts_uploader-template'),
+                        fileSize,
+                        tmpl;
+
+
+                $.each(data.files, function (index, file) {
+                        
+                        fileSize = typeof file.size == "undefined" ?
+                            $.mage.__('We could not detect a size.') :
+                            //byteConvert(file.size);
+
+                        data.fileId = Math.random().toString(33).substr(2, 18);
+
+                        tmpl = progressTmpl({
+                            data: {
+                                name: file.name,
+                                size: fileSize,
+                                id: data.fileId
+                            }
+                        });
+
+                        $(tmpl).appendTo('#fonts_uploader');
+                });
+
+                $(this).fileupload('process', data).done(function () {
+                    data.submit();
+                });
+            },
+            done: function (e, data) {
+                
+                $('#fonts_gallery_content').trigger('addItem', data.result);
+            },
+        });
+           
+        $('#fileupload').fileupload('option', {
+                process: [{
+                    action: 'load',
+                    fileTypes: /^image\/(gif|jpeg|png)$/
+                }, {
+                    action: 'resize',
+                    maxWidth: <?php /* @escapeNotVerified */ echo \Magento\Framework\File\Uploader::MAX_IMAGE_WIDTH ?> ,
+                    maxHeight: <?php /* @escapeNotVerified */ echo \Magento\Framework\File\Uploader::MAX_IMAGE_HEIGHT ?>
+                }, {
+                    action: 'save'
+                }]
+        }); 
+
+
+        });
+    </script>
+    <!-- uploader.phtml -->  
+
+
+
+<script id="fonts_gallery_content-template" type="text/x-magento-template">
+        <div class="image item clipart-wrapper <% if (data.disabled == 1) { %>hidden-for-front<% } %>"
+             data-role="image">
+             <input type="hidden"
+                   name="fonts[<%- data.file %>][fonts_id]"
+                   value="<%- data.fonts_id %>"
+                   class="path"/>
+            <input type="hidden"
+                   name="fonts[<%- data.file %>][file]"
+                   value="<%- data.file %>"
+                   class="path"/>
+            
+            <input type="text"
+                   name="fonts[<%- data.file %>][label]"
+                   value="<%- data.font_label %>"
+                   class="fonts-label" placeholder="Label" readonly />
+            <input type="text" value="<%- data.position %>" class="clipart-sort" name="fonts[<%- data.file %>][sort]" placeholder="Position"/>
+
+            <span><?php /* @escapeNotVerified */ echo __('Remove');?></span>
+            <input type="checkbox"
+                   name="fonts[<%- data.file %>][remove]"
+                   value="<%- data.state %>"
+                   class="fonts-remove"/>
+
+                   <span><?php /* @escapeNotVerified */ echo __('Exclude');?></span>
+            <input type="checkbox" class="clipart-exclude" name="fonts[<%- data.file %>][exclude]" <% if (data.disabled == 1) { %>checked<% } %>/>
+            
+            
+        </div>
+</script>
+    
+
+
+
+
+

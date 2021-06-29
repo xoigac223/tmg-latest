@@ -1,0 +1,334 @@
+<?php
+
+$params = $this->getRequest()->getParams();
+$design_id = $params['design_id'];
+$order_id = $params['order_id'];
+
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$designImages = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Designimages\Collection')->addFieldToFilter('design_id',
+                array('eq' => $design_id))->getData();
+$designDetail = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Designs\Collection')->addFieldToFilter('design_id',
+                array('eq' => $design_id))->getData();
+
+$LayersData = json_decode($designDetail[0]['layers'],
+        true);
+$LayerImagesData = json_decode($designDetail[0]['layer_images'],
+        true);
+
+//Check for allow to download SVG and not to allow download for text, png,jpeg,gif  
+   $allowDownloadSVG = 0;
+   
+   foreach($LayerImagesData as $key => $_layerImage):
+
+    $layerdata = pathinfo($_layerImage['url']); 
+
+        if (isset($layerdata['extension'])) {
+          if($layerdata['extension'] == "svg"){
+              $allowDownloadSVG = 1;
+          }else{
+              $allowDownloadSVG = 0;
+          }
+        }else{
+              $allowDownloadSVG = 0;
+          }
+   endforeach;   
+
+   //var_dump($allowDownloadSVG);
+
+
+
+
+
+$customer_comments = $designDetail[0]['customer_comments'];
+$groupOrderDetail = $designDetail[0]['group_order_details'];
+$groupOrderDetail = json_decode($groupOrderDetail,
+        true);
+//        $requirejsConfig = $this->getObjectManager()->get('\Magento\Framework\RequireJs\Config')->getConfigFileRelativePath();
+//        $basePath = $this->getObjectManager()->get('\Biztech\Easymaintenance\Model\Config')->getStoreManager()->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_STATIC);
+//        echo 'bingo';
+//        echo $requirejsConfig;
+?>
+
+
+<div class="content-header">
+
+    <table cellspacing="0">
+
+        <tr>
+
+            <td style="width:74%;">
+
+                <h3><?php echo __("View Designs") ?></h3></td>
+
+            <td class="form-buttons">
+
+                <button  type="button" onclick="location.href = ('<?php echo $this->getUrl('productdesigner/Productdesigner/downloadAllImages') ?>design_id/<?php echo $design_id; ?>/order_id/<?php echo $order_id; ?>')" title="Download All"><span><span><?php echo __('Download All'); ?></span></span></button>
+
+                <button  type="button" onclick="location.href = ('<?php echo $this->getUrl('productdesigner/fonts/convertSvgToPDf') ?>design_id/<?php echo $design_id; ?>/order_id/<?php echo $order_id; ?>')" title="Download All Images"><span><span><?php echo __('Download All Images and PDFs'); ?></span></span></button>
+
+            </td></tr>
+
+    </table>
+
+</div>
+
+<div class="grid">
+
+    <div class="hor-scroll">
+
+
+
+        <table class="data iew custom-design" cellspacing="0">
+
+            <tr>
+
+                <?php
+                //$path = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'productdesigner/designs/catalog/product/'; 
+                $demo = $objectManager->create('\Magento\Store\Model\StoreManagerInterface');
+                $path = $demo->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'productdesigner/designs/catalog/product/';
+                ?>
+                <?php
+                    
+
+                ?>
+                <?php foreach ($designImages as $designImage): 
+                
+                ?>
+
+                    <?php 
+                    // if ($designImage['design_image_type'] == 'base_high' || $designImage['design_image_type'] == 'canvas_large_image' || (($designImage['design_image_type'] == 'svg_image') && ($allowDownloadSVG == 1)) ): 
+
+                    if ($designImage['design_image_type'] == 'base_high' || $designImage['design_image_type'] == 'canvas_large_image' || (($designImage['design_image_type'] == 'svg_image')) ): 
+
+
+                        ?>
+
+                        <td align="center" valign="middle" type="<?php echo $designImage['design_image_type']?>">
+                              <?php
+                                   $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of object manager
+                                $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+                                $conn = $resource->getConnection();
+                                $tableName = $resource->getTableName('catalog_product_entity_media_gallery_value'); //gives table name with prefix
+                                $sql = "Select * FROM " . $tableName . " WHERE value_id = " . $designImage['product_image_id'] . ";";
+                                $_galleryImgs =  $conn->fetchAll($sql);
+                                
+                   $sidecollection = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Side\Collection')->addFieldToFilter('imageside_id', $_galleryImgs[0]['image_side']);
+                                 $sidecollectionData = $sidecollection->getData();
+                                ?>
+                               <h4><?php echo __('Image Side: '); ?><?php  echo  $sidecollectionData[0]['imageside_title'];?></h4>
+                            <?php if ($designImage['design_image_type'] == 'base_high'): ?>
+                                <img src="<?php echo $path . 'base' . $designImage['image_path']; ?>" alt="" >
+                            <?php //else: ?>
+                            <?php endif; ?>
+
+                            <?php if ($designImage['design_image_type'] == 'canvas_large_image'): ?>
+                                <img src="<?php echo $path . 'orig' . $designImage['image_path']; ?>" alt="" >
+                            <?php endif; ?>
+
+
+                            <?php if($designImage['design_image_type'] == 'svg_image'): 
+
+                            ?>
+                                <img src="<?php echo $path.'orig'.$designImage['image_path'];   ?>" alt="" >
+                            <?php endif;?>
+
+                            
+
+                              <div class=" view-designs-buttons">
+                              
+                            <?php if($designImage['design_image_type'] == 'svg_image'):?>
+                            <button  type="button" onclick="location.href = ('<?php echo $this->getUrl('productdesigner/fonts/downloadLayerPdf') ?>image_key/<?php echo $key ?>/order_id/<?php echo $order_id;?>/design_id/<?php echo $design_id; ?>')" title="Download PDF"><span><span><?php echo __('Download PDF'); ?></span></span></button>
+                            <?php else:?>
+
+                            <button  type="button" onclick="location.href = ('<?php echo $this->getUrl('productdesigner/Productdesigner/downloadImage') ?>image_id/<?php echo $designImage['image_id'] ?>/order_id/<?php echo $order_id; ?>')" title="Download Image"><span><span><?php echo __('Download PDF'); ?></span></span></button>
+                                
+                        <?php endif;?>
+                        <?php if($designImage['design_image_type'] == 'svg_image'):?>
+                            <button  type="button" onclick="location.href = ('<?php echo $this->getUrl('productdesigner/Productdesigner/downloadDesignImage') ?>image_id/<?php echo $designImage['image_id'] ?>/order_id/<?php echo $order_id; ?>')" title="Download SVG"><span><span><?php echo __('Download SVG'); ?></span></span></button>  
+                        <?php else:?>
+
+                            <button  type="button" onclick="location.href = ('<?php echo $this->getUrl('productdesigner/Productdesigner/downloadDesignImage') ?>image_id/<?php echo $designImage['image_id'] ?>/order_id/<?php echo $order_id; ?>')" title="Download Image"><span><span><?php echo __('Download Image'); ?></span></span></button>  
+                        <?php endif;?>
+
+
+                              </div>
+
+                        </td>
+
+                    <?php endif; ?>
+
+                <?php endforeach; ?>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<?php if ($customer_comments != NULL): ?>
+    <div class="content-header">
+        <table cellspacing="0">
+            <tr>
+                <td style="width:50%;">
+                    <h3><?php echo __("Customer Comments") ?></h3></td>
+            </tr>
+        </table>
+    </div>
+    <div class="grid">
+        <div class="hor-scroll">
+
+            <h4><?php echo __("Customer Comments: ") ?></h4>
+            <?php echo $customer_comments; ?>
+
+        </div>
+    </div>
+<?php endif; ?>
+<div class="group-order-details-wrapper">
+<?php if (count($groupOrderDetail) > 0): ?>
+    <div class="content-header">
+        <table cellspacing="0">
+            <tr>
+                <td style="width:50%;">
+                    <h3><?php echo __("Group Order Details") ?></h3></td>
+            </tr>
+        </table>
+    </div>
+    <div class="grid">
+        <div class="hor-scroll product-designer-admin-table">
+
+            <table class="data" cellspacing="0" style="margin-top: 10px;" border="1">
+                <thead>
+                    <tr class="headings">
+                        <th><?php echo __('Name'); ?></th>
+                        <th><?php echo __('Number'); ?></th>
+                        <th><?php echo __('Size'); ?></th>                       
+                        <th><?php echo __('Quantity'); ?></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $attribute = $objectManager->create('Magento\Eav\Model\Entity\Attribute');
+                    $attributeId = $attribute->getIdByCode('catalog_product',
+                            'size');
+
+                    $attributeOptions = $objectManager->create('Magento\Eav\Model\ResourceModel\Entity\Attribute\Option\Collection')->setAttributeFilter($attributeId)
+                            ->setStoreFilter()
+                            ->load();
+                    ?>
+                    <?php foreach ($groupOrderDetail as $value): ?>
+
+                        <?php
+                        $optionId = $value['size'];
+
+                        foreach ($attributeOptions as $attributeOption) {
+                            if ($attributeOption->getOptionId() == $optionId) {
+                                $optionTitle = $attributeOption->getDefaultValue();
+                            }
+                        }
+                        ?>
+                        <tr class="pointer">
+                            <td><?php if (isset($value['name'])) {
+                    echo $value['name'];
+                } ?></td>
+                            <td><?php if (isset($value['number'])) {
+                    echo $value['number'];
+                } ?></td>
+                            <td><?php if (isset($optionTitle)) {
+                    echo $optionTitle;
+                } ?></td>                          
+                            <td><?php if (isset($value['qty'])) {
+                    echo $value['qty'];
+                } ?></td>
+
+                        </tr>
+    <?php endforeach; ?>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+<?php endif; ?>
+    </div>
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td style="width:50%;">
+                <h3><?php echo __("Layers Designs") ?></h3></td>
+        </tr>
+    </table>
+</div>
+<div class="grid">
+    <div class="hor-scroll">
+        <table class="data iew custom-design" cellspacing="0">
+            <tr>
+                        <?php
+                        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                        $mediaUrl = $objectManager->get('Magento\Store\Model\StoreManagerInterface')
+                                    ->getStore()
+                                    ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+                         foreach ($LayerImagesData as $key => $_layerImage):
+                            $sidecollection = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Side\Collection')->addFieldToFilter('imageside_id', $_layerImage['image_side']);
+                                $sidecollectionData = $sidecollection->getData();
+                            ?>
+                    <td align="center" valign="middle">
+                        <h4><?php echo __('Image Side: '); ?><?php  echo  $sidecollectionData[0]['imageside_title'];?></h4>
+                        <div class="product-design">
+                            <img src="<?php echo $mediaUrl.$_layerImage['url']; ?>" alt="">
+                        </div>
+
+                        <div class="product-design-option">
+                            <?php if (isset($_layerImage['clipartLabel'])) { ?>
+                                <span><h4><?php echo __('Clipart Name: '); ?><?php echo $_layerImage['clipartLabel']; ?></h4></span>
+                                <?php
+                            }
+
+                            if (isset($_layerImage['artLabel'])) {
+                                ?>
+                                <span><h4><?php echo __('Design Name: '); ?><?php echo $_layerImage['artLabel']; ?></h4></span>
+                                <?php
+                            }
+                            if (isset($_layerImage['textObj']['fontFamily'])) {
+                                ?>
+                                <span><h4><?php echo __('Font Family: '); ?><?php echo $_layerImage['textObj']['fontFamily']; ?></h4></span>
+                                <?php
+                            }
+
+                            if (isset($_layerImage['colorName'])) {
+                                if ($_layerImage['type'] == 'text') {
+                                    ?>
+                                    <span><h4><?php echo __('Color Code: '); ?><?php echo $_layerImage['colorName']; ?></h4>
+
+                                    </span>
+                                        <?php
+                                    }
+                                }
+                                ?>
+                            <div class="buttons-set">
+    <?php
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $mediaUrl = $objectManager->get('Magento\Store\Model\StoreManagerInterface')
+                                    ->getStore()
+                                    ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+   
+    
+    $imgtype = getimagesize($mediaUrl.$_layerImage['url']);
+    if ($imgtype) {
+        ?>
+                                    <button  type="button" onclick="location.href = ('<?php echo $this->getUrl('productdesigner/Productdesigner/downloadLayerPdf') ?>image_key/<?php echo $key; ?>/order_id/<?php echo $order_id; ?>/design_id/<?php echo $design_id; ?>')" title="Download PDF"><span><span><?php echo __('Download PDF'); ?></span></span></button>
+    <?php } else { ?>
+                                    <button  type="button" onclick="location.href = ('<?php echo $this->getUrl('productdesigner/fonts/downloadLayerPdf') ?>image_key/<?php echo $key; ?>/order_id/<?php echo $order_id; ?>/design_id/<?php echo $design_id; ?>')" title="Download PDF"><span><span><?php echo __('Download PDF'); ?></span></span></button>
+                    <?php } ?>
+                                <button  type="button" onclick="location.href = ('<?php echo $this->getUrl('productdesigner/Productdesigner/downloadLayerImage') ?>image_key/<?php echo $key; ?>/order_id/<?php echo $order_id; ?>/design_id/<?php echo $design_id; ?>')" title="Download Image"><span><span><?php echo __('Download Image'); ?></span></span></button>
+                            </div>
+                        </div>
+
+
+                    </td>
+
+<?php endforeach; ?>
+
+            </tr>
+        </table>
+    </div>
+</div>

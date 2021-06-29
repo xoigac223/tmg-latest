@@ -1,0 +1,170 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$obj_product = $objectManager->create('Magento\Catalog\Model\Product');
+$productData = $_product->getPreLoadedTemplate();
+$config = $objectManager->create('Magento\Framework\App\Config\ScopeConfigInterface');
+$layout = $config->getValue('productdesigner/selectview/Selectview');
+$attrid = '';
+?>
+<?php if ($_product->isSaleable()): ?>
+    <div class="box-tocart">
+        <div class="fieldset">
+            <?php if ($block->shouldRenderQuantity()): ?>
+                <div class="field qty">
+                    <label class="label" for="qty"><span><?php /* @escapeNotVerified */ echo __('Qty') ?></span></label>
+                    <div class="control">
+                        <input type="number"
+                               name="qty"
+                               id="qty"
+                               maxlength="12"
+                               value="<?php /* @escapeNotVerified */ echo $block->getProductDefaultQty() * 1 ?>"
+                               title="<?php /* @escapeNotVerified */ echo __('Qty') ?>" class="input-text qty"
+                               data-validate="<?php echo $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                               />
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div class="actions">
+                <button type="submit"
+                        title="<?php /* @escapeNotVerified */ echo $buttonTitle ?>"
+                        class="action primary tocart"
+                        id="product-addtocart-button">
+                    <span><?php /* @escapeNotVerified */ echo $buttonTitle ?></span>
+                </button>
+                <?php echo $block->getChildHtml('', true) ?>
+            </div>
+        </div>
+    </div>
+    <?php $isPdEnable = $this->helper('Biztech\Productdesigner\Helper\Info')->isPdEnable($_product->getId()); ?>
+    <?php if (isset($isPdEnable) && $isPdEnable) : ?>
+<?php 
+    if($_product->getTypeId() == 'configurable')
+    {
+        $attributesetid = $_product->getAttributeSetId();
+        $defaultattribute = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Configurableattributes\Collection')->addFieldToFilter('attribute_set_id', $attributesetid)->getFirstItem()->getData();
+        if (isset($defaultattribute['default_attributes'])) {
+            $attrid = $objectManager->create('\Magento\Eav\Model\Entity\Attribute')->loadByCode('catalog_product',$defaultattribute['default_attributes'])->getAttributeId();
+        }
+    }
+
+$product_type = $_product->getTypeId();
+$product_images = $_product->getAllMediaGalleryImages();
+$grouped_product_images = array();
+$grouped_product_images = $product_images;
+$is_set_designarea = 0;
+
+foreach ($grouped_product_images as $product_image) {
+    $obj_product = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Selectionarea\Collection')->addFieldToFilter('image_id', $product_image->getValueId());
+    $dimensions = $obj_product->getData();
+    if ($is_set_designarea == 0) {
+        if ($dimensions && $product_image->getDisabled()==1)  {
+            $is_set_designarea = 1;
+        }
+    }
+}
+?>
+<?php
+ if (isset($isPdEnable) && $isPdEnable && $this->helper('Biztech\Productdesigner\Helper\Data')->isEnable()) : ?>
+<?php if ($is_set_designarea == 1): ?>
+<a onclick="javascript:redirect('<?php if ($layout == 'box_view'): ?><?php echo $this->getUrl('productdesigner/index/index', array('_secure' => $this->getRequest()->isSecure(), 'id' => $_product->getId(), 'templateid' => $productData)); ?><?php else: ?><?php echo $this->getUrl('productdesigner/index/full', array('_secure' => $this->getRequest()->isSecure(), 'id' => $_product->getId(), 'templateid' => $productData)); ?><?php endif; ?>')" href="javascript:void(0)" class="action primary tocart" id="product-addtocart-button"  title="<?php echo __("Design It"); ?>"><?php echo __("Design It"); ?></a>
+<?php endif ?>
+<?php endif ?>
+    <?php endif; ?>
+<?php endif; ?>
+<?php if ($block->isRedirectToCartEnabled()) : ?>
+    <script type="text/x-magento-init">
+        {
+        "#product_addtocart_form": {
+        "Magento_Catalog/product/view/validation": {
+        "radioCheckboxClosest": ".nested"
+        }
+        }
+        }
+    </script>
+<?php else : ?>
+    <script>
+        require([
+            'jquery',
+            'mage/mage',
+            'Magento_Catalog/product/view/validation',
+            'Magento_Catalog/js/catalog-add-to-cart'
+        ], function ($) {
+            'use strict';
+
+            $('#product_addtocart_form').mage('validation', {
+                radioCheckboxClosest: '.nested',
+                submitHandler: function (form) {
+                    var widget = $(form).catalogAddToCart({
+                        bindSubmit: false
+                    });
+
+                    widget.catalogAddToCart('submitForm', $(form));
+
+                    return false;
+                }
+            });
+        });
+    </script>
+<?php endif; ?>
+<script>    
+    var custom = 0;    
+    var defaultattribute = 0;  
+    var defaultattributevalue = 0;
+    function redirect(url) {                     
+        var attrid = '<?php echo $attrid ?>';
+        if (jQuery('#product_addtocart_form').serializeArray()) {
+
+
+        for (var index in jQuery('#product_addtocart_form').serializeArray()) {            
+            if (jQuery('#product_addtocart_form').serializeArray()[index].name != undefined) {
+                var tmp_options = jQuery('#product_addtocart_form').serializeArray()[index].name.indexOf("options");
+                var tmp_super = jQuery('#product_addtocart_form').serializeArray()[index].name.indexOf("super");
+                if(tmp_options != -1)
+                {
+                    if(tmp_options != -1)
+                    {
+                        if(jQuery('#product_addtocart_form').serializeArray()[index].value != '')
+                        {
+                            custom = 1;
+                        }
+                    } else if(tmp_super != -1) {       
+                        if(jQuery('#product_addtocart_form').serializeArray()[index].value != '')
+                        {             
+                            if(jQuery('#product_addtocart_form').serializeArray()[index].name.substring(jQuery('#product_addtocart_form').serializeArray()[index].name.indexOf('[')+1,jQuery('#product_addtocart_form').serializeArray()[index].name.indexOf(']')) == attrid)
+                            {
+                                defaultattribute = 1;
+                                defaultattributevalue = jQuery('#product_addtocart_form').serializeArray()[index].value;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+        if(custom == 1)
+        {   
+            url = url+'customoption/'+btoa(JSON.stringify(jQuery('#product_addtocart_form').serializeArray()));
+        }  
+        if(defaultattribute == 1)
+        {
+            if(custom == 1)
+            {
+                url = url+'/defaultattributevalue/'+defaultattributevalue;
+            } else {
+                url = url+'defaultattributevalue/'+defaultattributevalue;
+            }
+        }                                     
+        window.location  = url;
+    }
+</script>

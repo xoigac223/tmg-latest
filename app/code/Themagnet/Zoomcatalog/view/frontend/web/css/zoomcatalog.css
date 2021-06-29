@@ -1,0 +1,312 @@
+
+
+#gallery_catalogs .frontpage-title {
+    font-size: 22px;
+    text-align: center;
+    line-height: 1.333em;
+    font-weight: bolder;
+    padding: 15px;
+    text-transform: uppercase;
+    color: #8B8D8D;
+}
+
+#gallery_catalogs .frontpage-subtitle {
+    font-size: 17px;
+    text-align: center;
+    line-height: 1.333em;
+    font-weight: normal;
+    padding: 0 20px 15px;
+     color: #8B8D8D;
+}
+
+
+#gallery_catalogs thumbnail {
+    width: 48%;
+    border: 1px solid #8B8D8D;
+    box-shadow: 0 0px 0px 0px #ccc;
+    -moz-box-shadow: 0 0px 0px 0px #ccc;
+    -webkit-box-shadow: 0 0px 0px 0px #ccc;
+    float: left;
+    background: white;
+    padding: 20px;
+    margin: 10px;
+    position: relative;
+}
+
+#gallery_catalogs thumbnail > a {
+    color: #337ab7;
+    text-decoration: none;
+    text-align: center;
+    line-height: 0px;
+    height: 215px;
+    width: 165px;
+    margin: 0px 22px 0px 0px;
+    border: 0px;
+    border: 1px solid #8B8D8D;
+    border-top: 3px solid #8B8D8D;
+    border-bottom: 3px solid #8B8D8D;
+    float: left;
+    position: relative;
+}
+
+#gallery_catalogs thumbnail > a .preview-icon{
+background: url(../images/fx.png) no-repeat;
+bottom: 0;
+height: 46px;
+position: absolute;
+right: 0;
+width: 76px;
+z-index: 5;
+display: none;
+text-align: center;
+line-height: 296px;
+
+}
+#gallery_catalogs thumbnail > a:hover .preview-icon{
+	display: block;
+}
+
+#gallery_catalogs thumbnail img{
+	width: 100%;
+}
+
+#gallery_catalogs thumbnail .name {
+    font-family: Helvetica, Tahoma, Arial, sans-serif;
+    font-weight: bolder;
+    font-size: 15px;
+    color: #8B8D8D;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#gallery_catalogs thumbnail .exp_date {
+    color: #8B8D8D;
+    margin-bottom: 12px;
+}
+
+#gallery_catalogs .description {
+    font-family: MyriadPro-Regular, Helvetica, Tahoma, Arial, sans-serif !important;
+    font-size: 14px;
+    color: #666;
+}
+
+ #gallery_catalogs .button{
+    float: right;
+    color: #fff;
+    padding: 8px 10px;
+    height: initial;
+    line-height: initial;
+    font-size: 13px;
+    background: #00A2E1;
+    border: none;
+    text-shadow: none;
+    border-radius: 3px;
+    margin-left: 8px;
+    text-decoration: none;
+    font-weight: 600;
+   
+}
+#gallery_catalogs .button .icon{
+	background:url(../images/btnsv2_objects.png) no-repeat;
+	background-position: -9px -39px;
+	display: inline-block;
+    position: absolute;
+    margin: 0px 0 0 -2px;
+    width: 20px;
+    height: 20px;
+}
+
+#gallery_catalogs .button.pdf .icon{
+    background-position: -9px -7px;
+}
+
+.flags .US{
+	background:url(../images/flags-cube-small2.png) no-repeat;
+	background-position: 0 0;
+	display: inline-block;
+  	width: 39px;
+    height: 39px;
+    float: right;
+}
+
+.flags .CA {
+    background-position: 0 -37px;
+    background:url(../images/flags-cube-small2.png) no-repeat;
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    float: right;
+}
+
+.flags .US-CA {
+    background-position: 0 -148px;
+    background:url(../images/flags-cube-small2.png) no-repeat;
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    float: right;
+}
+
+.flags .EU {
+    background-position: 0 -74px;
+    background:url(../images/flags-cube-small2.png) no-repeat;
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    float: right;
+}
+
+.flags .GBR {
+    background-position: 0 -111px;
+    background:url(../images/flags-cube-small2.png) no-repeat;
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    float: right;
+}
+
+.flags .AUS {
+    background-position: 0 -185px;
+    background:url(../images/flags-cube-small2.png) no-repeat;
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    float: right;
+}
+
+.flags .UK {
+    background-position: 0 -111px;
+    background:url(../images/flags-cube-small2.png) no-repeat;
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    float: right;
+}
+
+.flags .NZL {
+    background-position: 0 -259px;
+    background:url(../images/flags-cube-small2.png) no-repeat;
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    float: right;
+}
+
+.flags .ZAF {
+    background-position: 0 -222px;
+    background:url(../images/flags-cube-small2.png) no-repeat;
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    float: right;
+}
+
+.flags .FR {
+    background-position: 0 -296px;
+    background:url(../images/flags-cube-small2.png) no-repeat;
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    float: right;
+}
+
+.flags .ER {
+    background-position: 0 -333px;
+    background:url(../images/flags-cube-small2.png) no-repeat;
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    float: right;
+}
+
+.flags .DE {
+    background-position: 0 -370px;
+    background:url(../images/flags-cube-small2.png) no-repeat;
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    float: right;
+}
+
+.flags .IT {
+    background-position: 0 -407px;
+    background:url(../images/flags-cube-small2.png) no-repeat;
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    float: right;
+}
+
+ul.subcompanies-items{
+	text-align: center;
+	padding: 0;
+}
+ul.subcompanies-items li {
+    display: inline-block;
+   
+
+}
+
+ul.subcompanies-items li a {
+    display: block;
+    border: 1px solid #EEE;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    overflow: hidden;
+    height: 52px;
+    width: 120px;
+    font-size: 16px;
+    line-height: 52px;
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+ul.subcompanies-items li a:hover, ul.subcompanies-items li a.active{
+	border: 1px solid #999;
+}
+.view_all_buttom_subcompany div {
+    color: #8B8D8D;
+}
+.zoomcatalog-index-index .page-title-wrapper{
+	display: none;
+}
+
+.customization {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    width: 100%;
+}
+
+@media(max-width: 991px){
+	#gallery_catalogs thumbnail{
+		width: 47%;
+		min-height: 328px;
+	}
+
+	.customization {
+    position: static;
+    right: 0;
+    bottom: 12px;
+    width: 100%;
+    margin-top: 20px;
+    float: left;
+	}
+}
+
+@media(max-width: 767px){
+	ul.subcompanies-items{
+		padding: 0;
+	}
+	#gallery_catalogs thumbnail{
+		width: 95%;
+		padding: 15px;
+	}
+	#gallery_catalogs thumbnail > a{
+		height: auto;
+	}
+
+	
+}

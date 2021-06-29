@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>   
+
+        <!-- <script src="Biztech_Productdesigner::js/window_ext.js"/>
+        <script src="Biztech_Productdesigner::js/window_effects.js"/>
+        <script src="Biztech_Productdesigner::js/window.js"/> -->
+        <!-- <script src="Biztech_Productdesigner::js/prototype.js"/> -->
+
+         <!-- <script src="Biztech_Productdesigner::js/cropper.js"/>  
+         <css src="Biztech_Productdesigner::css/cropper.css
+        "/> -->
+        <!--link src="Magento_Catalog::js/product-gallery.js" remove='true' />-->
+        <css src="Biztech_Productdesigner::css/productdesigner.css"/>               
+        
+         <script src="Biztech_Productdesigner::js/cropper-jquery.js"/>  
+         <link src="Biztech_Productdesigner::js/requirejs.js"/>
+         <!--<link src="Biztech_Productdesigner::js/product-gallery.js"/>-->
+         <css src="Biztech_Productdesigner::css/cropper-jquery.css"/>
+        
+
+    </head>  
+                              
+    
+    <update handle="catalog_product_new"/>
+    <body>
+        <referenceBlock name="page.title">
+            <action method="setTitleClass">
+                <argument name="class" xsi:type="string">complex</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="page.main.actions">
+            <block class="Magento\Backend\Block\Store\Switcher" name="store_switcher">
+                <action method="setUseConfirm">
+                    <argument name="params" xsi:type="string">1</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

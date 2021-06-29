@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<section id="carriers" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1000" translate="label">
+			<group id="pfedexups" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>Customer Shipping Account</label>
+				<field id="active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Enabled</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="name" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+					<label>Method Name</label>
+				</field>
+				<field id="price" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="text">
+					<label>Default charge per product</label>
+                    <comment>Default 3rd party charge for single product.</comment>
+					<validate>validate-number validate-zero-or-greater</validate>
+				</field>
+				<field id="sort_order" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="text">
+					<label>Sort Order</label>
+				</field>
+				<field id="shippingmessage" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="42" translate="label" type="text">
+					<label>Customer shipping section Title</label>
+				</field>
+				<field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label" type="text">
+					<label>Title</label>
+				</field>
+				<field id="sallowspecific" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="60" translate="label" type="select">
+					<label>Ship to Applicable Countries</label>
+					<frontend_class>shipping-applicable-country</frontend_class>
+					<source_model>Magento\Shipping\Model\Config\Source\Allspecificcountries</source_model>
+				</field>
+				<field id="specificcountry" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="70" translate="label" type="multiselect">
+					<label>Ship to Specific Countries</label>
+					<can_be_empty>1</can_be_empty>
+					<source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+				</field>
+				<field id="specificerrmsg" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="80" translate="label" type="textarea">
+					<label>Displayed Error Message</label>
+				</field>
+                <field id="allow3partychargeattr" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="54" translate="label" type="select">
+                    <label>Customer Third-Party Shipping Attribute</label>
+                    <comment>select a customer attribute which is used to enable/disable 3rd party charge.</comment>
+                    <source_model>Visiture\PersonalFedexUpsAccount\Model\Config\Source\Allow3partychargeattr</source_model>
+                </field>
+                <field id="product3partyfeeattr" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="56" translate="label" type="select">
+                    <label>Product Third-Party Shipping Attribute</label>
+                    <comment>select a product attribute which is used to store 3rd party charge.</comment>
+                    <source_model>Visiture\PersonalFedexUpsAccount\Model\Config\Source\Product3partyfeeattr</source_model>
+                </field>
+                <field id="productbrandoptionstoexclude" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="58" translate="label" type="multiselect">
+                    <label>Excluded Brand(s)</label>
+                    <comment>select brand type options for them not to use 3rd party charge.</comment>
+                    <source_model>Visiture\PersonalFedexUpsAccount\Model\Config\Source\ExcludedOptions</source_model>
+                </field>
+            </group>
+		</section>
+	</system>
+</config>

@@ -1,0 +1,110 @@
+<?php
+$category_id = $this->getCatId();
+$image = 'category_page_list';
+if ($category_id == null) {
+    //$category_id = $block->getProductDefaultCategory();
+}
+    $limit = (intval(filter_input(INPUT_GET, 'limit')) != 0 ) ? filter_input(INPUT_GET, 'limit') : 6;
+    $offset = (intval(filter_input(INPUT_GET, 'offset')) != 0 ) ? filter_input(INPUT_GET, 'offset') : 0;
+    $category_id = (intval(filter_input(INPUT_GET, 'cat_id')) != 0 ) ? filter_input(INPUT_GET, 'cat_id') : $this->getCatId();
+?>
+
+<?php if ($category_id) : ?>
+    <?php
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+    $obj_product = $objectManager->create('Magento\Catalog\Model\Category');
+    $category = $obj_product->load($category_id);
+
+
+    $products = $category->getProductCollection();
+
+    $products->addAttributeToSelect('*')->addAttributeToFilter('visibility', array("neq" => 1));
+    $products->addAttributeToFilter('status', array("eq" => 1));
+    $products->addAttributeToFilter('type_id', array("in" => array('simple', 'configurable')));
+    $products->addAttributeToFilter('enable_product_designer', array("eq" => 1));
+     if ($limit) {
+            $products->setPageSize($limit);
+        }
+    //$layout = $block->getView();
+    $config = $objectManager->create('Magento\Framework\App\Config\ScopeConfigInterface'); 
+    $layout = $config->getValue('productdesigner/selectview/Selectview'); 
+
+    //Mage::getSingleton('cataloginventory/stock')->addInStockFilterToCollection($products);  
+    ?>
+
+    <ul id="product_list" class="product_list">
+        <?php
+        $is_product = 0;
+        foreach ($products as $_product):
+            $product_type = $_product->getTypeId();
+            $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+            //$designs = $this->helper('Biztech\Productdesigner\Helper\Info')->getProductInfo($_product->getId());
+            //$default_color = $this->helper('Biztech\Productdesigner\Helper\Info')->getDefaultImage($_product->getId()) ? $this->helper('Biztech\Productdesigner\Helper\Info')->getDefaultImage($_product->getId()) : 0;
+            //$decodedDesigns = json_decode($designs);
+            if ($product_type != 'configurable') {
+               // echo $product_type.$layout; die;
+                //if (sizeof($decodedDesigns->images[$default_color])) :
+                $is_product = 1;
+
+                $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                $obj_product = $objectManager->create('Magento\Catalog\Model\Product');
+                $product_data = $obj_product->load($_product->getId());
+                $product = $obj_product->load($_product->getId());
+                $productData = $product->getPreLoadedTemplate();
+                $productImage = $_imagehelper->init($_product, $image)->resize(200)->getUrl();
+                ?>
+                <li>
+                     <?php if(!$product_data->getIsTemplate()) { ?>
+                    <a target="_parent" href="<?php if ($layout == 'box_view'): ?><?php echo $this->getUrl('productdesigner/index/index') . 'id/' . $_product->getId(); ?><?php else: ?><?php echo $this->getUrl('productdesigner/index/full') . 'id/' . $_product->getId(); ?><?php endif; ?>">
+                        <img src="<?php echo $productImage; ?>" alt="<?php echo $product_data->getName(); ?>"  title="<?php echo $product_data->getName(); ?>" data-product_id="<?php echo $_product->getId(); ?>" class="product-image">
+                    </a>
+                    <p><a target="_parent" href="<?php if ($layout == 'box_view'): ?><?php echo $this->getUrl('productdesigner/index/index') . 'id/' . $_product->getId(); ?><?php else: ?><?php echo $this->getUrl('productdesigner/index/full') . 'id/' . $_product->getId(); ?><?php endif; ?>"><?php echo $product_data->getName(); ?></a></p>
+                    <?php
+                           } else {?>
+                    <a target="_parent" href="<?php if ($layout == 'box_view'): ?><?php echo $this->getUrl('productdesigner/index/index') . 'id/' . $_product->getId(); ?><?php else: ?><?php echo $this->getUrl('productdesigner/index/full') . 'id/' . $_product->getId().'/templateid/' . $productData; ?><?php endif; ?>">
+                        <img src="<?php echo $productImage; ?>" alt="<?php echo $product_data->getName(); ?>"  title="<?php echo $product_data->getName(); ?>" data-product_id="<?php echo $_product->getId(); ?>" class="product-image">
+                    </a>
+                    <p><a target="_parent" href="<?php if ($layout == 'box_view'): ?><?php echo $this->getUrl('productdesigner/index/index') . 'id/' . $_product->getId(); ?><?php else: ?><?php echo $this->getUrl('productdesigner/index/full') . 'id/' . $_product->getId().'/templateid/' . $productData; ?><?php endif; ?>"><?php echo $product_data->getName(); ?></a></p>
+                    
+                    <?php } ?>
+                </li>
+                <?php //endif;  ?>
+                <?php
+            } else {
+                //if (sizeof($decodedDesigns->images->$default_color)) :
+                $is_product = 1;
+                $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                $obj_product = $objectManager->create('Magento\Catalog\Model\Product');
+                $product_data = $obj_product->load($_product->getId());
+                //$product_image = $_imagehelper->init($_product, 'thumbnail')->resize(100);
+                $product = $obj_product->load($_product->getId());
+                $productData = $product->getPreLoadedTemplate();
+                $productImage = $_imagehelper->init($_product, $image)->resize(200)->getUrl();
+                ?>
+                <li>
+                    <?php if(!$product_data->getIsTemplate()) { ?>
+                    <a target="_parent" href="<?php if ($layout == 'box_view'): ?><?php echo $this->getUrl('productdesigner/index/index') . 'id/' . $_product->getId(); ?><?php else: ?><?php echo $this->getUrl('productdesigner/index/full') . 'id/' . $_product->getId(); ?><?php endif; ?>">
+                        <img src="<?php echo $productImage; ?>" alt="<?php echo $product_data->getName(); ?>"  title="<?php echo $product_data->getName(); ?>" data-product_id="<?php echo $_product->getId(); ?>" class="product-image">
+                    </a>
+                    <p><a target="_parent" href="<?php if ($layout == 'box_view'): ?><?php echo $this->getUrl('productdesigner/index/index') . 'id/' . $_product->getId(); ?><?php else: ?><?php echo $this->getUrl('productdesigner/index/full') . 'id/' . $_product->getId(); ?><?php endif; ?>"><?php echo $product_data->getName(); ?></a></p>
+                    <?php
+                           } else {?>
+                    <a target="_parent" href="<?php if ($layout == 'box_view'): ?><?php echo $this->getUrl('productdesigner/index/index') . 'id/' . $_product->getId(); ?><?php else: ?><?php echo $this->getUrl('productdesigner/index/full') . 'id/' . $_product->getId().'/templateid/' . $productData; ?><?php endif; ?>">
+                        <img src="<?php echo $productImage; ?>" alt="<?php echo $product_data->getName(); ?>"  title="<?php echo $product_data->getName(); ?>" data-product_id="<?php echo $_product->getId(); ?>" class="product-image">
+                    </a>
+                    <p><a target="_parent" href="<?php if ($layout == 'box_view'): ?><?php echo $this->getUrl('productdesigner/index/index') . 'id/' . $_product->getId(); ?><?php else: ?><?php echo $this->getUrl('productdesigner/index/full') . 'id/' . $_product->getId().'/templateid/' . $productData; ?><?php endif; ?>"><?php echo $product_data->getName(); ?></a></p>
+                    
+                    <?php } ?>
+                </li>
+                <?php //endif;  ?>
+                <?php
+            }
+        endforeach;
+        ?>
+        <?php if (count($products) == 0 || !$is_product): ?>
+            <li class="note-message"> <span class="a-center"> <?php echo __("Sorry, no products found."); ?> </span> </li>
+            <?php endif; ?>        
+    </ul>
+<?php endif; ?>
+    

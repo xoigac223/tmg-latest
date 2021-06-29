@@ -1,0 +1,38 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+
+	<head>
+        <title>Zoom Catalog</title>
+        
+		<!-- demo
+		
+		<script src="Themagnet_Zoomcatalog::js/js.js"/>
+		<css src="jquery/fileUploader/css/jquery.fileupload-ui.css"/>
+		<script src="path/file.js" defer="defer"/>
+		<link src="http://url.com" src_type="url"/>
+		<remove src="path/remove/file.css"/> -->
+        <css src="Themagnet_Zoomcatalog::css/zoomcatalog.css" />
+		
+    </head>
+
+    <body>
+        <referenceContainer name="columns.top">
+            <block class="Magento\Theme\Block\Html\Title" name="page.main.title" template="html/title.phtml"/>
+            <container name="page.messages" htmlTag="div" htmlClass="page messages">
+                <block class="Magento\Framework\View\Element\Template" name="ajax.message.placeholder" template="Magento_Theme::html/messages.phtml" ifconfig="zoomcatalog/general/enable"/>
+                <block class="Magento\Framework\View\Element\Messages" name="messages" as="messages" template="Magento_Theme::messages.phtml" ifconfig="zoomcatalog/general/enable"/>
+            </container>
+        </referenceContainer>
+
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Zoom Catalog</argument>
+            </action>
+        </referenceBlock>
+
+        <referenceContainer name="content">
+            <block class="Themagnet\Zoomcatalog\Block\Index\Index" name="zoomcatalog_index_index" template="Themagnet_Zoomcatalog::zoomcatalog.phtml" ifconfig="zoomcatalog/general/enable"/>
+        </referenceContainer>
+
+        <referenceBlock name="page.main.title" remove="true"/>
+    </body>
+</page>

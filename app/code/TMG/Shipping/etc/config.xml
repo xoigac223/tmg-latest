@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <tmgshipping>
+                <active>1</active>
+                <model>TMG\Shipping\Model\Carrier\Shipping</model>
+                <title>TGM Shipping Method . Title</title>
+                <description>TMG Shipping Method . Name</description>
+                <name>TMG Shipping Method . Name</name>
+                <price>10.00</price>
+                <sort_order>1</sort_order>
+                <default_error_msg>This shipping method is not available. To use this shipping method, please contact us.</default_error_msg>
+            </tmgshipping>
+        </carriers>
+
+        <tmg_shipping>
+            <freight_estimates>
+                <wsdl_url>https://api.themagnetgroup.com/FreightEstimates/FreightEstimatesService.svc?singleWsdl</wsdl_url>
+                <api_user>obinvapitest</api_user>
+                <api_pass>ap10b1nvt3st</api_pass>
+                <debug_mode>1</debug_mode>
+                <soap_options>
+                    <soap_version>1</soap_version>
+                    <trace>1</trace>
+                    <exceptions>1</exceptions>
+                </soap_options>
+            </freight_estimates>
+            <!--<pricing_key_mapping>-->
+                <!---->
+            <!--</pricing_key_mapping>-->
+        </tmg_shipping>
+
+    </default>
+</config>

@@ -1,0 +1,105 @@
+<style type="text/css">
+    .actions-toolbar .action.primary:focus, .actions-toolbar .action.primary:active
+    {
+        background: #d11010;
+        border: 1px solid #d11010;
+    }
+</style>
+<form class="form form-edit-account" action="<?php echo $block->getFormUrl();?>" method="post" id="form-validate" enctype="multipart/form-data" data-hasrequired="* Required Fields" autocomplete="off" novalidate="novalidate" onsubmit="return checkOrderStatus(this)">
+        
+    <fieldset class="fieldset create info tmg-register-personal-information" style="float: none;">
+    
+    <legend class="legend"><span><?php echo __('Order tracking')?></span></legend><br>
+ 
+    <input type="hidden" name="request_account" id="request_account" value="<?php echo $block->getCustomer()->getTmgEncryptAccount();?>">
+
+    <div class="field required two-columns">
+        <label for="request_querytype" class="label"><span><?php echo __('Query Type')?></span></label>
+        <div class="control">
+            <select name="request_querytype" id="request_querytype" class="input-text" data-validate="{required:true}" aria-required="true">
+                <?php foreach($block->getOptionArray() as $key=>$value):?>
+                    <option value="<?php echo $key;?>"><?php echo $value;?></option>
+                <?php endforeach;?>
+            </select>
+            
+        </div>
+        <label for="request_referencenumber" class="label"><span><?php echo __('Reference Number')?></span></label>
+        <div class="control">
+            <input type="text" name="request_referencenumber" autocomplete="" id="request_referencenumber" title="Last Name" class="input-text" data-validate="{required:true}" aria-required="true">
+        </div>
+    </div>
+    
+</fieldset>    
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="action save primary" title="Save"><span><?php echo __('Submit')?></span></button>
+        </div>
+        <div class="secondary">
+            <a class="action back" href="<?php echo $this->getUrl('customer/account')?>"><span><?php echo __('Go back')?></span></a>
+        </div>
+    </div>
+    
+</form>
+<div class="tracking-container" style="margin-top: 15px">
+    <div class="message" id="tracking-message"></div>
+    <div class="tracking-html">
+        <div id="tracking-html">
+        </div>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#form-validate": {
+            "validation": {}
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    function checkOrderStatus(obj){
+
+        require(['jquery','jquery/ui'],
+          function ($, ui) {
+            var url = $(obj).attr('action');
+            var form = $(obj);
+            var referencenumber = $('#request_referencenumber').val();
+            if(referencenumber.length == 0){
+                 return false;
+            }
+            var messagevalue = $('#tracking-message');
+            var formChange = $('#tracking-html');
+            formChange.html('Loading...');
+            messagevalue.html('');
+            $.ajax(
+              {
+                url: url,
+                type: 'POST',
+                dataType: 'json',
+                data: form.serialize(),
+              complete: function (response) {             
+                var responce = response.responseJSON;
+                if(typeof responce.success !== "undefined"){
+                    
+                    formChange.html(responce.html);
+                    
+                }else{
+                    messagevalue.html('<span style="color:red">'+responce.message+'</span>');
+                    formChange.html('');
+                }
+
+                 //watanty.closeMoalPopupCart();
+              },
+                error: function (xhr, status, errorThrown) {
+                    console.log(xhr, status, errorThrown);
+                    messagevalue.html('<span style="color:red">'+'Error happens. Try again.'+'</span>');
+                    formChange.html('');
+                    //watanty.closeMoalPopupCart();
+                }
+              }
+          );
+          });
+        return false;
+    }
+    
+</script>

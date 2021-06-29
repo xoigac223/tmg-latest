@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <!-- <head>
+        <css src="Visiture_PersonalFedexUpsAccount::css/customer-shipping.css"/>
+    </head> -->
+    <body>
+        <referenceContainer name="content">
+            <container name="checkout.cart.personal.ac.detail" as="personal.ac.detail" label="Personal a/c Detail" htmlTag="div" htmlClass="personal.ac.detail" before="checkout.root">
+                <block class="Visiture\PersonalFedexUpsAccount\Block\Cart" name="checkout.cart.personal.ac.detail.form" template="Visiture_PersonalFedexUpsAccount::personalAccountDetail.phtml"/>
+            </container>
+        </referenceContainer>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="shipping-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="shippingAddress" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="shippingMethodAdditional" xsi:type="array">
+                                                            <item name="component" xsi:type="string">uiComponent</item>
+                                                            <item name="displayArea" xsi:type="string">shippingMethodAdditional</item>
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="customer_shipping" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Visiture_PersonalFedexUpsAccount/js/view/customer-shipping</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

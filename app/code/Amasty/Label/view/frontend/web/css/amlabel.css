@@ -1,0 +1,16 @@
+.fotorama--fullscreen .amasty-label-container {
+    display: none;
+}
+/*Override magento styles*/
+.products-upsell .product-item .amasty-label-text {
+    font-size: 12px !important;
+    padding: 0 !important;
+}
+
+.amasty-label-container {
+    display: block!important;
+}
+
+.amlabel-position-wrapper {
+    height: auto!important;
+}

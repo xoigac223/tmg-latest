@@ -1,0 +1,449 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Config/etc/system_file.xsd">
+    <system>
+        <tab id="biztech" translate="label" sortOrder="210">
+            <label>Appjetty</label>
+        </tab>
+        <section id="productdesigner" showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>biztech</tab>
+            <label>Product Designer</label>
+            <resource>Biztech_ProductDesigner::biztech_productdesigner</resource>
+            <group id="activation"  showInDefault="1" showInWebsite="0" showInStore="0" sortOrder="10">
+                <label>Product Designer Activation</label>
+                <field id="key" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Activation Key</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="websites" translate="label" type="checkbox" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Websites</label>  
+                    <source_model>Magento\Config\Model\Config\Source\Website</source_model>
+                    <frontend_model>Biztech\Productdesigner\Block\Adminhtml\Config\Form\Renderer\Website</frontend_model>
+                </field>                 
+            </group>
+            <group id="general"  showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+                <label>General</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Enable</label>
+                    <source_model>Biztech\Productdesigner\Model\System\Config\Enabledisable</source_model>        
+                    <frontend_model>Biztech\Productdesigner\Block\Adminhtml\Enabledisable</frontend_model> 
+                    <comment>Select "Yes" to enable product designer.</comment>
+                </field>
+                <field id="enabledesign" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Enable 'Design It' button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select "Yes" to enable "Design It" button on Category Page.</comment>
+                </field>    
+                <field id="enableaddtocart" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Disable 'Add to Cart' button on Category Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select "Yes" to Disable Add to Cart button on Category Page.</comment>
+                </field> 
+                <field id="fixedprice" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Fixed Price to be Added for Designed Products</label>                    
+                </field>  
+                <field id="priceperimage" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Price per Image</label>                   
+                </field>  
+                <field id="pricepertext" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Price per Text</label>                   
+                </field>  
+                <field id="pricepercustomuploadedimage" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Additional Price per Custom uploaded Image</label>
+                </field>  
+                <field id="imagewidth" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Custom Image Width</label>
+                    <comment>Max width is 650.</comment>
+                </field> 
+                <field id="imageheight" translate="label" type="text" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Custom Image Height</label>
+                    <comment>Max height is 650.</comment>
+                </field>  
+                <field id="pagetitle" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Page Title</label>
+                </field>
+                <field id="downloadimagetype" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Download Image Type</label>
+                    <source_model>Biztech\Productdesigner\Block\Adminhtml\Config\Imageformat</source_model>
+                </field> 
+
+                <field id="generatesvg" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Generate SVG</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model> 
+                </field> 
+                
+                <field id="delete_unused_designs" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>No. of days to Keep Unused Images</label>                   
+                    <comment>Enter the number of days for which unused design images needs to be kept. example : 1</comment>
+                    <validate>required-entry validate-digits</validate>
+                </field>  
+
+            </group>
+            <group id="categoryproductsconfiguration"  showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="30">
+                <label>Category Products Configuration</label>
+                <field id="enablecategoryproducts" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Enable Category Products</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model> 
+                </field>
+                <field id="setdefaultcategory" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Set Default Category</label>
+                    <source_model>Biztech\Productdesigner\Model\System\Config\Categories</source_model>
+                </field> 
+            </group>              
+            <group id="selectview" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="50">
+                <label>Select View</label>
+                <field id="Selectview" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Select View</label>
+                    <source_model>Biztech\Productdesigner\Model\Adminhtml\Config\Source\Template</source_model>
+                </field>
+            </group>
+            <group id="designtemplates" showInDefault="0" showInWebsite="0" showInStore="0" sortOrder="60">
+                <label>Design Templates</label>
+                <field id="enabledesigntemplates" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Enable Design Templates</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field> 
+                <field id="setdefaultcategory" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Set Default Templates Category</label>
+                    <source_model>Biztech\Productdesigner\Model\System\Config\Templatescategories</source_model>
+                </field>
+            </group>  
+            <group id="mydesigns" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="70">
+                <label>My Designs</label>
+                <field id="showmydesignsatfrontend" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Show My designs at front end</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>                 
+            </group>  
+            <group id="quotesconfiguration" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="80">
+                <label>Quotes Configuration</label>
+                <field id="enablequotes" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Enable Quotes</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field> 
+                <field id="setdefaultquotescategory" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Set Default Quotes Category</label>
+                    <source_model>Biztech\Productdesigner\Model\System\Config\Quotescategories</source_model>
+                </field>
+            </group>  
+            <group id="maskingconfiguration" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="90">
+                <label>Masking Configuration</label>
+                <field id="enablemasking" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Enable Masking</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field> 
+                <field id="setdefaultmaskingcategory" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Set Default Masking Category</label>
+                    <source_model>Biztech\Productdesigner\Model\System\Config\Maskingcategories</source_model>
+                </field>
+            </group>  
+            <group id="clipartconfiguration" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="100">
+                <label>Clipart Configuration</label>
+                <!--                <field id="enableclipart" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Enable Clipart</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field> -->
+                <field id="setdefaultclipartcategory" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Set Default Clipart Category</label>
+                    <source_model>Biztech\Productdesigner\Model\System\Config\Clipartcategories</source_model>
+                </field>
+                <field id="setclipartimagelimit" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Set Clipart Image Limit</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field> 
+                <field id="imagelimit" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Image Limit</label>
+                    <depends>
+                        <field id="setclipartimagelimit">1</field>
+                    </depends>
+                </field>
+                <field id="errormessageclipart" translate="label" type="textarea" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Error message</label> 
+                    <depends>
+                        <field id="setclipartimagelimit">1</field>
+                    </depends>
+                </field>
+            </group>  
+            <group id="shapesconfiguration" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="110">
+                <label>Shapes Configuration</label>
+                <field id="enableshapes" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Enable Shapes</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field> 
+                <field id="setdefaultshapescategory" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Set Default Shapes Category</label>
+                    <source_model>Biztech\Productdesigner\Model\System\Config\Shapescategories</source_model>
+                </field>
+            </group>  
+            <group id="textconfiguration" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="120">
+                <label>Text Configuration</label>
+                <!--                <field id="enabletexttab" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Enable Text Tab</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>-->
+                <field id="enablegooglefonts" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Enable Google Fonts</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="googlefontlist" translate="label" type="multiselect" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Google Font List</label>
+                    <source_model>Biztech\Productdesigner\Model\Adminhtml\Config\Source\Googlefonts</source_model>
+                    <depends>
+                        <field id="enablegooglefonts">1</field>
+                    </depends>
+                </field>
+                <field id="defaultfontsize" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Default Font Size</label>
+                    <source_model>Biztech\Productdesigner\Model\Adminhtml\Config\Source\Fontsizes</source_model>
+                </field>
+                <field id="defaultfont" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Default Font</label>
+                    <source_model>Biztech\Productdesigner\Model\Adminhtml\Config\Source\FontFamily</source_model>
+                </field>
+                <field id="settextlimit" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Set Text Limit</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="textlimit" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Text limit(Per object)</label>
+                    <depends>
+                        <field id="settextlimit">1</field>
+                    </depends>
+                </field>
+                <field id="errormessagetext" translate="label" type="textarea" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Error message</label> 
+                    <depends>
+                        <field id="settextlimit">1</field>
+                    </depends>
+                </field>
+            </group>  
+            <group id="customimageuploadconfiguration" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="130">
+                <label>Custom Image Upload Configuration</label>
+                <field id="enableuploadcustomimage" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Enable Upload Custom Image</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="showinstruction" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Show Instruction</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="instructiontext" translate="label" type="textarea" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Instruction Text</label>
+                    <depends>
+                        <field id="showinstruction">1</field>
+                    </depends> 
+                </field>
+                <field id="setcustomimageuploadlimit" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Set Custom Image Upload Limit</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="imagelimit" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Image Limit</label>
+                    <depends>
+                        <field id="setcustomimageuploadlimit">1</field>
+                    </depends>
+                </field>
+                <field id="errormessageimagelimit" translate="label" type="textarea" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Error message</label>
+                    <depends>
+                        <field id="setcustomimageuploadlimit">1</field>
+                    </depends>
+                </field>
+                <field id="minimumsizeofimage" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Minimum size of image</label>
+                    <comment>Please enter size in MB(Megabyte). Ex : 1</comment>
+                </field>
+                <field id="askforusersconfirmationbeforeuploadingimage" translate="label" type="select" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ask for user's confirmation before uploading image</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>                    
+                </field>
+                <field id="textforuserconfirmationbeforeuploadimage" translate="label" type="textarea" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Text for User Confirmation</label>
+                    <depends>
+                        <field id="askforusersconfirmationbeforeuploadingimage">1</field>
+                    </depends> 
+                </field>                          
+            </group>   
+            
+            <group id="downloaddesign_general" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="150">
+                <label>Download Design From Designer Page</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Download Design From Designer Page</label>
+                    <comment>Select "Yes" to enable the download design from designer page.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field> 
+                
+                <field id="watermark" translate="label comment" type="image" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Watermark</label>
+                    <backend_model>Biztech\Productdesigner\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">productdesigner\uploadwatermark</base_url>
+                    <comment>Allowed file types: jpeg, gif, png.</comment>
+                </field>
+                
+                <field id="watermark_text" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Text for Watermark Image</label>
+                    <comment>Add text which will be displayed as watermark in the downloaded customized product image. You can add upto 8 characters for the text.</comment>
+                </field>  
+                
+                <field id="check1" translate="label comment" type="button" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <frontend_model>Biztech\Productdesigner\Block\System\Config\Collect</frontend_model>
+                </field> 
+            </group>
+            <group id="import_xml" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="100">
+                <label>Import Information</label>
+                <field id="import_imprint_file" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="2" showInDefault="1" showInWebsite="1" >
+                    <label>Import Imprint XML</label>
+                    <backend_model>Biztech\Productdesigner\Block\System\Config\ImportImprintAreas</backend_model>
+                    <upload_dir config="system" scope_info="1">productdesigner/importimprintxml</upload_dir>
+                    <comment>To import XML, First upload XML, Save Config and click on "Import Imprint Areas". Allowed file type: XML.</comment>
+                </field>
+                <field id="imprint_import" translate="label comment" type="button" sortOrder="2" showInDefault="1" showInWebsite="1"  showInStore="1">
+                    <frontend_model>Biztech\Productdesigner\Block\System\Config\ImportImprintButton</frontend_model>
+                    <comment>This will import uploaded xml file in "Import Imprint XML" field</comment>
+                </field> 
+                <field id="import_information_csv" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="3" showInDefault="1" showInWebsite="1" >
+                    <label>Imprint Location Name</label>
+                    <backend_model>Biztech\Productdesigner\Block\System\Config\ImportlocationName</backend_model>
+                    <upload_dir config="system" scope_info="1">productdesigner/importlocationcsv</upload_dir>
+                    <comment>To import CSV, First upload CSV, Save Config and click on "Imprint Location Name". Allowed file type: CSV.</comment>
+                </field>
+                <field id="imprint_location_import" translate="label comment" type="button" sortOrder="4" showInDefault="1" showInWebsite="1"  showInStore="1">
+                    <frontend_model>Biztech\Productdesigner\Block\System\Config\ImportlocationButton</frontend_model>
+                    <comment>This will import uploaded csv file in "Imprint Location Name" field</comment>
+                </field>   
+                <field id="import_imprint_colors_xml" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="5" showInDefault="1" showInWebsite="1" >
+                    <label>Import Imprint Colors XML</label>
+                    <backend_model>Biztech\Productdesigner\Block\System\Config\ImportImprintColors</backend_model>
+                    <upload_dir config="system" scope_info="1">productdesigner/importimprintcolorsxml</upload_dir>
+                    <comment>To import XML First upload XML Save Config and click on "Import Imprint Colors XML". Allowed file type: XML.</comment>
+                </field>
+                <field id="import_imprints_colors" translate="label comment" type="button" sortOrder="6" showInDefault="1" showInWebsite="1"  showInStore="1">
+                    <frontend_model>Biztech\Productdesigner\Block\System\Config\ImportImprintColorsButton</frontend_model>
+                    <comment>This will import uploaded xml file in "Import Imprint Colors XML" field</comment>
+                </field> 
+                <field id="import_colors_msg" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1"  >
+                    <label>Import Colors Message:</label>
+                    <validate>required-entry</validate>
+                </field>              
+            </group>            
+            
+            <group id="printingmethod" showInDefault="0" showInWebsite="0" showInStore="0" sortOrder="140">
+                <label>Printing Method</label>
+                
+                <field id="base_unit" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Base Unit</label>
+                    <source_model>Biztech\Productdesigner\Block\Adminhtml\Config\Baseunit</source_model>
+                </field>
+
+                <field id="color_qty" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Quantity of color available in "By Color" printing methods</label>                    
+                </field>
+
+                <field id="small_area_size_start" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Small area size start (px)</label>
+                </field>
+                <field id="small_area_size_end" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Small area size end  (px)</label>
+                </field>
+
+                <field id="medium_area_size_start" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Medium area size start (px)</label>
+                </field>
+                <field id="medium_area_size_end" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Medium area size end (px)</label>
+                </field>
+
+                <field id="large_area_size_start" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Large area size start  (px)</label>
+                </field>
+                <field id="large_area_size_end" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Large area size end  (px)</label>
+                </field>
+
+                <field id="extra_large_area_size_start" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Extra Large area size start (px)</label>
+                </field>
+                <field id="extra_large_area_size_end" translate="label" type="text" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Extra Large area size end (px)</label>
+                    <comment>New are size will not be added directly, It requires some customization.</comment>
+                </field>
+
+                                       
+            </group>     
+
+
+            <group id="colorpicker" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="150">
+                <label>Enable Color Picker</label>
+                
+                <field id="colorpicker" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Enable Color Picker</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group> 
+
+
+            <group id="themedesigner_general" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="170">
+                <label>Theme Configuration</label>
+                
+                <field id="primary_background" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Primary Color</label>
+                    <frontend_model>Biztech\Productdesigner\Block\Color</frontend_model>
+
+                </field>
+                <field id="secondary_background" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Secondary Color</label>
+                    <frontend_model>Biztech\Productdesigner\Block\Color</frontend_model>
+                </field>
+
+                <!-- <field id="check" translate="label" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Biztech\Productdesigner\Block\System\Config\Form\Button</frontend_model>
+                </field> -->
+
+            </group> 
+            <group id="side_general" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="180">
+                <label>Element Movement</label>
+                <field id="left_side" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Left</label>
+                    <comment>Add the pixel value which will be used to move element to the left side.</comment>
+                    <validate>validate-digits</validate>
+                </field>
+
+                <field id="right_side" translate="label" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Right</label>
+                    <comment>Add the pixel value which will be used to move element to the right side.</comment>
+                    <validate>validate-digits</validate>
+                </field>
+
+                <field id="top_side" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Top</label>
+                    <comment>Add the pixel value which will be used to move element to the top side.</comment>
+                    <validate>validate-digits</validate>
+                </field>
+                <field id="bottom_side" translate="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Bottom</label>
+                    <comment>Add the pixel value which will be used to move element to the bottom side.</comment>
+                    <validate>validate-digits</validate>
+                </field>
+            </group>
+            
+            <group id="social_media_upload" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="180">
+                <label>Social Media Upload</label>
+
+                <field id="facebook_appid" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Facebook App Id</label>
+                </field>
+
+                <field id="instagram_clientid" translate="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Instagram Client Id</label>
+                </field>
+
+                <field id="instagram_clientsecret" translate="label" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Instagram Client Secret</label>
+                </field>
+
+            </group> 
+
+
+        </section>
+        
+    </system>
+</config>

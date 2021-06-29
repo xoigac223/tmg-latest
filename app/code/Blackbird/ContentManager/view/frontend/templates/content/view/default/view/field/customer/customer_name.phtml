@@ -1,0 +1,30 @@
+<?php
+/**
+ * Blackbird ContentManager Module
+ *
+ * NOTICE OF LICENSE
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to contact@bird.eu so we can send you a copy immediately.
+ *
+ * @category        Blackbird
+ * @package         Blackbird_ContentManager
+ * @copyright       Copyright (c) 2017 Blackbird (https://black.bird.eu)
+ * @author          Blackbird Team
+ * @license         https://www.advancedcontentmanager.com/license/
+ */
+?>
+<?php /** @var $block \Blackbird\ContentManager\Block\View\Field\Customer */ ?>
+<?php $_customerCollection = $block->getCustomerCollection(['firstname', 'lastname']); ?>
+<?php if (!$_customerCollection->count()): ?>
+    <div class="message info empty"><div><?= __('There is no matching client for this content.') ?></div></div>
+<?php else: ?>
+    <h2 class="customer-title">List of clients linked to this content : </h2>
+<ul class="customer-list" id="customer-list-<?php echo $block->getIdentifier(); ?>">
+    <?php foreach ($_customerCollection as $_customer) : ?>
+        <li class="item">
+            <p class="customer-title"><?= $_customer->getName(); ?></p>
+        </li>
+    <?php endforeach; ?>
+</ul>
+<?php endif; ?>

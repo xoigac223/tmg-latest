@@ -1,0 +1,41 @@
+Slow,Slow
+Fast,Fast
+Left,Left
+Right,Right
+"%1 Items","%1 Items"
+"Bss Commerce","Bss Commerce"
+"Infinite Scroll","Infinite Scroll"
+General,General
+Enabled,Enabled
+"Loading Icon","Loading Icon"
+"Text After Loading Icon","Text After Loading Icon"
+"Use Previous","Use Previous"
+"Show load more button pages","Show load more button pages"
+"Page number after which a 'Load more items' link is displayed. Users will manually trigger the loading of the next page by clicking this link.","Page number after which a 'Load more items' link is displayed. Users will manually trigger the loading of the next page by clicking this link."
+"Exclude Category","Exclude Category"
+"All sub-categories will be excluded if Category ID is filled in.","All sub-categories will be excluded if Category ID is filled in."
+"Enabled Lazy Loading","Enabled Lazy Loading"
+"Go To Top","Go To Top"
+"Use Go To Top","Use Go To Top"
+Trigger,Trigger
+"After how many scrolled down pixels the button must be shown.","After how many scrolled down pixels the button must be shown."
+"Location Offset","Location Offset"
+"Bottom Offset","Bottom Offset"
+"Container Size","Container Size"
+"Container Radius","Container Radius"
+"Hide Under Width","Hide Under Width"
+"Container Color","Container Color"
+"Arrow Color","Arrow Color"
+"A text to show on the button mouse hover","A text to show on the button mouse hover"
+zIndex,zIndex
+"Always Visible","Always Visible"
+"Set the button to be always visible.","Set the button to be always visible."
+Location,Location
+"Go Up Speed","Go Up Speed"
+"Button Load More","Button Load More"
+"Text Button Load More","Text Button Load More"
+"Text Button Load Previous","Text Button Load Previous"
+"Text No More","Text No More"
+"Add a text when there are no more pages left to load.","Add a text when there are no more pages left to load."
+"Background Button Load More","Background Button Load More"
+"Color Button Load More","Color Button Load More"

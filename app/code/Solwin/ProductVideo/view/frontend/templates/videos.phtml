@@ -1,0 +1,250 @@
+<?php
+/**
+ * Solwin Infotech
+ * Solwin Advanced Product Video Extension
+ *
+ * @category   Solwin
+ * @package    Solwin_ProductVideo
+ * @copyright  Copyright © 2006-2016 Solwin (https://www.solwininfotech.com)
+ * @license    https://www.solwininfotech.com/magento-extension-license/
+ */
+$helper = $this->helper('Solwin\ProductVideo\Helper\Data');
+$tabEnable = $helper->getConfigValue('productvideosection/videotabgroup/videotab');
+$displayslider = $helper->getConfigValue('productvideosection/videotabgroup/displayslider');
+$sliderautoplay = $helper->getConfigValue('productvideosection/videotabgroup/sliderautoplay');
+$autoplayspeed = $helper->getConfigValue('productvideosection/videotabgroup/autoplayspeed');
+$slideitem = $helper->getConfigValue('productvideosection/videotabgroup/slideitem');
+$slidespeed = $helper->getConfigValue('productvideosection/videotabgroup/slidespeed');
+
+$autoplayspeed = abs(preg_replace('/[^0-9]/','', $autoplayspeed));
+if($autoplayspeed == "" || $autoplayspeed == 0){
+    $autoplayspeed = 3000;
+}
+
+$slideitem = abs(preg_replace('/[^0-9]/','', $slideitem));
+if($slideitem == "" || $slideitem == 0){
+    $slideitem = 3;
+}
+
+$slidespeed = abs(preg_replace('/[^0-9]/','', $slidespeed));
+if($slidespeed == "" || $slidespeed == 0){
+    $slidespeed = 300;
+}
+
+if ($tabEnable) {
+    $videoicon = $helper->getVideoIcon();
+
+    $_product = $block->getProduct();
+
+    $video_id = $_product->getProductvideo();
+
+    if ($video_id) {
+        $videoid = explode(',', $video_id);
+
+        $videoCollection = array();
+        $mediaUrl = $helper->getMediaUrl();
+        $imageUrl = $mediaUrl . 'solwin/productvideo/video/image';
+        $fileUrl = $mediaUrl . 'solwin/productvideo/video/file';
+
+        $videoOption = $helper->getConfigValue('productvideosection/productvideogroup/videooption');
+
+        $width = $height = $thumbnailWidth = $thumbnailHeight = 300;
+
+        if($videoOption == 'fancybox') {
+          $width = $helper->getConfigValue('productvideosection/productvideogroup/videowidth');
+          $height = $helper->getConfigValue('productvideosection/productvideogroup/videoheight');
+        }
+
+        $className = $className1 = '';
+        if ($videoOption == 'fancybox') {
+            $className = ' fancybox-tab';
+        } else {
+            $className1 = ' onpage_videos';
+        }
+        ?>
+        <style>
+        .pv-inner h2.videos {
+        max-width: <?php echo $thumbnailWidth; ?>px;
+        }
+        </style>
+        <?php
+            $sliderClass = "";
+            if(count($videoid) > 2) {
+                $sliderClass = "regular_videos";
+            }
+        ?>
+        <div class="pv-main <?php echo $sliderClass; ?> <?php echo $className1; ?>">
+            <?php
+            foreach ($videoid as $ids) {
+                $videoCol = $helper->getVideoCollection($ids);
+                $size = $videoCol->getSize();
+                if ($size > 0) {
+                    foreach ($videoCol as $videoCollection) {
+                        $image = $imageUrl . $videoCollection->getThumbnail();
+                        if ($videoOption == 'fancybox') {
+                            $hrefValue = '#content-div-tab-video-' . $videoCollection->getVideoId();
+                        } else {
+                            $hrefValue = '#';
+                        }
+                        ?>
+                        <div class="pv-inner">
+                            <h2 class="videos"><?php echo $videoCollection->getTitle(); ?></h2>
+                            <?php if ($videoOption == 'fancybox') { ?>
+                                <div class="pv-video">
+                                    <a class="video-item<?php echo $className; ?>" title="<?php echo $videoCollection->getTitle(); ?>" href="<?php echo $hrefValue; ?>">
+                                        <img src="<?php echo $image; ?>" alt="<?php echo $videoCollection->getTitle(); ?>" style="width:<?php echo $thumbnailWidth;?>px;height:<?php echo $thumbnailHeight;?>px;"/>
+                                        <div class="vid-icon">
+                                            <img src="<?php echo $videoicon; ?>" alt="video"/>
+                                        </div>
+                                    </a>
+                                </div>
+                                <?php
+                            } else {
+                                ?>
+                                <div class="pv-video">
+                                    <div id="thumbnail-<?php echo $videoCollection->getVideoId(); ?>" style="width:<?php echo $thumbnailWidth;?>px;height:<?php echo $thumbnailHeight;?>px;">
+                                        <img src="<?php echo $image; ?>" alt="<?php echo $videoCollection->getTitle(); ?>" style="width:<?php echo $thumbnailWidth;?>px;height:<?php echo $thumbnailHeight;?>px;"/>
+                                        <div class="vid-icon">
+                                            <img src="<?php echo $videoicon; ?>" alt="video"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                            ?>
+                            <?php if ($videoOption == 'fancybox') { ?>
+                                <div style="display: none">
+                                    <div id="content-div-tab-video-<?php echo $videoCollection->getVideoId(); ?>">
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <div id="video-<?php echo $videoCollection->getVideoId(); ?>">
+                                            <?php
+                                        }
+                                        ?>
+                                        <?php
+                                        /*
+                                         * Video from media file
+                                         */
+                                        if ($videoCollection->getVideoType() == 1) {
+                                            ?>
+                                            <div id="video<?php echo $videoCollection->getVideoId(); ?>" style="width:<?php echo $width;?>px;height:<?php echo $height;?>px;">
+                                                <video width="<?php echo $width; ?>" height="<?php echo $height; ?>" controls>
+                                                    <source src="<?php echo $fileUrl . $videoCollection->getVideoFile(); ?>" type="video/mp4">
+                                                </video>
+                                            </div>
+                                            <?php
+                                        }
+                                        /*
+                                         * Youtube video
+                                         */ elseif ($videoCollection->getVideoType() == 2) {
+                                            $youtubeUrl = $videoCollection->getYoutubeVideoUrl();
+                                            $youtubeId = $helper->getYoutubeId($youtubeUrl);
+                                            ?>
+                                            <div class="youtube-article" style="width:<?php echo $width;?>px;height:<?php echo $height;?>px;">
+                                              <iframe class="dt-youtube" src="//www.youtube.com/embed/<?php echo $youtubeId; ?>" frameborder="0" allowfullscreen style="width:<?php echo $width;?>px;height:<?php echo $height;?>px;"></iframe>
+                                            </div>
+                                            <?php
+                                        }
+                                        /*
+                                         * Vimeo Video
+                                         */ elseif ($videoCollection->getVideoType() == 3) {
+                                            $vimeoUrl = $videoCollection->getVimeoVideoUrl();
+                                            $vimeoId = $helper->getVimeoId($vimeoUrl);
+                                            ?>
+                                            <div class="vimeo-article" style="width:<?php echo $width;?>px;height:<?php echo $height;?>px;">
+                                                <iframe src="http://player.vimeo.com/video/<?php echo $vimeoId; ?>?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;color=ffffff" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen style="width:<?php echo $width;?>px;height:<?php echo $height;?>px;">
+                                                </iframe>
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
+                                        <?php if ($videoOption == 'fancybox') { ?>
+                                        </div>
+                                    </div>
+                                    <?php
+                                } else {
+                                    ?>
+                                </div>
+                            <?php }
+                            ?>
+                            <?php if ($videoCollection->getContent() != "") { ?>
+                                <div class="video-content">
+                                    <p><?php
+           $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+           $filterManager = $objectManager->get('Magento\Cms\Model\Template\FilterProvider')->getPageFilter()->filter($videoCollection->getContent());
+           echo $filterManager;?></p>
+                                </div>
+                            <?php } ?>
+
+                        </div>
+                            <?php if ($videoOption == 'page') { ?>
+                                <script type="text/javascript">
+                                    require(['jquery'], function () {
+                                        jQuery("#video-<?php echo $videoCollection->getVideoId(); ?>").hide();
+                                        jQuery(document).ready(function () {
+                                            jQuery("#thumbnail-<?php echo $videoCollection->getVideoId(); ?>").click(function () {
+                                                jQuery("#thumbnail-<?php echo $videoCollection->getVideoId(); ?>").hide();
+                                                jQuery("#video-<?php echo $videoCollection->getVideoId(); ?>").show();
+
+                                            });
+                                        });
+                                    });
+                                </script>
+                            <?php } ?>
+                        <?php
+                    }
+                }
+            }
+            ?>
+        </div>
+        <?php if ($videoOption == 'fancybox') { ?>
+            <script type="text/javascript">
+                require(['jquery', 'cpfancybox', 'cpslick'], function () {
+                    jQuery(document).ready(function () {
+                        jQuery(".fancybox-tab").fancybox();
+                        <?php if ($displayslider) { ?>
+                        jQuery(".regular_videos").slick({
+                            autoplay: <?php echo $sliderautoplay; ?>,
+                            autoplaySpeed: <?php echo $autoplayspeed; ?>,
+                            slidesToShow: <?php echo $slideitem; ?>,
+                            slidesToScroll: <?php echo $slideitem; ?>,
+                            centerMode: true,
+                            speed: <?php echo $slidespeed; ?>,
+                            arrows: true,
+                            lazyLoad: 'progressive',
+                            nextArrow: '<i class="fa fa-arrow-right"></i>',
+                            prevArrow: '<i class="fa fa-arrow-left"></i>',
+                            responsive: [
+                                {
+                                  breakpoint: 1024,
+                                  settings: {
+                                    slidesToShow: 3,
+                                    slidesToScroll: 3,
+                                    infinite: true,
+                                  }
+                                },
+                                {
+                                  breakpoint: 600,
+                                  settings: {
+                                    slidesToShow: 2,
+                                    slidesToScroll: 2
+                                  }
+                                },
+                                {
+                                  breakpoint: 480,
+                                  settings: {
+                                    slidesToShow: 1,
+                                    slidesToScroll: 1
+                                  }
+                                }
+                              ]
+                          });
+                        <?php } ?>
+                    });
+                });
+            </script>
+            <?php
+        }
+    }
+} ?>

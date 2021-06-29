@@ -1,0 +1,43 @@
+<?php
+$product_id = $this->getRequest()->getParam('id');
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$obj_product = $objectManager->create('Magento\Catalog\Model\Product');
+$product = $obj_product->load($product_id);
+$_priceIncludingTax = $product->getFinalPrice();
+
+//$_priceIncludingTax = Mage::helper('tax')->getPrice($product, $product->getFinalPrice());
+
+$priceHelper = $objectManager->create('Magento\Framework\Pricing\Helper\Data');
+?>
+<div id="price_container">
+    <div class="price_box" id="price_box">
+        <span class="regular-price">
+            <?php echo __('Price: '); ?></span>
+        <span id="product-price-<?php echo $product_id ?>" class="regular-price">
+            <span class="regular-price"><?php echo $priceHelper->currency($_priceIncludingTax); ?></span>
+        </span>
+    </div>
+    <span class="price_info" id="price_more_info"><a href="javascript:void(0);"></a></span>
+
+    <ul style="display: none;" id="price_more_info_container">
+        <li id="final-price" ></li>
+        <li id="total_qty" ></li>
+        <li id="product_price"><label><?php echo __("Product Price: "); ?></label><span class="price"><?php echo $priceHelper->currency($_priceIncludingTax); ?></span></li>
+        <li id="fixed_price" style="display: none"><label><?php echo __("Fixed Price: "); ?></label> <span class="price"></span></li>
+        <li id="image_price" style="display: none"><label><?php echo __("Images Price: "); ?></label> <span class="price"></span></li>
+        <li id="text_price" style="display: none"><label><?php echo __("Texts Price: "); ?></label> <span class="price"></span></li>
+        <li id="custom_image_price" style="display: none"><label><?php echo __("Uploaded Images Price: "); ?></label> <span class="price"></span></li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

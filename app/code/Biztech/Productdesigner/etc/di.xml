@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Store/etc/config.xsd">    
+    <preference for="Magento\ProductVideo\Observer\ChangeTemplateObserver" type="Biztech\Productdesigner\Observer\ChangeTemplateObserver" />
+    <preference for="Magento\Catalog\Model\ResourceModel\Product\Gallery" type="Biztech\Productdesigner\Model\ResourceModel\Product\Gallery" />
+    <preference for="Magento\Checkout\Block\Cart\Item\Renderer\Actions\Edit" type="Biztech\Productdesigner\Block\Cart\Item\Renderer\Actions\Edit" />   
+    <preference for="Magento\Catalog\Model\Product" type="Biztech\Productdesigner\Model\Product" />
+    <type name="Magento\Catalog\Model\Product\Gallery\CreateHandler">
+        <plugin name="image_side_save" type="Biztech\Productdesigner\Model\Plugin\Catalog\Product\Gallery\CreateHandler" />
+    </type>
+</config>

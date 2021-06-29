@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <productdesigner>
+            <general>
+                <enableaddtocart>1</enableaddtocart>
+                <enabledesign>1</enabledesign>
+                <fixedprice>25</fixedprice>
+                <priceperimage>5</priceperimage>
+                <pricepertext>3</pricepertext>
+                <pricepercustomuploadedimage>3</pricepercustomuploadedimage>
+                <imagewidth>650</imagewidth>
+                <imageheight>650</imageheight>
+                <pagetitle>Product Designer</pagetitle>                
+            </general>
+            <categoryproductsconfiguration>
+                <enablecategoryproducts>1</enablecategoryproducts>
+            </categoryproductsconfiguration>
+            <downloaddesignfromdesignerpage>
+                <Downloaddesignfromdesignerpage>1</Downloaddesignfromdesignerpage>
+            </downloaddesignfromdesignerpage>
+            <designtemplates>
+                <enabledesigntemplates>1</enabledesigntemplates>
+            </designtemplates>
+            <mydesigns>
+                <showmydesignsatfrontend>1</showmydesignsatfrontend>
+            </mydesigns>
+            <quotesconfiguration>
+                <enablequotes>1</enablequotes>
+            </quotesconfiguration>
+            <maskingconfiguration>
+                <enablemasking>1</enablemasking>
+            </maskingconfiguration>
+            <clipartconfiguration>
+<!--                <enableclipart>1</enableclipart>-->
+                <setclipartimagelimit>1</setclipartimagelimit>
+                <imagelimit>3</imagelimit>
+                <errormessageclipart>You can not add more than 3 images in single canvas</errormessageclipart>                
+            </clipartconfiguration>
+            <shapesconfiguration>
+                <enableshapes>1</enableshapes>
+            </shapesconfiguration>
+            <textconfiguration>
+<!--                <enabletexttab>1</enabletexttab>-->
+                <enablegooglefonts>1</enablegooglefonts>
+                <defaultfontsize>20</defaultfontsize>
+                <settextlimit>1</settextlimit>
+                <textlimit>2</textlimit>
+                <errormessagetext>You can not enter more than 5 characters</errormessagetext>
+            </textconfiguration>
+            <customimageuploadconfiguration>
+                <enableuploadcustomimage>1</enableuploadcustomimage>
+                <showinstruction>1</showinstruction>
+                <instructiontext>Please upload High Resolution image</instructiontext>
+                <setcustomimageuploadlimit>1</setcustomimageuploadlimit>
+                <imagelimit>1</imagelimit>
+                <errormessageimagelimit>You can not add more than 1 images in single canvas.</errormessageimagelimit>
+                <askforusersconfirmationbeforeuploadingimage>1</askforusersconfirmationbeforeuploadingimage>
+                <textforuserconfirmationbeforeuploadimage>I have the rights to use these images.</textforuserconfirmationbeforeuploadimage>
+                <guidelinestodisplaybeforeimageupload>Demo</guidelinestodisplaybeforeimageupload>
+            </customimageuploadconfiguration>
+        </productdesigner>        
+    </default>
+</config>

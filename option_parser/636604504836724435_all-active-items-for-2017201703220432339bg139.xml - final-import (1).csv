@@ -1,0 +1,937 @@
+QuantityBreak,CatalogPrice,StandardNetPrice,DiscountCode,AddColorPrice,AddColorDiscountCode,AddColorNetPrice,Quantities_Id,Price_Id,CurrencyCode,AsLowAsCatalog,AsLowAsNet,Prices_Id,DecorationMethod_Id,PrintMethod,Select an Option Below,PriceMethod,PricingKey,DecorationMethods_Id,Product_Id,ItemNumber,BrandName,AdditionalCharges_Id,AdditionalChargeItemDescription,AdditionalChargeCatalogPrice,AdditionalChargeDiscountCode,AdditionalChargeNetPrice,SetupChargeCatalogPrice,NetSetupCharge,NetRepeatSetupCharge,MaxNumSpotColors,MaximumColorsAllowed
+25,14.59,8.754,C,0.5,G,0.4,0,0,USD,11.59,6.954,0,0,See Price Method,Place Order With Logo,1 Color 1 Location,TP,0,0,BG139,The Bag Factory,0,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,13.39,8.034,C,0.5,G,0.4,0,0,USD,11.59,6.954,0,0,See Price Method,Place Order With Logo,1 Color 1 Location,TP,0,0,BG139,The Bag Factory,0,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,12.49,7.494,C,0.5,G,0.4,0,0,USD,11.59,6.954,0,0,See Price Method,Place Order With Logo,1 Color 1 Location,TP,0,0,BG139,The Bag Factory,0,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,11.59,6.954,C,0.5,G,0.4,0,0,USD,11.59,6.954,0,0,See Price Method,Place Order With Logo,1 Color 1 Location,TP,0,0,BG139,The Bag Factory,0,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,11.59,6.96,C,,,,2,2,USD,0,6.96,1,1,Random Sample,Order Sample,1 Color 1 Location,RS,0,0,BG139,The Bag Factory,1,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,16.09,9.654,C,,,,4,4,USD,13.09,7.854,2,2,See Price Method,Place Order With Logo,4 Color Process,T4,0,0,BG139,The Bag Factory,2,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,14.89,8.934,C,,,,4,4,USD,13.09,7.854,2,2,See Price Method,Place Order With Logo,4 Color Process,T4,0,0,BG139,The Bag Factory,2,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,13.99,8.394,C,,,,4,4,USD,13.09,7.854,2,2,See Price Method,Place Order With Logo,4 Color Process,T4,0,0,BG139,The Bag Factory,2,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,13.09,7.854,C,,,,4,4,USD,13.09,7.854,2,2,See Price Method,Place Order With Logo,4 Color Process,T4,0,0,BG139,The Bag Factory,2,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,13.09,7.86,C,,,,6,6,USD,0,7.86,3,3,Random Sample,Order Sample,4 Color Process,RS,0,0,BG139,The Bag Factory,3,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,11.59,6.954,C,,,,8,8,USD,11.59,6.954,4,4,See Price Method,Order Without Logo,Blank,BL,0,0,BG139,The Bag Factory,4,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,11.59,6.954,C,,,,8,8,USD,11.59,6.954,4,4,See Price Method,Order Without Logo,Blank,BL,0,0,BG139,The Bag Factory,4,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,11.59,6.954,C,,,,8,8,USD,11.59,6.954,4,4,See Price Method,Order Without Logo,Blank,BL,0,0,BG139,The Bag Factory,4,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,11.59,6.954,C,,,,8,8,USD,11.59,6.954,4,4,See Price Method,Order Without Logo,Blank,BL,0,0,BG139,The Bag Factory,4,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,22.79,13.674,C,0.5,G,0.4,10,10,USD,17.99,10.794,5,5,See Price Method,Place Order With Logo,1 Color 1 Location,TP,1,1,BG140,The Bag Factory,5,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,20.89,12.534,C,0.5,G,0.4,10,10,USD,17.99,10.794,5,5,See Price Method,Place Order With Logo,1 Color 1 Location,TP,1,1,BG140,The Bag Factory,5,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,19.49,11.694,C,0.5,G,0.4,10,10,USD,17.99,10.794,5,5,See Price Method,Place Order With Logo,1 Color 1 Location,TP,1,1,BG140,The Bag Factory,5,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,17.99,10.794,C,0.5,G,0.4,10,10,USD,17.99,10.794,5,5,See Price Method,Place Order With Logo,1 Color 1 Location,TP,1,1,BG140,The Bag Factory,5,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,17.99,10.8,C,0.5,G,0,12,12,USD,0,10.8,6,6,Random Sample,Order Sample,1 Color 1 Location,RS,1,1,BG140,The Bag Factory,6,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,24.29,14.574,C,,,,14,14,USD,19.49,11.694,7,7,See Price Method,Place Order With Logo,4 Color Process,T4,1,1,BG140,The Bag Factory,7,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,22.39,13.434,C,,,,14,14,USD,19.49,11.694,7,7,See Price Method,Place Order With Logo,4 Color Process,T4,1,1,BG140,The Bag Factory,7,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,20.99,12.594,C,,,,14,14,USD,19.49,11.694,7,7,See Price Method,Place Order With Logo,4 Color Process,T4,1,1,BG140,The Bag Factory,7,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,19.49,11.694,C,,,,14,14,USD,19.49,11.694,7,7,See Price Method,Place Order With Logo,4 Color Process,T4,1,1,BG140,The Bag Factory,7,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,19.49,11.7,C,,,,16,16,USD,0,11.7,8,8,Random Sample,Order Sample,4 Color Process,RS,1,1,BG140,The Bag Factory,8,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,17.99,10.794,C,,,,18,18,USD,17.99,10.794,9,9,See Price Method,Order Without Logo,Blank,BL,1,1,BG140,The Bag Factory,9,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,17.99,10.794,C,,,,18,18,USD,17.99,10.794,9,9,See Price Method,Order Without Logo,Blank,BL,1,1,BG140,The Bag Factory,9,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,17.99,10.794,C,,,,18,18,USD,17.99,10.794,9,9,See Price Method,Order Without Logo,Blank,BL,1,1,BG140,The Bag Factory,9,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,17.99,10.794,C,,,,18,18,USD,17.99,10.794,9,9,See Price Method,Order Without Logo,Blank,BL,1,1,BG140,The Bag Factory,9,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,18.69,11.214,C,0.5,G,0.4,20,20,USD,14.79,8.874,10,10,See Price Method,Place Order With Logo,1 Color 1 Location,TP,2,2,BG141,The Bag Factory,10,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,17.09,10.254,C,0.5,G,0.4,20,20,USD,14.79,8.874,10,10,See Price Method,Place Order With Logo,1 Color 1 Location,TP,2,2,BG141,The Bag Factory,10,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,15.99,9.594,C,0.5,G,0.4,20,20,USD,14.79,8.874,10,10,See Price Method,Place Order With Logo,1 Color 1 Location,TP,2,2,BG141,The Bag Factory,10,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,14.79,8.874,C,0.5,G,0.4,20,20,USD,14.79,8.874,10,10,See Price Method,Place Order With Logo,1 Color 1 Location,TP,2,2,BG141,The Bag Factory,10,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,14.79,8.88,C,0.5,G,0,22,22,USD,0,8.88,11,11,Random Sample,Order Sample,1 Color 1 Location,RS,2,2,BG141,The Bag Factory,11,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,20.19,12.114,C,,,,24,24,USD,16.29,9.774,12,12,See Price Method,Place Order With Logo,4 Color Process,T4,2,2,BG141,The Bag Factory,12,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,18.59,11.154,C,,,,24,24,USD,16.29,9.774,12,12,See Price Method,Place Order With Logo,4 Color Process,T4,2,2,BG141,The Bag Factory,12,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,17.49,10.494,C,,,,24,24,USD,16.29,9.774,12,12,See Price Method,Place Order With Logo,4 Color Process,T4,2,2,BG141,The Bag Factory,12,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,16.29,9.774,C,,,,24,24,USD,16.29,9.774,12,12,See Price Method,Place Order With Logo,4 Color Process,T4,2,2,BG141,The Bag Factory,12,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,16.29,9.78,C,,,,26,26,USD,0,9.78,13,13,Random Sample,Order Sample,4 Color Process,RS,2,2,BG141,The Bag Factory,13,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,14.79,8.874,C,,,,28,28,USD,14.79,8.874,14,14,See Price Method,Order Without Logo,Blank,BL,2,2,BG141,The Bag Factory,14,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,14.79,8.874,C,,,,28,28,USD,14.79,8.874,14,14,See Price Method,Order Without Logo,Blank,BL,2,2,BG141,The Bag Factory,14,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,14.79,8.874,C,,,,28,28,USD,14.79,8.874,14,14,See Price Method,Order Without Logo,Blank,BL,2,2,BG141,The Bag Factory,14,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,14.79,8.874,C,,,,28,28,USD,14.79,8.874,14,14,See Price Method,Order Without Logo,Blank,BL,2,2,BG141,The Bag Factory,14,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,17.49,10.494,C,0.5,G,0.4,30,30,USD,13.79,8.274,15,15,See Price Method,Place Order With Logo,1 Color 1 Location,TP,3,3,BG143,The Bag Factory,15,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,15.99,9.594,C,0.5,G,0.4,30,30,USD,13.79,8.274,15,15,See Price Method,Place Order With Logo,1 Color 1 Location,TP,3,3,BG143,The Bag Factory,15,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,14.89,8.934,C,0.5,G,0.4,30,30,USD,13.79,8.274,15,15,See Price Method,Place Order With Logo,1 Color 1 Location,TP,3,3,BG143,The Bag Factory,15,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,13.79,8.274,C,0.5,G,0.4,30,30,USD,13.79,8.274,15,15,See Price Method,Place Order With Logo,1 Color 1 Location,TP,3,3,BG143,The Bag Factory,15,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,13.79,8.28,C,,,,32,32,USD,0,8.28,16,16,Random Sample,Order Sample,1 Color 1 Location,RS,3,3,BG143,The Bag Factory,16,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,18.99,11.394,C,,,,34,34,USD,15.29,9.174,17,17,See Price Method,Place Order With Logo,4 Color Process,T4,3,3,BG143,The Bag Factory,17,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,17.49,10.494,C,,,,34,34,USD,15.29,9.174,17,17,See Price Method,Place Order With Logo,4 Color Process,T4,3,3,BG143,The Bag Factory,17,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,16.39,9.834,C,,,,34,34,USD,15.29,9.174,17,17,See Price Method,Place Order With Logo,4 Color Process,T4,3,3,BG143,The Bag Factory,17,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,15.29,9.174,C,,,,34,34,USD,15.29,9.174,17,17,See Price Method,Place Order With Logo,4 Color Process,T4,3,3,BG143,The Bag Factory,17,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,15.29,9.18,C,,,,36,36,USD,0,9.18,18,18,Random Sample,Order Sample,4 Color Process,RS,3,3,BG143,The Bag Factory,18,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,19.49,11.694,C,,,,38,38,USD,15.79,9.474,19,19,See Price Method,Place Order With Logo,4 Color Process Dome,DM,3,3,BG143,The Bag Factory,19,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,17.99,10.794,C,,,,38,38,USD,15.79,9.474,19,19,See Price Method,Place Order With Logo,4 Color Process Dome,DM,3,3,BG143,The Bag Factory,19,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+100,16.89,10.134,C,,,,38,38,USD,15.79,9.474,19,19,See Price Method,Place Order With Logo,4 Color Process Dome,DM,3,3,BG143,The Bag Factory,19,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+250,15.79,9.474,C,,,,38,38,USD,15.79,9.474,19,19,See Price Method,Place Order With Logo,4 Color Process Dome,DM,3,3,BG143,The Bag Factory,19,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,15.79,9.48,C,,,,40,40,USD,0,9.48,20,20,Random Sample,Order Sample,4 Color Process Dome,RS,3,3,BG143,The Bag Factory,20,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,13.79,8.274,C,,,,42,42,USD,13.79,8.274,21,21,See Price Method,Order Without Logo,Blank,BL,3,3,BG143,The Bag Factory,21,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,13.79,8.274,C,,,,42,42,USD,13.79,8.274,21,21,See Price Method,Order Without Logo,Blank,BL,3,3,BG143,The Bag Factory,21,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,13.79,8.274,C,,,,42,42,USD,13.79,8.274,21,21,See Price Method,Order Without Logo,Blank,BL,3,3,BG143,The Bag Factory,21,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,13.79,8.274,C,,,,42,42,USD,13.79,8.274,21,21,See Price Method,Order Without Logo,Blank,BL,3,3,BG143,The Bag Factory,21,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,19.49,11.694,C,,,,44,44,USD,15.79,9.474,22,22,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,3,3,BG143,The Bag Factory,22,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,17.99,10.794,C,,,,44,44,USD,15.79,9.474,22,22,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,3,3,BG143,The Bag Factory,22,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,16.89,10.134,C,,,,44,44,USD,15.79,9.474,22,22,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,3,3,BG143,The Bag Factory,22,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+250,15.79,9.474,C,,,,44,44,USD,15.79,9.474,22,22,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,3,3,BG143,The Bag Factory,22,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,15.79,9.48,C,,,,46,46,USD,0,9.48,23,23,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,3,3,BG143,The Bag Factory,23,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,23.99,14.394,C,0.5,G,0.4,48,48,USD,18.99,11.394,24,24,See Price Method,Place Order With Logo,1 Color 1 Location,TP,4,4,BG144,The Bag Factory,24,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,21.99,13.194,C,0.5,G,0.4,48,48,USD,18.99,11.394,24,24,See Price Method,Place Order With Logo,1 Color 1 Location,TP,4,4,BG144,The Bag Factory,24,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,20.49,12.294,C,0.5,G,0.4,48,48,USD,18.99,11.394,24,24,See Price Method,Place Order With Logo,1 Color 1 Location,TP,4,4,BG144,The Bag Factory,24,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,18.99,11.394,C,0.5,G,0.4,48,48,USD,18.99,11.394,24,24,See Price Method,Place Order With Logo,1 Color 1 Location,TP,4,4,BG144,The Bag Factory,24,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,18.99,11.4,C,0.5,G,0,50,50,USD,0,11.4,25,25,Random Sample,Order Sample,1 Color 1 Location,RS,4,4,BG144,The Bag Factory,25,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,25.49,15.294,C,,,,52,52,USD,20.49,12.294,26,26,See Price Method,Place Order With Logo,4 Color Process,T4,4,4,BG144,The Bag Factory,26,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,23.49,14.094,C,,,,52,52,USD,20.49,12.294,26,26,See Price Method,Place Order With Logo,4 Color Process,T4,4,4,BG144,The Bag Factory,26,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,21.99,13.194,C,,,,52,52,USD,20.49,12.294,26,26,See Price Method,Place Order With Logo,4 Color Process,T4,4,4,BG144,The Bag Factory,26,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,20.49,12.294,C,,,,52,52,USD,20.49,12.294,26,26,See Price Method,Place Order With Logo,4 Color Process,T4,4,4,BG144,The Bag Factory,26,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,20.49,12.3,C,,,,54,54,USD,0,12.3,27,27,Random Sample,Order Sample,4 Color Process,RS,4,4,BG144,The Bag Factory,27,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,25.99,15.594,C,,,,56,56,USD,20.99,12.594,28,28,See Price Method,Place Order With Logo,4 Color Process Dome,DM,4,4,BG144,The Bag Factory,28,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,23.99,14.394,C,,,,56,56,USD,20.99,12.594,28,28,See Price Method,Place Order With Logo,4 Color Process Dome,DM,4,4,BG144,The Bag Factory,28,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+100,22.49,13.494,C,,,,56,56,USD,20.99,12.594,28,28,See Price Method,Place Order With Logo,4 Color Process Dome,DM,4,4,BG144,The Bag Factory,28,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+250,20.99,12.594,C,,,,56,56,USD,20.99,12.594,28,28,See Price Method,Place Order With Logo,4 Color Process Dome,DM,4,4,BG144,The Bag Factory,28,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,20.99,12.6,C,,,,58,58,USD,0,12.6,29,29,Random Sample,Order Sample,4 Color Process Dome,RS,4,4,BG144,The Bag Factory,29,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,18.99,11.394,C,,,,60,60,USD,18.99,11.394,30,30,See Price Method,Order Without Logo,Blank,BL,4,4,BG144,The Bag Factory,30,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,18.99,11.394,C,,,,60,60,USD,18.99,11.394,30,30,See Price Method,Order Without Logo,Blank,BL,4,4,BG144,The Bag Factory,30,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,18.99,11.394,C,,,,60,60,USD,18.99,11.394,30,30,See Price Method,Order Without Logo,Blank,BL,4,4,BG144,The Bag Factory,30,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,18.99,11.394,C,,,,60,60,USD,18.99,11.394,30,30,See Price Method,Order Without Logo,Blank,BL,4,4,BG144,The Bag Factory,30,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,25.99,15.594,C,,,,62,62,USD,20.99,12.594,31,31,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,4,4,BG144,The Bag Factory,31,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,23.99,14.394,C,,,,62,62,USD,20.99,12.594,31,31,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,4,4,BG144,The Bag Factory,31,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,22.49,13.494,C,,,,62,62,USD,20.99,12.594,31,31,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,4,4,BG144,The Bag Factory,31,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+250,20.99,12.594,C,,,,62,62,USD,20.99,12.594,31,31,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,4,4,BG144,The Bag Factory,31,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,20.99,12.6,C,,,,64,64,USD,0,12.6,32,32,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,4,4,BG144,The Bag Factory,32,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,26.49,15.894,C,0.5,G,0.4,66,66,USD,20.99,12.594,33,33,See Price Method,Place Order With Logo,1 Color 1 Location,TP,5,5,BG145,The Bag Factory,33,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+25,24.29,14.574,C,0.5,G,0.4,66,66,USD,20.99,12.594,33,33,See Price Method,Place Order With Logo,1 Color 1 Location,TP,5,5,BG145,The Bag Factory,33,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+50,22.69,13.614,C,0.5,G,0.4,66,66,USD,20.99,12.594,33,33,See Price Method,Place Order With Logo,1 Color 1 Location,TP,5,5,BG145,The Bag Factory,33,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+100,20.99,12.594,C,0.5,G,0.4,66,66,USD,20.99,12.594,33,33,See Price Method,Place Order With Logo,1 Color 1 Location,TP,5,5,BG145,The Bag Factory,33,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+1,20.99,12.6,C,,,,68,68,USD,0,12.6,34,34,Random Sample,Order Sample,1 Color 1 Location,RS,5,5,BG145,The Bag Factory,34,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,27.99,16.794,C,,,,70,70,USD,22.49,13.494,35,35,See Price Method,Place Order With Logo,4 Color Process,T4,5,5,BG145,The Bag Factory,35,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+25,25.79,15.474,C,,,,70,70,USD,22.49,13.494,35,35,See Price Method,Place Order With Logo,4 Color Process,T4,5,5,BG145,The Bag Factory,35,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,24.19,14.514,C,,,,70,70,USD,22.49,13.494,35,35,See Price Method,Place Order With Logo,4 Color Process,T4,5,5,BG145,The Bag Factory,35,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,22.49,13.494,C,,,,70,70,USD,22.49,13.494,35,35,See Price Method,Place Order With Logo,4 Color Process,T4,5,5,BG145,The Bag Factory,35,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,22.49,13.5,C,,,,72,72,USD,0,13.5,36,36,Random Sample,Order Sample,4 Color Process,RS,5,5,BG145,The Bag Factory,36,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,20.99,12.594,C,,,,74,74,USD,20.99,12.594,37,37,See Price Method,Order Without Logo,Blank,BL,5,5,BG145,The Bag Factory,37,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,20.99,12.594,C,,,,74,74,USD,20.99,12.594,37,37,See Price Method,Order Without Logo,Blank,BL,5,5,BG145,The Bag Factory,37,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,20.99,12.594,C,,,,74,74,USD,20.99,12.594,37,37,See Price Method,Order Without Logo,Blank,BL,5,5,BG145,The Bag Factory,37,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,20.99,12.594,C,,,,74,74,USD,20.99,12.594,37,37,See Price Method,Order Without Logo,Blank,BL,5,5,BG145,The Bag Factory,37,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,28.49,17.094,C,,,,76,76,USD,22.99,13.794,38,38,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,5,5,BG145,The Bag Factory,38,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,26.29,15.774,C,,,,76,76,USD,22.99,13.794,38,38,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,5,5,BG145,The Bag Factory,38,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,24.69,14.814,C,,,,76,76,USD,22.99,13.794,38,38,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,5,5,BG145,The Bag Factory,38,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,22.99,13.794,C,,,,76,76,USD,22.99,13.794,38,38,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,5,5,BG145,The Bag Factory,38,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,22.99,13.8,C,,,,78,78,USD,0,13.8,39,39,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,5,5,BG145,The Bag Factory,39,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,27.49,16.494,C,0.5,G,0.4,80,80,USD,21.99,13.194,40,40,See Price Method,Place Order With Logo,1 Color 1 Location,TP,6,6,BG145CM,The Bag Factory,40,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+25,25.29,15.174,C,0.5,G,0.4,80,80,USD,21.99,13.194,40,40,See Price Method,Place Order With Logo,1 Color 1 Location,TP,6,6,BG145CM,The Bag Factory,40,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+50,23.69,14.214,C,0.5,G,0.4,80,80,USD,21.99,13.194,40,40,See Price Method,Place Order With Logo,1 Color 1 Location,TP,6,6,BG145CM,The Bag Factory,40,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+100,21.99,13.194,C,0.5,G,0.4,80,80,USD,21.99,13.194,40,40,See Price Method,Place Order With Logo,1 Color 1 Location,TP,6,6,BG145CM,The Bag Factory,40,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+1,21.99,13.2,C,,,,82,82,USD,0,13.2,41,41,Random Sample,Order Sample,1 Color 1 Location,RS,6,6,BG145CM,The Bag Factory,41,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,29.99,17.994,C,,,,84,84,USD,24.49,14.694,42,42,See Price Method,Place Order With Logo,4 Color Process,TF,6,6,BG145CM,The Bag Factory,42,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+25,27.79,16.674,C,,,,84,84,USD,24.49,14.694,42,42,See Price Method,Place Order With Logo,4 Color Process,TF,6,6,BG145CM,The Bag Factory,42,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,26.19,15.714,C,,,,84,84,USD,24.49,14.694,42,42,See Price Method,Place Order With Logo,4 Color Process,TF,6,6,BG145CM,The Bag Factory,42,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,24.49,14.694,C,,,,84,84,USD,24.49,14.694,42,42,See Price Method,Place Order With Logo,4 Color Process,TF,6,6,BG145CM,The Bag Factory,42,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,24.49,14.7,C,,,,86,86,USD,0,14.7,43,43,Random Sample,Order Sample,4 Color Process,RS,6,6,BG145CM,The Bag Factory,43,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,21.99,13.194,C,,,,88,88,USD,21.99,13.194,44,44,See Price Method,Order Without Logo,Blank,BL,6,6,BG145CM,The Bag Factory,44,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,21.99,13.194,C,,,,88,88,USD,21.99,13.194,44,44,See Price Method,Order Without Logo,Blank,BL,6,6,BG145CM,The Bag Factory,44,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,21.99,13.194,C,,,,88,88,USD,21.99,13.194,44,44,See Price Method,Order Without Logo,Blank,BL,6,6,BG145CM,The Bag Factory,44,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,21.99,13.194,C,,,,88,88,USD,21.99,13.194,44,44,See Price Method,Order Without Logo,Blank,BL,6,6,BG145CM,The Bag Factory,44,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,30.49,18.294,C,,,,90,90,USD,24.99,14.994,45,45,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,6,6,BG145CM,The Bag Factory,45,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,28.29,16.974,C,,,,90,90,USD,24.99,14.994,45,45,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,6,6,BG145CM,The Bag Factory,45,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,26.69,16.014,C,,,,90,90,USD,24.99,14.994,45,45,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,6,6,BG145CM,The Bag Factory,45,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,24.99,14.994,C,,,,90,90,USD,24.99,14.994,45,45,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,6,6,BG145CM,The Bag Factory,45,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,24.99,15,C,,,,92,92,USD,0,15,46,46,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,6,6,BG145CM,The Bag Factory,46,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,18.89,11.334,C,0.5,G,0.4,94,94,USD,14.99,8.994,47,47,See Price Method,Place Order With Logo,1 Color 1 Location,TP,7,7,BG147,The Bag Factory,47,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,17.29,10.374,C,0.5,G,0.4,94,94,USD,14.99,8.994,47,47,See Price Method,Place Order With Logo,1 Color 1 Location,TP,7,7,BG147,The Bag Factory,47,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,16.19,9.714,C,0.5,G,0.4,94,94,USD,14.99,8.994,47,47,See Price Method,Place Order With Logo,1 Color 1 Location,TP,7,7,BG147,The Bag Factory,47,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,14.99,8.994,C,0.5,G,0.4,94,94,USD,14.99,8.994,47,47,See Price Method,Place Order With Logo,1 Color 1 Location,TP,7,7,BG147,The Bag Factory,47,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,14.99,9,C,,,,96,96,USD,0,9,48,48,Random Sample,Order Sample,1 Color 1 Location,RS,7,7,BG147,The Bag Factory,48,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,14.99,8.994,C,,,,98,98,USD,14.99,8.994,49,49,See Price Method,Order Without Logo,Blank,BL,7,7,BG147,The Bag Factory,49,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,14.99,8.994,C,,,,98,98,USD,14.99,8.994,49,49,See Price Method,Order Without Logo,Blank,BL,7,7,BG147,The Bag Factory,49,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,14.99,8.994,C,,,,98,98,USD,14.99,8.994,49,49,See Price Method,Order Without Logo,Blank,BL,7,7,BG147,The Bag Factory,49,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,14.99,8.994,C,,,,98,98,USD,14.99,8.994,49,49,See Price Method,Order Without Logo,Blank,BL,7,7,BG147,The Bag Factory,49,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,23.99,14.394,C,0.5,G,0.4,100,100,USD,23.99,14.394,50,50,See Price Method,Place Order With Logo,1 Color 1 Location,TP,8,8,BG149,The Bag Factory,50,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+25,23.99,14.394,C,0.5,G,0.4,100,100,USD,23.99,14.394,50,50,See Price Method,Place Order With Logo,1 Color 1 Location,TP,8,8,BG149,The Bag Factory,50,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+50,23.99,14.394,C,0.5,G,0.4,100,100,USD,23.99,14.394,50,50,See Price Method,Place Order With Logo,1 Color 1 Location,TP,8,8,BG149,The Bag Factory,50,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+100,23.99,14.394,C,0.5,G,0.4,100,100,USD,23.99,14.394,50,50,See Price Method,Place Order With Logo,1 Color 1 Location,TP,8,8,BG149,The Bag Factory,50,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+1,23.99,14.4,C,,,,102,102,USD,0,14.4,51,51,Random Sample,Order Sample,1 Color 1 Location,RS,8,8,BG149,The Bag Factory,51,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,29.69,17.814,C,,,,104,104,USD,26.09,15.654,52,52,See Price Method,Place Order With Logo,4 Color Process,T4,8,8,BG149,The Bag Factory,52,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+25,27.79,16.674,C,,,,104,104,USD,26.09,15.654,52,52,See Price Method,Place Order With Logo,4 Color Process,T4,8,8,BG149,The Bag Factory,52,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,27.29,16.374,C,,,,104,104,USD,26.09,15.654,52,52,See Price Method,Place Order With Logo,4 Color Process,T4,8,8,BG149,The Bag Factory,52,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,26.09,15.654,C,,,,104,104,USD,26.09,15.654,52,52,See Price Method,Place Order With Logo,4 Color Process,T4,8,8,BG149,The Bag Factory,52,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,26.09,15.66,C,,,,106,106,USD,0,15.66,53,53,Random Sample,Order Sample,4 Color Process,RS,8,8,BG149,The Bag Factory,53,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,23.99,14.394,C,,,,108,108,USD,23.99,14.394,54,54,See Price Method,Order Without Logo,Blank,BL,8,8,BG149,The Bag Factory,54,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,23.99,14.394,C,,,,108,108,USD,23.99,14.394,54,54,See Price Method,Order Without Logo,Blank,BL,8,8,BG149,The Bag Factory,54,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,23.99,14.394,C,,,,108,108,USD,23.99,14.394,54,54,See Price Method,Order Without Logo,Blank,BL,8,8,BG149,The Bag Factory,54,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,23.99,14.394,C,,,,108,108,USD,23.99,14.394,54,54,See Price Method,Order Without Logo,Blank,BL,8,8,BG149,The Bag Factory,54,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,30.19,18.114,C,,,,110,110,USD,26.59,15.954,55,55,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,8,8,BG149,The Bag Factory,55,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,28.29,16.974,C,,,,110,110,USD,26.59,15.954,55,55,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,8,8,BG149,The Bag Factory,55,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,27.79,16.674,C,,,,110,110,USD,26.59,15.954,55,55,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,8,8,BG149,The Bag Factory,55,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,26.59,15.954,C,,,,110,110,USD,26.59,15.954,55,55,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,8,8,BG149,The Bag Factory,55,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,26.59,15.96,C,,,,112,112,USD,0,15.96,56,56,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,8,8,BG149,The Bag Factory,56,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,9.99,5.994,C,0.5,G,0.4,114,114,USD,9.99,5.994,57,57,See Price Method,Place Order With Logo,1 Color 1 Location,TP,9,9,BG157,The Bag Factory,57,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+50,9.99,5.994,C,0.5,G,0.4,114,114,USD,9.99,5.994,57,57,See Price Method,Place Order With Logo,1 Color 1 Location,TP,9,9,BG157,The Bag Factory,57,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+100,9.99,5.994,C,0.5,G,0.4,114,114,USD,9.99,5.994,57,57,See Price Method,Place Order With Logo,1 Color 1 Location,TP,9,9,BG157,The Bag Factory,57,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+250,9.99,5.994,C,0.5,G,0.4,114,114,USD,9.99,5.994,57,57,See Price Method,Place Order With Logo,1 Color 1 Location,TP,9,9,BG157,The Bag Factory,57,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+1,9.99,6,C,,,,116,116,USD,0,6,58,58,Random Sample,Order Sample,1 Color 1 Location,RS,9,9,BG157,The Bag Factory,58,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,17.49,10.494,C,,,,118,118,USD,14.49,8.694,59,59,See Price Method,Place Order With Logo,4 Color Process,T4,9,9,BG157,The Bag Factory,59,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,16.49,9.894,C,,,,118,118,USD,14.49,8.694,59,59,See Price Method,Place Order With Logo,4 Color Process,T4,9,9,BG157,The Bag Factory,59,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,15.49,9.294,C,,,,118,118,USD,14.49,8.694,59,59,See Price Method,Place Order With Logo,4 Color Process,T4,9,9,BG157,The Bag Factory,59,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,14.49,8.694,C,,,,118,118,USD,14.49,8.694,59,59,See Price Method,Place Order With Logo,4 Color Process,T4,9,9,BG157,The Bag Factory,59,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,14.49,8.7,C,,,,120,120,USD,0,8.7,60,60,Random Sample,Order Sample,4 Color Process,RS,9,9,BG157,The Bag Factory,60,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,9.99,5.994,C,,,,122,122,USD,9.99,5.994,61,61,See Price Method,Order Without Logo,Blank,BL,9,9,BG157,The Bag Factory,61,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,9.99,5.994,C,,,,122,122,USD,9.99,5.994,61,61,See Price Method,Order Without Logo,Blank,BL,9,9,BG157,The Bag Factory,61,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,9.99,5.994,C,,,,122,122,USD,9.99,5.994,61,61,See Price Method,Order Without Logo,Blank,BL,9,9,BG157,The Bag Factory,61,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,9.99,5.994,C,,,,122,122,USD,9.99,5.994,61,61,See Price Method,Order Without Logo,Blank,BL,9,9,BG157,The Bag Factory,61,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,19.99,11.994,C,0.5,G,0.4,124,124,USD,15.99,9.594,62,62,See Price Method,Place Order With Logo,1 Color 1 Location,TP,10,10,BG159,The Bag Factory,62,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,18.49,11.094,C,0.5,G,0.4,124,124,USD,15.99,9.594,62,62,See Price Method,Place Order With Logo,1 Color 1 Location,TP,10,10,BG159,The Bag Factory,62,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,17.29,10.374,C,0.5,G,0.4,124,124,USD,15.99,9.594,62,62,See Price Method,Place Order With Logo,1 Color 1 Location,TP,10,10,BG159,The Bag Factory,62,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,15.99,9.594,C,0.5,G,0.4,124,124,USD,15.99,9.594,62,62,See Price Method,Place Order With Logo,1 Color 1 Location,TP,10,10,BG159,The Bag Factory,62,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,15.99,9.6,C,,,,126,126,USD,0,9.6,63,63,Random Sample,Order Sample,1 Color 1 Location,RS,10,10,BG159,The Bag Factory,63,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,21.49,12.894,C,,,,128,128,USD,17.49,10.494,64,64,See Price Method,Place Order With Logo,4 Color Process,T4,10,10,BG159,The Bag Factory,64,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,19.99,11.994,C,,,,128,128,USD,17.49,10.494,64,64,See Price Method,Place Order With Logo,4 Color Process,T4,10,10,BG159,The Bag Factory,64,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,18.79,11.274,C,,,,128,128,USD,17.49,10.494,64,64,See Price Method,Place Order With Logo,4 Color Process,T4,10,10,BG159,The Bag Factory,64,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,17.49,10.494,C,,,,128,128,USD,17.49,10.494,64,64,See Price Method,Place Order With Logo,4 Color Process,T4,10,10,BG159,The Bag Factory,64,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,17.49,10.5,C,,,,130,130,USD,0,10.5,65,65,Random Sample,Order Sample,4 Color Process,RS,10,10,BG159,The Bag Factory,65,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,15.99,9.594,C,,,,132,132,USD,15.99,9.594,66,66,See Price Method,Order Without Logo,Blank,BL,10,10,BG159,The Bag Factory,66,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,15.99,9.594,C,,,,132,132,USD,15.99,9.594,66,66,See Price Method,Order Without Logo,Blank,BL,10,10,BG159,The Bag Factory,66,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,15.99,9.594,C,,,,132,132,USD,15.99,9.594,66,66,See Price Method,Order Without Logo,Blank,BL,10,10,BG159,The Bag Factory,66,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,15.99,9.594,C,,,,132,132,USD,15.99,9.594,66,66,See Price Method,Order Without Logo,Blank,BL,10,10,BG159,The Bag Factory,66,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,21.99,13.194,C,,,,134,134,USD,17.99,10.794,67,67,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,10,10,BG159,The Bag Factory,67,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,20.49,12.294,C,,,,134,134,USD,17.99,10.794,67,67,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,10,10,BG159,The Bag Factory,67,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,19.29,11.574,C,,,,134,134,USD,17.99,10.794,67,67,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,10,10,BG159,The Bag Factory,67,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+250,17.99,10.794,C,,,,134,134,USD,17.99,10.794,67,67,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,10,10,BG159,The Bag Factory,67,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,17.99,10.8,C,,,,136,136,USD,0,10.8,68,68,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,10,10,BG159,The Bag Factory,68,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+50,11.39,6.834,C,0.5,G,0.4,138,138,USD,8.99,5.394,69,69,See Price Method,Place Order With Logo,1 Color 1 Location,TP,11,11,BG161,The Bag Factory,69,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+100,10.49,6.294,C,0.5,G,0.4,138,138,USD,8.99,5.394,69,69,See Price Method,Place Order With Logo,1 Color 1 Location,TP,11,11,BG161,The Bag Factory,69,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+250,9.79,5.874,C,0.5,G,0.4,138,138,USD,8.99,5.394,69,69,See Price Method,Place Order With Logo,1 Color 1 Location,TP,11,11,BG161,The Bag Factory,69,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+500,8.99,5.394,C,0.5,G,0.4,138,138,USD,8.99,5.394,69,69,See Price Method,Place Order With Logo,1 Color 1 Location,TP,11,11,BG161,The Bag Factory,69,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+1,8.99,5.4,C,,,,140,140,USD,0,5.4,70,70,Random Sample,Order Sample,1 Color 1 Location,RS,11,11,BG161,The Bag Factory,70,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+50,12.89,7.734,C,,,,142,142,USD,10.49,6.294,71,71,See Price Method,Place Order With Logo,4 Color Process,T4,11,11,BG161,The Bag Factory,71,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,11.99,7.194,C,,,,142,142,USD,10.49,6.294,71,71,See Price Method,Place Order With Logo,4 Color Process,T4,11,11,BG161,The Bag Factory,71,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,11.29,6.774,C,,,,142,142,USD,10.49,6.294,71,71,See Price Method,Place Order With Logo,4 Color Process,T4,11,11,BG161,The Bag Factory,71,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+500,10.49,6.294,C,,,,142,142,USD,10.49,6.294,71,71,See Price Method,Place Order With Logo,4 Color Process,T4,11,11,BG161,The Bag Factory,71,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,10.49,6.3,C,,,,144,144,USD,0,6.3,72,72,Random Sample,Order Sample,4 Color Process,RS,11,11,BG161,The Bag Factory,72,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+50,8.99,5.394,C,,,,146,146,USD,8.99,5.394,73,73,See Price Method,Order Without Logo,Blank,BL,11,11,BG161,The Bag Factory,73,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,8.99,5.394,C,,,,146,146,USD,8.99,5.394,73,73,See Price Method,Order Without Logo,Blank,BL,11,11,BG161,The Bag Factory,73,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,8.99,5.394,C,,,,146,146,USD,8.99,5.394,73,73,See Price Method,Order Without Logo,Blank,BL,11,11,BG161,The Bag Factory,73,Drop Shipment Charge,8.5,G,6.8,,,,0,
+500,8.99,5.394,C,,,,146,146,USD,8.99,5.394,73,73,See Price Method,Order Without Logo,Blank,BL,11,11,BG161,The Bag Factory,73,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,13.39,8.034,C,,,,148,148,USD,10.99,6.594,74,74,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,11,11,BG161,The Bag Factory,74,Additional Stitches,0.35,G,0.28,50,40,0,4,9
+100,12.49,7.494,C,,,,148,148,USD,10.99,6.594,74,74,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,11,11,BG161,The Bag Factory,74,Additional Stitches,0.35,G,0.28,50,40,0,4,9
+250,11.79,7.074,C,,,,148,148,USD,10.99,6.594,74,74,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,11,11,BG161,The Bag Factory,74,Additional Stitches,0.35,G,0.28,50,40,0,4,9
+500,10.99,6.594,C,,,,148,148,USD,10.99,6.594,74,74,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,11,11,BG161,The Bag Factory,74,Additional Stitches,0.35,G,0.28,50,40,0,4,9
+1,10.99,6.6,C,,,,150,150,USD,0,6.6,75,75,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,11,11,BG161,The Bag Factory,75,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,13.79,8.274,C,0.5,G,0.4,152,152,USD,10.99,6.594,76,76,See Price Method,Place Order With Logo,1 Color 1 Location,TP,12,12,BG162,The Bag Factory,76,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+50,12.69,7.614,C,0.5,G,0.4,152,152,USD,10.99,6.594,76,76,See Price Method,Place Order With Logo,1 Color 1 Location,TP,12,12,BG162,The Bag Factory,76,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+100,11.89,7.134,C,0.5,G,0.4,152,152,USD,10.99,6.594,76,76,See Price Method,Place Order With Logo,1 Color 1 Location,TP,12,12,BG162,The Bag Factory,76,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+250,10.99,6.594,C,0.5,G,0.4,152,152,USD,10.99,6.594,76,76,See Price Method,Place Order With Logo,1 Color 1 Location,TP,12,12,BG162,The Bag Factory,76,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+1,10.99,6.6,C,,,,154,154,USD,0,6.6,77,77,Random Sample,Order Sample,1 Color 1 Location,RS,12,12,BG162,The Bag Factory,77,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,15.29,9.174,C,,,,156,156,USD,12.49,7.494,78,78,See Price Method,Place Order With Logo,4 Color Process,T4,12,12,BG162,The Bag Factory,78,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,14.19,8.514,C,,,,156,156,USD,12.49,7.494,78,78,See Price Method,Place Order With Logo,4 Color Process,T4,12,12,BG162,The Bag Factory,78,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,13.39,8.034,C,,,,156,156,USD,12.49,7.494,78,78,See Price Method,Place Order With Logo,4 Color Process,T4,12,12,BG162,The Bag Factory,78,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,12.49,7.494,C,,,,156,156,USD,12.49,7.494,78,78,See Price Method,Place Order With Logo,4 Color Process,T4,12,12,BG162,The Bag Factory,78,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,12.49,7.5,C,,,,158,158,USD,0,7.5,79,79,Random Sample,Order Sample,4 Color Process,RS,12,12,BG162,The Bag Factory,79,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,10.99,6.594,C,,,,160,160,USD,10.99,6.594,80,80,See Price Method,Order Without Logo,Blank,BL,12,12,BG162,The Bag Factory,80,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,10.99,6.594,C,,,,160,160,USD,10.99,6.594,80,80,See Price Method,Order Without Logo,Blank,BL,12,12,BG162,The Bag Factory,80,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,10.99,6.594,C,,,,160,160,USD,10.99,6.594,80,80,See Price Method,Order Without Logo,Blank,BL,12,12,BG162,The Bag Factory,80,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,10.99,6.594,C,,,,160,160,USD,10.99,6.594,80,80,See Price Method,Order Without Logo,Blank,BL,12,12,BG162,The Bag Factory,80,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,15.79,9.474,C,,,,162,162,USD,12.99,7.794,81,81,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,12,12,BG162,The Bag Factory,81,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,14.69,8.814,C,,,,162,162,USD,12.99,7.794,81,81,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,12,12,BG162,The Bag Factory,81,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,13.89,8.334,C,,,,162,162,USD,12.99,7.794,81,81,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,12,12,BG162,The Bag Factory,81,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+250,12.99,7.794,C,,,,162,162,USD,12.99,7.794,81,81,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,12,12,BG162,The Bag Factory,81,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,12.99,7.8,C,,,,164,164,USD,0,7.8,82,82,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,12,12,BG162,The Bag Factory,82,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,15.99,9.594,C,0.5,G,0.4,166,166,USD,12.79,7.674,83,83,See Price Method,Place Order With Logo,1 Color 1 Location,TP,13,13,BG163,The Bag Factory,83,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,14.79,8.874,C,0.5,G,0.4,166,166,USD,12.79,7.674,83,83,See Price Method,Place Order With Logo,1 Color 1 Location,TP,13,13,BG163,The Bag Factory,83,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,13.79,8.274,C,0.5,G,0.4,166,166,USD,12.79,7.674,83,83,See Price Method,Place Order With Logo,1 Color 1 Location,TP,13,13,BG163,The Bag Factory,83,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,12.79,7.674,C,0.5,G,0.4,166,166,USD,12.79,7.674,83,83,See Price Method,Place Order With Logo,1 Color 1 Location,TP,13,13,BG163,The Bag Factory,83,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,12.79,7.68,C,,,,168,168,USD,0,7.68,84,84,Random Sample,Order Sample,1 Color 1 Location,RS,13,13,BG163,The Bag Factory,84,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,17.49,10.494,C,,,,170,170,USD,14.29,8.574,85,85,See Price Method,Place Order With Logo,4 Color Process,T4,13,13,BG163,The Bag Factory,85,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,16.29,9.774,C,,,,170,170,USD,14.29,8.574,85,85,See Price Method,Place Order With Logo,4 Color Process,T4,13,13,BG163,The Bag Factory,85,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,15.29,9.174,C,,,,170,170,USD,14.29,8.574,85,85,See Price Method,Place Order With Logo,4 Color Process,T4,13,13,BG163,The Bag Factory,85,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,14.29,8.574,C,,,,170,170,USD,14.29,8.574,85,85,See Price Method,Place Order With Logo,4 Color Process,T4,13,13,BG163,The Bag Factory,85,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,14.29,8.58,C,,,,172,172,USD,0,8.58,86,86,Random Sample,Order Sample,4 Color Process,RS,13,13,BG163,The Bag Factory,86,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,12.79,7.674,C,,,,174,174,USD,12.79,7.674,87,87,See Price Method,Order Without Logo,Blank,BL,13,13,BG163,The Bag Factory,87,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,12.79,7.674,C,,,,174,174,USD,12.79,7.674,87,87,See Price Method,Order Without Logo,Blank,BL,13,13,BG163,The Bag Factory,87,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,12.79,7.674,C,,,,174,174,USD,12.79,7.674,87,87,See Price Method,Order Without Logo,Blank,BL,13,13,BG163,The Bag Factory,87,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,12.79,7.674,C,,,,174,174,USD,12.79,7.674,87,87,See Price Method,Order Without Logo,Blank,BL,13,13,BG163,The Bag Factory,87,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,17.99,10.794,C,,,,176,176,USD,14.79,8.874,88,88,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,13,13,BG163,The Bag Factory,88,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,16.79,10.074,C,,,,176,176,USD,14.79,8.874,88,88,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,13,13,BG163,The Bag Factory,88,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,15.79,9.474,C,,,,176,176,USD,14.79,8.874,88,88,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,13,13,BG163,The Bag Factory,88,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+250,14.79,8.874,C,,,,176,176,USD,14.79,8.874,88,88,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,13,13,BG163,The Bag Factory,88,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,14.79,8.88,C,,,,178,178,USD,0,8.88,89,89,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,13,13,BG163,The Bag Factory,89,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+6,94.99,56.994,C,,,,180,180,USD,75.69,45.414,90,90,See Price Method,Place Order With Logo,Debossed,DB,14,14,BG176,The Bag Factory,90,Drop Shipment Charge,8.5,G,6.8,75,60,20,0,0
+12,87.29,52.374,C,,,,180,180,USD,75.69,45.414,90,90,See Price Method,Place Order With Logo,Debossed,DB,14,14,BG176,The Bag Factory,90,Drop Shipment Charge,8.5,G,6.8,75,60,20,0,0
+25,81.69,49.014,C,,,,180,180,USD,75.69,45.414,90,90,See Price Method,Place Order With Logo,Debossed,DB,14,14,BG176,The Bag Factory,90,Drop Shipment Charge,8.5,G,6.8,75,60,20,0,0
+50,75.69,45.414,C,,,,180,180,USD,75.69,45.414,90,90,See Price Method,Place Order With Logo,Debossed,DB,14,14,BG176,The Bag Factory,90,Drop Shipment Charge,8.5,G,6.8,75,60,20,0,0
+6,93.49,56.094,C,0.5,G,0.4,182,182,USD,74.19,44.514,91,91,See Price Method,Place Order With Logo,1 Color 1 Location,TP,14,14,BG176,The Bag Factory,91,PMS Color Match,30,G,24,50,40,0,3,5
+12,85.79,51.474,C,0.5,G,0.4,182,182,USD,74.19,44.514,91,91,See Price Method,Place Order With Logo,1 Color 1 Location,TP,14,14,BG176,The Bag Factory,91,PMS Color Match,30,G,24,50,40,0,3,5
+25,80.19,48.114,C,0.5,G,0.4,182,182,USD,74.19,44.514,91,91,See Price Method,Place Order With Logo,1 Color 1 Location,TP,14,14,BG176,The Bag Factory,91,PMS Color Match,30,G,24,50,40,0,3,5
+50,74.19,44.514,C,0.5,G,0.4,182,182,USD,74.19,44.514,91,91,See Price Method,Place Order With Logo,1 Color 1 Location,TP,14,14,BG176,The Bag Factory,91,PMS Color Match,30,G,24,50,40,0,3,5
+1,74.19,44.52,C,,,,184,184,USD,0,44.52,92,92,Random Sample,Order Sample,1 Color 1 Location,RS,14,14,BG176,The Bag Factory,92,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+6,75.69,45.414,C,,,,186,186,USD,75.69,45.414,93,93,See Price Method,Order Without Logo,Blank,BL,14,14,BG176,The Bag Factory,93,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,75.69,45.414,C,,,,186,186,USD,75.69,45.414,93,93,See Price Method,Order Without Logo,Blank,BL,14,14,BG176,The Bag Factory,93,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,75.69,45.414,C,,,,186,186,USD,75.69,45.414,93,93,See Price Method,Order Without Logo,Blank,BL,14,14,BG176,The Bag Factory,93,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,75.69,45.414,C,,,,186,186,USD,75.69,45.414,93,93,See Price Method,Order Without Logo,Blank,BL,14,14,BG176,The Bag Factory,93,Drop Shipment Charge,8.5,G,6.8,,,,0,
+1,75.69,45.42,C,,,,188,188,USD,0,45.42,94,94,Random Sample,Order Sample,Debossed,RS,14,14,BG176,The Bag Factory,94,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+6,90.19,54.114,C,,,,190,190,USD,75.69,45.414,95,95,See Price Method,Place Order With Logo,Laser,CG,14,14,BG176,The Bag Factory,95,Drop Shipment Charge,8.5,G,6.8,75,40,20,0,2
+12,87.29,52.374,C,,,,190,190,USD,75.69,45.414,95,95,See Price Method,Place Order With Logo,Laser,CG,14,14,BG176,The Bag Factory,95,Drop Shipment Charge,8.5,G,6.8,75,40,20,0,2
+25,81.69,49.014,C,,,,190,190,USD,75.69,45.414,95,95,See Price Method,Place Order With Logo,Laser,CG,14,14,BG176,The Bag Factory,95,Drop Shipment Charge,8.5,G,6.8,75,40,20,0,2
+50,75.69,45.414,C,,,,190,190,USD,75.69,45.414,95,95,See Price Method,Place Order With Logo,Laser,CG,14,14,BG176,The Bag Factory,95,Drop Shipment Charge,8.5,G,6.8,75,40,20,0,2
+1,75.69,45.42,C,,,,192,192,USD,0,45.42,96,96,Random Sample,Order Sample,Laser,RS,14,14,BG176,The Bag Factory,96,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+50,6.49,3.894,C,0.5,G,0.4,194,194,USD,5.19,3.114,97,97,See Price Method,Place Order With Logo,1 Color 1 Location,TP,15,15,BG200,The Bag Factory,97,PMS Color Match,30,G,24,50,40,20,3,5
+100,5.99,3.594,C,0.5,G,0.4,194,194,USD,5.19,3.114,97,97,See Price Method,Place Order With Logo,1 Color 1 Location,TP,15,15,BG200,The Bag Factory,97,PMS Color Match,30,G,24,50,40,20,3,5
+250,5.59,3.354,C,0.5,G,0.4,194,194,USD,5.19,3.114,97,97,See Price Method,Place Order With Logo,1 Color 1 Location,TP,15,15,BG200,The Bag Factory,97,PMS Color Match,30,G,24,50,40,20,3,5
+500,5.19,3.114,C,0.5,G,0.4,194,194,USD,5.19,3.114,97,97,See Price Method,Place Order With Logo,1 Color 1 Location,TP,15,15,BG200,The Bag Factory,97,PMS Color Match,30,G,24,50,40,20,3,5
+1,5.19,3.12,C,,,,196,196,USD,0,3.12,98,98,Random Sample,Order Sample,1 Color 1 Location,RS,15,15,BG200,The Bag Factory,98,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+50,5.19,3.114,C,,,,198,198,USD,5.19,3.114,99,99,See Price Method,Order Without Logo,Blank,BL,15,15,BG200,The Bag Factory,99,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,5.19,3.114,C,,,,198,198,USD,5.19,3.114,99,99,See Price Method,Order Without Logo,Blank,BL,15,15,BG200,The Bag Factory,99,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,5.19,3.114,C,,,,198,198,USD,5.19,3.114,99,99,See Price Method,Order Without Logo,Blank,BL,15,15,BG200,The Bag Factory,99,Drop Shipment Charge,8.5,G,6.8,,,,0,
+500,5.19,3.114,C,,,,198,198,USD,5.19,3.114,99,99,See Price Method,Order Without Logo,Blank,BL,15,15,BG200,The Bag Factory,99,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,23.99,14.394,C,0.5,G,0.4,200,200,USD,18.99,11.394,100,100,See Price Method,Place Order With Logo,1 Color 1 Location,TP,16,16,BG214,The Bag Factory,100,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,21.99,13.194,C,0.5,G,0.4,200,200,USD,18.99,11.394,100,100,See Price Method,Place Order With Logo,1 Color 1 Location,TP,16,16,BG214,The Bag Factory,100,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,20.49,12.294,C,0.5,G,0.4,200,200,USD,18.99,11.394,100,100,See Price Method,Place Order With Logo,1 Color 1 Location,TP,16,16,BG214,The Bag Factory,100,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,18.99,11.394,C,0.5,G,0.4,200,200,USD,18.99,11.394,100,100,See Price Method,Place Order With Logo,1 Color 1 Location,TP,16,16,BG214,The Bag Factory,100,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,18.99,11.4,C,,,,202,202,USD,0,11.4,101,101,Random Sample,Order Sample,1 Color 1 Location,RS,16,16,BG214,The Bag Factory,101,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,25.49,15.294,C,,,,204,204,USD,20.49,12.294,102,102,See Price Method,Place Order With Logo,4 Color Process,TF,16,16,BG214,The Bag Factory,102,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,23.49,14.094,C,,,,204,204,USD,20.49,12.294,102,102,See Price Method,Place Order With Logo,4 Color Process,TF,16,16,BG214,The Bag Factory,102,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,21.99,13.194,C,,,,204,204,USD,20.49,12.294,102,102,See Price Method,Place Order With Logo,4 Color Process,TF,16,16,BG214,The Bag Factory,102,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,20.49,12.294,C,,,,204,204,USD,20.49,12.294,102,102,See Price Method,Place Order With Logo,4 Color Process,TF,16,16,BG214,The Bag Factory,102,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,20.49,12.3,C,,,,206,206,USD,0,12.3,103,103,Random Sample,Order Sample,4 Color Process,RS,16,16,BG214,The Bag Factory,103,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,25.99,15.594,C,,,,208,208,USD,20.99,12.594,104,104,See Price Method,Place Order With Logo,4 Color Process Dome,DM,16,16,BG214,The Bag Factory,104,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,23.99,14.394,C,,,,208,208,USD,20.99,12.594,104,104,See Price Method,Place Order With Logo,4 Color Process Dome,DM,16,16,BG214,The Bag Factory,104,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+100,22.49,13.494,C,,,,208,208,USD,20.99,12.594,104,104,See Price Method,Place Order With Logo,4 Color Process Dome,DM,16,16,BG214,The Bag Factory,104,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+250,20.99,12.594,C,,,,208,208,USD,20.99,12.594,104,104,See Price Method,Place Order With Logo,4 Color Process Dome,DM,16,16,BG214,The Bag Factory,104,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,20.99,12.6,C,,,,210,210,USD,0,12.6,105,105,Random Sample,Order Sample,4 Color Process Dome,RS,16,16,BG214,The Bag Factory,105,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,18.99,11.394,C,,,,212,212,USD,18.99,11.394,106,106,See Price Method,Order Without Logo,Blank,BL,16,16,BG214,The Bag Factory,106,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,18.99,11.394,C,,,,212,212,USD,18.99,11.394,106,106,See Price Method,Order Without Logo,Blank,BL,16,16,BG214,The Bag Factory,106,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,18.99,11.394,C,,,,212,212,USD,18.99,11.394,106,106,See Price Method,Order Without Logo,Blank,BL,16,16,BG214,The Bag Factory,106,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,18.99,11.394,C,,,,212,212,USD,18.99,11.394,106,106,See Price Method,Order Without Logo,Blank,BL,16,16,BG214,The Bag Factory,106,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,25.99,15.594,C,,,,214,214,USD,20.99,12.594,107,107,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,16,16,BG214,The Bag Factory,107,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,23.99,14.394,C,,,,214,214,USD,20.99,12.594,107,107,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,16,16,BG214,The Bag Factory,107,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,22.49,13.494,C,,,,214,214,USD,20.99,12.594,107,107,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,16,16,BG214,The Bag Factory,107,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+250,20.99,12.594,C,,,,214,214,USD,20.99,12.594,107,107,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,16,16,BG214,The Bag Factory,107,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,20.99,12.6,C,,,,216,216,USD,0,12.6,108,108,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,16,16,BG214,The Bag Factory,108,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,24.19,14.514,C,0.5,G,0.4,218,218,USD,19.99,11.994,109,109,See Price Method,Place Order With Logo,1 Color 1 Location,TP,17,17,BG223,The Bag Factory,109,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,22.69,13.614,C,0.5,G,0.4,218,218,USD,19.99,11.994,109,109,See Price Method,Place Order With Logo,1 Color 1 Location,TP,17,17,BG223,The Bag Factory,109,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,21.29,12.774,C,0.5,G,0.4,218,218,USD,19.99,11.994,109,109,See Price Method,Place Order With Logo,1 Color 1 Location,TP,17,17,BG223,The Bag Factory,109,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,19.99,11.994,C,0.5,G,0.4,218,218,USD,19.99,11.994,109,109,See Price Method,Place Order With Logo,1 Color 1 Location,TP,17,17,BG223,The Bag Factory,109,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,19.99,12,C,,,,220,220,USD,0,12,110,110,Random Sample,Order Sample,1 Color 1 Location,RS,17,17,BG223,The Bag Factory,110,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,25.69,15.414,C,,,,222,222,USD,21.49,12.894,111,111,See Price Method,Place Order With Logo,4 Color Process,TF,17,17,BG223,The Bag Factory,111,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,24.19,14.514,C,,,,222,222,USD,21.49,12.894,111,111,See Price Method,Place Order With Logo,4 Color Process,TF,17,17,BG223,The Bag Factory,111,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,22.79,13.674,C,,,,222,222,USD,21.49,12.894,111,111,See Price Method,Place Order With Logo,4 Color Process,TF,17,17,BG223,The Bag Factory,111,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,21.49,12.894,C,,,,222,222,USD,21.49,12.894,111,111,See Price Method,Place Order With Logo,4 Color Process,TF,17,17,BG223,The Bag Factory,111,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,21.49,12.9,C,,,,224,224,USD,0,12.9,112,112,Random Sample,Order Sample,4 Color Process,RS,17,17,BG223,The Bag Factory,112,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,26.19,15.714,C,,,,226,226,USD,21.99,13.194,113,113,See Price Method,Place Order With Logo,4 Color Process Dome,DM,17,17,BG223,The Bag Factory,113,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+50,24.69,14.814,C,,,,226,226,USD,21.99,13.194,113,113,See Price Method,Place Order With Logo,4 Color Process Dome,DM,17,17,BG223,The Bag Factory,113,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+100,23.29,13.974,C,,,,226,226,USD,21.99,13.194,113,113,See Price Method,Place Order With Logo,4 Color Process Dome,DM,17,17,BG223,The Bag Factory,113,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+250,21.99,13.194,C,,,,226,226,USD,21.99,13.194,113,113,See Price Method,Place Order With Logo,4 Color Process Dome,DM,17,17,BG223,The Bag Factory,113,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+1,21.99,13.2,C,,,,228,228,USD,0,13.2,114,114,Random Sample,Order Sample,4 Color Process Dome,RS,17,17,BG223,The Bag Factory,114,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,19.99,11.994,C,,,,230,230,USD,19.99,11.994,115,115,See Price Method,Order Without Logo,Blank,BL,17,17,BG223,The Bag Factory,115,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,19.99,11.994,C,,,,230,230,USD,19.99,11.994,115,115,See Price Method,Order Without Logo,Blank,BL,17,17,BG223,The Bag Factory,115,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,19.99,11.994,C,,,,230,230,USD,19.99,11.994,115,115,See Price Method,Order Without Logo,Blank,BL,17,17,BG223,The Bag Factory,115,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,19.99,11.994,C,,,,230,230,USD,19.99,11.994,115,115,See Price Method,Order Without Logo,Blank,BL,17,17,BG223,The Bag Factory,115,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,18.89,11.334,C,0.5,G,0.4,232,232,USD,14.99,8.994,116,116,See Price Method,Place Order With Logo,1 Color 1 Location,TP,18,18,BG225,The Bag Factory,116,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,17.29,10.374,C,0.5,G,0.4,232,232,USD,14.99,8.994,116,116,See Price Method,Place Order With Logo,1 Color 1 Location,TP,18,18,BG225,The Bag Factory,116,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,16.19,9.714,C,0.5,G,0.4,232,232,USD,14.99,8.994,116,116,See Price Method,Place Order With Logo,1 Color 1 Location,TP,18,18,BG225,The Bag Factory,116,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,14.99,8.994,C,0.5,G,0.4,232,232,USD,14.99,8.994,116,116,See Price Method,Place Order With Logo,1 Color 1 Location,TP,18,18,BG225,The Bag Factory,116,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,14.99,9,C,,,,234,234,USD,0,9,117,117,Random Sample,Order Sample,1 Color 1 Location,RS,18,18,BG225,The Bag Factory,117,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,20.89,12.534,C,,,,236,236,USD,16.99,10.194,118,118,See Price Method,Place Order With Logo,4 Color Process Dome,DM,18,18,BG225,The Bag Factory,118,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,19.29,11.574,C,,,,236,236,USD,16.99,10.194,118,118,See Price Method,Place Order With Logo,4 Color Process Dome,DM,18,18,BG225,The Bag Factory,118,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+100,18.19,10.914,C,,,,236,236,USD,16.99,10.194,118,118,See Price Method,Place Order With Logo,4 Color Process Dome,DM,18,18,BG225,The Bag Factory,118,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+250,16.99,10.194,C,,,,236,236,USD,16.99,10.194,118,118,See Price Method,Place Order With Logo,4 Color Process Dome,DM,18,18,BG225,The Bag Factory,118,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,16.99,10.2,C,,,,238,238,USD,0,10.2,119,119,Random Sample,Order Sample,4 Color Process Dome,RS,18,18,BG225,The Bag Factory,119,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,14.99,8.994,C,,,,240,240,USD,14.99,8.994,120,120,See Price Method,Order Without Logo,Blank,BL,18,18,BG225,The Bag Factory,120,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,14.99,8.994,C,,,,240,240,USD,14.99,8.994,120,120,See Price Method,Order Without Logo,Blank,BL,18,18,BG225,The Bag Factory,120,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,14.99,8.994,C,,,,240,240,USD,14.99,8.994,120,120,See Price Method,Order Without Logo,Blank,BL,18,18,BG225,The Bag Factory,120,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,14.99,8.994,C,,,,240,240,USD,14.99,8.994,120,120,See Price Method,Order Without Logo,Blank,BL,18,18,BG225,The Bag Factory,120,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,20.89,12.534,C,,,,242,242,USD,16.99,10.194,121,121,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,18,18,BG225,The Bag Factory,121,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,19.29,11.574,C,,,,242,242,USD,16.99,10.194,121,121,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,18,18,BG225,The Bag Factory,121,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,18.19,10.914,C,,,,242,242,USD,16.99,10.194,121,121,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,18,18,BG225,The Bag Factory,121,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+250,16.99,10.194,C,,,,242,242,USD,16.99,10.194,121,121,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,18,18,BG225,The Bag Factory,121,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,16.99,10.2,C,,,,244,244,USD,0,10.2,122,122,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,18,18,BG225,The Bag Factory,122,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,39.99,23.994,C,0.5,G,0.4,246,246,USD,31.79,19.074,123,123,See Price Method,Place Order With Logo,1 Color 1 Location,TP,19,19,BG226,The Bag Factory,123,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+25,36.79,22.074,C,0.5,G,0.4,246,246,USD,31.79,19.074,123,123,See Price Method,Place Order With Logo,1 Color 1 Location,TP,19,19,BG226,The Bag Factory,123,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,34.39,20.634,C,0.5,G,0.4,246,246,USD,31.79,19.074,123,123,See Price Method,Place Order With Logo,1 Color 1 Location,TP,19,19,BG226,The Bag Factory,123,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,31.79,19.074,C,0.5,G,0.4,246,246,USD,31.79,19.074,123,123,See Price Method,Place Order With Logo,1 Color 1 Location,TP,19,19,BG226,The Bag Factory,123,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,31.79,19.08,C,,,,248,248,USD,0,19.08,124,124,Random Sample,Order Sample,1 Color 1 Location,RS,19,19,BG226,The Bag Factory,124,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,41.49,24.894,C,,,,250,250,USD,33.29,19.974,125,125,See Price Method,Place Order With Logo,4 Color Process,TF,19,19,BG226,The Bag Factory,125,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+25,38.29,22.974,C,,,,250,250,USD,33.29,19.974,125,125,See Price Method,Place Order With Logo,4 Color Process,TF,19,19,BG226,The Bag Factory,125,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,35.89,21.534,C,,,,250,250,USD,33.29,19.974,125,125,See Price Method,Place Order With Logo,4 Color Process,TF,19,19,BG226,The Bag Factory,125,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,33.29,19.974,C,,,,250,250,USD,33.29,19.974,125,125,See Price Method,Place Order With Logo,4 Color Process,TF,19,19,BG226,The Bag Factory,125,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,33.29,19.98,C,,,,252,252,USD,0,19.98,126,126,Random Sample,Order Sample,4 Color Process,RS,19,19,BG226,The Bag Factory,126,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,41.99,25.194,C,,,,254,254,USD,33.79,20.274,127,127,See Price Method,Place Order With Logo,4 Color Process Dome,DM,19,19,BG226,The Bag Factory,127,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+25,38.79,23.274,C,,,,254,254,USD,33.79,20.274,127,127,See Price Method,Place Order With Logo,4 Color Process Dome,DM,19,19,BG226,The Bag Factory,127,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+50,36.39,21.834,C,,,,254,254,USD,33.79,20.274,127,127,See Price Method,Place Order With Logo,4 Color Process Dome,DM,19,19,BG226,The Bag Factory,127,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+100,33.79,20.274,C,,,,254,254,USD,33.79,20.274,127,127,See Price Method,Place Order With Logo,4 Color Process Dome,DM,19,19,BG226,The Bag Factory,127,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+1,33.79,20.28,C,,,,256,256,USD,0,20.28,128,128,Random Sample,Order Sample,4 Color Process Dome,RS,19,19,BG226,The Bag Factory,128,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,31.79,19.074,C,,,,258,258,USD,31.79,19.074,129,129,See Price Method,Order Without Logo,Blank,BL,19,19,BG226,The Bag Factory,129,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,31.79,19.074,C,,,,258,258,USD,31.79,19.074,129,129,See Price Method,Order Without Logo,Blank,BL,19,19,BG226,The Bag Factory,129,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,31.79,19.074,C,,,,258,258,USD,31.79,19.074,129,129,See Price Method,Order Without Logo,Blank,BL,19,19,BG226,The Bag Factory,129,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,31.79,19.074,C,,,,258,258,USD,31.79,19.074,129,129,See Price Method,Order Without Logo,Blank,BL,19,19,BG226,The Bag Factory,129,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,41.99,25.194,C,,,,260,260,USD,33.79,20.274,130,130,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,19,19,BG226,The Bag Factory,130,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,38.79,23.274,C,,,,260,260,USD,33.79,20.274,130,130,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,19,19,BG226,The Bag Factory,130,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,36.39,21.834,C,,,,260,260,USD,33.79,20.274,130,130,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,19,19,BG226,The Bag Factory,130,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,33.79,20.274,C,,,,260,260,USD,33.79,20.274,130,130,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,19,19,BG226,The Bag Factory,130,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,33.79,20.28,C,,,,262,262,USD,0,20.28,131,131,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,19,19,BG226,The Bag Factory,131,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,42.89,25.734,C,0.5,G,0.4,264,264,USD,33.99,20.394,132,132,See Price Method,Place Order With Logo,1 Color 1 Location,TP,20,20,BG227,The Bag Factory,132,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+25,39.29,23.574,C,0.5,G,0.4,264,264,USD,33.99,20.394,132,132,See Price Method,Place Order With Logo,1 Color 1 Location,TP,20,20,BG227,The Bag Factory,132,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,36.69,22.014,C,0.5,G,0.4,264,264,USD,33.99,20.394,132,132,See Price Method,Place Order With Logo,1 Color 1 Location,TP,20,20,BG227,The Bag Factory,132,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,33.99,20.394,C,0.5,G,0.4,264,264,USD,33.99,20.394,132,132,See Price Method,Place Order With Logo,1 Color 1 Location,TP,20,20,BG227,The Bag Factory,132,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,33.99,20.4,C,,,,266,266,USD,0,20.4,133,133,Random Sample,Order Sample,1 Color 1 Location,RS,20,20,BG227,The Bag Factory,133,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,44.39,26.634,C,,,,268,268,USD,35.49,21.294,134,134,See Price Method,Place Order With Logo,4 Color Process,TF,20,20,BG227,The Bag Factory,134,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+25,40.79,24.474,C,,,,268,268,USD,35.49,21.294,134,134,See Price Method,Place Order With Logo,4 Color Process,TF,20,20,BG227,The Bag Factory,134,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,38.19,22.914,C,,,,268,268,USD,35.49,21.294,134,134,See Price Method,Place Order With Logo,4 Color Process,TF,20,20,BG227,The Bag Factory,134,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,35.49,21.294,C,,,,268,268,USD,35.49,21.294,134,134,See Price Method,Place Order With Logo,4 Color Process,TF,20,20,BG227,The Bag Factory,134,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,35.49,21.3,C,,,,270,270,USD,0,21.3,135,135,Random Sample,Order Sample,4 Color Process,RS,20,20,BG227,The Bag Factory,135,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,44.89,26.934,C,,,,272,272,USD,35.99,21.594,136,136,See Price Method,Place Order With Logo,4 Color Process Dome,DM,20,20,BG227,The Bag Factory,136,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+25,41.29,24.774,C,,,,272,272,USD,35.99,21.594,136,136,See Price Method,Place Order With Logo,4 Color Process Dome,DM,20,20,BG227,The Bag Factory,136,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+50,38.69,23.214,C,,,,272,272,USD,35.99,21.594,136,136,See Price Method,Place Order With Logo,4 Color Process Dome,DM,20,20,BG227,The Bag Factory,136,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+100,35.99,21.594,C,,,,272,272,USD,35.99,21.594,136,136,See Price Method,Place Order With Logo,4 Color Process Dome,DM,20,20,BG227,The Bag Factory,136,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+1,35.99,21.6,C,,,,274,274,USD,0,21.6,137,137,Random Sample,Order Sample,4 Color Process Dome,RS,20,20,BG227,The Bag Factory,137,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,33.99,20.394,C,,,,276,276,USD,33.99,20.394,138,138,See Price Method,Order Without Logo,Blank,BL,20,20,BG227,The Bag Factory,138,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,33.99,20.394,C,,,,276,276,USD,33.99,20.394,138,138,See Price Method,Order Without Logo,Blank,BL,20,20,BG227,The Bag Factory,138,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,33.99,20.394,C,,,,276,276,USD,33.99,20.394,138,138,See Price Method,Order Without Logo,Blank,BL,20,20,BG227,The Bag Factory,138,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,33.99,20.394,C,,,,276,276,USD,33.99,20.394,138,138,See Price Method,Order Without Logo,Blank,BL,20,20,BG227,The Bag Factory,138,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,44.89,26.934,C,,,,278,278,USD,35.99,21.594,139,139,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,20,20,BG227,The Bag Factory,139,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,41.29,24.774,C,,,,278,278,USD,35.99,21.594,139,139,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,20,20,BG227,The Bag Factory,139,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,38.69,23.214,C,,,,278,278,USD,35.99,21.594,139,139,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,20,20,BG227,The Bag Factory,139,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,35.99,21.594,C,,,,278,278,USD,35.99,21.594,139,139,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,20,20,BG227,The Bag Factory,139,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,35.99,21.6,C,,,,280,280,USD,0,21.6,140,140,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,20,20,BG227,The Bag Factory,140,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,43.89,26.334,C,0.5,G,0.4,282,282,USD,34.99,20.994,141,141,See Price Method,Place Order With Logo,1 Color 1 Location,TP,21,21,BG227CM,The Bag Factory,141,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+25,40.29,24.174,C,0.5,G,0.4,282,282,USD,34.99,20.994,141,141,See Price Method,Place Order With Logo,1 Color 1 Location,TP,21,21,BG227CM,The Bag Factory,141,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,37.69,22.614,C,0.5,G,0.4,282,282,USD,34.99,20.994,141,141,See Price Method,Place Order With Logo,1 Color 1 Location,TP,21,21,BG227CM,The Bag Factory,141,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,34.99,20.994,C,0.5,G,0.4,282,282,USD,34.99,20.994,141,141,See Price Method,Place Order With Logo,1 Color 1 Location,TP,21,21,BG227CM,The Bag Factory,141,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,34.99,21,C,,,,284,284,USD,0,21,142,142,Random Sample,Order Sample,1 Color 1 Location,RS,21,21,BG227CM,The Bag Factory,142,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,46.39,27.834,C,,,,286,286,USD,37.49,22.494,143,143,See Price Method,Place Order With Logo,4 Color Process,TF,21,21,BG227CM,The Bag Factory,143,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+25,42.79,25.674,C,,,,286,286,USD,37.49,22.494,143,143,See Price Method,Place Order With Logo,4 Color Process,TF,21,21,BG227CM,The Bag Factory,143,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,40.19,24.114,C,,,,286,286,USD,37.49,22.494,143,143,See Price Method,Place Order With Logo,4 Color Process,TF,21,21,BG227CM,The Bag Factory,143,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+100,37.49,22.494,C,,,,286,286,USD,37.49,22.494,143,143,See Price Method,Place Order With Logo,4 Color Process,TF,21,21,BG227CM,The Bag Factory,143,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,37.49,22.5,C,,,,288,288,USD,0,22.5,144,144,Random Sample,Order Sample,4 Color Process,RS,21,21,BG227CM,The Bag Factory,144,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,46.89,28.134,C,,,,290,290,USD,37.99,22.794,145,145,See Price Method,Place Order With Logo,4 Color Process Dome,DM,21,21,BG227CM,The Bag Factory,145,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+25,43.29,25.974,C,,,,290,290,USD,37.99,22.794,145,145,See Price Method,Place Order With Logo,4 Color Process Dome,DM,21,21,BG227CM,The Bag Factory,145,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,40.69,24.414,C,,,,290,290,USD,37.99,22.794,145,145,See Price Method,Place Order With Logo,4 Color Process Dome,DM,21,21,BG227CM,The Bag Factory,145,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+100,37.99,22.794,C,,,,290,290,USD,37.99,22.794,145,145,See Price Method,Place Order With Logo,4 Color Process Dome,DM,21,21,BG227CM,The Bag Factory,145,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,37.99,22.8,C,,,,292,292,USD,0,22.8,146,146,Random Sample,Order Sample,4 Color Process Dome,RS,21,21,BG227CM,The Bag Factory,146,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,34.99,20.994,C,,,,294,294,USD,34.99,20.994,147,147,See Price Method,Order Without Logo,Blank,BL,21,21,BG227CM,The Bag Factory,147,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,34.99,20.994,C,,,,294,294,USD,34.99,20.994,147,147,See Price Method,Order Without Logo,Blank,BL,21,21,BG227CM,The Bag Factory,147,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,34.99,20.994,C,,,,294,294,USD,34.99,20.994,147,147,See Price Method,Order Without Logo,Blank,BL,21,21,BG227CM,The Bag Factory,147,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,34.99,20.994,C,,,,294,294,USD,34.99,20.994,147,147,See Price Method,Order Without Logo,Blank,BL,21,21,BG227CM,The Bag Factory,147,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,46.89,28.134,C,,,,296,296,USD,37.99,22.794,148,148,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,21,21,BG227CM,The Bag Factory,148,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,43.29,25.974,C,,,,296,296,USD,37.99,22.794,148,148,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,21,21,BG227CM,The Bag Factory,148,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,40.69,24.414,C,,,,296,296,USD,37.99,22.794,148,148,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,21,21,BG227CM,The Bag Factory,148,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,37.99,22.794,C,,,,296,296,USD,37.99,22.794,148,148,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,21,21,BG227CM,The Bag Factory,148,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,37.99,22.8,C,,,,298,298,USD,0,22.8,149,149,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,21,21,BG227CM,The Bag Factory,149,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,45.89,27.534,C,0.5,G,0.4,300,300,USD,36.99,22.194,150,150,See Price Method,Place Order With Logo,1 Color 1 Location,TP,22,22,BG227DGCM,The Bag Factory,150,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+25,42.29,25.374,C,0.5,G,0.4,300,300,USD,36.99,22.194,150,150,See Price Method,Place Order With Logo,1 Color 1 Location,TP,22,22,BG227DGCM,The Bag Factory,150,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,39.69,23.814,C,0.5,G,0.4,300,300,USD,36.99,22.194,150,150,See Price Method,Place Order With Logo,1 Color 1 Location,TP,22,22,BG227DGCM,The Bag Factory,150,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,36.99,22.194,C,0.5,G,0.4,300,300,USD,36.99,22.194,150,150,See Price Method,Place Order With Logo,1 Color 1 Location,TP,22,22,BG227DGCM,The Bag Factory,150,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,36.99,22.2,C,,,,302,302,USD,0,22.2,151,151,Random Sample,Order Sample,1 Color 1 Location,RS,22,22,BG227DGCM,The Bag Factory,151,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,50.39,30.234,C,,,,304,304,USD,41.49,24.894,152,152,See Price Method,Place Order With Logo,4 Color Process,TF,22,22,BG227DGCM,The Bag Factory,152,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+25,46.79,28.074,C,,,,304,304,USD,41.49,24.894,152,152,See Price Method,Place Order With Logo,4 Color Process,TF,22,22,BG227DGCM,The Bag Factory,152,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,44.19,26.514,C,,,,304,304,USD,41.49,24.894,152,152,See Price Method,Place Order With Logo,4 Color Process,TF,22,22,BG227DGCM,The Bag Factory,152,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+100,41.49,24.894,C,,,,304,304,USD,41.49,24.894,152,152,See Price Method,Place Order With Logo,4 Color Process,TF,22,22,BG227DGCM,The Bag Factory,152,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,41.49,24.9,C,,,,306,306,USD,0,24.9,153,153,Random Sample,Order Sample,4 Color Process,RS,22,22,BG227DGCM,The Bag Factory,153,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,50.89,30.534,C,,,,308,308,USD,41.99,25.194,154,154,See Price Method,Place Order With Logo,4 Color Process Dome,DM,22,22,BG227DGCM,The Bag Factory,154,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+25,47.29,28.374,C,,,,308,308,USD,41.99,25.194,154,154,See Price Method,Place Order With Logo,4 Color Process Dome,DM,22,22,BG227DGCM,The Bag Factory,154,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,44.69,26.814,C,,,,308,308,USD,41.99,25.194,154,154,See Price Method,Place Order With Logo,4 Color Process Dome,DM,22,22,BG227DGCM,The Bag Factory,154,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+100,41.99,25.194,C,,,,308,308,USD,41.99,25.194,154,154,See Price Method,Place Order With Logo,4 Color Process Dome,DM,22,22,BG227DGCM,The Bag Factory,154,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,41.99,25.2,C,,,,310,310,USD,0,25.2,155,155,Random Sample,Order Sample,4 Color Process Dome,RS,22,22,BG227DGCM,The Bag Factory,155,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,36.99,22.194,C,,,,312,312,USD,36.99,22.194,156,156,See Price Method,Order Without Logo,Blank,BL,22,22,BG227DGCM,The Bag Factory,156,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,36.99,22.194,C,,,,312,312,USD,36.99,22.194,156,156,See Price Method,Order Without Logo,Blank,BL,22,22,BG227DGCM,The Bag Factory,156,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,36.99,22.194,C,,,,312,312,USD,36.99,22.194,156,156,See Price Method,Order Without Logo,Blank,BL,22,22,BG227DGCM,The Bag Factory,156,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,36.99,22.194,C,,,,312,312,USD,36.99,22.194,156,156,See Price Method,Order Without Logo,Blank,BL,22,22,BG227DGCM,The Bag Factory,156,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,50.89,30.534,C,,,,314,314,USD,41.99,25.194,157,157,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,22,22,BG227DGCM,The Bag Factory,157,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,47.29,28.374,C,,,,314,314,USD,41.99,25.194,157,157,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,22,22,BG227DGCM,The Bag Factory,157,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,44.69,26.814,C,,,,314,314,USD,41.99,25.194,157,157,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,22,22,BG227DGCM,The Bag Factory,157,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,41.99,25.194,C,,,,314,314,USD,41.99,25.194,157,157,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,22,22,BG227DGCM,The Bag Factory,157,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,41.99,25.2,C,,,,316,316,USD,0,25.2,158,158,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,22,22,BG227DGCM,The Bag Factory,158,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+10,66.79,40.074,C,0.5,G,0.4,318,318,USD,52.99,31.794,159,159,See Price Method,Place Order With Logo,1 Color 1 Location,TP,23,23,BG228,The Bag Factory,159,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+25,61.29,36.774,C,0.5,G,0.4,318,318,USD,52.99,31.794,159,159,See Price Method,Place Order With Logo,1 Color 1 Location,TP,23,23,BG228,The Bag Factory,159,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,57.29,34.374,C,0.5,G,0.4,318,318,USD,52.99,31.794,159,159,See Price Method,Place Order With Logo,1 Color 1 Location,TP,23,23,BG228,The Bag Factory,159,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,52.99,31.794,C,0.5,G,0.4,318,318,USD,52.99,31.794,159,159,See Price Method,Place Order With Logo,1 Color 1 Location,TP,23,23,BG228,The Bag Factory,159,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,52.99,31.8,C,,,,320,320,USD,0,31.8,160,160,Random Sample,Order Sample,1 Color 1 Location,RS,23,23,BG228,The Bag Factory,160,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+10,68.29,40.974,C,,,,322,322,USD,54.49,32.694,161,161,See Price Method,Place Order With Logo,4 Color Process,TF,23,23,BG228,The Bag Factory,161,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+25,62.79,37.674,C,,,,322,322,USD,54.49,32.694,161,161,See Price Method,Place Order With Logo,4 Color Process,TF,23,23,BG228,The Bag Factory,161,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,58.79,35.274,C,,,,322,322,USD,54.49,32.694,161,161,See Price Method,Place Order With Logo,4 Color Process,TF,23,23,BG228,The Bag Factory,161,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,54.49,32.694,C,,,,322,322,USD,54.49,32.694,161,161,See Price Method,Place Order With Logo,4 Color Process,TF,23,23,BG228,The Bag Factory,161,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,54.49,32.7,C,,,,324,324,USD,0,32.7,162,162,Random Sample,Order Sample,4 Color Process,RS,23,23,BG228,The Bag Factory,162,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+10,68.79,41.274,C,,,,326,326,USD,54.99,32.994,163,163,See Price Method,Place Order With Logo,4 Color Process Dome,DM,23,23,BG228,The Bag Factory,163,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+25,63.29,37.974,C,,,,326,326,USD,54.99,32.994,163,163,See Price Method,Place Order With Logo,4 Color Process Dome,DM,23,23,BG228,The Bag Factory,163,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+50,59.29,35.574,C,,,,326,326,USD,54.99,32.994,163,163,See Price Method,Place Order With Logo,4 Color Process Dome,DM,23,23,BG228,The Bag Factory,163,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+100,54.99,32.994,C,,,,326,326,USD,54.99,32.994,163,163,See Price Method,Place Order With Logo,4 Color Process Dome,DM,23,23,BG228,The Bag Factory,163,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+1,54.99,33,C,,,,328,328,USD,0,33,164,164,Random Sample,Order Sample,4 Color Process Dome,RS,23,23,BG228,The Bag Factory,164,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+10,52.99,31.794,C,,,,330,330,USD,52.99,31.794,165,165,See Price Method,Order Without Logo,Blank,BL,23,23,BG228,The Bag Factory,165,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,52.99,31.794,C,,,,330,330,USD,52.99,31.794,165,165,See Price Method,Order Without Logo,Blank,BL,23,23,BG228,The Bag Factory,165,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,52.99,31.794,C,,,,330,330,USD,52.99,31.794,165,165,See Price Method,Order Without Logo,Blank,BL,23,23,BG228,The Bag Factory,165,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,52.99,31.794,C,,,,330,330,USD,52.99,31.794,165,165,See Price Method,Order Without Logo,Blank,BL,23,23,BG228,The Bag Factory,165,Drop Shipment Charge,8.5,G,6.8,,,,0,
+10,68.79,41.274,C,,,,332,332,USD,54.99,32.994,166,166,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,23,23,BG228,The Bag Factory,166,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,63.29,37.974,C,,,,332,332,USD,54.99,32.994,166,166,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,23,23,BG228,The Bag Factory,166,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,59.29,35.574,C,,,,332,332,USD,54.99,32.994,166,166,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,23,23,BG228,The Bag Factory,166,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,54.99,32.994,C,,,,332,332,USD,54.99,32.994,166,166,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,23,23,BG228,The Bag Factory,166,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,54.99,33,C,,,,334,334,USD,0,33,167,167,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,23,23,BG228,The Bag Factory,167,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,33.59,20.154,C,0.5,G,0.4,336,336,USD,26.59,15.954,168,168,See Price Method,Place Order With Logo,1 Color 1 Location,TP,24,24,BG230,The Bag Factory,168,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+25,30.79,18.474,C,0.5,G,0.4,336,336,USD,26.59,15.954,168,168,See Price Method,Place Order With Logo,1 Color 1 Location,TP,24,24,BG230,The Bag Factory,168,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,28.79,17.274,C,0.5,G,0.4,336,336,USD,26.59,15.954,168,168,See Price Method,Place Order With Logo,1 Color 1 Location,TP,24,24,BG230,The Bag Factory,168,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,26.59,15.954,C,0.5,G,0.4,336,336,USD,26.59,15.954,168,168,See Price Method,Place Order With Logo,1 Color 1 Location,TP,24,24,BG230,The Bag Factory,168,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,26.59,15.96,C,,,,338,338,USD,0,15.96,169,169,Random Sample,Order Sample,1 Color 1 Location,RS,24,24,BG230,The Bag Factory,169,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,35.09,21.054,C,,,,340,340,USD,28.09,16.854,170,170,See Price Method,Place Order With Logo,4 Color Process,T4,24,24,BG230,The Bag Factory,170,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+25,32.29,19.374,C,,,,340,340,USD,28.09,16.854,170,170,See Price Method,Place Order With Logo,4 Color Process,T4,24,24,BG230,The Bag Factory,170,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,30.29,18.174,C,,,,340,340,USD,28.09,16.854,170,170,See Price Method,Place Order With Logo,4 Color Process,T4,24,24,BG230,The Bag Factory,170,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,28.09,16.854,C,,,,340,340,USD,28.09,16.854,170,170,See Price Method,Place Order With Logo,4 Color Process,T4,24,24,BG230,The Bag Factory,170,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,28.09,16.86,C,,,,342,342,USD,0,16.86,171,171,Random Sample,Order Sample,4 Color Process,RS,24,24,BG230,The Bag Factory,171,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,35.59,21.354,C,,,,344,344,USD,28.59,17.154,172,172,See Price Method,Place Order With Logo,4 Color Process Dome,DM,24,24,BG230,The Bag Factory,172,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+25,32.79,19.674,C,,,,344,344,USD,28.59,17.154,172,172,See Price Method,Place Order With Logo,4 Color Process Dome,DM,24,24,BG230,The Bag Factory,172,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,30.79,18.474,C,,,,344,344,USD,28.59,17.154,172,172,See Price Method,Place Order With Logo,4 Color Process Dome,DM,24,24,BG230,The Bag Factory,172,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+100,28.59,17.154,C,,,,344,344,USD,28.59,17.154,172,172,See Price Method,Place Order With Logo,4 Color Process Dome,DM,24,24,BG230,The Bag Factory,172,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,28.59,17.16,C,,,,346,346,USD,0,17.16,173,173,Random Sample,Order Sample,4 Color Process Dome,RS,24,24,BG230,The Bag Factory,173,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,26.59,15.954,C,,,,348,348,USD,26.59,15.954,174,174,See Price Method,Order Without Logo,Blank,BL,24,24,BG230,The Bag Factory,174,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,26.59,15.954,C,,,,348,348,USD,26.59,15.954,174,174,See Price Method,Order Without Logo,Blank,BL,24,24,BG230,The Bag Factory,174,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,26.59,15.954,C,,,,348,348,USD,26.59,15.954,174,174,See Price Method,Order Without Logo,Blank,BL,24,24,BG230,The Bag Factory,174,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,26.59,15.954,C,,,,348,348,USD,26.59,15.954,174,174,See Price Method,Order Without Logo,Blank,BL,24,24,BG230,The Bag Factory,174,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,21.49,12.894,C,0.5,G,0.4,350,350,USD,16.99,10.194,175,175,See Price Method,Place Order With Logo,1 Color 1 Location,TP,25,25,BG231,The Bag Factory,175,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,19.69,11.814,C,0.5,G,0.4,350,350,USD,16.99,10.194,175,175,See Price Method,Place Order With Logo,1 Color 1 Location,TP,25,25,BG231,The Bag Factory,175,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,18.39,11.034,C,0.5,G,0.4,350,350,USD,16.99,10.194,175,175,See Price Method,Place Order With Logo,1 Color 1 Location,TP,25,25,BG231,The Bag Factory,175,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,16.99,10.194,C,0.5,G,0.4,350,350,USD,16.99,10.194,175,175,See Price Method,Place Order With Logo,1 Color 1 Location,TP,25,25,BG231,The Bag Factory,175,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,16.99,10.2,C,,,,352,352,USD,0,10.2,176,176,Random Sample,Order Sample,1 Color 1 Location,RS,25,25,BG231,The Bag Factory,176,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,22.99,13.794,C,,,,354,354,USD,18.49,11.094,177,177,See Price Method,Place Order With Logo,4 Color Process,T4,25,25,BG231,The Bag Factory,177,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,21.19,12.714,C,,,,354,354,USD,18.49,11.094,177,177,See Price Method,Place Order With Logo,4 Color Process,T4,25,25,BG231,The Bag Factory,177,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,19.89,11.934,C,,,,354,354,USD,18.49,11.094,177,177,See Price Method,Place Order With Logo,4 Color Process,T4,25,25,BG231,The Bag Factory,177,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,18.49,11.094,C,,,,354,354,USD,18.49,11.094,177,177,See Price Method,Place Order With Logo,4 Color Process,T4,25,25,BG231,The Bag Factory,177,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,18.49,11.1,C,,,,356,356,USD,0,11.1,178,178,Random Sample,Order Sample,4 Color Process,RS,25,25,BG231,The Bag Factory,178,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,23.49,14.094,C,,,,358,358,USD,18.99,11.394,179,179,See Price Method,Place Order With Logo,4 Color Process Dome,DM,25,25,BG231,The Bag Factory,179,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,21.69,13.014,C,,,,358,358,USD,18.99,11.394,179,179,See Price Method,Place Order With Logo,4 Color Process Dome,DM,25,25,BG231,The Bag Factory,179,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+100,20.39,12.234,C,,,,358,358,USD,18.99,11.394,179,179,See Price Method,Place Order With Logo,4 Color Process Dome,DM,25,25,BG231,The Bag Factory,179,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+250,18.99,11.394,C,,,,358,358,USD,18.99,11.394,179,179,See Price Method,Place Order With Logo,4 Color Process Dome,DM,25,25,BG231,The Bag Factory,179,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,18.99,11.4,C,,,,360,360,USD,0,11.4,180,180,Random Sample,Order Sample,4 Color Process Dome,RS,25,25,BG231,The Bag Factory,180,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,16.99,10.194,C,,,,362,362,USD,16.99,10.194,181,181,See Price Method,Order Without Logo,Blank,BL,25,25,BG231,The Bag Factory,181,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,16.99,10.194,C,,,,362,362,USD,16.99,10.194,181,181,See Price Method,Order Without Logo,Blank,BL,25,25,BG231,The Bag Factory,181,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,16.99,10.194,C,,,,362,362,USD,16.99,10.194,181,181,See Price Method,Order Without Logo,Blank,BL,25,25,BG231,The Bag Factory,181,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,16.99,10.194,C,,,,362,362,USD,16.99,10.194,181,181,See Price Method,Order Without Logo,Blank,BL,25,25,BG231,The Bag Factory,181,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,24.99,14.994,C,0.5,G,0.4,364,364,USD,19.99,11.994,182,182,See Price Method,Place Order With Logo,1 Color 1 Location,TP,26,26,BG232,The Bag Factory,182,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,23.09,13.854,C,0.5,G,0.4,364,364,USD,19.99,11.994,182,182,See Price Method,Place Order With Logo,1 Color 1 Location,TP,26,26,BG232,The Bag Factory,182,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,21.59,12.954,C,0.5,G,0.4,364,364,USD,19.99,11.994,182,182,See Price Method,Place Order With Logo,1 Color 1 Location,TP,26,26,BG232,The Bag Factory,182,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,19.99,11.994,C,0.5,G,0.4,364,364,USD,19.99,11.994,182,182,See Price Method,Place Order With Logo,1 Color 1 Location,TP,26,26,BG232,The Bag Factory,182,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,19.99,12,C,0.5,G,0,366,366,USD,0,12,183,183,Random Sample,Order Sample,1 Color 1 Location,RS,26,26,BG232,The Bag Factory,183,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,26.49,15.894,C,,,,368,368,USD,21.49,12.894,184,184,See Price Method,Place Order With Logo,4 Color Process,TF,26,26,BG232,The Bag Factory,184,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,24.59,14.754,C,,,,368,368,USD,21.49,12.894,184,184,See Price Method,Place Order With Logo,4 Color Process,TF,26,26,BG232,The Bag Factory,184,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,23.09,13.854,C,,,,368,368,USD,21.49,12.894,184,184,See Price Method,Place Order With Logo,4 Color Process,TF,26,26,BG232,The Bag Factory,184,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,21.49,12.894,C,,,,368,368,USD,21.49,12.894,184,184,See Price Method,Place Order With Logo,4 Color Process,TF,26,26,BG232,The Bag Factory,184,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,21.49,12.9,C,,,,370,370,USD,0,12.9,185,185,Random Sample,Order Sample,4 Color Process,RS,26,26,BG232,The Bag Factory,185,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,26.99,16.194,C,,,,372,372,USD,21.99,13.194,186,186,See Price Method,Place Order With Logo,4 Color Process Dome,DM,26,26,BG232,The Bag Factory,186,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+50,25.09,15.054,C,,,,372,372,USD,21.99,13.194,186,186,See Price Method,Place Order With Logo,4 Color Process Dome,DM,26,26,BG232,The Bag Factory,186,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+100,23.59,14.154,C,,,,372,372,USD,21.99,13.194,186,186,See Price Method,Place Order With Logo,4 Color Process Dome,DM,26,26,BG232,The Bag Factory,186,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+250,21.99,13.194,C,,,,372,372,USD,21.99,13.194,186,186,See Price Method,Place Order With Logo,4 Color Process Dome,DM,26,26,BG232,The Bag Factory,186,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+1,21.99,13.2,C,,,,374,374,USD,0,13.2,187,187,Random Sample,Order Sample,4 Color Process Dome,RS,26,26,BG232,The Bag Factory,187,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,19.99,11.994,C,,,,376,376,USD,19.99,11.994,188,188,See Price Method,Order Without Logo,Blank,BL,26,26,BG232,The Bag Factory,188,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,19.99,11.994,C,,,,376,376,USD,19.99,11.994,188,188,See Price Method,Order Without Logo,Blank,BL,26,26,BG232,The Bag Factory,188,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,19.99,11.994,C,,,,376,376,USD,19.99,11.994,188,188,See Price Method,Order Without Logo,Blank,BL,26,26,BG232,The Bag Factory,188,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,19.99,11.994,C,,,,376,376,USD,19.99,11.994,188,188,See Price Method,Order Without Logo,Blank,BL,26,26,BG232,The Bag Factory,188,Drop Shipment Charge,8.5,G,6.8,,,,0,
+10,53.49,32.094,C,0.5,G,0.4,378,378,USD,42.49,25.494,189,189,See Price Method,Place Order With Logo,1 Color 1 Location,TP,27,27,BG261,The Bag Factory,189,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+25,49.09,29.454,C,0.5,G,0.4,378,378,USD,42.49,25.494,189,189,See Price Method,Place Order With Logo,1 Color 1 Location,TP,27,27,BG261,The Bag Factory,189,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,45.89,27.534,C,0.5,G,0.4,378,378,USD,42.49,25.494,189,189,See Price Method,Place Order With Logo,1 Color 1 Location,TP,27,27,BG261,The Bag Factory,189,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,42.49,25.494,C,0.5,G,0.4,378,378,USD,42.49,25.494,189,189,See Price Method,Place Order With Logo,1 Color 1 Location,TP,27,27,BG261,The Bag Factory,189,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,42.49,25.5,C,,,,380,380,USD,0,25.5,190,190,Random Sample,Order Sample,1 Color 1 Location,RS,27,27,BG261,The Bag Factory,190,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+10,54.99,32.994,C,,,,382,382,USD,43.99,26.394,191,191,See Price Method,Place Order With Logo,4 Color Process,TF,27,27,BG261,The Bag Factory,191,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+25,50.59,30.354,C,,,,382,382,USD,43.99,26.394,191,191,See Price Method,Place Order With Logo,4 Color Process,TF,27,27,BG261,The Bag Factory,191,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,47.39,28.434,C,,,,382,382,USD,43.99,26.394,191,191,See Price Method,Place Order With Logo,4 Color Process,TF,27,27,BG261,The Bag Factory,191,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,43.99,26.394,C,,,,382,382,USD,43.99,26.394,191,191,See Price Method,Place Order With Logo,4 Color Process,TF,27,27,BG261,The Bag Factory,191,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,43.99,26.4,C,,,,384,384,USD,0,26.4,192,192,Random Sample,Order Sample,4 Color Process,RS,27,27,BG261,The Bag Factory,192,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+10,55.49,33.294,C,,,,386,386,USD,44.49,26.694,193,193,See Price Method,Place Order With Logo,4 Color Process Dome,DM,27,27,BG261,The Bag Factory,193,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+25,51.09,30.654,C,,,,386,386,USD,44.49,26.694,193,193,See Price Method,Place Order With Logo,4 Color Process Dome,DM,27,27,BG261,The Bag Factory,193,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+50,47.89,28.734,C,,,,386,386,USD,44.49,26.694,193,193,See Price Method,Place Order With Logo,4 Color Process Dome,DM,27,27,BG261,The Bag Factory,193,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+100,44.49,26.694,C,,,,386,386,USD,44.49,26.694,193,193,See Price Method,Place Order With Logo,4 Color Process Dome,DM,27,27,BG261,The Bag Factory,193,Drop Shipment Charge,8.5,G,6.8,50,40,40,0,0
+1,44.49,26.7,C,,,,388,388,USD,0,26.7,194,194,Random Sample,Order Sample,4 Color Process Dome,RS,27,27,BG261,The Bag Factory,194,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+10,42.49,25.494,C,,,,390,390,USD,42.49,25.494,195,195,See Price Method,Order Without Logo,Blank,BL,27,27,BG261,The Bag Factory,195,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,42.49,25.494,C,,,,390,390,USD,42.49,25.494,195,195,See Price Method,Order Without Logo,Blank,BL,27,27,BG261,The Bag Factory,195,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,42.49,25.494,C,,,,390,390,USD,42.49,25.494,195,195,See Price Method,Order Without Logo,Blank,BL,27,27,BG261,The Bag Factory,195,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,42.49,25.494,C,,,,390,390,USD,42.49,25.494,195,195,See Price Method,Order Without Logo,Blank,BL,27,27,BG261,The Bag Factory,195,Drop Shipment Charge,8.5,G,6.8,,,,0,
+10,55.49,33.294,C,,,,392,392,USD,44.49,26.694,196,196,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,27,27,BG261,The Bag Factory,196,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,51.09,30.654,C,,,,392,392,USD,44.49,26.694,196,196,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,27,27,BG261,The Bag Factory,196,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,47.89,28.734,C,,,,392,392,USD,44.49,26.694,196,196,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,27,27,BG261,The Bag Factory,196,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,44.49,26.694,C,,,,392,392,USD,44.49,26.694,196,196,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,27,27,BG261,The Bag Factory,196,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,44.49,26.7,C,,,,394,394,USD,0,26.7,197,197,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,27,27,BG261,The Bag Factory,197,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,14.79,8.874,C,0.5,G,0.4,396,396,USD,11.69,7.014,198,198,See Price Method,Place Order With Logo,1 Color 1 Location,TP,28,28,BG263,The Bag Factory,198,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,13.59,8.154,C,0.5,G,0.4,396,396,USD,11.69,7.014,198,198,See Price Method,Place Order With Logo,1 Color 1 Location,TP,28,28,BG263,The Bag Factory,198,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,12.69,7.614,C,0.5,G,0.4,396,396,USD,11.69,7.014,198,198,See Price Method,Place Order With Logo,1 Color 1 Location,TP,28,28,BG263,The Bag Factory,198,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,11.69,7.014,C,0.5,G,0.4,396,396,USD,11.69,7.014,198,198,See Price Method,Place Order With Logo,1 Color 1 Location,TP,28,28,BG263,The Bag Factory,198,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,11.69,7.02,C,,,,398,398,USD,0,7.02,199,199,Random Sample,Order Sample,1 Color 1 Location,RS,28,28,BG263,The Bag Factory,199,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,16.29,9.774,C,,,,400,400,USD,13.19,7.914,200,200,See Price Method,Place Order With Logo,4 Color Process,TF,28,28,BG263,The Bag Factory,200,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,15.09,9.054,C,,,,400,400,USD,13.19,7.914,200,200,See Price Method,Place Order With Logo,4 Color Process,TF,28,28,BG263,The Bag Factory,200,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,14.19,8.514,C,,,,400,400,USD,13.19,7.914,200,200,See Price Method,Place Order With Logo,4 Color Process,TF,28,28,BG263,The Bag Factory,200,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,13.19,7.914,C,,,,400,400,USD,13.19,7.914,200,200,See Price Method,Place Order With Logo,4 Color Process,TF,28,28,BG263,The Bag Factory,200,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,13.19,7.92,C,,,,402,402,USD,0,7.92,201,201,Random Sample,Order Sample,4 Color Process,RS,28,28,BG263,The Bag Factory,201,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,11.69,7.014,C,,,,404,404,USD,11.69,7.014,202,202,See Price Method,Order Without Logo,Blank,BL,28,28,BG263,The Bag Factory,202,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,11.69,7.014,C,,,,404,404,USD,11.69,7.014,202,202,See Price Method,Order Without Logo,Blank,BL,28,28,BG263,The Bag Factory,202,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,11.69,7.014,C,,,,404,404,USD,11.69,7.014,202,202,See Price Method,Order Without Logo,Blank,BL,28,28,BG263,The Bag Factory,202,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,11.69,7.014,C,,,,404,404,USD,11.69,7.014,202,202,See Price Method,Order Without Logo,Blank,BL,28,28,BG263,The Bag Factory,202,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,16.79,10.074,C,,,,406,406,USD,13.69,8.214,203,203,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,28,28,BG263,The Bag Factory,203,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,15.59,9.354,C,,,,406,406,USD,13.69,8.214,203,203,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,28,28,BG263,The Bag Factory,203,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,14.69,8.814,C,,,,406,406,USD,13.69,8.214,203,203,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,28,28,BG263,The Bag Factory,203,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+250,13.69,8.214,C,,,,406,406,USD,13.69,8.214,203,203,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,28,28,BG263,The Bag Factory,203,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,13.69,8.22,C,,,,408,408,USD,0,8.22,204,204,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,28,28,BG263,The Bag Factory,204,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,21.49,12.894,C,0.5,G,0.4,410,410,USD,16.99,10.194,205,205,See Price Method,Place Order With Logo,1 Color 1 Location,TP,29,29,BG264,The Bag Factory,205,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,19.69,11.814,C,0.5,G,0.4,410,410,USD,16.99,10.194,205,205,See Price Method,Place Order With Logo,1 Color 1 Location,TP,29,29,BG264,The Bag Factory,205,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,18.39,11.034,C,0.5,G,0.4,410,410,USD,16.99,10.194,205,205,See Price Method,Place Order With Logo,1 Color 1 Location,TP,29,29,BG264,The Bag Factory,205,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,16.99,10.194,C,0.5,G,0.4,410,410,USD,16.99,10.194,205,205,See Price Method,Place Order With Logo,1 Color 1 Location,TP,29,29,BG264,The Bag Factory,205,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,16.99,10.2,C,,,,412,412,USD,0,10.2,206,206,Random Sample,Order Sample,1 Color 1 Location,RS,29,29,BG264,The Bag Factory,206,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,22.99,13.794,C,,,,414,414,USD,18.49,11.094,207,207,See Price Method,Place Order With Logo,4 Color Process,T4,29,29,BG264,The Bag Factory,207,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,21.19,12.714,C,,,,414,414,USD,18.49,11.094,207,207,See Price Method,Place Order With Logo,4 Color Process,T4,29,29,BG264,The Bag Factory,207,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,19.89,11.934,C,,,,414,414,USD,18.49,11.094,207,207,See Price Method,Place Order With Logo,4 Color Process,T4,29,29,BG264,The Bag Factory,207,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,18.49,11.094,C,,,,414,414,USD,18.49,11.094,207,207,See Price Method,Place Order With Logo,4 Color Process,T4,29,29,BG264,The Bag Factory,207,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,18.49,11.1,C,,,,416,416,USD,0,11.1,208,208,Random Sample,Order Sample,4 Color Process,RS,29,29,BG264,The Bag Factory,208,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,16.99,10.194,C,,,,418,418,USD,16.99,10.194,209,209,See Price Method,Order Without Logo,Blank,BL,29,29,BG264,The Bag Factory,209,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,16.99,10.194,C,,,,418,418,USD,16.99,10.194,209,209,See Price Method,Order Without Logo,Blank,BL,29,29,BG264,The Bag Factory,209,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,16.99,10.194,C,,,,418,418,USD,16.99,10.194,209,209,See Price Method,Order Without Logo,Blank,BL,29,29,BG264,The Bag Factory,209,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,16.99,10.194,C,,,,418,418,USD,16.99,10.194,209,209,See Price Method,Order Without Logo,Blank,BL,29,29,BG264,The Bag Factory,209,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,23.49,14.094,C,,,,420,420,USD,18.99,11.394,210,210,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,29,29,BG264,The Bag Factory,210,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,21.69,13.014,C,,,,420,420,USD,18.99,11.394,210,210,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,29,29,BG264,The Bag Factory,210,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,20.39,12.234,C,,,,420,420,USD,18.99,11.394,210,210,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,29,29,BG264,The Bag Factory,210,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+250,18.99,11.394,C,,,,420,420,USD,18.99,11.394,210,210,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,29,29,BG264,The Bag Factory,210,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,18.99,11.4,C,,,,422,422,USD,0,11.4,211,211,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,29,29,BG264,The Bag Factory,211,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,20.69,12.414,C,0.5,G,0.4,424,424,USD,16.49,9.894,212,212,See Price Method,Place Order With Logo,1 Color 1 Location,TP,30,30,BG269,Innovations,212,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,18.99,11.394,C,0.5,G,0.4,424,424,USD,16.49,9.894,212,212,See Price Method,Place Order With Logo,1 Color 1 Location,TP,30,30,BG269,Innovations,212,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,17.79,10.674,C,0.5,G,0.4,424,424,USD,16.49,9.894,212,212,See Price Method,Place Order With Logo,1 Color 1 Location,TP,30,30,BG269,Innovations,212,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,16.49,9.894,C,0.5,G,0.4,424,424,USD,16.49,9.894,212,212,See Price Method,Place Order With Logo,1 Color 1 Location,TP,30,30,BG269,Innovations,212,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,16.49,9.894,C,,,,426,426,USD,0,9.894,213,213,Random Sample,Order Sample,1 Color 1 Location,RS,30,30,BG269,Innovations,213,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,22.19,13.314,C,,,,428,428,USD,17.99,10.794,214,214,See Price Method,Place Order With Logo,4 Color Process,TF,30,30,BG269,Innovations,214,Drop Shipment Charge,8.5,G,6.8,75,60,0,0,0
+50,20.49,12.294,C,,,,428,428,USD,17.99,10.794,214,214,See Price Method,Place Order With Logo,4 Color Process,TF,30,30,BG269,Innovations,214,Drop Shipment Charge,8.5,G,6.8,75,60,0,0,0
+100,19.29,11.574,C,,,,428,428,USD,17.99,10.794,214,214,See Price Method,Place Order With Logo,4 Color Process,TF,30,30,BG269,Innovations,214,Drop Shipment Charge,8.5,G,6.8,75,60,0,0,0
+250,17.99,10.794,C,,,,428,428,USD,17.99,10.794,214,214,See Price Method,Place Order With Logo,4 Color Process,TF,30,30,BG269,Innovations,214,Drop Shipment Charge,8.5,G,6.8,75,60,0,0,0
+1,17.99,10.794,C,,,,430,430,USD,0,10.794,215,215,Random Sample,Order Sample,4 Color Process,RS,30,30,BG269,Innovations,215,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,16.49,9.894,C,,,,432,432,USD,16.49,9.894,216,216,See Price Method,Order Without Logo,Blank,BL,30,30,BG269,Innovations,216,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,16.49,9.894,C,,,,432,432,USD,16.49,9.894,216,216,See Price Method,Order Without Logo,Blank,BL,30,30,BG269,Innovations,216,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,16.49,9.894,C,,,,432,432,USD,16.49,9.894,216,216,See Price Method,Order Without Logo,Blank,BL,30,30,BG269,Innovations,216,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,16.49,9.894,C,,,,432,432,USD,16.49,9.894,216,216,See Price Method,Order Without Logo,Blank,BL,30,30,BG269,Innovations,216,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,27.79,16.674,C,0.5,G,0.4,434,434,USD,21.99,13.194,217,217,See Price Method,Place Order With Logo,1 Color 1 Location,TP,31,31,BG270,The Bag Factory,217,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+25,25.49,15.294,C,0.5,G,0.4,434,434,USD,21.99,13.194,217,217,See Price Method,Place Order With Logo,1 Color 1 Location,TP,31,31,BG270,The Bag Factory,217,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,23.79,14.274,C,0.5,G,0.4,434,434,USD,21.99,13.194,217,217,See Price Method,Place Order With Logo,1 Color 1 Location,TP,31,31,BG270,The Bag Factory,217,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,21.99,13.194,C,0.5,G,0.4,434,434,USD,21.99,13.194,217,217,See Price Method,Place Order With Logo,1 Color 1 Location,TP,31,31,BG270,The Bag Factory,217,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,21.99,13.2,C,0.5,G,0,436,436,USD,0,13.2,218,218,Random Sample,Order Sample,1 Color 1 Location,RS,31,31,BG270,The Bag Factory,218,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,29.29,17.574,C,,,,438,438,USD,23.49,14.094,219,219,See Price Method,Place Order With Logo,4 Color Process,TF,31,31,BG270,The Bag Factory,219,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+25,26.99,16.194,C,,,,438,438,USD,23.49,14.094,219,219,See Price Method,Place Order With Logo,4 Color Process,TF,31,31,BG270,The Bag Factory,219,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,25.29,15.174,C,,,,438,438,USD,23.49,14.094,219,219,See Price Method,Place Order With Logo,4 Color Process,TF,31,31,BG270,The Bag Factory,219,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,23.49,14.094,C,,,,438,438,USD,23.49,14.094,219,219,See Price Method,Place Order With Logo,4 Color Process,TF,31,31,BG270,The Bag Factory,219,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,23.49,14.1,C,,,,440,440,USD,0,14.1,220,220,Random Sample,Order Sample,4 Color Process,RS,31,31,BG270,The Bag Factory,220,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,21.99,13.194,C,,,,442,442,USD,21.99,13.194,221,221,See Price Method,Order Without Logo,Blank,BL,31,31,BG270,The Bag Factory,221,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,21.99,13.194,C,,,,442,442,USD,21.99,13.194,221,221,See Price Method,Order Without Logo,Blank,BL,31,31,BG270,The Bag Factory,221,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,21.99,13.194,C,,,,442,442,USD,21.99,13.194,221,221,See Price Method,Order Without Logo,Blank,BL,31,31,BG270,The Bag Factory,221,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,21.99,13.194,C,,,,442,442,USD,21.99,13.194,221,221,See Price Method,Order Without Logo,Blank,BL,31,31,BG270,The Bag Factory,221,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,29.79,17.874,C,,,,444,444,USD,23.99,14.394,222,222,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,31,31,BG270,The Bag Factory,222,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,27.49,16.494,C,,,,444,444,USD,23.99,14.394,222,222,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,31,31,BG270,The Bag Factory,222,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,25.79,15.474,C,,,,444,444,USD,23.99,14.394,222,222,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,31,31,BG270,The Bag Factory,222,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,23.99,14.394,C,,,,444,444,USD,23.99,14.394,222,222,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,31,31,BG270,The Bag Factory,222,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,23.99,14.4,C,,,,446,446,USD,0,14.4,223,223,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,31,31,BG270,The Bag Factory,223,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,28.99,17.394,C,0.5,G,0.4,448,448,USD,22.99,13.794,224,224,See Price Method,Place Order With Logo,1 Color 1 Location,TP,32,32,BG271,The Bag Factory,224,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+25,26.59,15.954,C,0.5,G,0.4,448,448,USD,22.99,13.794,224,224,See Price Method,Place Order With Logo,1 Color 1 Location,TP,32,32,BG271,The Bag Factory,224,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,24.79,14.874,C,0.5,G,0.4,448,448,USD,22.99,13.794,224,224,See Price Method,Place Order With Logo,1 Color 1 Location,TP,32,32,BG271,The Bag Factory,224,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,22.99,13.794,C,0.5,G,0.4,448,448,USD,22.99,13.794,224,224,See Price Method,Place Order With Logo,1 Color 1 Location,TP,32,32,BG271,The Bag Factory,224,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,22.99,13.8,C,0.5,G,0,450,450,USD,0,13.8,225,225,Random Sample,Order Sample,1 Color 1 Location,RS,32,32,BG271,The Bag Factory,225,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,30.49,18.294,C,0.5,G,0.4,452,452,USD,24.49,14.694,226,226,See Price Method,Place Order With Logo,4 Color Process,T4,32,32,BG271,The Bag Factory,226,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+25,28.09,16.854,C,0.5,G,0.4,452,452,USD,24.49,14.694,226,226,See Price Method,Place Order With Logo,4 Color Process,T4,32,32,BG271,The Bag Factory,226,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,26.29,15.774,C,0.5,G,0.4,452,452,USD,24.49,14.694,226,226,See Price Method,Place Order With Logo,4 Color Process,T4,32,32,BG271,The Bag Factory,226,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+100,24.49,14.694,C,0.5,G,0.4,452,452,USD,24.49,14.694,226,226,See Price Method,Place Order With Logo,4 Color Process,T4,32,32,BG271,The Bag Factory,226,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,24.49,14.7,C,0.5,G,0,454,454,USD,0,14.7,227,227,Random Sample,Order Sample,4 Color Process,RS,32,32,BG271,The Bag Factory,227,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,22.99,13.794,C,,,,456,456,USD,22.99,13.794,228,228,See Price Method,Order Without Logo,Blank,BL,32,32,BG271,The Bag Factory,228,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,22.99,13.794,C,,,,456,456,USD,22.99,13.794,228,228,See Price Method,Order Without Logo,Blank,BL,32,32,BG271,The Bag Factory,228,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,22.99,13.794,C,,,,456,456,USD,22.99,13.794,228,228,See Price Method,Order Without Logo,Blank,BL,32,32,BG271,The Bag Factory,228,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,22.99,13.794,C,,,,456,456,USD,22.99,13.794,228,228,See Price Method,Order Without Logo,Blank,BL,32,32,BG271,The Bag Factory,228,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,30.99,18.594,C,,,,458,458,USD,24.99,14.994,229,229,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,32,32,BG271,The Bag Factory,229,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,28.59,17.154,C,,,,458,458,USD,24.99,14.994,229,229,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,32,32,BG271,The Bag Factory,229,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,26.79,16.074,C,,,,458,458,USD,24.99,14.994,229,229,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,32,32,BG271,The Bag Factory,229,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,24.99,14.994,C,,,,458,458,USD,24.99,14.994,229,229,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,32,32,BG271,The Bag Factory,229,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,24.99,15,C,,,,460,460,USD,0,15,230,230,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,32,32,BG271,The Bag Factory,230,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,19.99,11.994,C,0.5,G,0.4,462,462,USD,16.99,10.194,231,231,See Price Method,Place Order With Logo,1 Color 1 Location,TP,33,33,BG274,The Bag Factory,231,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,18.99,11.394,C,0.5,G,0.4,462,462,USD,16.99,10.194,231,231,See Price Method,Place Order With Logo,1 Color 1 Location,TP,33,33,BG274,The Bag Factory,231,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,17.99,10.794,C,0.5,G,0.4,462,462,USD,16.99,10.194,231,231,See Price Method,Place Order With Logo,1 Color 1 Location,TP,33,33,BG274,The Bag Factory,231,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,16.99,10.194,C,0.5,G,0.4,462,462,USD,16.99,10.194,231,231,See Price Method,Place Order With Logo,1 Color 1 Location,TP,33,33,BG274,The Bag Factory,231,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,16.99,10.2,C,,,,464,464,USD,0,10.2,232,232,Random Sample,Order Sample,1 Color 1 Location,RS,33,33,BG274,The Bag Factory,232,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,21.49,12.894,C,,,,466,466,USD,18.49,11.094,233,233,See Price Method,Place Order With Logo,4 Color Process,TF,33,33,BG274,The Bag Factory,233,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,20.49,12.294,C,,,,466,466,USD,18.49,11.094,233,233,See Price Method,Place Order With Logo,4 Color Process,TF,33,33,BG274,The Bag Factory,233,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+100,19.49,11.694,C,,,,466,466,USD,18.49,11.094,233,233,See Price Method,Place Order With Logo,4 Color Process,TF,33,33,BG274,The Bag Factory,233,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+250,18.49,11.094,C,,,,466,466,USD,18.49,11.094,233,233,See Price Method,Place Order With Logo,4 Color Process,TF,33,33,BG274,The Bag Factory,233,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,18.49,11.1,C,,,,468,468,USD,0,11.1,234,234,Random Sample,Order Sample,4 Color Process,RS,33,33,BG274,The Bag Factory,234,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,21.99,13.194,C,,,,470,470,USD,18.99,11.394,235,235,See Price Method,Place Order With Logo,4 Color Process Dome,DM,33,33,BG274,The Bag Factory,235,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,20.99,12.594,C,,,,470,470,USD,18.99,11.394,235,235,See Price Method,Place Order With Logo,4 Color Process Dome,DM,33,33,BG274,The Bag Factory,235,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+100,19.99,11.994,C,,,,470,470,USD,18.99,11.394,235,235,See Price Method,Place Order With Logo,4 Color Process Dome,DM,33,33,BG274,The Bag Factory,235,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+250,18.99,11.394,C,,,,470,470,USD,18.99,11.394,235,235,See Price Method,Place Order With Logo,4 Color Process Dome,DM,33,33,BG274,The Bag Factory,235,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,18.99,11.4,C,,,,472,472,USD,0,11.4,236,236,Random Sample,Order Sample,4 Color Process Dome,RS,33,33,BG274,The Bag Factory,236,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,16.99,10.194,C,,,,474,474,USD,16.99,10.194,237,237,See Price Method,Order Without Logo,Blank,BL,33,33,BG274,The Bag Factory,237,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,16.99,10.194,C,,,,474,474,USD,16.99,10.194,237,237,See Price Method,Order Without Logo,Blank,BL,33,33,BG274,The Bag Factory,237,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,16.99,10.194,C,,,,474,474,USD,16.99,10.194,237,237,See Price Method,Order Without Logo,Blank,BL,33,33,BG274,The Bag Factory,237,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,16.99,10.194,C,,,,474,474,USD,16.99,10.194,237,237,See Price Method,Order Without Logo,Blank,BL,33,33,BG274,The Bag Factory,237,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,21.99,13.194,C,,,,476,476,USD,18.99,11.394,238,238,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,33,33,BG274,The Bag Factory,238,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,20.99,12.594,C,,,,476,476,USD,18.99,11.394,238,238,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,33,33,BG274,The Bag Factory,238,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,19.99,11.994,C,,,,476,476,USD,18.99,11.394,238,238,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,33,33,BG274,The Bag Factory,238,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+250,18.99,11.394,C,,,,476,476,USD,18.99,11.394,238,238,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,33,33,BG274,The Bag Factory,238,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,18.99,11.4,C,,,,478,478,USD,0,11.4,239,239,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,33,33,BG274,The Bag Factory,239,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+6,49.99,29.994,C,,,,480,480,USD,39.99,23.994,240,240,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,34,34,BG275,The Bag Factory,240,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+12,45.99,27.594,C,,,,480,480,USD,39.99,23.994,240,240,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,34,34,BG275,The Bag Factory,240,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,42.99,25.794,C,,,,480,480,USD,39.99,23.994,240,240,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,34,34,BG275,The Bag Factory,240,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,39.99,23.994,C,,,,480,480,USD,39.99,23.994,240,240,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,34,34,BG275,The Bag Factory,240,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+6,39.99,23.994,C,,,,482,482,USD,39.99,23.994,241,241,See Price Method,Order Without Logo,Blank,BL,34,34,BG275,The Bag Factory,241,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,39.99,23.994,C,,,,482,482,USD,39.99,23.994,241,241,See Price Method,Order Without Logo,Blank,BL,34,34,BG275,The Bag Factory,241,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,39.99,23.994,C,,,,482,482,USD,39.99,23.994,241,241,See Price Method,Order Without Logo,Blank,BL,34,34,BG275,The Bag Factory,241,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,39.99,23.994,C,,,,482,482,USD,39.99,23.994,241,241,See Price Method,Order Without Logo,Blank,BL,34,34,BG275,The Bag Factory,241,Drop Shipment Charge,8.5,G,6.8,,,,0,
+1,39.99,24,C,,,,484,484,USD,0,24,242,242,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,34,34,BG275,The Bag Factory,242,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+6,62.99,37.794,C,,,,486,486,USD,49.99,29.994,243,243,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,35,35,BG276,The Bag Factory,243,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+12,57.79,34.674,C,,,,486,486,USD,49.99,29.994,243,243,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,35,35,BG276,The Bag Factory,243,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,53.99,32.394,C,,,,486,486,USD,49.99,29.994,243,243,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,35,35,BG276,The Bag Factory,243,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,49.99,29.994,C,,,,486,486,USD,49.99,29.994,243,243,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,35,35,BG276,The Bag Factory,243,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+6,49.99,29.994,C,,,,488,488,USD,49.99,29.994,244,244,See Price Method,Order Without Logo,Blank,BL,35,35,BG276,The Bag Factory,244,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,49.99,29.994,C,,,,488,488,USD,49.99,29.994,244,244,See Price Method,Order Without Logo,Blank,BL,35,35,BG276,The Bag Factory,244,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,49.99,29.994,C,,,,488,488,USD,49.99,29.994,244,244,See Price Method,Order Without Logo,Blank,BL,35,35,BG276,The Bag Factory,244,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,49.99,29.994,C,,,,488,488,USD,49.99,29.994,244,244,See Price Method,Order Without Logo,Blank,BL,35,35,BG276,The Bag Factory,244,Drop Shipment Charge,8.5,G,6.8,,,,0,
+1,49.99,30,C,,,,490,490,USD,0,30,245,245,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,35,35,BG276,The Bag Factory,245,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+6,66.79,40.074,C,0.5,G,0.4,492,492,USD,52.99,31.794,246,246,See Price Method,Place Order With Logo,1 Color 1 Location,TP,36,36,BG277,The Bag Factory,246,PMS Color Match,30,G,24,50,40,20,3,5
+12,61.29,36.774,C,0.5,G,0.4,492,492,USD,52.99,31.794,246,246,See Price Method,Place Order With Logo,1 Color 1 Location,TP,36,36,BG277,The Bag Factory,246,PMS Color Match,30,G,24,50,40,20,3,5
+25,57.29,34.374,C,0.5,G,0.4,492,492,USD,52.99,31.794,246,246,See Price Method,Place Order With Logo,1 Color 1 Location,TP,36,36,BG277,The Bag Factory,246,PMS Color Match,30,G,24,50,40,20,3,5
+50,52.99,31.794,C,0.5,G,0.4,492,492,USD,52.99,31.794,246,246,See Price Method,Place Order With Logo,1 Color 1 Location,TP,36,36,BG277,The Bag Factory,246,PMS Color Match,30,G,24,50,40,20,3,5
+1,52.99,31.8,C,,,,494,494,USD,0,31.8,247,247,Random Sample,Order Sample,1 Color 1 Location,RS,36,36,BG277,The Bag Factory,247,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+6,52.99,31.794,C,,,,496,496,USD,52.99,31.794,248,248,See Price Method,Order Without Logo,Blank,BL,36,36,BG277,The Bag Factory,248,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,52.99,31.794,C,,,,496,496,USD,52.99,31.794,248,248,See Price Method,Order Without Logo,Blank,BL,36,36,BG277,The Bag Factory,248,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,52.99,31.794,C,,,,496,496,USD,52.99,31.794,248,248,See Price Method,Order Without Logo,Blank,BL,36,36,BG277,The Bag Factory,248,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,52.99,31.794,C,,,,496,496,USD,52.99,31.794,248,248,See Price Method,Order Without Logo,Blank,BL,36,36,BG277,The Bag Factory,248,Drop Shipment Charge,8.5,G,6.8,,,,0,
+6,68.79,41.274,C,,,,498,498,USD,54.99,32.994,249,249,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,36,36,BG277,The Bag Factory,249,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+12,63.29,37.974,C,,,,498,498,USD,54.99,32.994,249,249,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,36,36,BG277,The Bag Factory,249,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,59.29,35.574,C,,,,498,498,USD,54.99,32.994,249,249,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,36,36,BG277,The Bag Factory,249,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,54.99,32.994,C,,,,498,498,USD,54.99,32.994,249,249,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,36,36,BG277,The Bag Factory,249,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,54.99,33,C,,,,500,500,USD,0,33,250,250,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,36,36,BG277,The Bag Factory,250,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+6,45.39,27.234,C,0.5,G,0.4,502,502,USD,35.99,21.594,251,251,See Price Method,Place Order With Logo,1 Color 1 Location,TP,37,37,BG278,The Bag Factory,251,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+12,41.59,24.954,C,0.5,G,0.4,502,502,USD,35.99,21.594,251,251,See Price Method,Place Order With Logo,1 Color 1 Location,TP,37,37,BG278,The Bag Factory,251,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+25,38.89,23.334,C,0.5,G,0.4,502,502,USD,35.99,21.594,251,251,See Price Method,Place Order With Logo,1 Color 1 Location,TP,37,37,BG278,The Bag Factory,251,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,35.99,21.594,C,0.5,G,0.4,502,502,USD,35.99,21.594,251,251,See Price Method,Place Order With Logo,1 Color 1 Location,TP,37,37,BG278,The Bag Factory,251,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,35.99,21.6,C,,,,504,504,USD,0,21.6,252,252,Random Sample,Order Sample,1 Color 1 Location,RS,37,37,BG278,The Bag Factory,252,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+6,46.89,28.134,C,,,,506,506,USD,37.49,22.494,253,253,See Price Method,Place Order With Logo,4 Color Process,TF,37,37,BG278,The Bag Factory,253,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+12,43.09,25.854,C,,,,506,506,USD,37.49,22.494,253,253,See Price Method,Place Order With Logo,4 Color Process,TF,37,37,BG278,The Bag Factory,253,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+25,40.39,24.234,C,,,,506,506,USD,37.49,22.494,253,253,See Price Method,Place Order With Logo,4 Color Process,TF,37,37,BG278,The Bag Factory,253,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,37.49,22.494,C,,,,506,506,USD,37.49,22.494,253,253,See Price Method,Place Order With Logo,4 Color Process,TF,37,37,BG278,The Bag Factory,253,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,37.49,22.5,C,,,,508,508,USD,0,22.5,254,254,Random Sample,Order Sample,4 Color Process,RS,37,37,BG278,The Bag Factory,254,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+6,47.39,28.434,C,,,,510,510,USD,37.99,22.794,255,255,See Price Method,Place Order With Logo,4 Color Process Dome,DM,37,37,BG278,The Bag Factory,255,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+12,43.59,26.154,C,,,,510,510,USD,37.99,22.794,255,255,See Price Method,Place Order With Logo,4 Color Process Dome,DM,37,37,BG278,The Bag Factory,255,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+25,40.89,24.534,C,,,,510,510,USD,37.99,22.794,255,255,See Price Method,Place Order With Logo,4 Color Process Dome,DM,37,37,BG278,The Bag Factory,255,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,37.99,22.794,C,,,,510,510,USD,37.99,22.794,255,255,See Price Method,Place Order With Logo,4 Color Process Dome,DM,37,37,BG278,The Bag Factory,255,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,37.99,22.8,C,,,,512,512,USD,0,22.8,256,256,Random Sample,Order Sample,4 Color Process Dome,RS,37,37,BG278,The Bag Factory,256,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+6,35.99,21.594,C,,,,514,514,USD,35.99,21.594,257,257,See Price Method,Order Without Logo,Blank,BL,37,37,BG278,The Bag Factory,257,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,35.99,21.594,C,,,,514,514,USD,35.99,21.594,257,257,See Price Method,Order Without Logo,Blank,BL,37,37,BG278,The Bag Factory,257,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,35.99,21.594,C,,,,514,514,USD,35.99,21.594,257,257,See Price Method,Order Without Logo,Blank,BL,37,37,BG278,The Bag Factory,257,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,35.99,21.594,C,,,,514,514,USD,35.99,21.594,257,257,See Price Method,Order Without Logo,Blank,BL,37,37,BG278,The Bag Factory,257,Drop Shipment Charge,8.5,G,6.8,,,,0,
+6,47.39,28.434,C,,,,516,516,USD,37.99,22.794,258,258,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,37,37,BG278,The Bag Factory,258,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+12,43.59,26.154,C,,,,516,516,USD,37.99,22.794,258,258,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,37,37,BG278,The Bag Factory,258,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,40.89,24.534,C,,,,516,516,USD,37.99,22.794,258,258,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,37,37,BG278,The Bag Factory,258,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,37.99,22.794,C,,,,516,516,USD,37.99,22.794,258,258,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,37,37,BG278,The Bag Factory,258,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,37.99,22.8,C,,,,518,518,USD,0,22.8,259,259,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,37,37,BG278,The Bag Factory,259,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+6,64.89,38.934,C,0.5,G,0.4,520,520,USD,51.49,30.894,260,260,See Price Method,Place Order With Logo,1 Color 1 Location,TP,38,38,BG279,The Bag Factory,260,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+12,59.49,35.694,C,0.5,G,0.4,520,520,USD,51.49,30.894,260,260,See Price Method,Place Order With Logo,1 Color 1 Location,TP,38,38,BG279,The Bag Factory,260,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+25,55.59,33.354,C,0.5,G,0.4,520,520,USD,51.49,30.894,260,260,See Price Method,Place Order With Logo,1 Color 1 Location,TP,38,38,BG279,The Bag Factory,260,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,51.49,30.894,C,0.5,G,0.4,520,520,USD,51.49,30.894,260,260,See Price Method,Place Order With Logo,1 Color 1 Location,TP,38,38,BG279,The Bag Factory,260,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,51.49,30.9,C,,,,522,522,USD,0,30.9,261,261,Random Sample,Order Sample,1 Color 1 Location,RS,38,38,BG279,The Bag Factory,261,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+6,66.39,39.834,C,,,,524,524,USD,52.99,31.794,262,262,See Price Method,Place Order With Logo,4 Color Process,TF,38,38,BG279,The Bag Factory,262,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+12,60.99,36.594,C,,,,524,524,USD,52.99,31.794,262,262,See Price Method,Place Order With Logo,4 Color Process,TF,38,38,BG279,The Bag Factory,262,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+25,57.09,34.254,C,,,,524,524,USD,52.99,31.794,262,262,See Price Method,Place Order With Logo,4 Color Process,TF,38,38,BG279,The Bag Factory,262,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,52.99,31.794,C,,,,524,524,USD,52.99,31.794,262,262,See Price Method,Place Order With Logo,4 Color Process,TF,38,38,BG279,The Bag Factory,262,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,52.99,31.8,C,,,,526,526,USD,0,31.8,263,263,Random Sample,Order Sample,4 Color Process,RS,38,38,BG279,The Bag Factory,263,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+6,66.89,40.134,C,,,,528,528,USD,53.49,32.094,264,264,See Price Method,Place Order With Logo,4 Color Process Dome,DM,38,38,BG279,The Bag Factory,264,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+12,61.49,36.894,C,,,,528,528,USD,53.49,32.094,264,264,See Price Method,Place Order With Logo,4 Color Process Dome,DM,38,38,BG279,The Bag Factory,264,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+25,57.59,34.554,C,,,,528,528,USD,53.49,32.094,264,264,See Price Method,Place Order With Logo,4 Color Process Dome,DM,38,38,BG279,The Bag Factory,264,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,53.49,32.094,C,,,,528,528,USD,53.49,32.094,264,264,See Price Method,Place Order With Logo,4 Color Process Dome,DM,38,38,BG279,The Bag Factory,264,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,53.49,32.1,C,,,,530,530,USD,0,32.1,265,265,Random Sample,Order Sample,4 Color Process Dome,RS,38,38,BG279,The Bag Factory,265,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+6,51.49,30.894,C,,,,532,532,USD,51.49,30.894,266,266,See Price Method,Order Without Logo,Blank,BL,38,38,BG279,The Bag Factory,266,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,51.49,30.894,C,,,,532,532,USD,51.49,30.894,266,266,See Price Method,Order Without Logo,Blank,BL,38,38,BG279,The Bag Factory,266,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,51.49,30.894,C,,,,532,532,USD,51.49,30.894,266,266,See Price Method,Order Without Logo,Blank,BL,38,38,BG279,The Bag Factory,266,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,51.49,30.894,C,,,,532,532,USD,51.49,30.894,266,266,See Price Method,Order Without Logo,Blank,BL,38,38,BG279,The Bag Factory,266,Drop Shipment Charge,8.5,G,6.8,,,,0,
+6,66.89,40.134,C,,,,534,534,USD,53.49,32.094,267,267,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,38,38,BG279,The Bag Factory,267,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+12,61.49,36.894,C,,,,534,534,USD,53.49,32.094,267,267,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,38,38,BG279,The Bag Factory,267,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,57.59,34.554,C,,,,534,534,USD,53.49,32.094,267,267,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,38,38,BG279,The Bag Factory,267,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,53.49,32.094,C,,,,534,534,USD,53.49,32.094,267,267,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,38,38,BG279,The Bag Factory,267,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,53.49,32.1,C,,,,536,536,USD,0,32.1,268,268,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,38,38,BG279,The Bag Factory,268,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,19.99,11.994,C,0.5,G,0.4,538,538,USD,19.99,11.994,269,269,See Price Method,Place Order With Logo,1 Color 1 Location,TP,39,39,BG284,The Bag Factory,269,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+25,19.99,11.994,C,0.5,G,0.4,538,538,USD,19.99,11.994,269,269,See Price Method,Place Order With Logo,1 Color 1 Location,TP,39,39,BG284,The Bag Factory,269,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,19.99,11.994,C,0.5,G,0.4,538,538,USD,19.99,11.994,269,269,See Price Method,Place Order With Logo,1 Color 1 Location,TP,39,39,BG284,The Bag Factory,269,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,19.99,11.994,C,0.5,G,0.4,538,538,USD,19.99,11.994,269,269,See Price Method,Place Order With Logo,1 Color 1 Location,TP,39,39,BG284,The Bag Factory,269,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,19.99,12,C,0.5,G,0,540,540,USD,0,12,270,270,Random Sample,Order Sample,1 Color 1 Location,RS,39,39,BG284,The Bag Factory,270,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,34.24,20.544,C,,,,542,542,USD,31.99,19.194,271,271,See Price Method,Place Order With Logo,4 Color Process Dome,DM,39,39,BG284,The Bag Factory,271,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+25,33.49,20.094,C,,,,542,542,USD,31.99,19.194,271,271,See Price Method,Place Order With Logo,4 Color Process Dome,DM,39,39,BG284,The Bag Factory,271,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,32.74,19.644,C,,,,542,542,USD,31.99,19.194,271,271,See Price Method,Place Order With Logo,4 Color Process Dome,DM,39,39,BG284,The Bag Factory,271,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+100,31.99,19.194,C,,,,542,542,USD,31.99,19.194,271,271,See Price Method,Place Order With Logo,4 Color Process Dome,DM,39,39,BG284,The Bag Factory,271,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,31.99,19.2,C,,,,544,544,USD,0,19.2,272,272,Random Sample,Order Sample,4 Color Process Dome,RS,39,39,BG284,The Bag Factory,272,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,19.99,11.994,C,,,,546,546,USD,19.99,11.994,273,273,See Price Method,Order Without Logo,Blank,BL,39,39,BG284,The Bag Factory,273,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,19.99,11.994,C,,,,546,546,USD,19.99,11.994,273,273,See Price Method,Order Without Logo,Blank,BL,39,39,BG284,The Bag Factory,273,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,19.99,11.994,C,,,,546,546,USD,19.99,11.994,273,273,See Price Method,Order Without Logo,Blank,BL,39,39,BG284,The Bag Factory,273,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,19.99,11.994,C,,,,546,546,USD,19.99,11.994,273,273,See Price Method,Order Without Logo,Blank,BL,39,39,BG284,The Bag Factory,273,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,19.99,11.994,C,,,,546,546,USD,19.99,11.994,273,273,See Price Method,Order Without Logo,Blank,BL,39,39,BG284,The Bag Factory,273,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,21.66,12.996,C,,,,548,548,USD,21.66,12.996,274,274,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,39,39,BG284,The Bag Factory,274,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,21.66,12.996,C,,,,548,548,USD,21.66,12.996,274,274,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,39,39,BG284,The Bag Factory,274,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,21.66,12.996,C,,,,548,548,USD,21.66,12.996,274,274,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,39,39,BG284,The Bag Factory,274,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,21.66,12.996,C,,,,548,548,USD,21.66,12.996,274,274,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,39,39,BG284,The Bag Factory,274,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,21.66,13,C,,,,550,550,USD,0,13,275,275,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,39,39,BG284,The Bag Factory,275,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,12.29,7.374,C,0.5,G,0.4,552,552,USD,9.99,5.994,276,276,See Price Method,Place Order With Logo,1 Color 1 Location,TP,40,40,BG287,The Bag Factory,276,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,11.29,6.774,C,0.5,G,0.4,552,552,USD,9.99,5.994,276,276,See Price Method,Place Order With Logo,1 Color 1 Location,TP,40,40,BG287,The Bag Factory,276,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,10.59,6.354,C,0.5,G,0.4,552,552,USD,9.99,5.994,276,276,See Price Method,Place Order With Logo,1 Color 1 Location,TP,40,40,BG287,The Bag Factory,276,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,9.99,5.994,C,0.5,G,0.4,552,552,USD,9.99,5.994,276,276,See Price Method,Place Order With Logo,1 Color 1 Location,TP,40,40,BG287,The Bag Factory,276,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,9.99,6,C,,,,554,554,USD,0,6,277,277,Random Sample,Order Sample,1 Color 1 Location,RS,40,40,BG287,The Bag Factory,277,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,13.79,8.274,C,,,,556,556,USD,11.49,6.894,278,278,See Price Method,Place Order With Logo,4 Color Process,T4,40,40,BG287,The Bag Factory,278,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,12.79,7.674,C,,,,556,556,USD,11.49,6.894,278,278,See Price Method,Place Order With Logo,4 Color Process,T4,40,40,BG287,The Bag Factory,278,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,12.09,7.254,C,,,,556,556,USD,11.49,6.894,278,278,See Price Method,Place Order With Logo,4 Color Process,T4,40,40,BG287,The Bag Factory,278,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,11.49,6.894,C,,,,556,556,USD,11.49,6.894,278,278,See Price Method,Place Order With Logo,4 Color Process,T4,40,40,BG287,The Bag Factory,278,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,11.49,6.9,C,,,,558,558,USD,0,6.9,279,279,Random Sample,Order Sample,4 Color Process,RS,40,40,BG287,The Bag Factory,279,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,9.99,5.994,C,,,,560,560,USD,9.99,5.994,280,280,See Price Method,Order Without Logo,Blank,BL,40,40,BG287,The Bag Factory,280,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,9.99,5.994,C,,,,560,560,USD,9.99,5.994,280,280,See Price Method,Order Without Logo,Blank,BL,40,40,BG287,The Bag Factory,280,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,9.99,5.994,C,,,,560,560,USD,9.99,5.994,280,280,See Price Method,Order Without Logo,Blank,BL,40,40,BG287,The Bag Factory,280,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,9.99,5.994,C,,,,560,560,USD,9.99,5.994,280,280,See Price Method,Order Without Logo,Blank,BL,40,40,BG287,The Bag Factory,280,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,19.89,11.934,C,0.5,G,0.4,562,562,USD,15.99,9.594,281,281,See Price Method,Place Order With Logo,1 Color 1 Location,TP,41,41,BG288,The Bag Factory,281,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,18.19,10.914,C,0.5,G,0.4,562,562,USD,15.99,9.594,281,281,See Price Method,Place Order With Logo,1 Color 1 Location,TP,41,41,BG288,The Bag Factory,281,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,16.99,10.194,C,0.5,G,0.4,562,562,USD,15.99,9.594,281,281,See Price Method,Place Order With Logo,1 Color 1 Location,TP,41,41,BG288,The Bag Factory,281,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,15.99,9.594,C,0.5,G,0.4,562,562,USD,15.99,9.594,281,281,See Price Method,Place Order With Logo,1 Color 1 Location,TP,41,41,BG288,The Bag Factory,281,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,15.99,9.6,C,,,,564,564,USD,0,9.6,282,282,Random Sample,Order Sample,1 Color 1 Location,RS,41,41,BG288,The Bag Factory,282,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,21.39,12.834,C,,,,566,566,USD,17.49,10.494,283,283,See Price Method,Place Order With Logo,4 Color Process,TF,41,41,BG288,The Bag Factory,283,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,19.69,11.814,C,,,,566,566,USD,17.49,10.494,283,283,See Price Method,Place Order With Logo,4 Color Process,TF,41,41,BG288,The Bag Factory,283,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,18.49,11.094,C,,,,566,566,USD,17.49,10.494,283,283,See Price Method,Place Order With Logo,4 Color Process,TF,41,41,BG288,The Bag Factory,283,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,17.49,10.494,C,,,,566,566,USD,17.49,10.494,283,283,See Price Method,Place Order With Logo,4 Color Process,TF,41,41,BG288,The Bag Factory,283,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,17.49,10.5,C,,,,568,568,USD,0,10.5,284,284,Random Sample,Order Sample,4 Color Process,RS,41,41,BG288,The Bag Factory,284,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,15.99,9.594,C,,,,570,570,USD,15.99,9.594,285,285,See Price Method,Order Without Logo,Blank,BL,41,41,BG288,The Bag Factory,285,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,15.99,9.594,C,,,,570,570,USD,15.99,9.594,285,285,See Price Method,Order Without Logo,Blank,BL,41,41,BG288,The Bag Factory,285,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,15.99,9.594,C,,,,570,570,USD,15.99,9.594,285,285,See Price Method,Order Without Logo,Blank,BL,41,41,BG288,The Bag Factory,285,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,15.99,9.594,C,,,,570,570,USD,15.99,9.594,285,285,See Price Method,Order Without Logo,Blank,BL,41,41,BG288,The Bag Factory,285,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,21.89,13.134,C,,,,572,572,USD,17.99,10.794,286,286,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,41,41,BG288,The Bag Factory,286,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,20.19,12.114,C,,,,572,572,USD,17.99,10.794,286,286,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,41,41,BG288,The Bag Factory,286,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,18.99,11.394,C,,,,572,572,USD,17.99,10.794,286,286,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,41,41,BG288,The Bag Factory,286,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+250,17.99,10.794,C,,,,572,572,USD,17.99,10.794,286,286,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,41,41,BG288,The Bag Factory,286,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,17.99,10.8,C,,,,574,574,USD,0,10.8,287,287,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,41,41,BG288,The Bag Factory,287,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,33.59,20.154,C,0.5,G,0.4,576,576,USD,26.59,15.954,288,288,See Price Method,Place Order With Logo,1 Color 1 Location,TP,42,42,BG295,The Bag Factory,288,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+25,30.79,18.474,C,0.5,G,0.4,576,576,USD,26.59,15.954,288,288,See Price Method,Place Order With Logo,1 Color 1 Location,TP,42,42,BG295,The Bag Factory,288,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,28.79,17.274,C,0.5,G,0.4,576,576,USD,26.59,15.954,288,288,See Price Method,Place Order With Logo,1 Color 1 Location,TP,42,42,BG295,The Bag Factory,288,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,26.59,15.954,C,0.5,G,0.4,576,576,USD,26.59,15.954,288,288,See Price Method,Place Order With Logo,1 Color 1 Location,TP,42,42,BG295,The Bag Factory,288,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,26.59,15.96,C,,,,578,578,USD,0,15.96,289,289,Random Sample,Order Sample,1 Color 1 Location,RS,42,42,BG295,The Bag Factory,289,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,35.09,21.054,C,,,,580,580,USD,28.09,16.854,290,290,See Price Method,Place Order With Logo,4 Color Process,T4,42,42,BG295,The Bag Factory,290,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+25,32.29,19.374,C,,,,580,580,USD,28.09,16.854,290,290,See Price Method,Place Order With Logo,4 Color Process,T4,42,42,BG295,The Bag Factory,290,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,30.29,18.174,C,,,,580,580,USD,28.09,16.854,290,290,See Price Method,Place Order With Logo,4 Color Process,T4,42,42,BG295,The Bag Factory,290,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,28.09,16.854,C,,,,580,580,USD,28.09,16.854,290,290,See Price Method,Place Order With Logo,4 Color Process,T4,42,42,BG295,The Bag Factory,290,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,28.09,16.86,C,,,,582,582,USD,0,16.86,291,291,Random Sample,Order Sample,4 Color Process,RS,42,42,BG295,The Bag Factory,291,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,26.59,15.954,C,,,,584,584,USD,26.59,15.954,292,292,See Price Method,Order Without Logo,Blank,BL,42,42,BG295,The Bag Factory,292,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,26.59,15.954,C,,,,584,584,USD,26.59,15.954,292,292,See Price Method,Order Without Logo,Blank,BL,42,42,BG295,The Bag Factory,292,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,26.59,15.954,C,,,,584,584,USD,26.59,15.954,292,292,See Price Method,Order Without Logo,Blank,BL,42,42,BG295,The Bag Factory,292,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,26.59,15.954,C,,,,584,584,USD,26.59,15.954,292,292,See Price Method,Order Without Logo,Blank,BL,42,42,BG295,The Bag Factory,292,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,35.59,21.354,C,,,,586,586,USD,28.59,17.154,293,293,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,42,42,BG295,The Bag Factory,293,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,32.79,19.674,C,,,,586,586,USD,28.59,17.154,293,293,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,42,42,BG295,The Bag Factory,293,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,30.79,18.474,C,,,,586,586,USD,28.59,17.154,293,293,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,42,42,BG295,The Bag Factory,293,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,28.59,17.154,C,,,,586,586,USD,28.59,17.154,293,293,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,42,42,BG295,The Bag Factory,293,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,28.59,17.16,C,,,,588,588,USD,0,17.16,294,294,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,42,42,BG295,The Bag Factory,294,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,34.59,20.754,C,0.5,G,0.4,590,590,USD,27.59,16.554,295,295,See Price Method,Place Order With Logo,1 Color 1 Location,TP,43,43,BG295CM,The Bag Factory,295,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+25,31.79,19.074,C,0.5,G,0.4,590,590,USD,27.59,16.554,295,295,See Price Method,Place Order With Logo,1 Color 1 Location,TP,43,43,BG295CM,The Bag Factory,295,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,29.79,17.874,C,0.5,G,0.4,590,590,USD,27.59,16.554,295,295,See Price Method,Place Order With Logo,1 Color 1 Location,TP,43,43,BG295CM,The Bag Factory,295,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,27.59,16.554,C,0.5,G,0.4,590,590,USD,27.59,16.554,295,295,See Price Method,Place Order With Logo,1 Color 1 Location,TP,43,43,BG295CM,The Bag Factory,295,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,27.59,16.56,C,,,,592,592,USD,0,16.56,296,296,Random Sample,Order Sample,1 Color 1 Location,RS,43,43,BG295CM,The Bag Factory,296,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,37.09,22.254,C,,,,594,594,USD,30.09,18.054,297,297,See Price Method,Place Order With Logo,4 Color Process,TF,43,43,BG295CM,The Bag Factory,297,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+25,34.29,20.574,C,,,,594,594,USD,30.09,18.054,297,297,See Price Method,Place Order With Logo,4 Color Process,TF,43,43,BG295CM,The Bag Factory,297,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,32.29,19.374,C,,,,594,594,USD,30.09,18.054,297,297,See Price Method,Place Order With Logo,4 Color Process,TF,43,43,BG295CM,The Bag Factory,297,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,30.09,18.054,C,,,,594,594,USD,30.09,18.054,297,297,See Price Method,Place Order With Logo,4 Color Process,TF,43,43,BG295CM,The Bag Factory,297,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,30.09,18.06,C,,,,596,596,USD,0,18.06,298,298,Random Sample,Order Sample,4 Color Process,RS,43,43,BG295CM,The Bag Factory,298,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,27.59,16.554,C,,,,598,598,USD,27.59,16.554,299,299,See Price Method,Order Without Logo,Blank,BL,43,43,BG295CM,The Bag Factory,299,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,27.59,16.554,C,,,,598,598,USD,27.59,16.554,299,299,See Price Method,Order Without Logo,Blank,BL,43,43,BG295CM,The Bag Factory,299,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,27.59,16.554,C,,,,598,598,USD,27.59,16.554,299,299,See Price Method,Order Without Logo,Blank,BL,43,43,BG295CM,The Bag Factory,299,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,27.59,16.554,C,,,,598,598,USD,27.59,16.554,299,299,See Price Method,Order Without Logo,Blank,BL,43,43,BG295CM,The Bag Factory,299,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,37.59,22.554,C,,,,600,600,USD,30.59,18.354,300,300,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,43,43,BG295CM,The Bag Factory,300,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,34.79,20.874,C,,,,600,600,USD,30.59,18.354,300,300,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,43,43,BG295CM,The Bag Factory,300,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,32.79,19.674,C,,,,600,600,USD,30.59,18.354,300,300,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,43,43,BG295CM,The Bag Factory,300,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,30.59,18.354,C,,,,600,600,USD,30.59,18.354,300,300,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,43,43,BG295CM,The Bag Factory,300,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,30.59,18.36,C,,,,602,602,USD,0,18.36,301,301,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,43,43,BG295CM,The Bag Factory,301,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,26.69,16.014,C,0.5,G,0.4,604,604,USD,21.19,12.714,302,302,See Price Method,Place Order With Logo,1 Color 1 Location,TP,44,44,BG296,The Bag Factory,302,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,24.49,14.694,C,0.5,G,0.4,604,604,USD,21.19,12.714,302,302,See Price Method,Place Order With Logo,1 Color 1 Location,TP,44,44,BG296,The Bag Factory,302,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,22.89,13.734,C,0.5,G,0.4,604,604,USD,21.19,12.714,302,302,See Price Method,Place Order With Logo,1 Color 1 Location,TP,44,44,BG296,The Bag Factory,302,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,21.19,12.714,C,0.5,G,0.4,604,604,USD,21.19,12.714,302,302,See Price Method,Place Order With Logo,1 Color 1 Location,TP,44,44,BG296,The Bag Factory,302,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,21.19,12.72,C,,,,606,606,USD,0,12.72,303,303,Random Sample,Order Sample,1 Color 1 Location,RS,44,44,BG296,The Bag Factory,303,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,28.19,16.914,C,,,,608,608,USD,22.69,13.614,304,304,See Price Method,Place Order With Logo,4 Color Process,T4,44,44,BG296,The Bag Factory,304,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,25.99,15.594,C,,,,608,608,USD,22.69,13.614,304,304,See Price Method,Place Order With Logo,4 Color Process,T4,44,44,BG296,The Bag Factory,304,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,24.39,14.634,C,,,,608,608,USD,22.69,13.614,304,304,See Price Method,Place Order With Logo,4 Color Process,T4,44,44,BG296,The Bag Factory,304,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,22.69,13.614,C,,,,608,608,USD,22.69,13.614,304,304,See Price Method,Place Order With Logo,4 Color Process,T4,44,44,BG296,The Bag Factory,304,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,22.69,13.62,C,,,,610,610,USD,0,13.62,305,305,Random Sample,Order Sample,4 Color Process,RS,44,44,BG296,The Bag Factory,305,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,28.69,17.214,C,,,,612,612,USD,23.19,13.914,306,306,See Price Method,Place Order With Logo,4 Color Process Dome,DM,44,44,BG296,The Bag Factory,306,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,26.49,15.894,C,,,,612,612,USD,23.19,13.914,306,306,See Price Method,Place Order With Logo,4 Color Process Dome,DM,44,44,BG296,The Bag Factory,306,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+100,24.89,14.934,C,,,,612,612,USD,23.19,13.914,306,306,See Price Method,Place Order With Logo,4 Color Process Dome,DM,44,44,BG296,The Bag Factory,306,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+250,23.19,13.914,C,,,,612,612,USD,23.19,13.914,306,306,See Price Method,Place Order With Logo,4 Color Process Dome,DM,44,44,BG296,The Bag Factory,306,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,23.19,13.92,C,,,,614,614,USD,0,13.92,307,307,Random Sample,Order Sample,4 Color Process Dome,RS,44,44,BG296,The Bag Factory,307,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,21.19,12.714,C,,,,616,616,USD,21.19,12.714,308,308,See Price Method,Order Without Logo,Blank,BL,44,44,BG296,The Bag Factory,308,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,21.19,12.714,C,,,,616,616,USD,21.19,12.714,308,308,See Price Method,Order Without Logo,Blank,BL,44,44,BG296,The Bag Factory,308,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,21.19,12.714,C,,,,616,616,USD,21.19,12.714,308,308,See Price Method,Order Without Logo,Blank,BL,44,44,BG296,The Bag Factory,308,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,21.19,12.714,C,,,,616,616,USD,21.19,12.714,308,308,See Price Method,Order Without Logo,Blank,BL,44,44,BG296,The Bag Factory,308,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,29.69,17.814,C,0.5,G,0.4,618,618,USD,24.19,14.514,309,309,See Price Method,Place Order With Logo,1 Color 1 Location,TP,45,45,BG296DGCM,The Bag Factory,309,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,27.49,16.494,C,0.5,G,0.4,618,618,USD,24.19,14.514,309,309,See Price Method,Place Order With Logo,1 Color 1 Location,TP,45,45,BG296DGCM,The Bag Factory,309,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,25.89,15.534,C,0.5,G,0.4,618,618,USD,24.19,14.514,309,309,See Price Method,Place Order With Logo,1 Color 1 Location,TP,45,45,BG296DGCM,The Bag Factory,309,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+250,24.19,14.514,C,0.5,G,0.4,618,618,USD,24.19,14.514,309,309,See Price Method,Place Order With Logo,1 Color 1 Location,TP,45,45,BG296DGCM,The Bag Factory,309,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,24.19,14.52,C,,,,620,620,USD,0,14.52,310,310,Random Sample,Order Sample,1 Color 1 Location,RS,45,45,BG296DGCM,The Bag Factory,310,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,34.19,20.514,C,,,,622,622,USD,28.69,17.214,311,311,See Price Method,Place Order With Logo,4 Color Process,T4,45,45,BG296DGCM,The Bag Factory,311,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,31.99,19.194,C,,,,622,622,USD,28.69,17.214,311,311,See Price Method,Place Order With Logo,4 Color Process,T4,45,45,BG296DGCM,The Bag Factory,311,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,30.39,18.234,C,,,,622,622,USD,28.69,17.214,311,311,See Price Method,Place Order With Logo,4 Color Process,T4,45,45,BG296DGCM,The Bag Factory,311,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+250,28.69,17.214,C,,,,622,622,USD,28.69,17.214,311,311,See Price Method,Place Order With Logo,4 Color Process,T4,45,45,BG296DGCM,The Bag Factory,311,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,28.69,17.22,C,,,,624,624,USD,0,17.22,312,312,Random Sample,Order Sample,4 Color Process,RS,45,45,BG296DGCM,The Bag Factory,312,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,34.69,20.814,C,,,,626,626,USD,29.19,17.514,313,313,See Price Method,Place Order With Logo,4 Color Process Dome,DM,45,45,BG296DGCM,The Bag Factory,313,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,32.49,19.494,C,,,,626,626,USD,29.19,17.514,313,313,See Price Method,Place Order With Logo,4 Color Process Dome,DM,45,45,BG296DGCM,The Bag Factory,313,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+100,30.89,18.534,C,,,,626,626,USD,29.19,17.514,313,313,See Price Method,Place Order With Logo,4 Color Process Dome,DM,45,45,BG296DGCM,The Bag Factory,313,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+250,29.19,17.514,C,,,,626,626,USD,29.19,17.514,313,313,See Price Method,Place Order With Logo,4 Color Process Dome,DM,45,45,BG296DGCM,The Bag Factory,313,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,29.19,17.52,C,,,,628,628,USD,0,17.52,314,314,Random Sample,Order Sample,4 Color Process Dome,RS,45,45,BG296DGCM,The Bag Factory,314,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+25,24.19,14.514,C,,,,630,630,USD,24.19,14.514,315,315,See Price Method,Order Without Logo,Blank,BL,45,45,BG296DGCM,The Bag Factory,315,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,24.19,14.514,C,,,,630,630,USD,24.19,14.514,315,315,See Price Method,Order Without Logo,Blank,BL,45,45,BG296DGCM,The Bag Factory,315,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,24.19,14.514,C,,,,630,630,USD,24.19,14.514,315,315,See Price Method,Order Without Logo,Blank,BL,45,45,BG296DGCM,The Bag Factory,315,Drop Shipment Charge,8.5,G,6.8,,,,0,
+250,24.19,14.514,C,,,,630,630,USD,24.19,14.514,315,315,See Price Method,Order Without Logo,Blank,BL,45,45,BG296DGCM,The Bag Factory,315,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,26.49,15.894,C,0.5,G,0.4,632,632,USD,20.99,12.594,316,316,See Price Method,Place Order With Logo,1 Color 1 Location,TP,46,46,BG300,The Bag Factory,316,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+25,24.29,14.574,C,0.5,G,0.4,632,632,USD,20.99,12.594,316,316,See Price Method,Place Order With Logo,1 Color 1 Location,TP,46,46,BG300,The Bag Factory,316,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,22.69,13.614,C,0.5,G,0.4,632,632,USD,20.99,12.594,316,316,See Price Method,Place Order With Logo,1 Color 1 Location,TP,46,46,BG300,The Bag Factory,316,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,20.99,12.594,C,0.5,G,0.4,632,632,USD,20.99,12.594,316,316,See Price Method,Place Order With Logo,1 Color 1 Location,TP,46,46,BG300,The Bag Factory,316,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,20.99,12.6,C,,,,634,634,USD,0,12.6,317,317,Random Sample,Order Sample,1 Color 1 Location,RS,46,46,BG300,The Bag Factory,317,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,27.99,16.794,C,,,,636,636,USD,22.49,13.494,318,318,See Price Method,Place Order With Logo,4 Color Process,T4,46,46,BG300,The Bag Factory,318,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+25,25.79,15.474,C,,,,636,636,USD,22.49,13.494,318,318,See Price Method,Place Order With Logo,4 Color Process,T4,46,46,BG300,The Bag Factory,318,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,24.19,14.514,C,,,,636,636,USD,22.49,13.494,318,318,See Price Method,Place Order With Logo,4 Color Process,T4,46,46,BG300,The Bag Factory,318,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,22.49,13.494,C,,,,636,636,USD,22.49,13.494,318,318,See Price Method,Place Order With Logo,4 Color Process,T4,46,46,BG300,The Bag Factory,318,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,22.49,13.5,C,,,,638,638,USD,0,13.5,319,319,Random Sample,Order Sample,4 Color Process,RS,46,46,BG300,The Bag Factory,319,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,20.99,12.594,C,,,,640,640,USD,20.99,12.594,320,320,See Price Method,Order Without Logo,Blank,BL,46,46,BG300,The Bag Factory,320,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,20.99,12.594,C,,,,640,640,USD,20.99,12.594,320,320,See Price Method,Order Without Logo,Blank,BL,46,46,BG300,The Bag Factory,320,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,20.99,12.594,C,,,,640,640,USD,20.99,12.594,320,320,See Price Method,Order Without Logo,Blank,BL,46,46,BG300,The Bag Factory,320,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,20.99,12.594,C,,,,640,640,USD,20.99,12.594,320,320,See Price Method,Order Without Logo,Blank,BL,46,46,BG300,The Bag Factory,320,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,40.39,24.234,C,0.5,G,0.4,642,642,USD,31.99,19.194,321,321,See Price Method,Place Order With Logo,1 Color 1 Location,TP,47,47,BG301,The Bag Factory,321,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+25,36.99,22.194,C,0.5,G,0.4,642,642,USD,31.99,19.194,321,321,See Price Method,Place Order With Logo,1 Color 1 Location,TP,47,47,BG301,The Bag Factory,321,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+50,34.59,20.754,C,0.5,G,0.4,642,642,USD,31.99,19.194,321,321,See Price Method,Place Order With Logo,1 Color 1 Location,TP,47,47,BG301,The Bag Factory,321,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+100,31.99,19.194,C,0.5,G,0.4,642,642,USD,31.99,19.194,321,321,See Price Method,Place Order With Logo,1 Color 1 Location,TP,47,47,BG301,The Bag Factory,321,Drop Shipment Charge,8.5,G,6.8,50,40,20,3,5
+1,31.99,19.2,C,,,,644,644,USD,0,19.2,322,322,Random Sample,Order Sample,1 Color 1 Location,RS,47,47,BG301,The Bag Factory,322,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,41.89,25.134,C,,,,646,646,USD,33.49,20.094,323,323,See Price Method,Place Order With Logo,4 Color Process,T4,47,47,BG301,The Bag Factory,323,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+25,38.49,23.094,C,,,,646,646,USD,33.49,20.094,323,323,See Price Method,Place Order With Logo,4 Color Process,T4,47,47,BG301,The Bag Factory,323,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,36.09,21.654,C,,,,646,646,USD,33.49,20.094,323,323,See Price Method,Place Order With Logo,4 Color Process,T4,47,47,BG301,The Bag Factory,323,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,33.49,20.094,C,,,,646,646,USD,33.49,20.094,323,323,See Price Method,Place Order With Logo,4 Color Process,T4,47,47,BG301,The Bag Factory,323,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,33.49,20.1,C,,,,648,648,USD,0,20.1,324,324,Random Sample,Order Sample,4 Color Process,RS,47,47,BG301,The Bag Factory,324,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,42.39,25.434,C,,,,650,650,USD,33.99,20.394,325,325,See Price Method,Place Order With Logo,4 Color Process Dome,DM,47,47,BG301,The Bag Factory,325,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+25,38.99,23.394,C,,,,650,650,USD,33.99,20.394,325,325,See Price Method,Place Order With Logo,4 Color Process Dome,DM,47,47,BG301,The Bag Factory,325,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+50,36.59,21.954,C,,,,650,650,USD,33.99,20.394,325,325,See Price Method,Place Order With Logo,4 Color Process Dome,DM,47,47,BG301,The Bag Factory,325,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+100,33.99,20.394,C,,,,650,650,USD,33.99,20.394,325,325,See Price Method,Place Order With Logo,4 Color Process Dome,DM,47,47,BG301,The Bag Factory,325,Drop Shipment Charge,8.5,G,6.8,50,40,20,0,0
+1,33.99,20.4,C,,,,652,652,USD,0,20.4,326,326,Random Sample,Order Sample,4 Color Process Dome,RS,47,47,BG301,The Bag Factory,326,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,31.99,19.194,C,,,,654,654,USD,31.99,19.194,327,327,See Price Method,Order Without Logo,Blank,BL,47,47,BG301,The Bag Factory,327,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,31.99,19.194,C,,,,654,654,USD,31.99,19.194,327,327,See Price Method,Order Without Logo,Blank,BL,47,47,BG301,The Bag Factory,327,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,31.99,19.194,C,,,,654,654,USD,31.99,19.194,327,327,See Price Method,Order Without Logo,Blank,BL,47,47,BG301,The Bag Factory,327,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,31.99,19.194,C,,,,654,654,USD,31.99,19.194,327,327,See Price Method,Order Without Logo,Blank,BL,47,47,BG301,The Bag Factory,327,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,42.39,25.434,C,,,,656,656,USD,33.99,20.394,328,328,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,47,47,BG301,The Bag Factory,328,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,38.99,23.394,C,,,,656,656,USD,33.99,20.394,328,328,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,47,47,BG301,The Bag Factory,328,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,36.59,21.954,C,,,,656,656,USD,33.99,20.394,328,328,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,47,47,BG301,The Bag Factory,328,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,33.99,20.394,C,,,,656,656,USD,33.99,20.394,328,328,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,47,47,BG301,The Bag Factory,328,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,33.99,20.4,C,,,,658,658,USD,0,20.4,329,329,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,47,47,BG301,The Bag Factory,329,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,31.478,18.887,C,0.5,G,0.4,660,660,USD,24.99,14.994,330,330,See Price Method,Place Order With Logo,1 Color 1 Location,TP,48,48,BG302,The Bag Factory,330,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+25,28.878,17.327,C,0.5,G,0.4,660,660,USD,24.99,14.994,330,330,See Price Method,Place Order With Logo,1 Color 1 Location,TP,48,48,BG302,The Bag Factory,330,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+50,26.989,16.193,C,0.5,G,0.4,660,660,USD,24.99,14.994,330,330,See Price Method,Place Order With Logo,1 Color 1 Location,TP,48,48,BG302,The Bag Factory,330,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+100,24.99,14.994,C,0.5,G,0.4,660,660,USD,24.99,14.994,330,330,See Price Method,Place Order With Logo,1 Color 1 Location,TP,48,48,BG302,The Bag Factory,330,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+1,24.99,15,C,,,,662,662,USD,0,15,331,331,Random Sample,Order Sample,1 Color 1 Location,RS,48,48,BG302,The Bag Factory,331,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,32.978,19.787,C,,,,664,664,USD,26.49,15.894,332,332,See Price Method,Place Order With Logo,4 Color Process,T4,48,48,BG302,The Bag Factory,332,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+25,30.378,18.227,C,,,,664,664,USD,26.49,15.894,332,332,See Price Method,Place Order With Logo,4 Color Process,T4,48,48,BG302,The Bag Factory,332,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,28.489,17.093,C,,,,664,664,USD,26.49,15.894,332,332,See Price Method,Place Order With Logo,4 Color Process,T4,48,48,BG302,The Bag Factory,332,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,26.49,15.894,C,,,,664,664,USD,26.49,15.894,332,332,See Price Method,Place Order With Logo,4 Color Process,T4,48,48,BG302,The Bag Factory,332,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,26.49,15.9,C,,,,666,666,USD,0,15.9,333,333,Random Sample,Order Sample,4 Color Process,RS,48,48,BG302,The Bag Factory,333,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+12,24.99,14.994,C,,,,668,668,USD,24.99,14.994,334,334,See Price Method,Order Without Logo,Blank,BL,48,48,BG302,The Bag Factory,334,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,24.99,14.994,C,,,,668,668,USD,24.99,14.994,334,334,See Price Method,Order Without Logo,Blank,BL,48,48,BG302,The Bag Factory,334,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,24.99,14.994,C,,,,668,668,USD,24.99,14.994,334,334,See Price Method,Order Without Logo,Blank,BL,48,48,BG302,The Bag Factory,334,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,24.99,14.994,C,,,,668,668,USD,24.99,14.994,334,334,See Price Method,Order Without Logo,Blank,BL,48,48,BG302,The Bag Factory,334,Drop Shipment Charge,8.5,G,6.8,,,,0,
+12,33.478,20.087,C,,,,670,670,USD,26.99,16.194,335,335,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,48,48,BG302,The Bag Factory,335,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,30.878,18.527,C,,,,670,670,USD,26.99,16.194,335,335,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,48,48,BG302,The Bag Factory,335,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,28.989,17.393,C,,,,670,670,USD,26.99,16.194,335,335,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,48,48,BG302,The Bag Factory,335,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,26.99,16.194,C,,,,670,670,USD,26.99,16.194,335,335,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,48,48,BG302,The Bag Factory,335,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,26.99,16.2,C,,,,672,672,USD,0,16.2,336,336,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,48,48,BG302,The Bag Factory,336,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+10,45.99,27.594,C,0.5,G,0.4,674,674,USD,45.99,27.594,337,337,See Price Method,Place Order With Logo,1 Color 1 Location,TP,49,49,BG305,The Bag Factory,337,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+25,45.99,27.594,C,0.5,G,0.4,674,674,USD,45.99,27.594,337,337,See Price Method,Place Order With Logo,1 Color 1 Location,TP,49,49,BG305,The Bag Factory,337,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+50,45.99,27.594,C,0.5,G,0.4,674,674,USD,45.99,27.594,337,337,See Price Method,Place Order With Logo,1 Color 1 Location,TP,49,49,BG305,The Bag Factory,337,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+100,45.99,27.594,C,0.5,G,0.4,674,674,USD,45.99,27.594,337,337,See Price Method,Place Order With Logo,1 Color 1 Location,TP,49,49,BG305,The Bag Factory,337,Drop Shipment Charge,8.5,G,6.8,50,40,0,3,5
+1,45.99,27.6,C,,,,676,676,USD,0,27.6,338,338,Random Sample,Order Sample,1 Color 1 Location,RS,49,49,BG305,The Bag Factory,338,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+10,56.49,33.894,C,,,,678,678,USD,47.49,28.494,339,339,See Price Method,Place Order With Logo,4 Color Process,T4,49,49,BG305,The Bag Factory,339,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+25,54.49,32.694,C,,,,678,678,USD,47.49,28.494,339,339,See Price Method,Place Order With Logo,4 Color Process,T4,49,49,BG305,The Bag Factory,339,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+50,50.49,30.294,C,,,,678,678,USD,47.49,28.494,339,339,See Price Method,Place Order With Logo,4 Color Process,T4,49,49,BG305,The Bag Factory,339,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+100,47.49,28.494,C,,,,678,678,USD,47.49,28.494,339,339,See Price Method,Place Order With Logo,4 Color Process,T4,49,49,BG305,The Bag Factory,339,Drop Shipment Charge,8.5,G,6.8,75,60,60,0,0
+1,47.49,28.5,C,,,,680,680,USD,0,28.5,340,340,Random Sample,Order Sample,4 Color Process,RS,49,49,BG305,The Bag Factory,340,Drop Shipment Charge,8.5,G,6.8,,,,0,0
+10,45.99,27.594,C,,,,682,682,USD,45.99,27.594,341,341,See Price Method,Order Without Logo,Blank,BL,49,49,BG305,The Bag Factory,341,Drop Shipment Charge,8.5,G,6.8,,,,0,
+25,45.99,27.594,C,,,,682,682,USD,45.99,27.594,341,341,See Price Method,Order Without Logo,Blank,BL,49,49,BG305,The Bag Factory,341,Drop Shipment Charge,8.5,G,6.8,,,,0,
+50,45.99,27.594,C,,,,682,682,USD,45.99,27.594,341,341,See Price Method,Order Without Logo,Blank,BL,49,49,BG305,The Bag Factory,341,Drop Shipment Charge,8.5,G,6.8,,,,0,
+100,45.99,27.594,C,,,,682,682,USD,45.99,27.594,341,341,See Price Method,Order Without Logo,Blank,BL,49,49,BG305,The Bag Factory,341,Drop Shipment Charge,8.5,G,6.8,,,,0,
+10,58.09,34.854,C,,,,684,684,USD,49.39,29.634,342,342,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,49,49,BG305,The Bag Factory,342,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+25,54.29,32.574,C,,,,684,684,USD,49.39,29.634,342,342,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,49,49,BG305,The Bag Factory,342,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+50,50.69,30.414,C,,,,684,684,USD,49.39,29.634,342,342,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,49,49,BG305,The Bag Factory,342,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+100,49.39,29.634,C,,,,684,684,USD,49.39,29.634,342,342,"Embroidered - Up to 8,000 Stitches",Place Order With Logo,"Embroidery, up to 8000 Stitches",EM,49,49,BG305,The Bag Factory,342,Additional Stitches,0.35,G,0.28,50,40,20,4,9
+1,49.39,29.64,C,,,,686,686,USD,0,29.64,343,343,Random Sample,Order Sample,"Embroidery, up to 8000 Stitches",RS,49,49,BG305,The Bag Factory,343,Drop Shipment Charge,8.5,G,6.8,,,,0,0

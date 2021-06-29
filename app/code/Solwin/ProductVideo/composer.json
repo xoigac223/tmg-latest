@@ -1,0 +1,22 @@
+{
+    "name": "solwin/productvideo",
+    "description": "Advanced Product Video extension For Magento 2 allows store owner to add videos to product pages.",
+    "type": "magento2-module",
+    "version": "2.0.1",
+    "authors": [
+        {
+            "name": "Solwin",
+            "email": "stdabhoya@yahoo.com",
+            "homepage": "https://www.solwininfotech.com/",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Solwin\\ProductVideo\\": ""
+        }
+    }
+}

@@ -1,0 +1,199 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$config = $objectManager->create('Magento\Framework\App\Config\ScopeConfigInterface');
+$facebookAppId = $config->getValue('productdesigner/social_media_upload/facebook_appid');  
+
+
+
+?>
+
+<script>
+  var facebookAppId = '<?php echo $facebookAppId?>';
+  function statusChangeCallback(response) {
+    
+    if (response.status === 'connected') {
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      FB.login(function(response) {
+      if (response.authResponse) {
+       
+       FB.api('/me', function(response) {
+          testAPI();
+       
+       });
+      } else {
+       
+      }
+  }, {scope: 'user_photos'});
+
+
+    } else {
+      FB.login(function(response) {
+      if (response.authResponse) {
+       
+       FB.api('/me', function(response) {
+          testAPI();
+       
+       });
+      } else {
+       
+      }
+  }, {scope: 'user_photos'});
+
+    }
+  }
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : facebookAppId,
+    cookie     : true,  // enable cookies to allow the server to access 
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.7' // use graph api version 2.7
+  });
+ /* FB.getLoginStatus(function(response) {
+  	statusChangeCallback(response);
+  });*/
+  };
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    
+    jQuery('#pd_loading_img_social').show();
+    console.log('Welcome!  Fetching your information.... ');
+    var allAlbumspkg = {};
+    FB.api('/me', function(response) {
+
+      FB.api('/'+response.id+'/albums',function (response) {
+            if (response && !response.error) {
+              
+                
+                jQuery("#his-albums").show();
+                jQuery('#google_package').hide();
+                jQuery('#insta_package').hide();
+                jQuery('#facebook_package').show();  
+                jQuery("#fbAlbums_ul").html('');
+                var fbAlbums_ul = jQuery("#fbAlbums_ul");
+                
+                fbAlbums_ul.addClass('product_list');
+
+
+                for (var i=0; i < response.data.length; i++) {
+                  
+                  albumId = response.data[i].id;
+                  FB.api('/'+albumId+'?fields=picture,name',function (response) {
+                    
+                    
+                    albumId = response.id;
+                    albumName = response.name;
+                    albumUrl = response.picture.data.url;
+
+                    var fbAlbums_li = document.createElement('li');
+                    fbAlbums_li.setAttribute('id', albumId);
+                    fbAlbums_li.setAttribute('class', 'fbalbums_ul_list');
+                    fbAlbums_li.setAttribute('onclick', 'showalbumImages('+albumId+')');
+                    
+                    var fbAlbum_img = document.createElement('IMG');
+                    fbAlbum_img.src = albumUrl;
+                    jQuery( fbAlbums_li ).append( fbAlbum_img );
+                    var fbAlbum_p = document.createElement('p');
+                    fbAlbum_p.innerHTML = albumName;
+                    jQuery( fbAlbums_li ).append( fbAlbum_p );
+                    jQuery( fbAlbums_ul ).append( fbAlbums_li );
+                    jQuery('#pd_loading_img_social').hide();
+
+                  });
+                }
+            }
+          }
+      );
+    });
+    
+
+  }
+  function showalbumImages(id){
+
+      jQuery('#facebook_package').show();  
+      jQuery('#fbAlbums_ul').hide();
+      jQuery('#album_photos').show();
+      
+      FB.api('/'+id+'/photos?fields=picture,source',
+      function (response2) {
+        
+        var allalbumImages = response2.data;
+        var finalAlbumImages = {};
+        jQuery("#album_photos").html('');
+        var album_photos = jQuery("#album_photos");
+
+        for(var i=0; i < allalbumImages.length; i++){
+          
+          var fbAlbumsImage_li = document.createElement('li');
+          var fbAlbumsImage_img = document.createElement('img');
+
+          fbAlbumsImage_img.setAttribute('crossOrigin', 'Anonymous');
+          
+
+          fbAlbumsImage_img.setAttribute('src', allalbumImages[i].picture);
+          fbAlbumsImage_img.setAttribute('data-orig-url', allalbumImages[i].source);
+
+          fbAlbumsImage_img.setAttribute('class', 'facebook-img');
+          
+          jQuery( fbAlbumsImage_li ).append( fbAlbumsImage_img );
+          jQuery( album_photos ).append( fbAlbumsImage_li );
+          
+          
+          }
+          
+      });
+
+  }
+  function getAlbumImageUrl(id){
+
+      FB.api('/'+id+'/picture',
+      function (response2) {
+        return response2.data.url;
+      });
+      
+  }
+  function showAlbums(){
+    jQuery('#fbAlbums_ul').show();
+    jQuery('#album_photos').hide();
+  }
+  function loginToFacebook(){
+    checkLoginState();
+    
+
+  }
+</script>
+
+
+
+
+
+
+
+<div id="facebook_package" style="display:none">
+
+<div class="social-button-wrapper"><div style="display:none" class="design-browse social-browse" id="his-albums" onclick="showAlbums()"><?php echo __('My photo album');?></div></div>
+<div class="fb-list-item">
+<ul id="fbAlbums_ul" class="fbAlbums_ul">
+</ul>
+</div>    
+<ul id="album_photos" class="album_photos">
+
+</ul>
+</div>

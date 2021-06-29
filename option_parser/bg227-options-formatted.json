@@ -1,0 +1,2379 @@
+[
+   {
+      "store_id": "0",
+      "configuration": [
+         null,
+         {
+            "order": 1,
+            "cols": 1,
+            "rows": 1,
+            "removable": 1,
+            "title": "",
+            "fields": [
+               null,
+               {
+                  "order": 1,
+                  "removable": true,
+                  "option_id": 135,
+                  "id": 135,
+                  "is_require": "1",
+                  "hide_on_focus": 1,
+                  "section_order": 1,
+                  "type": "drop_down",
+                  "internal_id": 6,
+                  "visibility_action": "hidden",
+                  "visibility": "visible",
+                  "customer_group": "",
+                  "title": "Select an Option Below",
+                  "comment": "",
+                  "items": [
+                     null,
+                     {
+                        "order": 1,
+                        "price_type": "fixed",
+                        "is_selected": 1,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "0",
+                        "title": "Place Order With Logo",
+                        "price": null,
+                        "sort_order": 1,
+                        "option_type_id": 305,
+                        "option_id": 135,
+                        "image_src": null,
+                        "internal_id": 1,
+                        "tier_price": [],
+                        "sku": "",
+                        "css_class": ""
+                     },
+                     {
+                        "order": 2,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "0",
+                        "title": "Order Without Logo",
+                        "price": 33.99,
+                        "sort_order": 2,
+                        "option_type_id": 306,
+                        "option_id": 135,
+                        "image_src": null,
+                        "tier_price": [
+                           {
+                              "qty": 12,
+                              "price": "33.99",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 25,
+                              "price": "33.99",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 50,
+                              "price": "33.99",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 100,
+                              "price": "33.99",
+                              "price_type": "fixed"
+                           }
+                        ],
+                        "internal_id": 2,
+                        "css_class": "order-wo-logo"
+                     },
+                     {
+                        "order": 3,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "0",
+                        "title": "Order Sample",
+                        "price": 33.99,
+                        "sort_order": 3,
+                        "option_type_id": 494,
+                        "option_id": 135,
+                        "image_src": null,
+                        "css_class": "order-sample"
+                     },
+                     {
+                        "order": 4,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "1",
+                        "title": "Place Order With Logo",
+                        "price": null,
+                        "sort_order": 4,
+                        "option_type_id": 603,
+                        "option_id": 135,
+                        "image_src": null
+                     },
+                     {
+                        "order": 5,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "1",
+                        "title": "Order Without Logo",
+                        "tier_price": [
+                           {
+                              "qty": 12,
+                              "price": "20.39",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 25,
+                              "price": "20.39",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 50,
+                              "price": "20.39",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 100,
+                              "price": "20.39",
+                              "price_type": "fixed"
+                           }
+                        ],
+                        "price": 20.394,
+                        "sort_order": 5,
+                        "option_type_id": 604,
+                        "option_id": 135,
+                        "image_src": null
+                     },
+                     {
+                        "order": 6,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "1",
+                        "title": "Order Sample",
+                        "price": null,
+                        "sort_order": 6,
+                        "option_type_id": 661,
+                        "option_id": 135,
+                        "image_src": null,
+                        "css_class": "order-sample"
+                     },
+                     {
+                        "order": 7,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "2",
+                        "title": "Place Order With Logo",
+                        "tier_price": [],
+                        "price": null,
+                        "sort_order": 7,
+                        "option_type_id": 605,
+                        "option_id": 135,
+                        "image_src": null
+                     },
+                     {
+                        "order": 8,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "2",
+                        "title": "Order Without Logo",
+                        "price": 20.4,
+                        "sort_order": 8,
+                        "option_type_id": 662,
+                        "option_id": 135,
+                        "image_src": null,
+                        "tier_price": [
+                           {
+                              "qty": 12,
+                              "price": "20.40",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 25,
+                              "price": "20.40",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 50,
+                              "price": "20.40",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 100,
+                              "price": "20.40",
+                              "price_type": "fixed"
+                           }
+                        ]
+                     },
+                     {
+                        "order": 9,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "2",
+                        "title": "Order Sample",
+                        "price": null,
+                        "sort_order": 9,
+                        "option_type_id": 663,
+                        "option_id": 135,
+                        "image_src": null,
+                        "css_class": "order-sample"
+                     }
+                  ],
+                  "default_select_title": "-- Please Select --",
+                  "sort_order": 1,
+                  "itoris_option_id": 0,
+                  "img_src": null,
+                  "html_args": "21232"
+               }
+            ],
+            "moveUp": {
+               "_prototypeUID": 5
+            },
+            "delimiter": [],
+            "moveDown": {
+               "_prototypeUID": 6
+            },
+            "visibility_action": "hidden",
+            "visibility": "visible"
+         },
+         {
+            "order": 2,
+            "cols": 1,
+            "rows": 1,
+            "removable": 1,
+            "title": "",
+            "fields": [
+               null,
+               {
+                  "id": 136,
+                  "item_count": 4,
+                  "option_id": 136,
+                  "title": "Choose an Imprint Method/Option",
+                  "type": "drop_down",
+                  "is_require": "1",
+                  "order": 1,
+                  "items": [
+                     null,
+                     {
+                        "item_count": "40",
+                        "option_id": 136,
+                        "option_type_id": 308,
+                        "title": "1 Color 1 Location",
+                        "price": 42.89,
+                        "price_type": null,
+                        "sku": null,
+                        "order": 1,
+                        "sort_order": 1,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "0",
+                        "tier_price": [
+                           {
+                              "qty": 1,
+                              "price": "42.89",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 12,
+                              "price": "42.89",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 25,
+                              "price": "39.29",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 50,
+                              "price": "36.69",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 100,
+                              "price": "33.99",
+                              "price_type": "fixed"
+                           }
+                        ],
+                        "is_selected": 1,
+                        "image_src": null,
+                        "internal_id": 1,
+                        "use_qty": 0
+                     },
+                     {
+                        "item_count": "41",
+                        "option_id": 136,
+                        "option_type_id": 158,
+                        "title": "4 Color Process",
+                        "price": 44.39,
+                        "price_type": null,
+                        "sku": null,
+                        "order": 2,
+                        "sort_order": 2,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "0",
+                        "is_selected": 0,
+                        "image_src": null,
+                        "tier_price": [
+                           {
+                              "qty": 1,
+                              "price": "44.39",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 12,
+                              "price": "44.39",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 25,
+                              "price": "40.79",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 50,
+                              "price": "38.19",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 100,
+                              "price": "35.49",
+                              "price_type": "fixed"
+                           }
+                        ],
+                        "internal_id": 2
+                     },
+                     {
+                        "item_count": "42",
+                        "option_id": 136,
+                        "option_type_id": 159,
+                        "title": "4 Color Process Dome",
+                        "price": 44.89,
+                        "price_type": null,
+                        "sku": null,
+                        "order": 3,
+                        "sort_order": 3,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "0",
+                        "is_selected": 0,
+                        "image_src": null,
+                        "tier_price": [
+                           {
+                              "qty": 1,
+                              "price": "44.89",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 12,
+                              "price": "44.89",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 25,
+                              "price": "41.29",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 50,
+                              "price": "38.69",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 100,
+                              "price": "35.99",
+                              "price_type": "fixed"
+                           }
+                        ],
+                        "internal_id": 3
+                     },
+                     {
+                        "item_count": "43",
+                        "option_id": 136,
+                        "option_type_id": 160,
+                        "title": "Embroidered",
+                        "price": 44.89,
+                        "price_type": null,
+                        "sku": null,
+                        "order": 4,
+                        "sort_order": 4,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "0",
+                        "is_selected": 0,
+                        "image_src": null,
+                        "tier_price": [
+                           {
+                              "qty": 1,
+                              "price": "44.89",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 12,
+                              "price": "44.89",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 25,
+                              "price": "41.29",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 50,
+                              "price": "38.69",
+                              "price_type": "fixed"
+                           }
+                        ],
+                        "internal_id": 4
+                     },
+                     {
+                        "order": 5,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "1",
+                        "title": "1 Color 1 Location",
+                        "price": 25.734,
+                        "sort_order": 5,
+                        "option_type_id": 606,
+                        "option_id": 136,
+                        "image_src": null,
+                        "tier_price": [
+                           {
+                              "qty": 1,
+                              "price": "25.73",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 12,
+                              "price": "25.73",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 25,
+                              "price": "23.57",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 50,
+                              "price": "22.01",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 100,
+                              "price": "20.39",
+                              "price_type": "fixed"
+                           }
+                        ]
+                     },
+                     {
+                        "order": 6,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "1",
+                        "title": "4 Color Process",
+                        "price": 26.634,
+                        "sort_order": 6,
+                        "option_type_id": 608,
+                        "option_id": 136,
+                        "image_src": null
+                     },
+                     {
+                        "order": 7,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "1",
+                        "title": "4 Color Process Dome",
+                        "price": 26.934,
+                        "sort_order": 7,
+                        "option_type_id": 610,
+                        "option_id": 136,
+                        "image_src": null
+                     },
+                     {
+                        "order": 8,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "1",
+                        "title": "Embroidered",
+                        "price": 26.934,
+                        "sort_order": 8,
+                        "option_type_id": 612,
+                        "option_id": 136,
+                        "image_src": null
+                     },
+                     {
+                        "order": 9,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "2",
+                        "title": "1 Color 1 Location",
+                        "price": 20.4,
+                        "sort_order": 9,
+                        "option_type_id": 607,
+                        "option_id": 136,
+                        "image_src": null,
+                        "tier_price": [
+                           {
+                              "qty": 1,
+                              "price": "20.40",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 25,
+                              "price": "20.40",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 50,
+                              "price": "20.40",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 100,
+                              "price": "20.40",
+                              "price_type": "fixed"
+                           }
+                        ]
+                     },
+                     {
+                        "order": 10,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "2",
+                        "title": "4 Color Process",
+                        "price": 21.3,
+                        "sort_order": 10,
+                        "option_type_id": 609,
+                        "option_id": 136,
+                        "image_src": null
+                     },
+                     {
+                        "order": 11,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "2",
+                        "title": "4 Color Process Dome",
+                        "price": 21.6,
+                        "sort_order": 11,
+                        "option_type_id": 611,
+                        "option_id": 136,
+                        "image_src": null
+                     },
+                     {
+                        "order": 12,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "2",
+                        "title": "Embroidered",
+                        "price": 21.6,
+                        "sort_order": 12,
+                        "option_type_id": 613,
+                        "option_id": 136,
+                        "image_src": null
+                     }
+                  ],
+                  "section_order": 2,
+                  "internal_id": 2,
+                  "visibility": "visible",
+                  "sort_order": 2,
+                  "visibility_action": "hidden",
+                  "customer_group": "",
+                  "itoris_option_id": 0,
+                  "img_src": null,
+                  "default_select_title": "-- Please Select --",
+                  "visibility_condition": {
+                     "type": "all",
+                     "value": 1,
+                     "conditions": []
+                  }
+               }
+            ],
+            "moveUp": {
+               "_prototypeUID": 22
+            },
+            "delimiter": [],
+            "moveDown": {
+               "_prototypeUID": 23
+            },
+            "visibility_action": "visible",
+            "visibility": "hidden",
+            "visibility_condition": {
+               "type": "all",
+               "value": 1,
+               "conditions": [
+                  {
+                     "type": "field",
+                     "field": "6",
+                     "value": "Place Order With Logo",
+                     "condition": "is"
+                  }
+               ]
+            }
+         },
+         {
+            "order": 3,
+            "cols": 1,
+            "rows": 1,
+            "removable": 1,
+            "title": "",
+            "fields": [
+               null,
+               {
+                  "id": 217,
+                  "item_count": 4,
+                  "option_id": 217,
+                  "title": "Choose an Imprint Method/Option - Sample",
+                  "type": "drop_down",
+                  "is_require": "1",
+                  "order": 1,
+                  "items": [
+                     null,
+                     {
+                        "item_count": "40",
+                        "option_id": 217,
+                        "option_type_id": 495,
+                        "title": "1 Color 1 Location",
+                        "price": 33.99,
+                        "price_type": null,
+                        "sku": null,
+                        "order": 1,
+                        "sort_order": 1,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "0",
+                        "tier_price": [],
+                        "is_selected": 1,
+                        "image_src": null,
+                        "internal_id": 1,
+                        "use_qty": 0
+                     },
+                     {
+                        "item_count": "41",
+                        "option_id": 217,
+                        "option_type_id": 496,
+                        "title": "4 Color Process",
+                        "price": 35.49,
+                        "price_type": null,
+                        "sku": null,
+                        "order": 2,
+                        "sort_order": 2,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "0",
+                        "is_selected": 0,
+                        "image_src": null,
+                        "tier_price": [],
+                        "internal_id": 2,
+                        "use_qty": 0
+                     },
+                     {
+                        "item_count": "42",
+                        "option_id": 217,
+                        "option_type_id": 497,
+                        "title": "4 Color Process Dome",
+                        "price": 35.99,
+                        "price_type": null,
+                        "sku": null,
+                        "order": 3,
+                        "sort_order": 3,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "0",
+                        "is_selected": 0,
+                        "image_src": null,
+                        "tier_price": [],
+                        "internal_id": 3,
+                        "use_qty": 0
+                     },
+                     {
+                        "item_count": "43",
+                        "option_id": 217,
+                        "option_type_id": 498,
+                        "title": "Embroidered",
+                        "price": 35.99,
+                        "price_type": null,
+                        "sku": null,
+                        "order": 4,
+                        "sort_order": 4,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "0",
+                        "is_selected": 0,
+                        "image_src": null,
+                        "tier_price": [],
+                        "internal_id": 4,
+                        "use_qty": 0
+                     },
+                     {
+                        "order": 5,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "1",
+                        "title": "1 Color 1 Location",
+                        "price": 20.4,
+                        "sort_order": 5,
+                        "option_type_id": 614,
+                        "option_id": 217,
+                        "image_src": null
+                     },
+                     {
+                        "order": 6,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "1",
+                        "title": "4 Color Process",
+                        "price": 21.3,
+                        "sort_order": 6,
+                        "option_type_id": 615,
+                        "option_id": 217,
+                        "image_src": null
+                     },
+                     {
+                        "order": 7,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "1",
+                        "title": "4 Color Process Dome",
+                        "price": 21.6,
+                        "sort_order": 7,
+                        "option_type_id": 616,
+                        "option_id": 217,
+                        "image_src": null
+                     },
+                     {
+                        "order": 8,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "1",
+                        "title": "Embroidered",
+                        "price": 21.6,
+                        "sort_order": 8,
+                        "option_type_id": 617,
+                        "option_id": 217,
+                        "image_src": null
+                     },
+                     {
+                        "order": 9,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "2",
+                        "title": "1 Color 1 Location",
+                        "price": 19,
+                        "sort_order": 9,
+                        "option_type_id": 664,
+                        "option_id": 217,
+                        "image_src": null
+                     },
+                     {
+                        "order": 10,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "2",
+                        "title": "4 Color Process",
+                        "price": 20,
+                        "sort_order": 10,
+                        "option_type_id": 665,
+                        "option_id": 217,
+                        "image_src": null
+                     },
+                     {
+                        "order": 11,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "2",
+                        "title": "4 Color Process Dome",
+                        "price": 17,
+                        "sort_order": 11,
+                        "option_type_id": 666,
+                        "option_id": 217,
+                        "image_src": null
+                     },
+                     {
+                        "order": 12,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "2",
+                        "title": "Embroidered",
+                        "price": 18,
+                        "sort_order": 12,
+                        "option_type_id": 667,
+                        "option_id": 217,
+                        "image_src": null
+                     }
+                  ],
+                  "section_order": 3,
+                  "internal_id": 1,
+                  "visibility": "visible",
+                  "sort_order": 3,
+                  "visibility_action": "hidden",
+                  "customer_group": "",
+                  "itoris_option_id": 0,
+                  "img_src": null,
+                  "default_select_title": "-- Please Select --",
+                  "visibility_condition": {
+                     "type": "all",
+                     "value": 1,
+                     "conditions": []
+                  }
+               }
+            ],
+            "moveUp": {
+               "_prototypeUID": 39
+            },
+            "delimiter": [],
+            "moveDown": {
+               "_prototypeUID": 40
+            },
+            "visibility_action": "visible",
+            "visibility": "hidden",
+            "visibility_condition": {
+               "type": "all",
+               "value": 1,
+               "conditions": [
+                  {
+                     "type": "field",
+                     "field": "6",
+                     "value": "Order Sample",
+                     "condition": "is"
+                  }
+               ]
+            }
+         },
+         {
+            "order": 4,
+            "cols": 1,
+            "rows": 1,
+            "removable": 1,
+            "title": "",
+            "fields": [
+               null,
+               {
+                  "id": 137,
+                  "item_count": 2,
+                  "option_id": 137,
+                  "title": "Select Imprint Location",
+                  "type": "checkbox",
+                  "is_require": "1",
+                  "order": 1,
+                  "items": [
+                     null,
+                     {
+                        "item_count": "44",
+                        "option_id": 137,
+                        "option_type_id": 309,
+                        "title": "Front Bottom Pocket",
+                        "price": "0.00",
+                        "price_type": null,
+                        "sku": null,
+                        "order": 1,
+                        "sort_order": 1,
+                        "image_src": null,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "",
+                        "internal_id": 1
+                     },
+                     {
+                        "item_count": "45",
+                        "option_id": 137,
+                        "option_type_id": 310,
+                        "title": "Front Top Pocket",
+                        "price": "0.00",
+                        "price_type": null,
+                        "sku": null,
+                        "order": 2,
+                        "sort_order": 2,
+                        "image_src": null,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "",
+                        "internal_id": 2
+                     }
+                  ],
+                  "sort_order": 4,
+                  "section_order": 4,
+                  "internal_id": 3,
+                  "visibility": "visible",
+                  "itoris_option_id": 0,
+                  "img_src": null,
+                  "visibility_action": "hidden",
+                  "customer_group": "",
+                  "visibility_condition": {
+                     "type": "all",
+                     "value": 1,
+                     "conditions": []
+                  }
+               }
+            ],
+            "moveUp": {
+               "_prototypeUID": 56
+            },
+            "delimiter": [],
+            "moveDown": {
+               "_prototypeUID": 57
+            },
+            "visibility_action": "visible",
+            "visibility": "hidden",
+            "visibility_condition": {
+               "type": "all",
+               "value": 1,
+               "conditions": [
+                  {
+                     "type": "field",
+                     "field": "6",
+                     "value": "Place Order With Logo",
+                     "condition": "is"
+                  }
+               ]
+            }
+         },
+         {
+            "order": 5,
+            "cols": 1,
+            "rows": 1,
+            "removable": 1,
+            "title": "",
+            "fields": [
+               null,
+               {
+                  "order": 1,
+                  "removable": true,
+                  "option_id": 421,
+                  "id": 421,
+                  "is_require": 0,
+                  "hide_on_focus": 0,
+                  "section_order": 5,
+                  "type": "field",
+                  "internal_id": 7,
+                  "visibility_action": "visible",
+                  "visibility": "hidden",
+                  "customer_group": "",
+                  "title": "MaxNumSpotColors",
+                  "default_value": "3",
+                  "sort_order": 5,
+                  "price": 0,
+                  "price_type": "fixed",
+                  "itoris_option_id": 0,
+                  "img_src": null
+               }
+            ],
+            "moveUp": {
+               "_prototypeUID": 73
+            },
+            "delimiter": [],
+            "moveDown": {
+               "_prototypeUID": 74
+            },
+            "visibility_action": "visible",
+            "visibility": "hidden"
+         },
+         {
+            "order": 6,
+            "cols": 1,
+            "rows": 1,
+            "removable": 1,
+            "title": "",
+            "fields": [
+               null,
+               {
+                  "id": 138,
+                  "item_count": 3,
+                  "option_id": 138,
+                  "title": "Select Number of Imprint Colors",
+                  "type": "radio",
+                  "is_require": "0",
+                  "order": 1,
+                  "items": [
+                     null,
+                     {
+                        "item_count": "46",
+                        "option_id": 138,
+                        "option_type_id": 311,
+                        "title": "1 Color",
+                        "price": "0.00",
+                        "price_type": null,
+                        "sku": null,
+                        "order": 1,
+                        "sort_order": 1,
+                        "image_src": null,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "",
+                        "internal_id": 1
+                     },
+                     {
+                        "item_count": "47",
+                        "option_id": 138,
+                        "option_type_id": 312,
+                        "title": "2 Color",
+                        "price": "0.00",
+                        "price_type": null,
+                        "sku": null,
+                        "order": 2,
+                        "sort_order": 2,
+                        "image_src": null,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "",
+                        "internal_id": 2
+                     },
+                     {
+                        "item_count": "48",
+                        "option_id": 138,
+                        "option_type_id": 313,
+                        "title": "3 Color",
+                        "price": "0.00",
+                        "price_type": null,
+                        "sku": null,
+                        "order": 3,
+                        "sort_order": 3,
+                        "image_src": null,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "",
+                        "internal_id": 3
+                     }
+                  ],
+                  "sort_order": 6,
+                  "section_order": 6,
+                  "internal_id": 5,
+                  "visibility": "visible",
+                  "itoris_option_id": 0,
+                  "img_src": null,
+                  "visibility_action": "hidden",
+                  "customer_group": "",
+                  "visibility_condition": {
+                     "type": "all",
+                     "value": 1,
+                     "conditions": []
+                  },
+                  "comment": ""
+               }
+            ],
+            "moveUp": {
+               "_prototypeUID": 90
+            },
+            "delimiter": [],
+            "moveDown": {
+               "_prototypeUID": 91
+            },
+            "visibility_action": "visible",
+            "visibility": "hidden",
+            "visibility_condition": {
+               "type": "all",
+               "value": 1,
+               "conditions": [
+                  {
+                     "type": "field",
+                     "field": "3",
+                     "value": "",
+                     "condition": "is_not"
+                  }
+               ]
+            }
+         },
+         {
+            "order": 7,
+            "cols": 1,
+            "rows": 1,
+            "removable": 1,
+            "title": "",
+            "fields": [
+               null,
+               {
+                  "order": 1,
+                  "removable": true,
+                  "option_id": 139,
+                  "id": 139,
+                  "is_require": 0,
+                  "hide_on_focus": 1,
+                  "section_order": 7,
+                  "type": "checkbox",
+                  "internal_id": 10,
+                  "visibility_action": "hidden",
+                  "visibility": "visible",
+                  "customer_group": "",
+                  "items": [
+                     null,
+                     {
+                        "order": 1,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "",
+                        "title": "Burgundy (PMS202)",
+                        "price": 0,
+                        "sort_order": 1,
+                        "option_id": 139,
+                        "option_type_id": 314,
+                        "image_src": null,
+                        "internal_id": 1
+                     },
+                     {
+                        "order": 2,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "",
+                        "title": "Black (Pantone Black)",
+                        "price": 0,
+                        "sort_order": 2,
+                        "option_id": 139,
+                        "option_type_id": 315,
+                        "image_src": null,
+                        "internal_id": 2
+                     },
+                     {
+                        "order": 3,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "",
+                        "title": "Brown (PMS469)",
+                        "price": 0,
+                        "sort_order": 3,
+                        "option_id": 139,
+                        "option_type_id": 316,
+                        "image_src": null,
+                        "internal_id": 3
+                     },
+                     {
+                        "order": 4,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "",
+                        "title": "Athletic Gold (PMS1235)",
+                        "price": 0,
+                        "sort_order": 4,
+                        "option_type_id": 668,
+                        "option_id": 139,
+                        "image_src": null
+                     }
+                  ],
+                  "default_select_title": "-- Please Select --",
+                  "title": "Stock/PMS Colors",
+                  "visibility_condition": {
+                     "type": "all",
+                     "value": 1,
+                     "conditions": []
+                  },
+                  "sort_order": 7,
+                  "itoris_option_id": 0,
+                  "img_src": null,
+                  "comment": "*Select up to 3 colors"
+               }
+            ],
+            "moveUp": {
+               "_prototypeUID": 107
+            },
+            "delimiter": [],
+            "moveDown": {
+               "_prototypeUID": 108
+            },
+            "visibility_action": "visible",
+            "visibility": "hidden",
+            "visibility_condition": {
+               "type": "all",
+               "value": 1,
+               "conditions": [
+                  {
+                     "type": "field",
+                     "field": "6",
+                     "value": "Place Order With Logo",
+                     "condition": "is"
+                  },
+                  {
+                     "type": "field",
+                     "field": "2",
+                     "value": "1 Color 1 Location",
+                     "condition": "is"
+                  }
+               ]
+            }
+         },
+         {
+            "order": 8,
+            "cols": 1,
+            "rows": 6,
+            "removable": 1,
+            "title": "",
+            "fields": [
+               null,
+               {
+                  "order": 1,
+                  "removable": true,
+                  "option_id": 145,
+                  "id": 145,
+                  "is_require": 0,
+                  "hide_on_focus": 1,
+                  "section_order": 8,
+                  "type": "checkbox",
+                  "internal_id": 11,
+                  "visibility_action": "visible",
+                  "visibility": "hidden",
+                  "customer_group": "",
+                  "items": [
+                     null,
+                     {
+                        "order": 1,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "",
+                        "title": "Online PDF",
+                        "price": 0,
+                        "sort_order": 1,
+                        "option_type_id": 332,
+                        "option_id": 145,
+                        "image_src": null,
+                        "internal_id": 1
+                     }
+                  ],
+                  "title": "Imprint Proof",
+                  "sort_order": 8,
+                  "itoris_option_id": 0,
+                  "img_src": null,
+                  "visibility_condition": {
+                     "type": "all",
+                     "value": 1,
+                     "conditions": [
+                        {
+                           "type": "field",
+                           "field": "6",
+                           "value": "Place Order With Logo",
+                           "condition": "is"
+                        },
+                        {
+                           "type": "field",
+                           "field": "2",
+                           "value": "1 Color 1 Location",
+                           "condition": "is"
+                        }
+                     ]
+                  }
+               },
+               {
+                  "order": 2,
+                  "removable": true,
+                  "option_id": 146,
+                  "id": 146,
+                  "is_require": 0,
+                  "hide_on_focus": 1,
+                  "section_order": 8,
+                  "type": "field",
+                  "internal_id": 12,
+                  "visibility_action": "visible",
+                  "visibility": "hidden",
+                  "customer_group": "",
+                  "comment": "Note: If you require online pdf please enter your email address",
+                  "validation": "email",
+                  "title": "Email",
+                  "sort_order": 9,
+                  "price": 0,
+                  "price_type": "fixed",
+                  "visibility_condition": {
+                     "type": "all",
+                     "value": 1,
+                     "conditions": [
+                        {
+                           "type": "field",
+                           "field": "11",
+                           "value": "Online PDF",
+                           "condition": "is"
+                        }
+                     ]
+                  },
+                  "itoris_option_id": 0,
+                  "img_src": null
+               },
+               {
+                  "order": 3,
+                  "removable": true,
+                  "option_id": 147,
+                  "id": 147,
+                  "is_require": 0,
+                  "hide_on_focus": 1,
+                  "section_order": 8,
+                  "type": "radio",
+                  "internal_id": 13,
+                  "visibility_action": "visible",
+                  "visibility": "hidden",
+                  "customer_group": "",
+                  "title": "Upload Artwork",
+                  "items": [
+                     null,
+                     {
+                        "order": 1,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "",
+                        "title": "Upload Artwork/Logo",
+                        "price": 0,
+                        "sort_order": 1,
+                        "option_type_id": 333,
+                        "option_id": 147,
+                        "image_src": null,
+                        "internal_id": 1
+                     },
+                     {
+                        "order": 2,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "",
+                        "title": "Send Artwork via Email**",
+                        "price": 0,
+                        "sort_order": 2,
+                        "option_type_id": 334,
+                        "option_id": 147,
+                        "image_src": null,
+                        "internal_id": 2
+                     }
+                  ],
+                  "sort_order": 10,
+                  "itoris_option_id": 0,
+                  "img_src": null,
+                  "comment": "",
+                  "visibility_condition": {
+                     "type": "all",
+                     "value": 1,
+                     "conditions": [
+                        {
+                           "type": "field",
+                           "field": "5",
+                           "value": "",
+                           "condition": "is_not"
+                        },
+                        {
+                           "type": "field",
+                           "field": "5",
+                           "value": "Order Without Logo",
+                           "condition": "is_not"
+                        }
+                     ]
+                  }
+               },
+               {
+                  "order": 4,
+                  "removable": true,
+                  "option_id": 148,
+                  "id": 148,
+                  "is_require": 0,
+                  "hide_on_focus": 1,
+                  "section_order": 8,
+                  "type": "file",
+                  "internal_id": 14,
+                  "visibility_action": "visible",
+                  "visibility": "hidden",
+                  "customer_group": "",
+                  "image_size_x": "",
+                  "image_size_y": "",
+                  "title": "Upload Artwork (Attach File)",
+                  "file_extension": "",
+                  "visibility_condition": {
+                     "type": "all",
+                     "value": 1,
+                     "conditions": [
+                        {
+                           "type": "field",
+                           "field": "13",
+                           "value": "Upload Artwork",
+                           "condition": "is"
+                        }
+                     ]
+                  },
+                  "sort_order": 11,
+                  "price": 0,
+                  "price_type": "fixed",
+                  "itoris_option_id": 0,
+                  "img_src": null
+               },
+               {
+                  "order": 5,
+                  "removable": true,
+                  "option_id": 0,
+                  "id": 0,
+                  "is_require": 0,
+                  "hide_on_focus": 1,
+                  "section_order": 8,
+                  "type": "html",
+                  "internal_id": 15,
+                  "visibility_action": "visible",
+                  "visibility": "hidden",
+                  "customer_group": "",
+                  "static_text": "<p>**Email your artwork to <a href=\"orders@themagnetgroup.com\" target=\"_blank\">orders@themagnetgroup.com<\/a><\/p>",
+                  "visibility_condition": {
+                     "type": "all",
+                     "value": 1,
+                     "conditions": [
+                        {
+                           "type": "field",
+                           "field": "13",
+                           "value": "Send Artwork via Email**",
+                           "condition": "is"
+                        }
+                     ]
+                  },
+                  "sort_order": 12,
+                  "title": "",
+                  "itoris_option_id": 0,
+                  "img_src": null
+               },
+               {
+                  "id": 149,
+                  "item_count": null,
+                  "option_id": 149,
+                  "title": "Upload Your Virtual Proof (Optional)",
+                  "type": "file",
+                  "is_require": "0",
+                  "order": 6,
+                  "price": "0.00",
+                  "price_type": "fixed",
+                  "sku": null,
+                  "max_characters": "0",
+                  "file_extension": null,
+                  "image_size_x": "",
+                  "image_size_y": "",
+                  "sort_order": 13,
+                  "section_order": 8,
+                  "internal_id": 4,
+                  "visibility": "visible",
+                  "itoris_option_id": 0,
+                  "img_src": null,
+                  "visibility_action": "hidden",
+                  "customer_group": "",
+                  "visibility_condition": {
+                     "type": "all",
+                     "value": 1,
+                     "conditions": []
+                  }
+               }
+            ],
+            "moveUp": {
+               "_prototypeUID": 124
+            },
+            "delimiter": [],
+            "moveDown": {
+               "_prototypeUID": 125
+            },
+            "visibility_action": "visible",
+            "visibility": "hidden",
+            "visibility_condition": {
+               "type": "all",
+               "value": 1,
+               "conditions": [
+                  {
+                     "type": "field",
+                     "field": "6",
+                     "value": "Place Order With Logo",
+                     "condition": "is"
+                  }
+               ]
+            }
+         },
+         {
+            "order": 9,
+            "cols": 1,
+            "rows": 1,
+            "removable": 1,
+            "title": "",
+            "fields": [
+               null,
+               {
+                  "order": 1,
+                  "removable": true,
+                  "option_id": 150,
+                  "id": 150,
+                  "is_require": "1",
+                  "hide_on_focus": 1,
+                  "section_order": 9,
+                  "type": "drop_down",
+                  "internal_id": 18,
+                  "visibility_action": "hidden",
+                  "visibility": "visible",
+                  "customer_group": "",
+                  "items": [
+                     null,
+                     {
+                        "order": 1,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "visible",
+                        "visibility": "hidden",
+                        "customer_group": "0",
+                        "title": "1 Color 1 Location",
+                        "price": 50,
+                        "sort_order": 1,
+                        "option_type_id": 335,
+                        "option_id": 150,
+                        "image_src": null,
+                        "visibility_condition": {
+                           "type": "all",
+                           "value": 1,
+                           "conditions": [
+                              {
+                                 "type": "field",
+                                 "field": "2",
+                                 "value": "1 Color 1 Location",
+                                 "condition": "is"
+                              }
+                           ]
+                        },
+                        "sku": "production_charge"
+                     },
+                     {
+                        "order": 2,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "visible",
+                        "visibility": "hidden",
+                        "customer_group": "0",
+                        "title": "4 Color Process",
+                        "price": 75,
+                        "sort_order": 2,
+                        "option_type_id": 336,
+                        "option_id": 150,
+                        "image_src": null,
+                        "visibility_condition": {
+                           "type": "all",
+                           "value": 1,
+                           "conditions": [
+                              {
+                                 "type": "field",
+                                 "field": "2",
+                                 "value": "4 Color Process",
+                                 "condition": "is"
+                              }
+                           ]
+                        },
+                        "sku": "production_charge"
+                     },
+                     {
+                        "order": 3,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "visible",
+                        "visibility": "hidden",
+                        "customer_group": "0",
+                        "title": "4 Color Process Dome",
+                        "price": 50,
+                        "sort_order": 3,
+                        "option_type_id": 337,
+                        "option_id": 150,
+                        "image_src": null,
+                        "visibility_condition": {
+                           "type": "all",
+                           "value": 1,
+                           "conditions": [
+                              {
+                                 "type": "field",
+                                 "field": "2",
+                                 "value": "4 Color Process Dome",
+                                 "condition": "is"
+                              }
+                           ]
+                        },
+                        "sku": "production_charge"
+                     },
+                     {
+                        "order": 4,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "visible",
+                        "visibility": "hidden",
+                        "customer_group": "0",
+                        "title": "Embroidered",
+                        "price": 50,
+                        "sort_order": 4,
+                        "option_type_id": 338,
+                        "option_id": 150,
+                        "image_src": null,
+                        "visibility_condition": {
+                           "type": "all",
+                           "value": 1,
+                           "conditions": [
+                              {
+                                 "type": "field",
+                                 "field": "2",
+                                 "value": "Embroidered",
+                                 "condition": "is"
+                              }
+                           ]
+                        },
+                        "sku": "production_charge"
+                     },
+                     {
+                        "order": 5,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "visible",
+                        "visibility": "hidden",
+                        "customer_group": "1",
+                        "title": "1 Color 1 Location",
+                        "price": 40,
+                        "visibility_condition": {
+                           "type": "all",
+                           "value": 1,
+                           "conditions": [
+                              {
+                                 "type": "field",
+                                 "field": "2",
+                                 "value": "1 Color 1 Location",
+                                 "condition": "is"
+                              }
+                           ]
+                        },
+                        "sort_order": 5,
+                        "option_type_id": 339,
+                        "option_id": 150,
+                        "image_src": null,
+                        "sku": "production_charge"
+                     },
+                     {
+                        "order": 6,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "visible",
+                        "visibility": "hidden",
+                        "customer_group": "1",
+                        "title": "4 Color Process",
+                        "price": 60,
+                        "visibility_condition": {
+                           "type": "all",
+                           "value": 1,
+                           "conditions": [
+                              {
+                                 "type": "field",
+                                 "field": "2",
+                                 "value": "4 Color Process",
+                                 "condition": "is"
+                              }
+                           ]
+                        },
+                        "sort_order": 6,
+                        "option_type_id": 340,
+                        "option_id": 150,
+                        "image_src": null,
+                        "sku": "production_charge"
+                     },
+                     {
+                        "order": 7,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "visible",
+                        "visibility": "hidden",
+                        "customer_group": "1",
+                        "title": "4 Color Process Dome",
+                        "price": 40,
+                        "sku": "production_charge",
+                        "visibility_condition": {
+                           "type": "all",
+                           "value": 1,
+                           "conditions": [
+                              {
+                                 "type": "field",
+                                 "field": "2",
+                                 "value": "4 Color Process Dome",
+                                 "condition": "is"
+                              }
+                           ]
+                        },
+                        "sort_order": 7,
+                        "option_type_id": 948,
+                        "option_id": 150,
+                        "image_src": null
+                     },
+                     {
+                        "order": 8,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "visible",
+                        "visibility": "hidden",
+                        "customer_group": "1",
+                        "title": "Embroidered",
+                        "price": 40,
+                        "sku": "production_charge",
+                        "visibility_condition": {
+                           "type": "all",
+                           "value": 1,
+                           "conditions": [
+                              {
+                                 "type": "field",
+                                 "field": "2",
+                                 "value": "Embroidered",
+                                 "condition": "is"
+                              }
+                           ]
+                        },
+                        "sort_order": 8,
+                        "option_type_id": 949,
+                        "option_id": 150,
+                        "image_src": null
+                     },
+                     {
+                        "order": 9,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "visible",
+                        "visibility": "hidden",
+                        "customer_group": "2",
+                        "title": "1 Color 1 Location",
+                        "price": 35,
+                        "sku": "production_charge",
+                        "visibility_condition": {
+                           "type": "all",
+                           "value": 1,
+                           "conditions": [
+                              {
+                                 "type": "field",
+                                 "field": "2",
+                                 "value": "1 Color 1 Location",
+                                 "condition": "is"
+                              }
+                           ]
+                        },
+                        "sort_order": 9,
+                        "option_type_id": 950,
+                        "option_id": 150,
+                        "image_src": null
+                     },
+                     {
+                        "order": 10,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "visible",
+                        "visibility": "hidden",
+                        "customer_group": "2",
+                        "title": "4 Color Process",
+                        "price": 55,
+                        "sku": "production_charge",
+                        "visibility_condition": {
+                           "type": "all",
+                           "value": 1,
+                           "conditions": [
+                              {
+                                 "type": "field",
+                                 "field": "2",
+                                 "value": "4 Color Process",
+                                 "condition": "is"
+                              }
+                           ]
+                        },
+                        "sort_order": 10,
+                        "option_type_id": 951,
+                        "option_id": 150,
+                        "image_src": null
+                     },
+                     {
+                        "order": 11,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "visible",
+                        "visibility": "hidden",
+                        "customer_group": "2",
+                        "title": "4 Color Process Dome",
+                        "price": 35,
+                        "sku": "production_charge",
+                        "visibility_condition": {
+                           "type": "all",
+                           "value": 1,
+                           "conditions": [
+                              {
+                                 "type": "field",
+                                 "field": "2",
+                                 "value": "4 Color Process Dome",
+                                 "condition": "is"
+                              }
+                           ]
+                        },
+                        "sort_order": 11,
+                        "option_type_id": 952,
+                        "option_id": 150,
+                        "image_src": null
+                     },
+                     {
+                        "order": 12,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "visible",
+                        "visibility": "hidden",
+                        "customer_group": "2",
+                        "title": "Embroidered",
+                        "price": 35,
+                        "sku": "production_charge",
+                        "visibility_condition": {
+                           "type": "all",
+                           "value": 1,
+                           "conditions": [
+                              {
+                                 "type": "field",
+                                 "field": "2",
+                                 "value": "Embroidered",
+                                 "condition": "is"
+                              }
+                           ]
+                        },
+                        "sort_order": 12,
+                        "option_type_id": 953,
+                        "option_id": 150,
+                        "image_src": null
+                     }
+                  ],
+                  "default_select_title": "-- Please Select --",
+                  "title": "Production Charges",
+                  "visibility_condition": {
+                     "type": "all",
+                     "value": 1,
+                     "conditions": []
+                  },
+                  "sort_order": 14,
+                  "itoris_option_id": 0,
+                  "img_src": null,
+                  "css_class": "",
+                  "html_args": "production_charges=\"true\""
+               }
+            ],
+            "moveUp": {
+               "_prototypeUID": 181
+            },
+            "delimiter": [],
+            "moveDown": {
+               "_prototypeUID": 182
+            },
+            "visibility_action": "visible",
+            "visibility": "hidden",
+            "visibility_condition": {
+               "type": "all",
+               "value": 1,
+               "conditions": [
+                  {
+                     "type": "field",
+                     "field": "6",
+                     "value": "Place Order With Logo",
+                     "condition": "is"
+                  }
+               ]
+            }
+         },
+         {
+            "order": 11,
+            "cols": 1,
+            "rows": 1,
+            "removable": 1,
+            "title": "",
+            "fields": [
+               null,
+               {
+                  "order": 1,
+                  "removable": true,
+                  "option_id": 424,
+                  "id": 424,
+                  "is_require": 0,
+                  "hide_on_focus": 1,
+                  "section_order": 11,
+                  "type": "drop_down",
+                  "internal_id": 16,
+                  "visibility_action": "hidden",
+                  "visibility": "visible",
+                  "customer_group": "",
+                  "items": [
+                     null,
+                     {
+                        "order": 1,
+                        "price_type": "fixed",
+                        "is_selected": 1,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "",
+                        "title": "Charge Per Color",
+                        "price": 0.5,
+                        "tier_price": [
+                           {
+                              "qty": 12,
+                              "price": "0.50",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 25,
+                              "price": "0.50",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 50,
+                              "price": "0.50",
+                              "price_type": "fixed"
+                           },
+                           {
+                              "qty": 100,
+                              "price": "0.50",
+                              "price_type": "fixed"
+                           }
+                        ],
+                        "sort_order": 1,
+                        "use_qty": 0,
+                        "option_id": 424,
+                        "option_type_id": 1175,
+                        "image_src": null
+                     }
+                  ],
+                  "default_select_title": "-- Please Select --",
+                  "title": "Add Color/Run Charge",
+                  "sort_order": 16,
+                  "visibility_condition": {
+                     "type": "all",
+                     "value": 1,
+                     "conditions": []
+                  },
+                  "itoris_option_id": 0,
+                  "img_src": null
+               }
+            ],
+            "moveUp": {
+               "_prototypeUID": 215
+            },
+            "delimiter": [],
+            "moveDown": {
+               "_prototypeUID": 216
+            },
+            "visibility_action": "visible",
+            "visibility": "hidden",
+            "visibility_condition": {
+               "type": "all",
+               "value": 1,
+               "conditions": [
+                  {
+                     "type": "field",
+                     "field": "6",
+                     "value": "Place Order With Logo",
+                     "condition": "is"
+                  },
+                  {
+                     "type": "field",
+                     "field": "2",
+                     "value": "1 Color 1 Location",
+                     "condition": "is"
+                  }
+               ]
+            }
+         },
+         {
+            "order": 12,
+            "cols": 1,
+            "rows": 4,
+            "removable": 1,
+            "title": "",
+            "fields": [
+               null,
+               {
+                  "order": 1,
+                  "removable": true,
+                  "option_id": 428,
+                  "id": 428,
+                  "is_require": 0,
+                  "hide_on_focus": 1,
+                  "section_order": 12,
+                  "type": "drop_down",
+                  "internal_id": 22,
+                  "visibility_action": "hidden",
+                  "visibility": "visible",
+                  "customer_group": "",
+                  "items": [
+                     null,
+                     {
+                        "order": 1,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "0",
+                        "title": "Additional Stitches",
+                        "use_qty": 1,
+                        "price": 0.35,
+                        "sort_order": 1,
+                        "option_type_id": 1179,
+                        "option_id": 428,
+                        "image_src": null
+                     },
+                     {
+                        "order": 2,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "1,2",
+                        "title": "Additional Stitches",
+                        "price": 0.25,
+                        "sort_order": 2,
+                        "option_type_id": 3904,
+                        "option_id": 428,
+                        "image_src": null
+                     }
+                  ],
+                  "default_select_title": "-- Please Select --",
+                  "title": "Additional Stitches",
+                  "sort_order": 17,
+                  "itoris_option_id": 0,
+                  "img_src": null
+               },
+               {
+                  "order": 2,
+                  "removable": true,
+                  "option_id": 429,
+                  "id": 429,
+                  "is_require": 0,
+                  "hide_on_focus": 1,
+                  "section_order": 12,
+                  "type": "drop_down",
+                  "internal_id": 23,
+                  "visibility_action": "hidden",
+                  "visibility": "visible",
+                  "customer_group": "",
+                  "title": "Digitizing Fee (Embroidery)",
+                  "items": [
+                     null,
+                     {
+                        "order": 1,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "0",
+                        "title": "Digitizing Fee (Embroidery)",
+                        "price": 53.125,
+                        "sort_order": 1,
+                        "option_type_id": 1180,
+                        "option_id": 429,
+                        "image_src": null
+                     },
+                     {
+                        "order": 2,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "0,1",
+                        "title": "Digitizing Fee (Embroidery)",
+                        "price": 50,
+                        "sort_order": 2,
+                        "option_type_id": 3905,
+                        "option_id": 429,
+                        "image_src": null
+                     }
+                  ],
+                  "default_select_title": "-- Please Select --",
+                  "sort_order": 18,
+                  "itoris_option_id": 0,
+                  "img_src": null
+               },
+               {
+                  "order": 3,
+                  "removable": true,
+                  "option_id": 430,
+                  "id": 430,
+                  "is_require": 0,
+                  "hide_on_focus": 1,
+                  "section_order": 12,
+                  "type": "drop_down",
+                  "internal_id": 24,
+                  "visibility_action": "hidden",
+                  "visibility": "visible",
+                  "customer_group": "",
+                  "items": [
+                     null,
+                     {
+                        "order": 1,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "0",
+                        "title": "Personalization",
+                        "price": 7,
+                        "sort_order": 1,
+                        "option_type_id": 1181,
+                        "option_id": 430,
+                        "image_src": null
+                     },
+                     {
+                        "order": 2,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "1,2",
+                        "title": "Personalization",
+                        "price": 5,
+                        "sort_order": 2,
+                        "option_type_id": 3906,
+                        "option_id": 430,
+                        "image_src": null
+                     }
+                  ],
+                  "default_select_title": "-- Please Select --",
+                  "title": "Personalization",
+                  "sort_order": 19,
+                  "itoris_option_id": 0,
+                  "img_src": null
+               },
+               {
+                  "order": 4,
+                  "removable": true,
+                  "option_id": 1438,
+                  "id": 1438,
+                  "is_require": 0,
+                  "hide_on_focus": 1,
+                  "section_order": 12,
+                  "type": "drop_down",
+                  "internal_id": 8,
+                  "visibility_action": "hidden",
+                  "visibility": "visible",
+                  "customer_group": "",
+                  "items": [
+                     null,
+                     {
+                        "order": 1,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "0",
+                        "title": "Swatch Proof",
+                        "price": 12.5,
+                        "sort_order": 1,
+                        "option_type_id": 3907,
+                        "option_id": 1438,
+                        "image_src": null
+                     },
+                     {
+                        "order": 2,
+                        "price_type": "fixed",
+                        "is_selected": 0,
+                        "is_disabled": 0,
+                        "row": [],
+                        "visibility_action": "hidden",
+                        "visibility": "visible",
+                        "customer_group": "1,2",
+                        "title": "Swatch Proof",
+                        "price": 10,
+                        "sort_order": 2,
+                        "option_type_id": 3908,
+                        "option_id": 1438,
+                        "image_src": null
+                     }
+                  ],
+                  "default_select_title": "-- Please Select --",
+                  "title": "Swatch Proof",
+                  "sort_order": 20,
+                  "itoris_option_id": 0,
+                  "img_src": null
+               }
+            ],
+            "moveUp": {
+               "_prototypeUID": 232
+            },
+            "delimiter": [],
+            "moveDown": {
+               "_prototypeUID": 233
+            },
+            "visibility_action": "visible",
+            "visibility": "hidden",
+            "visibility_condition": {
+               "type": "all",
+               "value": 1,
+               "conditions": [
+                  {
+                     "type": "field",
+                     "field": "6",
+                     "value": "Place Order With Logo",
+                     "condition": "is"
+                  },
+                  {
+                     "type": "field",
+                     "field": "2",
+                     "value": "Embroidered",
+                     "condition": "is"
+                  }
+               ]
+            }
+         }
+      ],
+      "form_style": "table_sections",
+      "appearance": "on_product_view",
+      "css_adjustments": ".option-qty-comment {\r\n    display: none;\r\n}\r\n#itoris_dynamicproductoptions .fieldset {\r\nbackground: transparent;\r\nmargin-top: 10px;\r\n}\r\n\r\n",
+      "extra_js": "",
+      "absolute_pricing": "1",
+      "absolute_sku": "0",
+      "absolute_weight": "0",
+      "product_sku": "BG227"
+   }
+]

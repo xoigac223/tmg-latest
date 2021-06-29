@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BSS Commerce Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://bsscommerce.com/Bss-Commerce-License.txt
+ *
+ * @category   BSS
+ * @package    Bss_InfiniteScroll
+ * @author     Extension Team
+ * @copyright  Copyright (c) 2018-2019 BSS Commerce Co. ( http://bsscommerce.com )
+ * @license    http://bsscommerce.com/Bss-Commerce-License.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+        <referenceContainer name="after.body.start">
+            <block class="Bss\InfiniteScroll\Block\InfiniteScroll"  ifconfig="infinitescroll/settings/active" name="bss_infinitescroll" template="Bss_InfiniteScroll::js.phtml"/>
+        </referenceContainer>
+        <referenceBlock name="product_list_toolbar">
+        	<action method='setTemplate'>
+	            <argument name="template" xsi:type="string">Bss_InfiniteScroll::product/list/toolbar.phtml</argument>
+	       	</action>
+            <block class="Magento\Catalog\Block\Product\ProductList\Toolbar"
+                   name="catalog_viewmode"
+                   template="Magento_Catalog::product/list/toolbar/viewmode.phtml" />
+            <block class="Magento\Catalog\Block\Product\ProductList\Toolbar"
+                   name="catalog_amount"
+                   template="Magento_Catalog::product/list/toolbar/amount.phtml" />
+            <block class="Bss\InfiniteScroll\Block\Product\ProductList\Toolbar"
+                   name="bss_amount"
+                   template="Bss_InfiniteScroll::product/list/toolbar/amount.phtml" />
+            <block class="Magento\Catalog\Block\Product\ProductList\Toolbar"
+                   name="catalog_limiter"
+                   template="Magento_Catalog::product/list/toolbar/limiter.phtml" />
+            <block class="Magento\Catalog\Block\Product\ProductList\Toolbar"
+                   name="catalog_sorter"
+                   template="Magento_Catalog::product/list/toolbar/sorter.phtml" />
+        </referenceBlock>
+        <referenceBlock name="category.product.type.details.renderers.configurable">
+            <action method='setTemplate'>
+                <argument name="template" xsi:type="string">Bss_InfiniteScroll::product/listing/renderer.phtml</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

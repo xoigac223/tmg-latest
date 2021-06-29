@@ -1,0 +1,68 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Create account form template
+ *
+ * @var $block \Magento\Customer\Block\Form\Register
+ */
+
+$formData = $block->getFormData();
+
+?>
+<?php echo $block->getChildHtml('form_fields_before')?>
+<?php echo $block->getChildHtml('customer.form.register.extra')?>
+
+<?php // TMG Customer Lookup Form ?>
+<?php echo $block->getLayout()->createBlock('TMG\Customer\Block\Customer\Form\AccountLookup')->toHtml(); ?>
+
+<?php // Regular Customer Register Form ?>
+<form class="form create account form-create-account"
+      action="<?php /* @escapeNotVerified */ echo $block->getPostActionUrl() ?>"
+      method="post" id="form-validate" enctype="multipart/form-data" autocomplete="off">
+    
+    <?php echo $block->getLayout()->createBlock('TMG\Customer\Block\Customer\Form\PersonalInformation')
+        ->setFormData($formData)->toHtml(); ?>
+    
+    <?php echo $block->getLayout()->createBlock('TMG\Customer\Block\Customer\Form\LoginInformation')
+        ->setFormData($formData)->toHtml(); ?>
+    
+    <?php echo $block->getLayout()->createBlock('TMG\Customer\Block\Customer\Form\CompanyInformation')
+        ->setFormData($formData)->toHtml(); ?>
+    
+    <?php echo $block->getLayout()->createBlock('TMG\Customer\Block\Customer\Form\ContactInformation')
+        ->setFormData($formData)->toHtml(); ?>
+
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="action submit primary" title="<?php /* @escapeNotVerified */ echo __('Create an Account') ?>"><span><?php /* @escapeNotVerified */ echo __('Create an Account') ?></span></button>
+        </div>
+        <div class="secondary">
+            <a class="action back" href="<?php echo $block->escapeUrl($block->getBackUrl()) ?>"><span><?php /* @escapeNotVerified */ echo __('Back') ?></span></a>
+        </div>
+    </div>
+
+</form>
+
+<script>
+    require([
+        'jquery',
+        'mage/mage'
+    ], function($){
+
+        var dataForm = $('#form-validate');
+        var ignore = null;
+
+        dataForm.mage('validation', {
+            ignore: ignore ? ':hidden:not(' + ignore + ')' : ':hidden'
+        }).find('input:text').attr('autocomplete', 'off');
+
+    });
+</script>

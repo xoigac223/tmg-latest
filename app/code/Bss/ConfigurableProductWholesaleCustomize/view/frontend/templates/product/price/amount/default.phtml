@@ -1,0 +1,163 @@
+<?php
+// @codingStandardsIgnoreFile
+?>
+<?php
+    $product = $block->getSaleableItem();
+    $helper = $this->helper('Bss\ConfigurableProductWholesale\Helper\Data');
+    $priceModel = $block->getPriceType('regular_price');
+    $idSuffix = $block->getIdSuffix() ? $block->getIdSuffix() : '';
+?>
+<?php if (isset($product)) :?>
+
+    <?php if ($block->getSaleableItem()->getTypeId() == "configurable"): ?>
+        <?php
+        $minDataPrice = $helper->getRangePrice($product, true);
+        $maxDataPrice = $helper->getRangePrice($product, false, true);
+        $minPrice = $minDataPrice['finalPrice'];
+        $maxPrice = $maxDataPrice['finalPrice'];
+        $minExclTaxPrice = $minDataPrice['exclTaxFinalPrice'];
+        $maxExclTaxPrice = $maxDataPrice['exclTaxFinalPrice'];
+        ?>
+        <?php if ($minPrice != $maxPrice) :?>
+            <?php if($block->getPriceType() == 'finalPrice_withSpecial') : ?>
+                <div class="bss-price-range">
+                        <span class="bss-price-from">
+                            <span class="bss-price-label">
+                                <?php echo __('Was %1 Now is %2',$helper->getFormatPrice($maxPrice),$helper->getFormatPrice($minPrice));?>
+                            </span>
+                        </span>
+                </div>
+            <?php else :?>
+                <div class="bss-price-range">
+                        <span class="bss-price-from">
+                            <span class="bss-price-label">
+                                <?php echo __('As Low As:');?>
+                            </span>
+                            <span class="bss-price-from-value" data-price-amount="<?php echo $minPrice;?>">
+                                <?php echo $helper->getFormatPrice($minPrice);?>
+                            </span>
+                        </span>
+                </div>
+            <?php endif; ?>
+        <?php else :?>
+            <?php if($block->getPriceType() == 'finalPrice') : ?>
+                <span class="unit-price">
+                        <span class="bss-price-unit">
+                            <span class="bss-price-label">
+                                <?php echo __('Unit Price:'); ?>
+                            </span>
+                            <span class="bss-price-unit-value" data-price-amount="<?php echo $minPrice;?>">
+                                <?php echo $helper->getFormatPrice($minPrice);?>
+                            </span>
+                        </span>
+                    </span>
+                </br>
+                <?php if ($block->hasSpecialPrice()) :?>
+                    <span class="old-price">
+                            <?php /* @escapeNotVerified */ echo $block->renderAmount($priceModel->getAmount(), [
+                                'display_label'     => __('Regular Price'),
+                                'price_id'          => $block->getPriceId('old-price-' . $idSuffix),
+                                'price_type'        => 'oldPrice',
+                                'include_container' => true,
+                                'skip_adjustments'  => true
+                            ]); ?>
+                        </span>
+                <?php endif; ?>
+            <?php endif; ?>
+        <?php endif; ?>
+    <?php else :?>
+        <?php if ($idSuffix != 'simple_tier') : ?>
+            <?php
+            $price = [];
+            $result = [];
+            $priceModel = $product->getPriceInfo()->getPrice('final_price');
+            $tierPriceModel = $product->getPriceInfo()->getPrice('tier_price');
+            $maxPrice = $priceModel->getAmount()->getValue();
+            $maxExclTaxPrice = $priceModel->getAmount()->getValue(['tax']);
+            $tierPricesList = $tierPriceModel->getTierPriceList();
+            if (isset($tierPricesList) && !empty($tierPricesList)) {
+                foreach ($tierPricesList as $tierPrices) {
+                    $price['finalPrice'][] = $tierPrices['price']->getValue();
+                    $price['exclTaxFinalPrice'][] = $tierPrices['price']->getValue(['tax']);
+                }
+            }
+            $minPrice = $maxPrice;
+            $minExclTaxPrice = $maxExclTaxPrice;
+            if(isset($price['finalPrice']) && isset($price['exclTaxFinalPrice'])) {
+                $result['finalPrice'] = array_unique($price['finalPrice']);
+                $result['exclTaxFinalPrice'] = array_unique($price['exclTaxFinalPrice']);
+                $minPrice = min($result['finalPrice']);
+                $minExclTaxPrice = min($result['exclTaxFinalPrice']);
+            }
+            ?>
+            <?php if ($minPrice != $maxPrice) :?>
+                <?php if($block->getPriceType() == 'finalPrice_withSpecial') : ?>
+                    <div class="bss-price-range">
+                        <span class="bss-price-from">
+                            <span class="bss-price-label">
+                                <?php echo __('Was %1 Now is %2',$helper->getFormatPrice($maxPrice),$helper->getFormatPrice($minPrice));?>
+                            </span>
+                        </span>
+                    </div>
+                <?php else :?>
+                    <div class="bss-price-range">
+                        <span class="bss-price-from">
+                            <span class="bss-price-label">
+                                <?php echo __('As Low As:');?>
+                            </span>
+                            <span class="bss-price-from-value" data-price-amount="<?php echo $minPrice;?>">
+                                <?php echo $helper->getFormatPrice($minPrice);?>
+                            </span>
+                        </span>
+                    </div>
+                <?php endif; ?>
+        <?php else :?>
+                <?php if($block->getPriceType() == 'finalPrice') : ?>
+                    <span class="unit-price">
+                        <span class="bss-price-unit">
+                            <span class="bss-price-label">
+                                <?php echo __('Unit Price:'); ?>
+                            </span>
+                            <span class="bss-price-unit-value" data-price-amount="<?php echo $minPrice;?>">
+                                <?php echo $helper->getFormatPrice($minPrice);?>
+                            </span>
+                        </span>
+                    </span>
+                    </br>
+                    <?php if ($block->hasSpecialPrice()) :?>
+                        <span class="old-price">
+                            <?php /* @escapeNotVerified */ echo $block->renderAmount($priceModel->getAmount(), [
+                                'display_label'     => __('Regular Price'),
+                                'price_id'          => $block->getPriceId('old-price-' . $idSuffix),
+                                'price_type'        => 'oldPrice',
+                                'include_container' => true,
+                                'skip_adjustments'  => true
+                            ]); ?>
+                        </span>
+                    <?php endif; ?>
+                <?php endif; ?>
+            <?php endif; ?>
+        <?php else: ?>
+            <span class="price-container <?php /* @escapeNotVerified */ echo $block->getAdjustmentCssClasses() ?>"
+                <?php echo $block->getSchema() ? ' itemprop="offers" itemscope itemtype="http://schema.org/Offer"' : '' ?>>
+            <?php if ($block->getDisplayLabel()): ?>
+                <span class="price-label"><?php /* @escapeNotVerified */ echo $block->getDisplayLabel(); ?></span>
+            <?php endif; ?>
+                <span <?php if ($block->getPriceId()): ?> id="<?php /* @escapeNotVerified */ echo $block->getPriceId() ?>"<?php endif;?>
+                    <?php echo($block->getPriceDisplayLabel()) ? 'data-label="' . $block->getPriceDisplayLabel() . $block->getPriceDisplayInclExclTaxes() . '"' : '' ?>
+                    data-price-amount="<?php /* @escapeNotVerified */ echo $block->getDisplayValue(); ?>"
+                    data-price-type="<?php /* @escapeNotVerified */ echo $block->getPriceType(); ?>"
+                    class="price-wrapper <?php /* @escapeNotVerified */ echo $block->getPriceWrapperCss(); ?>"
+                    <?php echo $block->getSchema() ? ' itemprop="price"' : '' ?>>
+                <?php /* @escapeNotVerified */ echo $block->formatCurrency($block->getDisplayValue(), (bool)$block->getIncludeContainer()) ?>
+            </span>
+                <?php if ($block->hasAdjustmentsHtml()): ?>
+                    <?php echo $block->getAdjustmentsHtml() ?>
+                <?php endif; ?>
+                <?php if ($block->getSchema()): ?>
+                    <meta itemprop="priceCurrency" content="<?php /* @escapeNotVerified */ echo $block->getDisplayCurrencyCode()?>" />
+                <?php endif; ?>
+            </span>
+        <?php endif; ?>
+    <?php endif; ?>
+<?php endif; ?>

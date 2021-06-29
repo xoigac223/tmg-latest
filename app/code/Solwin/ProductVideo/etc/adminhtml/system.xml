@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Solwin Infotech
+ * Solwin Advanced Product Video Extension
+ *
+ * @category   Solwin
+ * @package    Solwin_ProductVideo
+ * @copyright  Copyright © 2006-2016 Solwin (https://www.solwininfotech.com)
+ * @license    https://www.solwininfotech.com/magento-extension-license/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <section id="productvideosection" translate="label" type="text" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Product Video</label>
+            <tab>solwin_extension_tab</tab>
+            <resource>Solwin_ProductVideo::productvideo_config</resource>
+            <group id="productvideogroup" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enable" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Select yes to enable product video module on frontend.]]></comment>
+                </field>
+                <field id="videooption" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Video On</label>
+                    <source_model>Solwin\ProductVideo\Model\System\Config\Source\VideoOption</source_model>
+                    <comment><![CDATA[<b>On Page: </b>The video will be open on the page.<br/><b>In Fancy Box: </b>The video will be open in the popup Fancybox. Slider display only when show video on fancybox.]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="videowidth" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Video Width</label>
+                    <validate>required-entry validate-number</validate>
+                    <comment><![CDATA[Set video width in pixel.<br>Video width will not working in product information tab if you select "Show Video On -> Page".]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="videoheight" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Video Height</label>
+                    <validate>required-entry validate-number</validate>
+                    <comment><![CDATA[Set Video height in pixel.<br>Video height will not working in product information tab if you select "Show Video On -> Page".]]></comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="videotabgroup" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Videos On Tab Settings</label>
+                <field id="videotab" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Videos On Tab</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Show Videos tab in product detail page</comment>
+                </field>
+                <field id="displayslider" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display In Slider</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[<b>In Fancy Box: </b> The video list will be display in slider.]]></comment>
+                    <depends>
+                        <field id="videotab">1</field>
+                        <field id="productvideosection/productvideogroup/videooption">fancybox</field>
+                    </depends>
+                </field>
+                <field id="sliderautoplay" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Slider Autoplay</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Enable slider autoplay.]]></comment>
+                    <depends>
+                        <field id="videotab">1</field>
+                        <field id="displayslider">1</field>
+                        <field id="productvideosection/productvideogroup/videooption">fancybox</field>
+                    </depends>
+                </field>
+                <field id="autoplayspeed" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Slider Autoplay Speed In Milliseconds</label>
+                    <validate>validate-number</validate>
+                    <comment><![CDATA[Slider autoplay speed. Default value is 3000.]]></comment>
+                    <depends>
+                        <field id="videotab">1</field>
+                        <field id="displayslider">1</field>
+                        <field id="sliderautoplay">1</field>
+                        <field id="productvideosection/productvideogroup/videooption">fancybox</field>
+                    </depends>
+                </field>
+                <field id="slideitem" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>No. Of Slide Display At A Time</label>
+                    <validate>validate-number</validate>
+                    <comment><![CDATA[How many slides to show at a time. Default value is 3.]]></comment>
+                    <depends>
+                        <field id="videotab">1</field>
+                        <field id="displayslider">1</field>
+                        <field id="productvideosection/productvideogroup/videooption">fancybox</field>
+                    </depends>
+                </field>
+                <field id="slidespeed" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Slide/Fade Animation Speed</label>
+                    <validate>validate-number</validate>
+                    <comment><![CDATA[Slide/Fade animation speed. Default value is 300]]></comment>
+                    <depends>
+                        <field id="videotab">1</field>
+                        <field id="displayslider">1</field>
+                        <field id="productvideosection/productvideogroup/videooption">fancybox</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="videoblockgroup" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Videos On Block Settings</label>
+                <field id="videoblock" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Videos On Detail Block</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Show Videos Block in product detail page</comment>
+                </field>
+                <field id="displayslider" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display In Slider</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[<b>In Fancy Box: </b>The video list will be display in slider.]]></comment>
+                    <depends>
+                        <field id="videoblock">1</field>
+                        <field id="productvideosection/productvideogroup/videooption">fancybox</field>
+                    </depends>
+                </field>
+                <field id="sliderautoplay" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Slider Autoplay</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Enable slider autoplay.]]></comment>
+                    <depends>
+                        <field id="videoblock">1</field>
+                        <field id="displayslider">1</field>
+                        <field id="productvideosection/productvideogroup/videooption">fancybox</field>
+                    </depends>
+                </field>
+                <field id="autoplayspeed" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Slider Autoplay Speed In Milliseconds</label>
+                    <validate>validate-number</validate>
+                    <comment><![CDATA[Slider autoplay speed. Default value is 3000.]]></comment>
+                    <depends>
+                        <field id="videoblock">1</field>
+                        <field id="displayslider">1</field>
+                        <field id="sliderautoplay">1</field>
+                        <field id="productvideosection/productvideogroup/videooption">fancybox</field>
+                    </depends>
+                </field>
+                <field id="slideitem" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>No. Of Slide Display At A Time</label>
+                    <validate>validate-number</validate>
+                    <comment><![CDATA[How many slides to show at a time. Default value is 3.]]></comment>
+                    <depends>
+                        <field id="videoblock">1</field>
+                        <field id="displayslider">1</field>
+                        <field id="productvideosection/productvideogroup/videooption">fancybox</field>
+                    </depends>
+                </field>
+                <field id="slidespeed" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Slide/Fade Animation Speed</label>
+                    <validate>validate-number</validate>
+                    <comment><![CDATA[Slide/Fade animation speed. Default value is 300]]></comment>
+                    <depends>
+                        <field id="videoblock">1</field>
+                        <field id="displayslider">1</field>
+                        <field id="productvideosection/productvideogroup/videooption">fancybox</field>
+                    </depends>
+                </field>
+                <field id="thumbnailwidth" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Thumbnail Width</label>
+                    <validate>required-entry validate-number</validate>
+                    <comment><![CDATA[Set Thumbnail width in pixel.<br>Thumbnail width will working only in product information section.]]></comment>
+                    <depends>
+                        <field id="videoblock">1</field>
+                    </depends>
+                </field>
+                <field id="thumbnailheight" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Thumbnail Height</label>
+                    <validate>required-entry validate-number</validate>
+                    <comment><![CDATA[Set Thumbnail height in pixel.<br>Thumbnail height will working only in product information section.]]></comment>
+                    <depends>
+                        <field id="videoblock">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="videomediagroup" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Videos On Below Media Images Settings</label>
+                <field id="videomedia" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Videos Below Media Images</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Show videos below media images</comment>
+                </field>
+                <field id="displayslider" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display In Slider</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[<b>In Fancy Box: </b>The video list will be display in slider.]]></comment>
+                    <depends>
+                        <field id="videomedia">1</field>
+                        <field id="productvideosection/productvideogroup/videooption">fancybox</field>
+                    </depends>
+                </field>
+                <field id="sliderautoplay" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Slider Autoplay</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Enable slider autoplay.]]></comment>
+                    <depends>
+                        <field id="videomedia">1</field>
+                        <field id="displayslider">1</field>
+                        <field id="productvideosection/productvideogroup/videooption">fancybox</field>
+                    </depends>
+                </field>
+                <field id="autoplayspeed" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Slider Autoplay Speed In Milliseconds</label>
+                    <validate>validate-number</validate>
+                    <comment><![CDATA[Slider autoplay speed. Default value is 3000.]]></comment>
+                    <depends>
+                        <field id="videomedia">1</field>
+                        <field id="displayslider">1</field>
+                        <field id="sliderautoplay">1</field>
+                        <field id="productvideosection/productvideogroup/videooption">fancybox</field>
+                    </depends>
+                </field>
+                <field id="slideitem" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>No. Of Slide Display At A Time</label>
+                    <validate>validate-number</validate>
+                    <comment><![CDATA[How many slides to show at a time. Default value is 3.]]></comment>
+                    <depends>
+                        <field id="videomedia">1</field>
+                        <field id="displayslider">1</field>
+                        <field id="productvideosection/productvideogroup/videooption">fancybox</field>
+                    </depends>
+                </field>
+                <field id="slidespeed" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Slide/Fade Animation Speed</label>
+                    <validate>validate-number</validate>
+                    <comment><![CDATA[Slide/Fade animation speed. Default value is 300]]></comment>
+                    <depends>
+                        <field id="videomedia">1</field>
+                        <field id="displayslider">1</field>
+                        <field id="productvideosection/productvideogroup/videooption">fancybox</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

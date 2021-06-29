@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="themagnet" translate="label" sortOrder="10">
+            <label>TheMagnet</label>
+        </tab>
+        <section id="zoomcatalog" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator</class>
+            <label>Zoom Catalog</label>
+            <tab>themagnet</tab>
+            <resource>Themagnet_Zoomcatalog::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="Catalog_page_title" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Catalog Page Title</label>
+                </field>
+
+                <field id="Catalog_page_sub_title" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Catalog Page Sub-Title</label>
+                </field>
+
+                <field id="apiurl" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Api URL</label>
+                    <comment>https://api.zoomcatalog.com/auth/authorize</comment>
+                </field>
+                <field id="client_id" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Client Id</label>
+                </field>
+
+                <field id="client_secret" translate="label" type="obscure" sortOrder="33" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Client Secret</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="api_services_call" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Api Services Call</label>
+                    <source_model>Themagnet\Zoomcatalog\Model\Config\Source\Service</source_model>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>

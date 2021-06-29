@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Solwin Infotech
+ * Solwin Advanced Product Video Extension
+ *
+ * @category   Solwin
+ * @package    Solwin_ProductVideo
+ * @copyright  Copyright © 2006-2016 Solwin (https://www.solwininfotech.com)
+ * @license    https://www.solwininfotech.com/magento-extension-license/
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Solwin\ProductVideo\Block\Adminhtml\Video\Edit" name="solwin_productvideo_video_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Solwin\ProductVideo\Block\Adminhtml\Video\Edit\Tabs" name="solwin_productvideo_video_tabs">
+                <block class="Solwin\ProductVideo\Block\Adminhtml\Video\Edit\Tab\Video" name="solwin_productvideo_video_edit_tab_video"/>
+                <block class="Solwin\ProductVideo\Block\Adminhtml\Video\Edit\Tab\Videodata" name="solwin_productvideo_video_edit_tab_videodata"/>
+                <block class="Solwin\ProductVideo\Block\Adminhtml\Video\Edit\Tab\Products" name="solwin_productvideo_video_edit_tab_products"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">video</argument>
+                    <argument name="block" xsi:type="string">solwin_productvideo_video_edit_tab_video</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">videodata</argument>
+                    <argument name="block" xsi:type="string">solwin_productvideo_video_edit_tab_videodata</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">video_products</argument>
+                    <argument name="block" xsi:type="array">
+                        <item name="label" xsi:type="string">Select Products</item>
+                        <item name="title" xsi:type="string">Select Products</item>
+                        <item name="url" xsi:type="helper" helper="Solwin\ProductVideo\Helper\Data::getProductsGridUrl"></item>
+                        <item name="class" xsi:type="string">ajax</item>
+                    </argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

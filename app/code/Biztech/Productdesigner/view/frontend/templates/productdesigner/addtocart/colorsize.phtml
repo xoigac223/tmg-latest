@@ -1,0 +1,84 @@
+<?php
+$product_id = $this->getRequest()->getParam('id');
+if(!$product_id){
+    $product_id  = $this->getId();
+}
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$obj_product = $objectManager->create('Magento\Catalog\Model\Product');
+$product = $obj_product->load($product_id);
+$default_color = $this->helper('Biztech\Productdesigner\Helper\Info')->getDefaultImage($product_id);
+$product_type = $product->getTypeId();
+
+$colorid = $this->getSelectedcolorid();
+if($colorid){
+    $default_color = $colorid;
+}
+?>
+
+<?php 
+    if ($product->getTypeId() == 'configurable') {
+
+        $attrs = $product->getTypeInstance(true)->getConfigurableAttributesAsArray($product);
+        $productTypeInstance = $product->getTypeInstance();
+                $usedProducts = $productTypeInstance->getUsedProducts($product);
+                foreach ($usedProducts as $used) {
+                    if ($used->getColor() == $default_color) {
+                        $availablesize[] = $used->getSize();
+                    }
+                }
+        foreach ($attrs as $attr) {
+            if (0 == strcmp("size", $attr['attribute_code'])) {
+                $sizes = $attr['values'];
+            }
+        }
+
+        foreach ($attrs as $attr):
+
+            ?>
+            <?php if ($attr['attribute_code'] == "size") { ?>
+
+                <?php $attributeId = $attr['attribute_id']; ?>
+                
+    
+                   <ul id="size-chart-ul">
+                        <?php 
+                         $simpleCollection="";
+                        foreach ($sizes as $size) { ?>
+
+                            <?php 
+                                $simpleProduct = '';
+                                if (!empty($default_color)) {
+                                    $simpleCollection = $productTypeInstance->getUsedProductCollection($product)
+                                            ->addAttributeToSelect('*')
+                                            ->addAttributeToFilter('color', $default_color)
+                                            ->addAttributeToFilter('size', $size['value_index']);
+                                }
+                                //echo "<pre>";
+                                //print_r($simpleCollection);
+                                if(count($simpleCollection) <= 0){
+                                    continue;
+                                }
+                                foreach ($simpleCollection as $simple) {
+                                    $simpleproduct = $simple;
+                                    break;
+                                }
+                                $_priceIncludingTax = $simpleproduct->getFinalPrice();
+                            ?>
+
+                            <li data-size_id ="<?php echo $size['value_index'] ?>" id="group-order-size-qty" class="size size-<?php echo strtolower($size['store_label']); ?>"  name="<?php echo $size['value_index'] ?>">
+                                <span class="size-label" ><?php echo $size['store_label']; ?></span>
+                                <span class="value"><input type="text" class="input-text qty size-qty" placeholder="0" onfocus="this.placeholder = ''" onblur="this.placeholder = '0'"  title=""  maxlength="12" name="size-quantity" data-product_id="<?php echo $simpleproduct->getId(); ?>" data-price="<?php echo $_priceIncludingTax; ?>" ></span>
+                                <input type="hidden" value="<?php echo $size['value_index'] ?>" name="<?php echo $attributeId ?>"> 
+                            </li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
+              
+                <?php
+            }
+            ?>
+            <?php
+        endforeach;
+    }
+    ?>

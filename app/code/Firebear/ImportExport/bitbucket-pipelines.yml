@@ -1,0 +1,10 @@
+image: firebear/magento2
+
+pipelines:
+  default:
+    - step:
+        name: PHP CodeSniffer
+        script:
+          - composer config http-basic.repo.magento.com $MAGENTO_AUTH_LOGIN $MAGENTO_AUTH_PASS
+          - composer create-project --repository=https://repo.magento.com magento/marketplace-eqp magento-coding-standard
+          - magento-coding-standard/vendor/bin/phpcs --standard=MEQP2 --warning-severity=10 --ignore=/magento-coding-standard/* .

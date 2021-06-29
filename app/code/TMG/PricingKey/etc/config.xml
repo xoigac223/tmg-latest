@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <tmg_pricing_key>
+            <option_label>
+                <print_method>Choose an Imprint Method/Option</print_method>
+                <buy_option>Select an Option Below</buy_option>
+                <color_charge>Add Color/Run Charge</color_charge>
+            </option_label>
+            <option_value_label>
+                <order_sample>Order Sample</order_sample>
+                <color_charge>Charge Per Color</color_charge>
+            </option_value_label>
+        </tmg_pricing_key>
+    </default>
+</config>

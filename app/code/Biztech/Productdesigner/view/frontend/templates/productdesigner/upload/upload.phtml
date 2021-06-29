@@ -1,0 +1,37 @@
+<div>
+    <div id="uploaded_images">
+        <ul id="uploaded_images_cntn">
+            <?php echo $this->getChildHtml("uploaded_images_container"); ?>
+        </ul>
+    </div>
+</div>
+<form id="upload_images" method="post" action="<?php echo $this->getUrl('productdesigner/index/uploadImages', array('_secure' => $this->getRequest()->isSecure()))?>" enctype="multipart/form-data" target="uploadedImageSave">
+    <div id="upload_agreement_box" class="upload-agreement-box"><?php if($block->userConfirmation()): ?><label><span class="agreement-notice"><input type="checkbox" id="upload_agreement">&nbsp;&nbsp;<?php echo $block->imageText();?></span></label><?php endif; ?></div>
+    <div class="image_upload_container">
+        <span class="browse-area">
+            <input type="text" id="filename" class="design-browse-extra-input" >
+            <label for="image_upload" class="design-browse" title="Browse">Browse</label>
+            <input type="file" accept="image/png, image/jpg, image/jpeg, image/svg, image/gif" multiple="multiple" id="image_upload" name="image_upload[]">
+            <span class="agreement-notice max-file-size"><?= __('Max. file size to upload is 8 MB.'); ?></span>
+            <input name="MAX_FILE_SIZE" type="hidden" value="8388608" />
+        </span>
+    </div>
+    <?php 
+     $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+     $demo = $objectManager->create('\Magento\Store\Model\StoreManagerInterface');
+     $base_url = $demo->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA); ?>
+    <div id="upload-image-error"  style="display: none;"></div>
+    <img id="image_upload_loader" src="<?php echo $this->getViewFileUrl('Biztech_Productdesigner/images/opc-ajax-loader.gif'); ?>" style="display: none;" />
+    <div class="upload-buttons">
+        <button id="image_upload_btn" title="Upload" type="submit" <?php if($block->userConfirmation()): ?> disabled="disabled" <?php endif; ?> class="button <?php if($block->userConfirmation()): ?>disabled<?php endif; ?>"><span><span><?php echo __('Upload')?></span></span></button>
+        <button style="display: none;" type="button" id="remove_uploaded_img" class="button"><span><span><?php echo __('Remove Images')?></span></span></button>        
+    </div>
+    <iframe style="display:none;" name="uploadedImageSave" id="uploadedImageSave"></iframe>
+</form>
+<?php if($block->showInstruction()): ?>
+    <div id="instruct_container">
+        <p class="note-msg">
+            <?php echo $block->InstructionText(); ?>
+        </p>
+    </div>
+<?php endif; ?>

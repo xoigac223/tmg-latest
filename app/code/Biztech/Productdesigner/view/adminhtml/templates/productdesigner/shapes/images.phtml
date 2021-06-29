@@ -1,0 +1,46 @@
+<?php  
+    $cat_id = $this->getCatId();
+    $tags   = $this->getTags() ;
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $images = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Shapesmedia\Collection')->addFieldToFilter('tags',array('like'=>'%'.$tags.'%'))->addFieldToFilter('disabled',array('neq'=>'1'));
+    //$images =  Mage::getModel('productdesigner/productdesigner_shapes_media')->getCollection()->addFieldToFilter('tags',array('like'=>'%'.$tags.'%'))->addFieldToFilter('disabled',array('neq'=>'1'));
+    //$images->getSelect()->order('position',ASC);
+    
+    if(!$cat_id)
+    {
+        $cat_id = $block->getDefaultShapesCategory();
+    }
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $model = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Shapes\Collection')->addFieldToFilter('parent_categories',array('eq'=>$cat_id))->addFieldToFilter('status',array('eq'=>1));
+    $shape_col = $model->getData();
+    $shapeIds = array();
+    foreach($shape_col as $shapec){
+        $shapeIds[] = $shapec['shapes_id'];
+    }
+    $sub_cat_id = implode(',', $shapeIds);
+?>
+<?php if($cat_id): ?>
+    <?php 
+    if($sub_cat_id){
+        $Cats = array();
+        foreach(explode(',',$sub_cat_id) as $subCats){
+            $Cats[] = $subCats;
+        }
+        $Cats[] = $cat_id;
+        $images = $images->addFieldToFilter('shapes_id', array('in' => $Cats));
+    }
+    else{
+        $images = $images->addFieldToFilter("shapes_id",array("eq"=>$cat_id));  
+    }
+endif; ?>
+<ul id="image_list_shapes" class="image_list product_list">
+    <?php $base_url = $block->getbaseurl(); ?>
+    <?php foreach($images as $image): ?>
+        <li>
+            <img src="<?php echo $base_url.'productdesigner/shapes/'. $image['image_path'] ;?>" class="product-image shapes-image" data-orig-url="<?php echo  $base_url.'productdesigner/shapes/'.$image['image_path']; ?>" data-price="<?php echo $image['price'] ?>" alt="<?php echo $image['label'] ?>" title="<?php echo $image['label'] ?>">
+        </li>
+    <?php endforeach; ?>
+    <?php if(count($images) == 0): ?>
+        <li class="note-message"> <span class="a-center"> <?php echo __("Sorry, no images found."); ?></span></li>
+    <?php endif; ?>
+</ul>

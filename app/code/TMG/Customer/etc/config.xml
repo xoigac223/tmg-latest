@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <tmg_customer>
+            <customer_security_service>
+                <wsdl_url>https://api.themagnetgroup.com/CustomerSecurity/CustomerSecurityService.svc?wsdl</wsdl_url>
+                <debug_mode>1</debug_mode>
+            </customer_security_service>
+            <contact_service>
+                <wsdl_url>https://api.themagnetgroup.com/Contact/ContactService.svc?wsdl</wsdl_url>
+                <debug_mode>1</debug_mode>
+            </contact_service>
+            <tmg_customer_error>
+                <error_message>We're Sorry, This account requires additional verification. To proceed, Please Contact customer service by dialing 1 (800)-458-9457 our use Live Chat.</error_message>
+            </tmg_customer_error>
+        </tmg_customer>
+    </default>
+</config>

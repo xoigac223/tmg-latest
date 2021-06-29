@@ -1,0 +1,56 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+/** @var $block \Magento\Backend\Block\Media\Uploader */
+
+?>
+<input id="fileupload" type="file" name="clipart-image"
+            data-url="<?php /* @escapeNotVerified */ echo $this->getUrl('productdesigner/clipart_gallery/upload') ?>" multiple="multiple"/>
+
+
+<script>
+require([
+    "jquery",
+    'mage/template',
+    'Magento_Ui/js/modal/alert',
+    "mage/translate",
+    "jquery/file-uploader"
+], function ($, mageTemplate, alert) {
+
+
+$('#fileupload').fileupload({
+
+    dataType: 'json',
+    dropZone: '[data-tab-panel=image-management]',
+    sequentialUploads: true,
+    acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+    add: function (e, data) {
+    
+        
+
+        $(this).fileupload('process', data).done(function () {
+            data.submit();
+        });
+    },
+});
+   
+$('#fileupload').fileupload('option', {
+        process: [{
+            action: 'load',
+            fileTypes: /^image\/(gif|jpeg|png)$/
+        }, {
+            action: 'resize',
+            maxWidth: <?php /* @escapeNotVerified */ echo \Magento\Framework\File\Uploader::MAX_IMAGE_WIDTH ?> ,
+            maxHeight: <?php /* @escapeNotVerified */ echo \Magento\Framework\File\Uploader::MAX_IMAGE_HEIGHT ?>
+        }, {
+            action: 'save'
+        }]
+}); 
+
+
+});
+</script>

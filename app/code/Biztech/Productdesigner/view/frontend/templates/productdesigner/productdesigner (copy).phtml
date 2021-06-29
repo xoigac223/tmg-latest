@@ -1,0 +1,1334 @@
+    <?php $base_url = $block->getimageurl();
+?>        
+<div class="pd-loader" id="pd_loading_img">
+    <span id="product-images-loader">
+        <img src="<?php echo $this->getViewFileUrl('Biztech_Productdesigner/images/opc-ajax-loader.gif'); ?> " class="v-middle" alt="">
+    </span>
+</div>
+<?php
+$tier_prices = [];
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$colors = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Pcolor\Collection');
+$config = $objectManager->create('Magento\Framework\App\Config\ScopeConfigInterface');
+$enable_color_picker = $config->getValue('productdesigner/colorpicker/colorpicker');
+
+?>
+
+<div id="fb-root"></div>
+<script>
+
+window.fbAsyncInit = function() {
+    FB.init({
+      appId      : "<?php echo $config->getValue('productdesigner/social_media_upload/facebook_appid') ?>",
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+
+};
+
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+</script>
+
+<?php 
+/*==================*/
+?>
+<div class="productdesigner-view fluid-layout" id="productdesigner-view" style="display:none;">
+    <?php $base_url = $block->getimageurl(); ?>        
+    <div class="pd-header">
+        <div class="f-left">
+            <?php
+            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+            $store_id = $objectManager->get('Magento\Store\Model\StoreManagerInterface')->getStore()->getStoreId();
+            $logo_alt = $objectManager->create('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('design/header/logo_alt');
+//$logo_src = $objectManager->create('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('design/header/logo_src');  
+            ?>
+            <a href="<?php echo $block->getUrl(''); ?>" target="_blank"><img src="<?php echo $block->getLogoSrc(); ?>" title="<?php echo $logo_alt; ?>" alt="<?php echo $logo_alt; ?>" border="0" />
+            </a>
+
+        </div>
+        <div class="f-right">
+            <a class="button back-store" onclick="history.go(-1);
+                    return false;" href="#"><?php echo __('back to store'); ?><span class="sprite ico-small-arrow" id="ico-small-arrow"></span></a>
+        </div>
+    </div>
+    <!--
+    <script src="<?php //echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS)."biztech/productdesigner/select.js"                                                                               ?>"></script>
+    <script src="<?php //echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS)."biztech/productdesigner/easyResponsiveTabs.js"                                                                               ?>"></script>-->
+
+    <?php
+    if ($this->helper('Biztech\Productdesigner\Helper\Data')->isEnable()):
+        ?>
+        <?php
+        $product_id = $this->getRequest()->getParam('id');
+        
+        $design_id = $this->getRequest()->getParam('design');
+        $template_id = $this->getRequest()->getParam('templateid');
+
+        $requestOb = $objectManager->get('Magento\Framework\App\Request\Http');
+        $action = $requestOb->getActionName();
+        $obj_product = $objectManager->create('Magento\Catalog\Model\Product');
+        $product = $obj_product->load($product_id);
+        $productTypeInstance = $product->getTypeInstance();
+        $side = array();
+        $sidecollection = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Side\Collection')->addFieldToFilter('status', array('eq' => 1))->getData();        
+        foreach ($sidecollection as $sidecollect) {
+            $side[] = $sidecollect['imageside_title'];
+        }
+        $jsonsidedata = json_encode($side);
+        /* $attrs = $product->getTypeInstance(true)->getConfigurableAttributesAsArray($product);
+          foreach ($attrs as $attr) {
+          $attr['attribute_code'];
+          }
+          foreach ($product->getOptions() as $o) {
+          $o->getType();
+          } */
+
+        $printingMethod = $product->getprintingmethodattr();
+        if($product->getTypeId() == 'configurable'){
+            $printingCollection = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Printingmethod\Collection')->addFieldToFilter('status', array('eq' => 1));
+            //if(count($printingCollection) != 0){
+            if($printingMethod != '') {
+                $printing_method_avail = '1';            
+            }
+            else{
+                $printing_method_avail = '0';
+            }
+            $simpleTierCollection = $productTypeInstance->getUsedProductCollection($product)
+                ->addAttributeToSelect('*');
+             $tier_prices = array();
+
+            foreach ($simpleTierCollection as $simple) 
+            {
+                $tier_prices[$simple->getId()] = $simple->getTierPrice();
+            }
+        }else{
+            $simpleprintingCollection = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Simpleprintingmethod\Collection')->addFieldToFilter('status', array('eq' => 1));
+            //if(count($simpleprintingCollection) != 0){
+             if($printingMethod != '') {
+                $printing_method_avail = '1';
+            }
+            else{
+                $printing_method_avail = '0';
+            }
+        }
+        
+        
+        $jsonHelper = $objectManager->create('Magento\Framework\Json\Helper\Data');
+        $isPdEnable = $this->helper('Biztech\Productdesigner\Helper\Info')->isPdEnable($product_id);
+
+        // $params = $this->getRequest()->getParams();
+        //$default_color = Mage::helper('productdesigner/info')->getDefaultImage($product_id);
+        //$product_default_color = $default_color->getColorHexValue();
+        ?>
+        <?php if (isset($isPdEnable) && $isPdEnable): ?>
+            <div class="pd-wrapper" id="product-designer">
+                <div class="pd-left-panel left-panel-active" id="rs-left-panel">
+                    <div id="parentVerticalTab">
+                        <ul class="resp-tabs-list hor_1" id="resp-tabs-list">
+
+
+                            <li id="text_tab" class="nav_tab">
+                                <span class="sprite ico-text"></span>
+                                <span class="label"><?php echo __('Text'); ?></span>
+                            </li>                            
+
+
+                            <li id="clipart_tab" class="nav_tab">
+                                <span class="sprite ico-design"></span>
+                                <span class="label"><?php echo __('Design'); ?></span>
+                            </li>
+
+                            <?php if ($product->getTypeId() == 'configurable'): ?>
+                                <li id="grouporder_tab" class="nav_tab">
+                                    <span class="sprite ico-number"></span>
+                                    <span class="label"><?php echo __('Name &amp; Numbers'); ?></span>
+                                </li>
+                            <?php endif; ?>
+                            <?php if ($block->getProductGeneralEnable()): ?>
+                                <li id="product_tab" class="nav_tab">
+                                    <span class="sprite ico-change-product"></span>
+                                    <span id="add_products" class="label"><?php echo __('Change Product'); ?></span>
+                                </li>
+                            <?php endif; ?>
+                            <?php if ($block->designTemplate()): ?>
+                                <li class="nav_tab" id="templates_tab"> 
+                                    <span class="sprite ico-template"></span>
+                                    <span class="label" id="add_template"><?php echo __('Templates'); ?></span>
+                                </li>
+                            <?php endif; ?>
+                            <?php //if ($block->myDesign()): ?>
+                                <li class="nav_tab" id="mydesigns_tab">
+                                    <span class="sprite ico-designs"></span>
+                                    <span class="label" id="add_mydesigns"><?php echo __('My Designs'); ?></span>
+                                </li>
+                            <?php //endif; ?>
+                            <!-- Start ADDED BY BC:ASHISH Task: Custom Option-->
+                                <li class="nav_tab" id="customoption_tab">
+                                    <span class="sprite ico-designs"></span>
+                                    <span class="label" id="add_customoption"><?php echo __('Custom Options'); ?></span>
+                                </li>
+                                <!-- End ADDED BY BC:ASHISH Task: Custom Option-->
+
+                            <!-- social media -->
+                            <!-- <li class="nav_tab" id="socialmedia_tab"> 
+                                <span class="sprite ico-template"></span>
+                                <span class="label" id="add_social"><?php //echo __('Social Media'); ?></span>
+                            </li> -->
+                            <!-- social media -->
+
+
+                        </ul>
+                        <div class="resp-tabs-container hor_1" id="resp-tabs-container">
+                           
+
+
+                            <div class="inner-tab-option" id="inner-tab-option-text" style="display:none;">
+                                <ul class="tab-design">
+
+                                    <li class="tab-detail add-text selected">  
+                                        <a href="javascript:showonlyone('add_text');"  id="add_text_btn"><?php echo __('Add Text'); ?></a>
+                                    </li>
+
+                                    <?php if ($block->quotesEnable()): ?>
+                                        <li class="tab-detail choose-quotes">  
+                                            <a href="javascript:showonlyone('choose_quotes');"  id="choose_quotes_btn"><?php echo __('Choose Quotes'); ?></a>
+                                        </li>
+                                    <?php endif; ?>
+                                </ul>
+
+                                <div class="desgin-detail dsign-text" id="add_text">                                  
+                                    <div id="add_text_content">
+                                        <div id="text_container">
+                                            <?php echo $this->getChildHtml("text"); ?>
+                                        </div>
+                                    </div>                                  
+                                </div>
+
+                                <?php if ($block->quotesEnable()): ?>
+                                    <div class="desgin-detail choose_quotes_detail" id="choose_quotes" style="display:none;">
+                                        <div id="add_quotes_content" class="designer-panel" style="">
+                                            <div id="quotes_category_container" class="">
+                                                <?php echo $this->getChildHtml("quotes_categories"); ?>
+                                            </div>
+                                            <div id="quotes_list_container">
+                                                <?php echo $this->getChildHtml("quotes_list"); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endif; ?> 
+                            </div>
+
+
+
+                            <div class="inner-tab-option" id="inner-tab-option-clipart" style="display:none;">
+                                <ul class="tab-design">
+                                    <?php if ($block->uploadEnable()): ?>
+                                        <li class="tab-detail upload-image selected">
+                                            <a href="#" onclick="javascript:showonlyone('add_upload_image');"  id="add_upload_image_btn"><?php echo __('Upload'); ?></a>
+                                        </li>
+                                    <?php endif; ?>
+
+                                    <li class="tab-detail shapes-arts <?php if (!$block->uploadEnable()): ?>selected<?php endif; ?>">                                        
+                                        <a href="#" onclick="javascript:showonlyone('shape_arts');" id="shape_arts_btn"><?php echo __('Add Clip-art'); ?></a>
+                                    </li>
+
+
+
+                                    <li class="tab-detail image-customize">
+                                        <a onclick="javascript:showonlyone('img_customize');" href="#" id="img_customize_btn"><?php echo __('Customize'); ?></a>
+                                    </li>
+
+                                </ul>
+
+                                <div class="desgin-detail upload-img-detail designer-panel" id="add_upload_image">
+                                    <?php if ($block->uploadEnable()): ?>
+                                        <div id="add_upload_image_content" class="">
+                                            <div id="upload_images_container" class="">
+                                                <?php echo $this->getChildHtml("uploadImage"); ?>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                     <!-- social media -->
+                                        <h4 id="add_social" class="label"><?php echo __('Fetch From Social Media'); ?></h4>
+                                        <div class="pd-loader-social" id="pd_loading_img_social" style="display:none;">
+                                            <span id="product-images-loader">
+                                                <img src="<?php echo $block->getViewFileUrl('productdesigner/images/opc-ajax-loader.gif'); ?>" class="v-middle" alt="">
+                                            </span>
+                                        </div>
+                                        <div id="add_social_content" class="socialmedia_content" style="display: block;" >
+
+
+                                            <div class="pd-loader-social" id="pd_loading_img_social" style="display: none;">
+                                                <span id="product-images-loader">
+                                                    <img src="<?php echo $this->getViewFileUrl('Biztech_Productdesigner/images/opc-ajax-loader.gif');?>" class="v-middle" alt="">
+                                                </span>
+                                            </div>
+
+                                            <button class="social-button" scope="public_profile,email,user_photos" onclick="loginToFacebook()" title="Facebook">
+                                            <img src="<?php echo $this->getViewFileUrl('Biztech_Productdesigner/images/social-fb.png');?>" class="v-middle" alt="" >
+                                             </button>
+                                            <button class="social-button" scope="public_profile,email,user_photos" onclick="onclickInstgram()" title="Instagram">
+                                                <img src="<?php echo $this->getViewFileUrl('Biztech_Productdesigner/images/social-insta.png');?>" class="v-middle" alt="" >
+                                            </button>
+
+
+                                            <?php echo $this->getLayout()->createBlock("Magento\Framework\View\Element\Template")->setTemplate("Biztech_Productdesigner::productdesigner/social_media/facebook.phtml")->toHtml();?>
+                                             <?php echo $this->getLayout()->createBlock("Magento\Framework\View\Element\Template")->setTemplate("Biztech_Productdesigner::productdesigner/social_media/instagram.phtml")->toHtml();?>
+
+
+                                        </div>
+                                        <!-- social media -->
+                                </div>
+                                <div id="shape_arts" class="desgin-detail add-clipart-detail shapeart-tab" <?php if ($block->uploadEnable()) { ?>style="display:none;"<?php } ?>>
+                                    <div>
+                                        <ul class="tab-design custom-inner">
+                                             <li class="tab-detail1 selected1">                                                
+
+                                                <a href="javascript:showonlyone1('add_clipart_div');" id="add_clipart_div_btn"><?php echo __('Choose Cliparts'); ?></a>
+
+                                            </li>
+                                            <?php if ($block->shapeEnable()): ?>
+                                                <li class="tab-detail1"> 
+                                                    <a href="javascript:showonlyone1('add_shapes_div');" id="add_shapes_div_btn"><?php echo __('Choose Shapes'); ?></a>
+
+                                                </li>
+                                            <?php endif; ?>
+                                           
+                                            <li class="tab-detail1"> 
+                                                <a href="javascript:showonlyone1('add_pencil_div');" id="add_pencil_div_btn"><?php echo __('Brush Tool'); ?></a>
+                                            </li>
+                                        </ul>
+                                       
+                                        <div class="desgin-detail1" id="add_clipart_div">                                            
+                                            <div class="clipart-detail" id="add_clipart">
+
+                                                <div id="add_clipart_content">
+                                                    <div id="clipart_category_container" class="" >
+                                                        <?php echo $this->getChildHtml("clipart_categories"); ?>
+                                                    </div>
+                                                    <div id="clipart_images_container">
+                                                        <?php echo $this->getChildHtml("clipart_images"); ?>
+                                                    </div>
+                                                    <img id="clipart_list_loader" src="<?php echo $this->getViewFileUrl('Biztech_Productdesigner/images/opc-ajax-loader.gif'); ?>" style="display:none">
+                                                    <input type="button" value="<?php echo __("Load More"); ?>" class="load_more_clipart" id='more_clipart' title="Load More" />
+                                                    <input type="button" value="<?php echo __("No More Cliparts"); ?>" class="load_more_clipart no_more_cliparts" style='display:none' title="No More Cliparts"/>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                         <div class="desgin-detail1" id="add_shapes_div" style="<?php if (!$block->clipartEnable()): ?>display:none;<?php endif; ?>">
+                                            <div class="shapes-detail" id="shapes">
+                                                <?php if ($block->shapeEnable()): ?>
+                                                    <div id="add_shapes">
+                                                        <div id="shapes_category_container" class="">
+                                                            <?php echo $this->getChildHtml("shapes_categories"); ?>
+                                                        </div>
+                                                        <div id="shapes_images_container" >
+                                                            <?php echo $this->getChildHtml("shapes_images"); ?>
+                                                        </div>
+                                                        <img id="shapes_list_loader" src="<?php echo $this->getViewFileUrl('Biztech_Productdesigner/images/opc-ajax-loader.gif'); ?>" style="display:none">
+                                                            <input type="button" value="<?php echo __("Load More"); ?>" class="load_more_shapes" id='more_shapes' title="Load More" />
+                                                            <input type="button" value="<?php echo __("No More Shapes"); ?>" class="load_more_shapes no_more_shapes" style='display:none' title="No More Shapes"/>
+                                                    </div>
+                                                <?php endif; ?> 
+                                            </div>
+                                        </div>
+                                        <div class="desgin-detail1" id="add_pencil_div" style="display:none;">                                     
+                                            <div id="brush" >
+                                                <ul>
+                                                    <li>
+                                                        <select name="brush_type" id="brush_type">
+                                                            <option value="Circle"><?php echo __('Circle'); ?></option>
+                                                            <option value="diamond"><?php echo __('diamond'); ?></option>
+                                                            <option value="hline"><?php echo __('line'); ?></option>
+                                                            <option value="Pattern"><?php echo __('Pattern'); ?></option>
+                                                            <option value="Pencil"><?php echo __('Pencil'); ?></option>
+                                                            <option value="Spray"><?php echo __('Spray'); ?></option>
+                                                            <option value="square"><?php echo __('square'); ?></option>
+                                                            <option value="vline"><?php echo __('vline'); ?></option>
+                                                        </select>                                
+                                                        <script type="text/javascript">
+                                                            require(['jquery', 'jquery/ui'], function ($) {
+                                                                var $j = jQuery.noConflict();
+                                                                $j(function () {
+                                                                    $j('#brush_type').selectric();
+                                                                });
+                                                            });</script>                                
+                                                    </li>
+                                                    <li>
+                                                        <input type="range" value="0" min="0" max="40" id="drawing-line-width" name="width">
+                                                    </li>
+                                                    <li class="productdesigner-relative">
+                                                        <button id="brush_color" name="brush_color" class="brush_color pd-button save" title="Brush Color"><span style="border-color:#000000 "><?php echo __('A'); ?></span></button>
+                                                        <?php if ($enable_color_picker == "0"): ?>
+                                                            <div class="color-pallet"><ul id="clipart-color-container_brush" class="color-container clipart-color-container_brush" style="display:none;">
+                                                                    <li class="color-title"><span class="label"><?php echo __("Color"); ?>: </span><span id="clipart_color_title_brush"><?php echo __("No Color"); ?></span></li>
+                                                                    <?php
+                                                                    if (count($colors) != 0) {
+                                                                        foreach ($colors as $_color):
+                                                                            $bgColor = $_color->getColorCode();
+                                                                            ?>
+                                                                            <?php if($_color->getStatus() == 1):?>
+                                                                            <li><span style="background-color: <?php echo $bgColor ?>" title="<?php echo $_color->getColorName(); ?>" class="color-img clipart-color-img-brush" data-color_id = "<?php echo $bgColor ?>" data-color_name ="<?php echo $_color->getColorName(); ?>"></span></li>
+                                                                            <?php endif;?>
+
+                                                                        <?php endforeach; ?>
+                                                                    <?php }else { ?>
+                                                                        <li class="clipart-color-content-brush"><span><?php echo __('No colors available'); ?>.</span>
+                                                                        </li>
+
+                                                                    <?php } ?>
+                                                                </ul> </div>
+                                                        <?php endif; ?>
+
+
+                                                        <button id="brush_switch" name="brush_switch" class="pd-button save" title="Brush"><?php echo __('Brush On'); ?></button>
+                                                    </li>
+                                                    <script type="text/javascript">
+                                                        require(['jquery', 'jquery/ui'], function ($) {
+
+                                                            var enable_color_picker = '<?php echo $enable_color_picker?>';
+                                                            if(enable_color_picker == 1){ 
+                                                                var cp5 = jQuery("#brush_color").ColorPicker({
+                                                                    onChange: function (hsb, hex, rgb) {
+                                                                        Brush.setBrushColor("#" + hex);
+                                                                    }
+                                                                });
+                                                            }
+
+
+                                                        });
+                                                        //var cp5 = new colorPicker('brush_color');</script>   
+                                                </ul>
+                                            </div>   
+                                        </div>
+                                    </div> 
+                                </div>
+                                <h6 style="display:none" id="select_image"><?php echo __('Please Select Image Or Add New Image'); ?></h6>
+                                <div id="img_customize" class="desgin-detail img-customize" style="display:none;">
+                                    <div class="masking-detail" id="masking" style="display:block;">
+                                        <?php if ($block->MaskingEnabled()): ?>
+                                            <div id="add_masking_content">
+                                                <div id="masking_category_container" class="" >
+                                                    <?php echo $this->getChildHtml("masking_categories"); ?>
+                                                </div>
+                                                <div id="masking_images_container" style="display:none;">
+                                                    <?php echo $this->getChildHtml("masking_images"); ?>
+                                                </div>
+                                                 <img id="masking_list_loader" src="<?php echo $this->getViewFileUrl('Biztech_Productdesigner/images/opc-ajax-loader.gif'); ?>" style="display:none">
+                                                    <input type="button" value="<?php echo __("Load More"); ?>" class="load_more_masking" id='more_masking' title="Load More" />
+                                                    <input type="button" value="<?php echo __("No More Masking"); ?>" class="load_more_masking no_more_masking" style='display:none' title="No More Masking"/>
+                                                <div class="used_color_container_obj" id="used_color_container_obj" title="No More Masking" ></div>
+                                                
+                                            </div>
+                                        <?php endif; ?> 
+                                    </div>
+                                    <div class="imagedesigner-detail" id="imagedesigner">
+                                        <ul>
+                                            <li class="productdesigner-relative">
+                                                
+                                                <button class="pd-button obj_color continue" id="obj_color" name="obj_color" title="Masking Color"><span style="border-color:#000000 "><?php echo __('A'); ?></span></button>   
+
+
+                                                <?php if ($enable_color_picker == "0"): ?>
+                                                        <ul id="clipart-color-container" class="color-container clipart-color-container" style="display:none;">
+                                                            <li class="color-title"><span class="label"><?php echo __("Color"); ?>: </span><span id="clipart_color_title"><?php echo __("No Color"); ?></span></li>
+                                                            <?php
+                                                            if (count($colors) != 0) {
+                                                                foreach ($colors as $_color):
+                                                                    $bgColor = $_color->getColorCode();
+                                                                    ?>  
+                                                                    <?php if($_color->getStatus() == 1):?>
+                                                                    <li><span style="background-color: <?php echo $bgColor ?>" title="<?php echo $_color->getColorName(); ?>" class="color-img clipart-color-img" data-color_id = "<?php echo $bgColor ?>" data-color_name ="<?php echo $_color->getColorName(); ?>"></span></li>
+                                                                    <?php endif;?>
+
+                                                                <?php endforeach; ?>
+                                                            <?php }else { ?>
+                                                                <li class="clipart-color-content"><span><?php echo __('No colors available'); ?>.</span>
+                                                                </li>
+
+                                                            <?php } ?>
+                                                        </ul>
+                                                <?php endif; ?>
+
+
+
+                                                <script type="text/javascript">
+                                                    require(['jquery', 'jquery/ui'], function ($) {
+                                                        
+                                                        var enable_color_picker = '<?php echo $enable_color_picker?>';
+                                                        if(enable_color_picker == 1){ 
+                                                            var cp6 = jQuery("#obj_color").ColorPicker({
+                                                                onChange: function (hsb, hex, rgb) {
+                                                                    EffectDesigner.setObjColor("#" + hex);
+                                                                }
+                                                            });
+                                                        }
+
+
+                                                    });
+
+                                                </script>
+                                            </li>
+                                            <li>
+                                                <div id="effects">
+                                                    <label><input type="checkbox" class="objfilter" id="Grayscale" value="Grayscale" name="Grayscale()"><?php echo __('Grayscale'); ?></label>
+                                                    <label><input type="checkbox" class="objfilter" id="Sepia" value="Sepia" name="Sepia()"><?php echo __('Sepia'); ?></label>
+                                                    <label><input type="checkbox" class="objfilter" id="Sepia2" value="Sepia2" name="Sepia2()"><?php echo __('Sepia2'); ?></label>
+                                                    <label><input type="checkbox" class="objfilter" id="Invert" value="Invert" name="Invert()"><?php echo __('Invert'); ?></label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <?php if ($product->getTypeId() == 'configurable'): ?>
+                                <div id="add_name_num_content" class="desgin-detail desgin-name-number">                            
+                                    <?php
+                                    echo $this->getChildHtml("grouporder");
+                                    ?>   
+                                </div>
+                            <?php endif; ?>
+                            
+                             <?php if ($block->getProductGeneralEnable()): ?>
+                                <div id="add_products_content" class="desgin-detail desgin-category">
+                                    <h2 class="product-name"><?php echo $product->getName(); ?></h2>
+                                    <div id="product_category_container" class="product-category-container" >
+                                        <?php echo $this->getChildHtml("product_categories"); ?>
+                                    </div>
+                                    <div id="product_list_container">
+                                        <?php echo $this->getChildHtml("products"); ?>
+                                    </div>
+                                    <img id="product_list_loader" src="<?php echo $this->getViewFileUrl('Biztech_Productdesigner/images/opc-ajax-loader.gif'); ?>" style="display:none">
+                                        <input type="button" value="<?php echo __("Load More"); ?>" class="load_more_products" id='more_products' style='display:none' title="Load More"/>
+                                        <input type="button" value="<?php echo __("No More Products"); ?>" class="load_more_products no_more_products" style='display:none' title="No More Product"/>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if ($block->DesigntemplatesEnable()): ?>
+                                <div id="add_template_content" class="desgin-detail design-template">
+                                    <div id="template_category_container" class="">
+                                        <?php echo $this->getChildHtml("template_categories"); ?>
+                                    </div>
+                                    <div id="template_images_container">
+                                        <?php echo $this->getChildHtml("template_images"); ?>
+                                    </div>
+                                     <img id="templates_list_loader" src="<?php echo $this->getViewFileUrl('Biztech_Productdesigner/images/opc-ajax-loader.gif'); ?>" style="display:none">
+                                        <input type="button" value="<?php echo __("Load More"); ?>" class="load_more_templates" id='more_templates' style='display:none' title="Load More"/>
+                                        <input type="button" value="<?php echo __("No More Templates"); ?>" class="load_more_templates no_more_templates" style='display:none' title="No More Template"/>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php //if($helper->getConfig('mydesigns_general/enabled')):   ?>
+                            <div id="add_mydesigns_content" class="desgin-detail" style="display: none;">
+                                <div id="mydesigns_images_container" class="">
+                                    <?php echo $this->getChildHtml("mydesigns"); ?>
+                                </div>
+                                <?php $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                                    $customerSession = $objectManager->get('Magento\Customer\Model\Session');
+                                    if($customerSession->isLoggedIn()) { 
+                                ?>
+                                    <img id="mydesigns_list_loader" src="<?php echo $this->getViewFileUrl('Biztech_Productdesigner/images/opc-ajax-loader.gif'); ?>" style="display:none">
+                                    <input type="button" value="<?php echo __("Load More"); ?>" class="load_more_mydesigns" id='more_mydesigns' title="Load More"/>
+                                     <input type="button" value="<?php echo __("No More Designs"); ?>" class="load_more_mydesigns no_more_designs" style='display:none' title="No More Designs"/>
+                                <?php } ?>
+                            </div>
+                            <?php //endif;  ?>   
+
+                            <div id="add_customoption_content" class="desgin-detail" style="display: none;">
+                                <div id="customoption_images_container" class="">
+                                    <?php 
+                                    // echo $this->getChildHtml("itoris_dynamicoptions_config"); 
+                                    echo $this->getChildHtml("customoption"); 
+                                    ?>
+                                </div>
+                            </div>
+                            
+                            <!-- Social Media -->
+                        <!-- <div id="add_social_content" class="desgin-detail socialmedia_content" style="display: none;">
+
+
+                                <div class="pd-loader-social" id="pd_loading_img_social" style="display: none;">
+                                    <span id="product-images-loader">
+                                        <img src="<?php //echo $this->getViewFileUrl('Biztech_Productdesigner/images/opc-ajax-loader.gif');?>" class="v-middle" alt="">
+                                    </span>
+                                </div>
+
+                                <button class="social-button" scope="public_profile,email,user_photos" onclick="loginToFacebook()" title="Facebook">
+                                    <img src="<?php //echo $this->getViewFileUrl('Biztech_Productdesigner/images/social-fb.png');?>" class="v-middle" alt="" >
+                                </button>
+                                <button class="social-button" scope="public_profile,email,user_photos" onclick="onclickInstgram()" title="Instagram">
+                                    <img src="<?php //echo $this->getViewFileUrl('Biztech_Productdesigner/images/social-insta.png');?>" class="v-middle" alt="" >
+                                </button>
+
+
+                                <?php //echo $this->getLayout()->createBlock("Magento\Framework\View\Element\Template")->setTemplate("Biztech_Productdesigner::productdesigner/social_media/facebook.phtml")->toHtml();?>
+
+                                <?php //echo $this->getLayout()->createBlock("Magento\Framework\View\Element\Template")->setTemplate("Biztech_Productdesigner::productdesigner/social_media/instagram.phtml")->toHtml();?>
+
+
+
+                            </div> -->
+                            <!-- Social Media -->
+
+
+                            <a href="javascript:void(0)" id="close_tabs"><span class="sprite ico-close"></span></a>
+                        </div>
+                        <div class="res-overlay" id="res-overlay" style="display: block;"></div>
+                    </div>
+                </div>
+                <div class="layers-detail">
+                    <ul class="layers"> 
+                        <li>
+                            <a href="javascript:void(0)" class="layer-btn" id="btn_layers"  <?php echo __("Layers"); ?>><span class="sprite ico-layer"></span><span class="label"><?php echo __("Layers"); ?></span></a>
+                        </li>
+                    </ul> 
+                    <div class="layers_manager" id="layers_manager" style="display: none;">
+                        <ul id="layers_ul">
+                            <li class="layer-title">
+                                <span class="label layer" id="layer"><?php echo __("Layer"); ?></span>
+                                <span class="label lock" id="action"><?php echo __("Action"); ?></span>
+                                <span class="label front" id="delete"><?php echo __("Front"); ?></span>
+                                <span class="label back" id="delete"><?php echo __("Back"); ?></span>
+                                <span class="label delete" id="delete"><?php echo __("Delete"); ?></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="print-area-warning" id="print_area_warning"
+                         style="display: none"><?php echo __("Some objects are outside of the print area and should be adjusted"); ?></div>
+
+                <div class="pd-container">
+                    <div class="share-save">
+                        <div class="social-icons">
+                            <span class="label">Save & Share</span>
+                            <a title="Facebook" href="javascript:void(0)" id="fb_share"><span class="sprite ico-facebook"></span></a>
+
+                            <a title="Twitter" href="javascript:void(0)" id="tw_share"><span class="sprite ico-twitter"></span></a>
+
+                            <a title="Google Plus" href="javascript:void(0)" id="g_share"><span class="sprite ico-g-plus"></span></a>
+
+                            <a title="Pintrest" href="javascript:void(0)" id="pin_share"><span class="sprite ico-pintrest"></span></a>
+
+                            <a title="Email" href="javascript:void(0)" id="email_share"><span class="sprite ico-mail"></span></a>
+                        </div>                  
+                        <div class="block-btn-process" id="design_save_container">
+                            <?php if ($block->downloaddesignenabled()): ?>
+                                <button title="Download" id="download_btn" class="pd-button disabled"><span><?php echo __('Download'); ?></span></button>
+                            <?php endif; ?>
+                            <a style="display:none" id="download_btn_file" target="_blank"><?php echo __('Download'); ?></a>
+                            <button title="Save" id="save_design_btn" class="pd-button save disabled"><span><?php echo __('Save'); ?></span></button>
+                            <button title="Continue" id="continue_btn" style="<?php // if($product->getTypeId() == 'configurable'):                       ?>display:block<?php // endif;                       ?>" class="pd-button continue disabled"><span><?php echo __('Add to Cart'); ?></span></button> 
+                        </div>
+                    </div>
+                    <div class="preview-control">
+                        <ul class="preview-option">
+                            <li><a href="javascript:void(0)" id="preview_btn" <?php echo __("Preview"); ?> title="Preview"><span class="sprite ico-preview"></span><span class="label"><?php echo __("Preview"); ?></span></a></li>
+                            <li><a href="javascript:void(0)" id="zoom_in" title="Zoom In"><span class="sprite ico-zoomin"></span><span class="label">Zoom In</span></a></li>
+                            <li class="zoom_count" id="zoom_count"><span>0</span></li>
+                            <li class="last"><a href="javascript:void(0)" id="zoom_out" title="Zoom Out"><span class="sprite ico-zoomout"></span><span class="label">Zoom Out</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="side-control">
+                        <ul class="side-option">                            
+                            <li id="left_side" title="<?php echo __('Left Side'); ?>"><span class=""></span><span class="label">Left</span></li>
+                            <li id="right_side" title="<?php echo __('Right Side'); ?>"><span class=""></span><span class="label">Right</span></li>
+                            <li id="top_side" title="<?php echo __('Top Side'); ?>"><span class=""></span><span class="label">Top</span></li>
+                            <li id="bottom_side" title="<?php echo __('Bottom Side'); ?>"><span class=""></span><span class="label">Bottom</span></li>
+                        </ul>
+                    </div>
+                    <div class="layers-detail">
+                        <ul class="layers"> 
+                            <li>
+                                <a href="javascript:void(0)" class="layer-btn" id="btn_layers" <?php echo __("Layers"); ?>><span class="sprite ico-layer"></span><span class="label"><?php echo __("Layers"); ?></span></a>
+                            </li>
+                        </ul> 
+
+                        <div class="layers_manager" id="layers_manager" style="display: none;">
+                            <ul id="layers_ul">
+                                <li class="layer-title">
+                                    <span class="label layer" id="layer"><?php echo __("Layer"); ?></span>
+                                    <span class="label lock" id="action"><?php echo __("Action"); ?></span>
+                                    <span class="label front" id="delete"><?php echo __("Front"); ?></span>
+                                    <span class="label back" id="delete"><?php echo __("Back"); ?></span>
+                                    <span class="label delete" id="delete"><?php echo __("Delete"); ?></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="product-designer-main-content" id="product_designer_main_content"></div>
+
+                    <div class="product-controls" id="product-designer-extra">
+                        <ul>
+                            <li id="obj_flip_horizantal" class="disabled" title="<?php echo __('Horizantal Flip'); ?>"><span class="sprite ico-flip-y"></span><span class="label">Flip-Y</span></li>
+                            <li id="obj_flip_vertical" class="disabled" title="<?php echo __('Vertical Flip'); ?>"><span class="sprite ico-flip-x"></span><span class="label">Flip-X</span></li>
+                            <li id="obj_align_center" class="disabled" title="<?php echo __('Align by Center'); ?>"><span class="sprite ico-center"></span><span class="label">Center</span></li>
+                            <li id="undo" class="disabled" title="<?php echo __('Undo'); ?>"><span class="sprite ico-undo"></span><span class="label">Undo</span></li>
+                            <li id="redo" class="disabled" title="<?php echo __('Redo'); ?>"><span class="sprite ico-redo"></span><span class="label">Redo</span></li>
+                            <li id="obj_delete" class="disabled" title="<?php echo __('Remove'); ?>"><span class="sprite ico-delete"></span><span class="label">Delete</span></li>
+                            <li id="obj_bring_front" class="disabled" title="<?php echo __('Bring To Front'); ?>"><span class="sprite ico-front"></span><span class="label">Front</span></li>
+                            <li id="obj_bring_back" class="disabled" title="<?php echo __('Send To Back'); ?>"><span class="sprite ico-back"></span><span class="label">Back</span></li>
+                            <li id="obj_duplicate" class="disabled" title="<?php echo __('Duplicate'); ?>"><span class="sprite ico-copy"></span><span class="label">Copy</span></li> 
+                            <li id="clearall" class="disabled" title="<?php echo __('Clear All'); ?>"><span class="sprite ico-clear"></span><span class="label"><?php echo __("Clear All"); ?></span></li>
+                        </ul>
+                    </div>
+                    
+                           <div class="progress-bar-wrapper">
+                               <div class="bar-div">
+                               <span id="display2" class="display-count"></span>
+                               <span id="progress_message2" class="progress-message"></span>
+                                </div>
+                           </div> 
+                    
+                </div>        
+                <div class="pd-right-panel">
+                    <span id="showpanel" class="sprite panel-control" style="display:block;"><button aria-hidden="true" class="pd-button fa fa-chevron-left panel-control"></button></span>
+                    <div class="right-panel-container">
+                        <div class="pd-block price-detail">
+                            <?php echo $this->getChildHtml("priceHtml"); ?>
+                        </div>
+                        <?php echo $this->getChildHtml("pd_additional_info"); ?>
+                        <div class="pd-block block-special last">
+                            <div class="special-title"><span class="label">Special Note</span>
+                            </div>
+                            <div class="special-container">
+                                <textarea placeholder="Add your note here..." id="customer_comments"></textarea>
+                            </div>
+                            <?php //if($product->getTypeId() == 'configurable'):  ?>
+                               <!-- <button type="button" class="pd-button btn-cart" id="view-options" title="<?php echo __("View Options") ?>"><?php // echo $this->__("View Options")                                                                     ?><span class="sprite ico-small-arrow"></span></button> -->
+                            <?php //endif; ?>
+                        </div>
+                           
+                    </div>
+                </div>
+                <div id="product-zoom-container" style="display: none;">
+                    <canvas id="product-zoom-canvas"></canvas>
+                </div>
+                <!--            <div id="login_popup" class="background-opacity" style="display: none; background: none repeat scroll 0% 0% rgb(0, 0, 0);"></div>-->
+                <?php echo $this->getChildHtml("customer_login"); ?>
+                <?php echo $this->getChildHtml("customer_register"); ?>
+                <div id="add-to-cart" style="display: none;">
+                    <?php echo $this->getChildHtml("add_to_cart"); ?>
+                </div>
+
+
+                <div id="productdesigner-preview" style="display: none;">
+                    preview
+                </div>
+
+                <div id="email-share-window" style="display: none;">
+                    <div style="" id="receipent-mail-container" class="account-login">
+                        <form id="visitor-form" method="post">
+                            <div class="col-2 registered-users">
+                                <div class="content">
+
+                                   <ul style="display: none" class="messages">
+                                        <li id="visitor-error-msg" class="error-msg">
+                                            <ul>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+                                    <h4>Please provide recipient email address.</h4>
+                                    <ul class="form-list">
+                                        
+
+                                        <li>
+                                            <label class="required" for="email">E-mail Address</label>
+                                            <div class="input-box">
+                                                <input type="text" title="E-mail del destinatario" class="input-text validate-email" id="receipent_email" value="" name="receipent_email">
+                                            </div>
+                                        </li>
+
+
+
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-2 registered-users sent-to-frnd-btn">
+
+                                    <a id="save_receipen_mail" title="Enviar Email" class="rs-button btn-save" type="button"><span>Send Mail</span></a>
+                                    <span class="please-wait" id="login-please-wait" style="display:none;">
+                                        <img src="<?php echo $this->getViewFileUrl('Biztech_Productdesigner/images/opc-ajax-loader.gif');?>" class="v-middle" alt="">Por favor, espera....
+                                    </span>
+
+                            </div>     
+                        </form>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                <?php
+                $product_type = $product->getTypeId();
+                if ($product_type == 'configurable') :
+                    ?>
+                    <input type="hidden" name="selected_qty" id="selected_qty">
+                <?php endif; ?>
+            </div>
+            <script type="text/javascript">
+
+
+                OptionsPrice = new OptionsPrice();
+                OptionsPrice.initialize(<?php echo $block->getJsonConfig() ?>);
+
+
+                function initProductDesigner() {
+                    var data = {};
+                    var product_data = '<?php echo $this->helper('Biztech\Productdesigner\Helper\Info')->getProductInfo($product_id); ?>';
+                    require(['jquery', 'jquery/ui'], function ($) {
+                        data.product = jQuery.parseJSON(product_data);
+                    });
+                    var side = '<?php echo $jsonsidedata; ?>';
+                    data.image_side = jQuery.parseJSON(side);
+                    data.main_container = document.getElementById("product_designer_main_content");
+                    data.controls = {
+                        remove: 'obj_delete',
+                        duplicate: 'obj_duplicate',
+                        flip_x: 'obj_flip_horizantal',
+                        flip_y: 'obj_flip_vertical',
+                        allign_by_center: 'obj_align_center',
+                        undo: 'undo',
+                        redo: 'redo',
+                        front: 'obj_bring_front',
+                        back: 'obj_bring_back',
+                        clearall: 'clearall'
+                    };
+                    data.nav = {
+                        continueBtn: 'continue_btn',
+                        saveDesign: 'save_design_btn',
+                        downloadBtn: 'download_btn',
+                        /*fbIcon  : 'fb_share',
+                         twIcon  : 'tw_share',
+                         gIcon  : 'g_share',
+                         piIcon  : 'pin_share'*/
+                    };
+
+        <?php
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $config = $objectManager->create('Magento\Framework\App\Config\ScopeConfigInterface');
+        ?>
+
+                    data.prices = {
+                        "fixed_price": "<?php echo $config->getValue('productdesigner/general/fixedprice') ?>",
+                        "text_price": "<?php echo $config->getValue('productdesigner/general/pricepertext') ?>",
+                        "image_price": "<?php echo $config->getValue('productdesigner/general/priceperimage') ?>",
+                        "custom_image_price": "<?php echo $config->getValue('productdesigner/general/pricepercustomuploadedimage') ?>"
+
+                    };
+                    data.tierprice = '<?php echo $jsonHelper->jsonEncode($tier_prices) ?>';
+                    data.area = {
+                        "color_count": "<?php echo $config->getValue('productdesigner/printingmethod/color_qty') ?>",
+                        "small_area_start": "<?php echo $config->getValue('productdesigner/printingmethod/small_area_size_start') ?>",
+                        "small_area_end": "<?php echo $config->getValue('productdesigner/printingmethod/small_area_size_end') ?>",
+                        "medium_area_start": "<?php echo $config->getValue('productdesigner/printingmethod/medium_area_size_start') ?>",
+                        "medium_area_end": "<?php echo $config->getValue('productdesigner/printingmethod/medium_area_size_end') ?>",
+                        "large_area_start": "<?php echo $config->getValue('productdesigner/printingmethod/large_area_size_start') ?>",
+                        "large_area_end": "<?php echo $config->getValue('productdesigner/printingmethod/large_area_size_end') ?>",
+                        "extralarge_area_start": "<?php echo $config->getValue('productdesigner/printingmethod/extra_large_area_size_start') ?>",
+                        "extralarge_area_end": "<?php echo $config->getValue('productdesigner/printingmethod/extra_large_area_size_end') ?>",
+                    };
+                    data.side = {
+                        "left": "<?php echo $config->getValue('productdesigner/side_general/left_side') ?>",
+                        "right": "<?php echo $config->getValue('productdesigner/side_general/right_side') ?>",
+                        "top": "<?php echo $config->getValue('productdesigner/side_general/top_side') ?>",
+                        "bottom": "<?php echo $config->getValue('productdesigner/side_general/bottom_side') ?>",                        
+                    };
+                    
+        <?php
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $session = $objectManager->get('Magento\Customer\Model\Session');
+        $designModel = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Designs\Collection')->addFieldToFilter('design_id', $design_id)->getFirstItem();
+//$designModel = Mage::getModel('productdesigner/designs')->getCollection()->addFieldToFilter('design_id',$design_id)->getFirstItem();
+        $images = $designModel->getLayerImages();
+        ?>
+                    data.design_id = '<?php echo $design_id ?>';
+                    data.action = '<?php echo $action ?>';
+                    data.designs = '<?php echo $images ?>';
+
+                    data.my_design_url = '<?php
+        echo $this->getUrl("*/designtemplates/getMyDesign", array("_secure" => $this->getRequest()->isSecure()))
+        ?>';
+
+         <?php
+                        if($template_id != ''){
+                            $designModel = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Designtemplates\Collection')->addFieldToFilter('designtemplates_id', $template_id)->getFirstItem();
+                            $images = str_replace("'","\\'", $designModel->getLayerImages());
+                             ?>
+                                    data.template_id = '<?php echo $template_id ?>';
+                                    data.designs = '<?php echo $images ?>';
+                                    data.selected_product_color = '<?php echo $designModel->getColorId() ?>';
+
+                                    data.my_design_template_url = '<?php echo $this->getUrl("*/designtemplates/getMyDesigntemplate", array("_secure" => $this->getRequest()->isSecure())) ?>';
+                            <?php     
+                        }
+                        $store = $objectManager->get('Magento\Store\Model\StoreManagerInterface');
+                        $mediaurl = $store->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+                        ?>
+
+                    data.mediaUrl = '<?php echo $mediaurl ?>';
+
+                    data.base_unit = "<?php echo $config->getValue('productdesigner/printingmethod/base_unit') ?>";
+
+                    data.colorpicker_enable = "<?php echo $config->getValue('productdesigner/colorpicker/colorpicker') ?>";
+
+                    data.isSVG = "<?php echo $config->getValue('productdesigner/general/generatesvg') ?>";
+                    
+                    data.printing_method_avail = "<?php echo $printing_method_avail ?>";
+                    data.isCustomerLoggedIn = '<?php echo $session->isLoggedIn() ? '1' : '0'; ?>';
+                    data.isCustomerId = '<?php echo $session->getId(); ?>';
+                    data.productId = '<?php echo $product_id ?>';
+                    data.productType = "<?php echo $product->getTypeId(); ?>";
+                    var loginUrl = '<?php
+        echo $this->getUrl('*/*/login', array('_secure' => $this->getRequest()->isSecure()));
+        ?>';
+                    var logindesignUrl = '<?php
+        echo $this->getUrl("*/*/logindesign", array("_secure" => $this->getRequest()->isSecure()));
+        ?>';
+                    var registerUrl = '<?php
+        echo $this->getUrl('*/*/register', array('_secure' => $this->getRequest()->isSecure()));
+        ?>';
+                    var downloadUrl = '<?php
+        echo $this->getUrl("*/*/downloadpdf", array("_secure" => $this->getRequest()->isSecure()));
+        ?>';
+                    var saveDesignUrl = '<?php
+        echo $this->getUrl('*/*/saveDesign', array('_secure' => $this->getRequest()->isSecure()));
+        ?>';
+                    var previewImageUrl = '<?php
+        echo $this->getUrl('*/*/previewImage', array('_secure' => $this->getRequest()->isSecure()));
+        ?>';
+                    var continueUrl = '<?php
+        echo $this->getUrl('*/*/conti', array('_secure' => $this->getRequest()->isSecure()));
+        ?>';
+                    var getmydesignUrl = '<?php
+        echo $this->getUrl('*/*/getmydesign', array('_secure' => $this->getRequest()->isSecure()));
+        ?>';
+
+                    var productUrl = '<?php echo $product->getProductUrl(); ?>';
+                    var allowDownload = '<?php echo $config->getValue('productdesigner/enabled') ?>';
+                    var Product = new ProductDesigner();
+                    var brushUrl = '<?php
+        echo $this->getUrl('*/*/brush', array('_secure' => $this->getRequest()->isSecure()));
+        ?>';
+                    var addtocarturl = '<?php
+        echo $this->getUrl('*/*/addtocart', array('_secure' => $this->getRequest()->isSecure()));
+        ?>';
+                    var productdesignerUrl = '<?php echo $this->getUrl('*/*/checkcolorsizeids', array('_secure' => $this->getRequest()->isSecure())); ?>';
+
+                    var facebookUrl = '<?php echo $this->getUrl('productdesigner/index/facebook'); ?>';
+                    var googleUrl = '<?php echo $this->getUrl('productdesigner/index/google'); ?>';
+                    var sendmailUrl = '<?php echo $this->getUrl('productdesigner/index/sendmail'); ?>';
+                    
+
+                    require(['jquery', 'jquery/ui'], function ($) {
+                        Product.initialize(data, loginUrl, logindesignUrl, registerUrl, downloadUrl, saveDesignUrl, continueUrl, productUrl, allowDownload, brushUrl, previewImageUrl, addtocarturl, getmydesignUrl, facebookUrl,googleUrl,sendmailUrl,'',productdesignerUrl);
+                    });
+
+                    var textSize = "<?php echo $config->getValue('productdesigner/textconfiguration/defaultfontsize') ?>";
+                    var textFamily = "<?php echo $config->getValue('productdesigner/textconfiguration/defaultfont') ?>";
+                    var text_limit_data = {};
+                    text_limit_data.data = {
+                        "is_limit": '<?php echo $config->getValue('productdesigner/textconfiguration/settextlimit') ?>',
+                        "limit": '<?php echo $config->getValue('productdesigner/textconfiguration/textlimit') ?>',
+                        "limit_text": '<?php echo str_replace("\n", "", $config->getValue('productdesigner/textconfiguration/errormessagetext')) ?>',
+                    };
+                    require(['jquery', 'jquery/ui'], function ($) {
+                        TextDesigner = new TextDesigner();
+                        TextDesigner.initialize(textSize, textFamily, text_limit_data);
+                    });
+        <?php
+        $obj = $objectManager->create('Biztech\Productdesigner\Model\Mysql4\Productdesignerfonts\Collection')->addFieldToFilter('disabled', 0);
+        $font_styles = $obj->getData();
+        $fonts[] = '';
+        foreach ($font_styles as $font):
+            $fonts[] = $font['font_label'];
+        endforeach;
+        $fonts = implode(',', $fonts);
+        ?>
+                    var fonts = '<?php echo $fonts ?>'.split(',');
+                    if (fonts != '') {
+                        WebFontConfig = {
+                            custom: {
+                                families: fonts
+                            }
+                        };
+                        (function () {
+                            var wf = document.createElement('script');
+                            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js';
+                            wf.type = 'text/javascript';
+                            wf.async = 'true';
+                            var s = document.getElementsByTagName('script')[0];
+                            s.parentNode.insertBefore(wf, s);
+                        })();
+                    }
+
+        <?php if ($config->getValue('productdesigner/customimageuploadconfiguration/enableuploadcustomimage')): ?>
+
+                        var upload_limit_data = {};
+                        upload_limit_data.data = {
+                            "is_limit": '<?php echo $config->getValue('productdesigner/customimageuploadconfiguration/setcustomimageuploadlimit') ?>',
+                            "limit": '<?php echo $config->getValue('productdesigner/customimageuploadconfiguration/imagelimit') ?>',
+                            "limit_text": '<?php echo str_replace("\n", "", $config->getValue('productdesigner/customimageuploadconfiguration/errormessageimagelimit')) ?>',
+                        };
+
+                        ImageUploader = new ImageUploader()
+                        ImageUploader.initialize(
+                                '8388608',
+                                '["image\/png","image\/jpg","image\/jpeg","image\/gif"]',
+                                'png,jpg,jpeg,gif',
+                                '<?php
+            echo $this->getUrl('productdesigner/index/uploadImages', array('_secure' => $this->getRequest()->isSecure()))
+            ?>',
+                                upload_limit_data
+                                );
+        <?php endif; ?>
+                }
+
+                require(['jquery', 'jquery/ui'], function ($) {
+                    jQuery(document).ready(function () {
+                        jQuery('#pd_loading_img').show();
+                       
+                        var i = 1;
+                        var progressCount = 0;
+                        var progressInterval = setInterval (func , 10);
+                        function func()
+                        {
+                            jQuery('.progress-bar-wrapper').show();
+                            jQuery("#display2").text(parseInt(i) + '%');
+                            if(progressCount >= 0)
+                            {
+                                jQuery("#progress_message2").text('Getting Designer Data from Server...');
+                                progressCount++;
+                               
+                            }
+                            if(progressCount >= 30)
+                            {
+                                jQuery("#progress_message2").text('Loading Products...');
+                                progressCount++;
+                            }
+                            if(progressCount >= 70)
+                            {
+                                jQuery("#progress_message2").text('Loading Fonts...');
+                                progressCount++;
+                            }
+                            if(progressCount >= 90)
+                            {
+                                jQuery("#progress_message2").text('Loading Templates...');
+                                progressCount++;
+                            }
+                            i++;                    
+                            if (i == 101) {
+                                clearInterval(progressInterval);
+                                jQuery('.progress-bar-wrapper').hide();
+                                jQuery('#productdesigner-view').show();
+                                jQuery('#pd_loading_img').hide();
+                                initProductDesigner();
+                                setTimeout(function(){
+                                    jQuery('#pd_loading_img').hide();
+                                },3000);
+
+                            }
+                        }
+                    });
+                });
+
+
+        <?php
+        if ($block->getProductGeneralEnable()):
+            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+            $config = $objectManager->create('Magento\Framework\App\Config\ScopeConfigInterface');
+            ?>
+
+                    var default_category = '<?php echo $config->getValue('productdesigner/categoryproductsconfiguration/setdefaultcategory'); ?>';
+                    var filter_product_url = '<?php echo $this->getUrl('*/*/filterProduct'); ?>';
+                    require(['jquery', 'jquery/ui'], function ($) {
+                        var Category = new Categorydesigner();
+                        Category.initialize(default_category, filter_product_url);
+                        Category.observeFields();
+                    });
+        <?php endif; ?>
+
+
+                var filter_url = '<?php
+        echo $this->getUrl('*/*/filterClipart', array('_secure' => $this->getRequest()->isSecure()))
+        ?>';
+                var clipart_limit_data = {};
+                clipart_limit_data.data = {
+                    "is_limit": '<?php echo $block->clipartLimit() ?>',
+                    "limit": '<?php echo $block->clipartImageLimit() ?>',
+                    "limit_text": '<?php echo str_replace("\n", "", $block->limitAlert()) ?>',
+                };
+                require(['jquery', 'jquery/ui'], function ($) {
+                    var Clipart = new Clipartdesigner();
+                    Clipart.initialize(filter_url, clipart_limit_data);
+                    Clipart.observeFields();
+                });
+
+        <?php if ($block->quotesEnable()): ?>
+
+                    var filter_quotes_url = '<?php
+            echo $this->getUrl("*/*/filterquotes", array("_secure" => $this->getRequest()->isSecure()))
+            ?>';
+
+                    var QuotesDesigner = new QuotesDesigner();
+                    require(['jquery', 'jquery/ui'], function ($) {
+                        QuotesDesigner.initialize(filter_quotes_url);
+                        QuotesDesigner.observeFields();
+                    });
+
+        <?php endif; ?>
+
+       
+
+
+        <?php if ($block->shapeEnable()): ?>
+                    var filter_shape_url = '<?php
+            echo $this->getUrl("*/*/filterShapes", array("_secure" => $this->getRequest()->isSecure()))
+            ?>';
+                    require(['jquery', 'jquery/ui'], function ($) {
+                        var Shapes = new Shapesdesigner();
+                        Shapes.initialize(filter_shape_url);
+                        Shapes.observeFields();
+                    });
+        <?php endif; ?>
+
+                var Brush = new Brush();
+                require(['jquery', 'jquery/ui'], function ($) {
+                    Brush.initialize();
+                });
+
+        <?php if ($block->MaskingEnabled()): ?>
+                    var filter_masking_url = '<?php
+            echo $this->getUrl("*/*/filterMasking", array("_secure" => $this->getRequest()->isSecure()))
+            ?>';
+
+                    var Masking = new Masking();
+                    require(['jquery', 'jquery/ui'], function ($) {
+                        Masking.initialize(filter_masking_url);
+                        Masking.observeFields();
+                            jQuery('#choose_masking').click(function (e) {
+                            jQuery(this).toggleClass( "down-arrow" );
+                            jQuery('#masking_images_container').slideToggle();
+                            jQuery('#masking_categories_container').toggle();
+                        });
+                    });
+        <?php endif; ?>
+
+                var EffectDesigner = new EffectDesigner();
+                require(['jquery', 'jquery/ui'], function ($) {
+                    EffectDesigner.initialize();
+                    EffectDesigner.observeFields();
+                });
+
+        <?php if ($block->DesigntemplatesEnable()): ?>
+                    var filter_template_url = '<?php
+            echo $this->getUrl("*/*/filterTemplate", array("_secure" => $this->getRequest()->isSecure()))
+            ?>';
+                    var my_design_url1 = '<?php
+            echo $this->getUrl("*/designtemplates/getMyDesigntemplate", array("_secure" => $this->getRequest()->isSecure()))
+            ?>';
+                    var data1 = {};
+                    var product_data1 = '<?php echo $this->helper('Biztech\Productdesigner\Helper\Info')->getProductInfo($product_id); ?>';
+                    var DesignTemplates = new DesignTemplates();
+                    require(['jquery', 'jquery/ui'], function ($) {
+                        data1.product = jQuery.parseJSON(product_data1);
+                        DesignTemplates.initialize(filter_template_url, my_design_url1, data1);
+                        DesignTemplates.observeFields();
+                    });
+        <?php endif; ?>
+
+        <?php if ($block->myDesign()): ?>
+                    var my_design_url = '<?php
+            echo $this->getUrl("*/designtemplates/getMyDesign", array("_secure" => $this->getRequest()->isSecure()))
+            ?>';
+            var filter_index_design_url = '<?php
+            echo $this->getUrl("*/index/getmydesign", array("_secure" => $this->getRequest()->isSecure()))
+            ?>';
+
+                    var delete_design_url = '<?php
+            echo $this->getUrl("*/designtemplates/delete", array("_secure" => $this->getRequest()->isSecure()))
+            ?>';
+
+                    var data = {};
+
+                    var product_data = '<?php echo $this->helper('Biztech\Productdesigner\Helper\Info')->getProductInfo($product_id); ?>';
+                    require(['jquery', 'jquery/ui'], function ($) {
+                        data.product = jQuery.parseJSON(product_data);
+                    });
+                    MyDesigns = new MyDesigns();
+                    require(['jquery', 'jquery/ui'], function ($) {
+                        MyDesigns.initialize(my_design_url, delete_design_url,filter_index_design_url, data);
+                    });
+
+        <?php endif; ?>
+
+                setTimeout(function () {
+                    if (jQuery('#product-images-loader')) {
+                        jQuery('#pd_loading_img').hide();
+                    }
+                }, 3000);
+            </script>
+            <script type="text/javascript">
+                require(['jquery', 'jquery/ui'], function ($) {
+                    //                jQuery(document).ready(function ($) {
+                    //Vertical Tab
+                    jQuery('#parentVerticalTab').easyResponsiveTabs({
+                        type: 'vertical', //Types: default, vertical, accordion
+                        width: 'auto', //auto or any width like 600px
+                        fit: true, // 100% fit in a container
+                        closed: 'accordion', // Start closed if in accordion view
+                        tabidentify: 'hor_1', // The tab groups identifier
+                        activate: function (event) { // Callback function if tab is switched
+                            var $tab = $(this);
+                            var $info = jQuery('#nested-tabInfo2');
+                            var $name = jQuery('span', $info);
+                            $name.text($tab.text());
+                            $info.show();
+                            jQuery('#resp-tabs-container').show();
+                            jQuery('#res-overlay').show();
+                            jQuery('#rs-left-panel').addClass('left-panel-active');
+                        }
+                    });
+                    var heightOfLeftDiv = jQuery('.resp-tabs-list').height();
+                    var heightOfRightDiv = jQuery('.resp-tabs-list').height();
+                    if (heightOfLeftDiv >= heightOfRightDiv) {
+                        jQuery('.resp-tabs-container')[0].style["min-height"] = parseInt(heightOfLeftDiv) + parseInt(145) + 'px';
+                    }
+                    var windowSize = $(window).width();
+
+                    if (windowSize >= 981) {
+                        jQuery('.pd-left-panel')[0].style["min-height"] = parseInt(jQuery('.productdesigner-view').height()) + 'px';
+                        jQuery('.pd-container')[0].style["min-height"] = parseInt(jQuery('.productdesigner-view').height()) + 'px';
+                    }
+                    // });
+                });
+            </script>
+            <script>
+
+                function showonlyone(thechosenone) {
+                    require(['jquery', 'jquery/ui'], function ($) {
+
+                        jQuery('.desgin-detail').each(function (index) {
+                            if (thechosenone == "shape_arts")
+                            {
+                                if (jQuery('#image_list'))
+                                {
+                                    if (jQuery('#image_list').children().length == 0)
+                                    {
+                                        if (jQuery('#clipart_categories'))
+                                        {
+                                            var data = {};
+                                            data['clipart_category_id'] = jQuery('#clipart_categories').val();
+                                            if (jQuery('#search_tag_field')) {
+                                                data['search_tag_field'] = jQuery('#search_tag_field').val();
+                                            }
+                                            Clipartdesigner.prototype.filterImagesByClipart(data);
+                                        }
+                                    }
+                                }
+                                if (!jQuery('#add_shapes').length == 0)
+                                {
+                                    if (jQuery('#image_list_shapes'))
+                                    {
+                                        if ((jQuery('#image_list_shapes').children().length == 0))
+                                        {
+                                            if (jQuery('#shapes_categories'))
+                                            {
+                                                var data = {};
+                                                data['shapes_category_id'] = jQuery('#shapes_categories').val();
+                                                if (jQuery('#search_tag_field_shape')) {
+                                                    data['search_tag_field_shape'] = jQuery('#search_tag_field_shape').val();
+                                                }
+                                                Shapesdesigner.prototype.filterImagesByShapes(data);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            if (jQuery(this).attr("id") == thechosenone) {
+                                jQuery("#select_image").hide();
+                                jQuery(this).show(100);
+                            }
+                            else {
+                                jQuery(this).hide(50);
+                            }
+                        });
+
+                        jQuery('.tab-detail').each(function (index, val) {
+                            jQuery(val).removeClass('selected');
+                        });
+                        jQuery('#' + thechosenone + "_btn").parent().addClass('selected');
+
+
+                    });
+                }
+                function showonlyone1(thechosenone1) {
+                    require(['jquery', 'jquery/ui'], function ($) {
+                        jQuery('.desgin-detail1').each(function (index) {
+                            if (jQuery(this).attr("id") == thechosenone1) {
+                                jQuery(this).show(100);
+                            }
+                            else {
+                                jQuery(this).hide(50);
+                            }
+                        });
+                        jQuery('.tab-detail1').each(function (index, val) {
+                            jQuery(val).removeClass('selected1');
+                        });
+                        jQuery('#' + thechosenone1 + "_btn").parent().addClass('selected1');
+                    });
+                }
+                require(['jquery', 'jquery/ui'], function ($) {
+                    jQuery(document).ready(function () {
+                        jQuery('#showpanel').click(function () {
+                            jQuery(".pd-right-panel").toggleClass('open-panel');
+                            //jQuery(".right-panel-container").animate({width: 'toggle'}, "medium");
+                        });
+                    });
+                });
+                require(['jquery', 'jquery/ui'], function ($) {
+                    jQuery('[placeholder]').focus(function () {
+                        var input = jQuery(this);
+                        if (input.val() == 'null') {
+                            input.val('');
+                            input.removeClass('placeholder');
+                        }
+                    }).blur();
+                });
+
+                
+
+                /*var InstagramDesigner  = new InstagramDesigner();
+                require(['jquery', 'jquery/ui'], function ($) {
+                    InstagramDesigner.initialize();
+                });
+
+                var FacebookDesigner  = new FacebookDesigner();
+                require(['jquery', 'jquery/ui'], function ($) {
+                    FacebookDesigner.initialize();
+                }); */
+
+
+
+            </script>
+        <?php endif; ?>
+    <?php endif; ?>
+</div>
+ 

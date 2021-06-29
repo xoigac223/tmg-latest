@@ -1,0 +1,206 @@
+<?php
+/** @var \Magento\Catalog\Pricing\Render\PriceBox $block */
+
+/** @var \Magento\Catalog\Pricing\Price\TierPrice $tierPriceModel */
+$tierPriceModel = $block->getPrice();
+$tierPrices = $tierPriceModel->getTierPriceList();
+$msrpShowOnGesture = $block->getPriceType('msrp_price')->isShowPriceOnGesture();
+$product = $block->getSaleableItem();
+$_helper = $this->helper('Bss\ConfigurableProductWholesale\Helper\Data');
+$helper_customize = $this->helper('Bss\ConfigurableProductWholesaleCustomize\Helper\Data');
+?>
+<style>
+    #bss-ptd-table.bss-simple-product th {
+        color: #<?php echo $_helper->getConfig('header_text_color') ?>;
+        background-color:  #<?php echo $_helper->getConfig('header_background_color') ; ?>;
+    }
+
+</style>
+<?php 
+if (count($tierPrices) && $product->getTypeId() != 'configurable') : ?>
+    <?php
+    $tmg_encrypt_account = '';
+    $objectManager      = \Magento\Framework\App\ObjectManager::getInstance();
+    $stockState         = $objectManager->get('\TMG\ProductData\Model\Service\Inventory');
+    $customerRepository = $objectManager->get('Magento\Customer\Api\CustomerRepositoryInterface');
+    $custSession        = $objectManager->get('\Magento\Customer\Model\Session');
+    if($custSession->isLoggedIn()) 
+    {
+        $customerId     = $custSession->getCustomerId();
+        if($customerId){
+            $customer           = $customerRepository->getById($customerId);
+            $encrypt_account    = $customer->getCustomAttribute('tmg_encrypt_account');
+            if($encrypt_account){
+                $tmg_encrypt_account = $encrypt_account->getValue();
+            }
+        }
+    }
+    if($tmg_encrypt_account)
+    {
+    ?>
+    <div id="tmg-inventory-container" class="tmg-inventory-container">
+        <span class="swatch-attribute-label"><?php echo __('Inventory: ') ?></span>
+        <span class="swatch-attribute-value inventory-amount">
+        <?php 
+        if($stockState->getProductVariationsSimpleStock($product->getSku())<0){
+            echo __('Not Available');
+        } else {
+            echo $stockState->getProductVariationsSimpleStock($product->getSku());    
+        }
+        ?>
+        </span>
+    </div>
+    <?php  } ?> 
+    <table id="bss-ptd-table" class="bss-hidden bss-simple-product">
+        <thead>
+            <tr>
+                <?php if ($_helper->getDisplayAttribute('sku')) :?>
+                    <th <?php /* @noEscape */ echo $_helper->getClassAdvanced('sku');?>>
+                        <?php /* @noEscape */ echo __('Sku');?>
+                    </th>
+                <?php endif;?>
+                <?php if ($_helper->getDisplayAttribute('unit_price') && !$_helper->checkCustomer('hide_price')) :?>
+                    <?php if ($_helper->getCustomerGroupId()) :?>
+                        <th class="login_price"><?php echo __('Price');?></th>
+                    <?php endif;?>
+                    <?php if ($_helper->getDisplayAttribute('tier_price')) :?>
+                        <?php foreach ($tierPrices as $index => $price) : ?>
+                            <th <?php echo $_helper->getClassAdvanced('unit_price');?>><?php echo $price['price_qty'] . "+";?></th>
+                        <?php endforeach ?>
+                    <?php endif;?>
+                <?php endif;?>
+                <?php if ($_helper->getCustomerGroupId() && $product->getData('discountcode')) :?>
+                    <th><?php echo __($product->getResource()->getAttribute('discountcode')->getStoreLabel())?></th>
+                <?php endif;?>
+                <th <?php /* @noEscape */ echo $_helper->getClassAdvanced('sku');?>>
+                    <?php /* @noEscape */ echo __('Qty');?>
+                </th>
+            </tr>
+        </thead>
+
+        <tfoot>
+        <tr>
+            <td><?php /* @noEscape */ echo __('Total');?></td>
+            <td class="bss-totals-qty"></td>
+            <td class="bss-totals"></td>
+        </tr>
+        <?php if ($_helper->getExclTaxConfig() && !$_helper->checkCustomer('hide_price')) :?>
+            <tr <?php /* @noEscape */ echo $_helper->getClassAdvanced('excl_tax_price');?>>
+                <td><?php /* @noEscape */ echo __('Total Excl. Tax');?></td>
+                <td class="bss-excltax-totals"></td>
+            </tr>
+        <?php endif;?>
+        </tfoot>
+
+        <tbody>
+            <tr class="bss-table-row">
+                <?php if ($_helper->getDisplayAttribute('sku')) :?>
+                    <td <?php /* @noEscape */ echo $_helper->getClassAdvanced('sku');?>>
+                        <?php /* @noEscape */ echo $product->getSku();?>
+                    </td>
+                <?php endif;?>
+                <?php if ($_helper->getDisplayAttribute('unit_price') && !$_helper->checkCustomer('hide_price')) :?>
+                    <?php
+                        $classNotLogin = 'class="old-price not_login"';
+                        $classLogin = 'class="old-price general"';
+                    ?>
+                    <?php if ($_helper->getCustomerGroupId()) :?>
+                        <?php if ($_helper->getCustomerGroupId() == 2) :?>
+                            <td class="login_price">
+                                <p><?php echo __('Catalog') ?></p>
+                                <p><?php echo __('Net') ?></p>
+                                <p class="whosale-specical"><?php echo __('Your Price') ?></p>
+                            </td>
+                        <?php else: ?>
+                            <td class="login_price">
+                                <p><?php echo __('Catalog') ?></p>
+                                <p><?php echo __('Net') ?></p>
+                            </td>
+                        <?php endif;?>
+                    <?php endif;?>
+                    <?php if ($_helper->getDisplayAttribute('tier_price')) :?>
+                        <?php foreach ($tierPrices as $index => $price) : ?>
+                            <?php
+                            $priceAmountBlock = $block->renderAmount(
+                                $price['price'],
+                                [
+                                    'price_id'          => $index,
+                                    'id_suffix'         => 'simple_tier',
+                                    'include_container' => true,
+                                    'zone' => \Magento\Framework\Pricing\Render::ZONE_ITEM_OPTION
+                                ]
+                            );
+            //  var_dump($index);
+            //  var_dump($priceAmountBlock);
+                            ?>
+                            <td class="bss-tierprice" attributeqty="<?php echo $price['price_qty'] ?>">
+                                <p <?php if ($_helper->getCustomerGroupId()) echo $classNotLogin; ?> data-amount="0"><?php echo $priceAmountBlock ;?></p>
+                                <?php if ($_helper->getCustomerGroupId()) :?>
+                                    <?php if ($_helper->getCustomerGroupId() == 2) :?>
+                                        <p <?php echo $classLogin ?> data-amount="0"><?php echo $priceAmountBlock ;?></p>
+                                    <?php endif;?>
+                                    <p data-amount="0"><?php echo $priceAmountBlock ;?></p>
+                                <?php endif;?>
+                            </td>
+                        <?php endforeach ?>
+                    <?php endif;?>
+                <?php endif;?>
+                <?php if ($_helper->getCustomerGroupId() && $product->getData('discountcode')) :?>
+                    <td class="">
+                        <p><?php echo __($product->getData('discountcode')) ?></p>
+                    </td>
+                <?php endif;?>
+                <td class="bss-qty-col bss-qty-simple">
+                    <input name="bss-qty[<?php echo $product->getId() ?>]" maxlength="12" value="0" title="Qty" class="input-text qty bss-qty" data-product-id="<?php echo $product->getId() ?>" type="number" style="width:54px;text-align:center;">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="message message-warning warning mess-specical-price" style="display: none;margin-top: 10px;">
+        <span>
+            <?= __($helper_customize->getMessageSpecialPrice()); ?>
+        </span>
+    </div>
+    <input type="hidden" id="bss-option-price" class="bss-option-price" value="0" name="bss-option-price">
+    <?php if ($_helper->getCustomerGroupId()) :?>
+        <input type="hidden" id="bss-option-price_2" class="bss-option-price" value="0" >
+        <?php if ($_helper->getCustomerGroupId() == 2) :?>
+            <input type="hidden" id="bss-option-price_1" class="bss-option-price" value="0" >
+        <?php endif;?>
+    <?php endif;?>
+    <?php if ($_helper->getDisplayAttribute('unit_price') && !$_helper->checkCustomer('hide_price')) :?>
+        <?php if ($_helper->getDisplayAttribute('tier_price')) :?>
+            <?php foreach ($tierPrices as $index => $price) : ?>
+                <?php if ($_helper->getCustomerGroupId()) :?>
+                    <input type="hidden" id="bss-option-price<?php echo $price['price_qty'] ?>_2" class="bss-option-price" value="0" >
+                    <?php if ($_helper->getCustomerGroupId() == 2) :?>
+                        <input type="hidden" id="bss-option-price<?php echo $price['price_qty'] ?>_1" class="bss-option-price" value="0" >
+                    <?php endif;?>
+                <?php endif;?>
+                <input type="hidden" id="bss-option-price<?php echo $price['price_qty'] ?>" class="bss-option-price" value="0" >
+            <?php endforeach ?>
+        <?php endif;?>
+    <?php endif;?>
+    <input type="hidden" id="bss-total-price" name="bss-total-price" value="">
+    <input type="hidden" id="qty_order_sample" value="<?php $product->getQtyOrderSample() ?>">
+    <input type="hidden" id="text_qty_order_sample" value="<?php echo __('The maximum sample quantity can be ordered for this product is ').$product->getQtyOrderSample().'.' ?>">
+    <script type="text/x-magento-init">
+        {
+            ".product-info-main": {
+                "Bss_ConfigurableProductWholesaleCustomize/js/simple": {
+                    "fomatPrice": <?php /* @escapeNotVerified */ echo $_helper->getFomatPrice();?>
+                }
+            }
+        }
+    </script>
+    <?php if(!$tmg_encrypt_account) { ?>
+    <script type="text/javascript">
+        require(['jquery'], function(jQuery) {
+            jQuery(".bss-table-row").find('td').each(function(){
+                jQuery(this).find("p:nth-child(2)").hide();
+                jQuery(this).find("p:nth-child(1)").css('text-decoration','none');
+            });
+        });
+    </script>
+    <?php } ?>
+<?php endif; ?>

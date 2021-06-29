@@ -1,0 +1,98 @@
+<?php /** @var $block \TMG\Customer\Block\Customer\Form\AccountLookup */ ?>
+
+<!-- CREATE FORM -->
+<form class="form create account form-create-account" action=""
+      method="post" id="tmg-account-lookup-form" enctype="multipart/form-data"
+      autocomplete="off" data-bind="scope: 'tmgAccountLookup'">
+
+    <div id="tmg-register-loader" class="register-form-loader" data-bind="fadeVisible: showLoader"
+         style="width: 100%; height: 100%; position: fixed; left:0; top:0; right:0; botton:0; background-color: red; z-index: 999999;
+        ">
+    </div>
+    
+    <fieldset class="fieldset create tmg-account-email-lookup-fieldset" id="tmg-account-email-lookup-fieldset" data-bind="fadeVisible: showEmailLookup">
+        <div class="field required">
+            <label for="tmg-account-email-lookup" class="label"><span><?php /* @escapeNotVerified */ echo __('Let’s start by entering your email address and clicking "Submit"') ?></span></label>
+            <div class="control">
+<!--                <input type="email" name="tmg-account-email-lookup" id="tmg-account-email-lookup" value="--><?php //echo $block->escapeHtml($block->getFormData()->getTmgAccountLookupEmail()) ?><!--"-->
+                <input type="email" name="tmg-account-email-lookup" id="tmg-account-email-lookup" value="mauro@visiture.com"
+                       title="<?php /* @escapeNotVerified */ echo __('Email') ?>" class="input-text" data-validate="{required:true, 'validate-email':true}" autocomplete="off" />
+            </div>
+            <button class="tmg-account-email-lookup-button" id="tmg-account-email-lookup-button" data-bind="click: onEmailLookupClick">Submit</button>
+        </div>
+    </fieldset>
+    
+    <fieldset class="fieldset create tmg-register-account-lookup" data-bind="fadeVisible: showIdLookup">
+        <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('What Company Are You With?'); ?></span></legend><br>
+        <div class="four-columns-container">
+            
+            <!-- Magnet Account -->
+            <div class="field required four-columns">
+                <div class="tmg-account-icon">
+                    <img src="<?php echo $this->getViewFileUrl('TMG_Customer::images/logo-magnet.png'); ?>" class="tmg-account-icon-image"
+                         alt="<?php echo __('The Magnet Group');?>" />
+                </div>
+                <div class="control">
+<!--                    <input type="text" name="tmg-magnet-account-id-lookup" id="tmg-magnet-account-id-lookup" value=""-->
+                    <input type="text" name="tmg-magnet-account-id-lookup" id="tmg-magnet-account-id-lookup" value="OBTESTSP1"
+                           title="<?php /* @escapeNotVerified */ echo __('The Magnet Group'); ?>" class="input-text" data-validate="{required:false}"/>
+                </div>
+                <button class="account-id-lookup-button" id="tmg-magnet-account-id-lookup-button" data-bind="click: onIdLookupClick">Check</button>
+            </div>
+            
+            <!-- ASI Account -->
+            <div class="field required four-columns">
+                <div class="tmg-account-icon">
+                    <img src="<?php echo $this->getViewFileUrl('TMG_Customer::images/logo-asi.png'); ?>" class="tmg-account-icon-image"
+                         alt="<?php /* @escapeNotVerified */ echo __('ASI'); ?>"/>
+                </div>
+                <div class="control">
+                    <input type="text" name="tmg-asi-account-id-lookup" id="tmg-asi-account-id-lookup" value=""
+                           title="<?php /* @escapeNotVerified */ echo __('ASI') ?>" class="input-text" data-validate="{required:false}"/>
+                </div>
+                <button class="account-id-lookup-button" id="tmg-asi-account-id-lookup-button" data-bind="click: onIdLookupClick">Check</button>
+            </div>
+            
+            <!-- PPAI Account -->
+            <div class="field required four-columns">
+                <div class="tmg-account-icon">
+                    <img src="<?php echo $this->getViewFileUrl('TMG_Customer::images/logo-ppai.png'); ?>" class="tmg-account-icon-image"
+                         alt="<?php /* @escapeNotVerified */ echo __('PPAI'); ?>"/></div>
+                <div class="control">
+                    <input type="text" name="tmg-ppai-account-id-lookup" id="tmg-ppai-account-id-lookup" value=""
+                           title="<?php /* @escapeNotVerified */ echo __('PPAI') ?>" class="input-text" data-validate="{required:false}" />
+                </div>
+                <button class="account-id-lookup-button" id="tmg-ppai-account-id-lookup-button" data-bind="click: onIdLookupClick">Check</button>
+            </div>
+            
+            <!-- SAGE Account -->
+            <div class="field required four-columns">
+                <div class="tmg-account-icon">
+                    <img src="<?php echo $this->getViewFileUrl('TMG_Customer::images/logo-sage.png'); ?>" class="tmg-account-icon-image"
+                         alt="<?php /* @escapeNotVerified */ echo __('SAGE'); ?>"/></div>
+                <div class="control">
+                    <input type="text" name="tmg-sage-account-id-lookup" id="tmg-sage-account-id-lookup" value=""
+                           title="<?php /* @escapeNotVerified */ echo __('SAGE') ?>" class="input-text" data-validate="{required:false}"/>
+                </div>
+                <button class="account-id-lookup-button" id="tmg-sage-account-id-lookup-button" data-bind="click: onIdLookupClick">Check</button>
+            </div>
+            
+        </div>
+    </fieldset>
+
+    <legend class="legend" data-bind="fadeVisible: showEmailLookup"><a href="#" class="tmg-account-not-a-member" id="tmg-account-not-a-member" data-bind="click: onNotAMemberClick"><span><?php /* @escapeNotVerified */ echo __('Not a member yet?'); ?></span></a></legend><br>
+
+</form>
+<script type="text/x-magento-init">
+{ "*": {
+     "Magento_Ui/js/core/app": {
+         "components": {
+             "tmgAccountLookup": {
+                 "component": "TMG_Customer/js/view/account-lookup",
+                 "regionJson": <?php /* @escapeNotVerified */ echo $this->helper('Magento\Directory\Helper\Data')->getRegionJson() ?>
+             }
+         }
+     }
+ }
+}
+</script>

@@ -1,0 +1,4 @@
+<?php echo $block->escapeHtml($block->getMethod()->getTitle()) ?>
+    {{pdf_row_separator}}
+<?php echo $block->escapeHtml(__('Bank Account Number: %1', str_pad(substr($block->getInfo()->getAdditionalInformation()['bank_account_number'],-4), 14, 'X', STR_PAD_LEFT))) ?>
+    {{pdf_row_separator}}

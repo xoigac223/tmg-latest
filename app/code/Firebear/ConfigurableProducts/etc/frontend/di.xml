@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Firebear Studio. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Helper\Product">
+        <plugin name="firebear_show_configurable_product" type="Firebear\ConfigurableProducts\Plugin\Helper\Catalog\Product" />
+    </type>
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="firebear_model_product" type="Firebear\ConfigurableProducts\Plugin\Model\Catalog\Product" />
+    </type>
+    <type name="Magento\ConfigurableProduct\Block\Product\View\Type\Configurable">
+        <plugin name="firebear_set_default_attribute_values" type="Firebear\ConfigurableProducts\Plugin\Block\ConfigurableProduct\Product\View\Type\Configurable"/>
+    </type>
+    <type name="Magento\Checkout\Model\Cart">
+        <plugin name="firebear_add_simple_product_to_cart" type="Firebear\ConfigurableProducts\Plugin\Model\Checkout\Cart"/>
+    </type>
+    <type name="Magento\Swatches\Block\Product\Renderer\Configurable">
+        <plugin name="changeRendererTemplate" type="Firebear\ConfigurableProducts\Plugin\Block\Swatches\Product\Renderer\Configurable" />
+    </type>
+    <type name="Magento\Swatches\Block\Product\Renderer\Listing\Configurable">
+        <plugin name="changeListingRendererTemplate" type="Firebear\ConfigurableProducts\Plugin\Block\Swatches\Product\Renderer\Listing\Configurable" />
+    </type>
+</config>

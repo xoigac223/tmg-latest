@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <tmg_epay>
+            <sso>
+                <url>https://epay.themagnetgroup.com/sso.aspx</url>
+                <customer_type>CUS</customer_type>
+                <store_id>b936f831-149d-4164-beba-4fd7195e64bc</store_id>
+                <use_token>0</use_token>
+            </sso>
+        </tmg_epay>
+    </default>
+</config>

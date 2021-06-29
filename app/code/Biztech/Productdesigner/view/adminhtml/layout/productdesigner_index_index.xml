@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>        
+               <css src="Biztech_Productdesigner::css/productdesigner.css"/>               
+               <css src="Biztech_Productdesigner::css/colorpicker.css"/>
+               <link src="Biztech_Productdesigner::js/easyResponsiveTabs.js"/>
+               <link src="Biztech_Productdesigner::js/rgbcolor.js"/>
+               <link src="Biztech_Productdesigner::js/select.js"/>
+               <link src="Biztech_Productdesigner::js/productdesigner.js"/>               
+               <link src="Biztech_Productdesigner::js/fabric.min.js"/>
+               <link src="Biztech_Productdesigner::js/colorpicker.js"/>
+    </head>
+    <body>  
+        <attribute name="class" value="productdesigner view"/>
+        <attribute name="class" value="boxed layout"/>     
+        <referenceContainer name="content">            
+            <block class="Biztech\Productdesigner\Block\Productdesigner" name="Custom" as="product_list" template="Biztech_Productdesigner::productdesigner/productdesigner.phtml">
+               
+                <block class="Biztech\Productdesigner\Block\Designer" name="text" as="text" template="Biztech_Productdesigner::productdesigner/text/text.phtml" />
+                
+                <block class="Biztech\Productdesigner\Block\Designer" name="quotes_categories" template="Biztech_Productdesigner::productdesigner/quotes/categories.phtml" />
+                <block class="Biztech\Productdesigner\Block\Designer" name="quotes_list" template="Biztech_Productdesigner::productdesigner/quotes/list.phtml" />
+                
+                <block class="Biztech\Productdesigner\Block\Designer" name="uploadImage" template="Biztech_Productdesigner::productdesigner/upload/upload.phtml" />
+                
+                <block class="Biztech\Productdesigner\Block\Designer" name="shapes_categories" template="Biztech_Productdesigner::productdesigner/shapes/categories.phtml" />
+                <block class="Biztech\Productdesigner\Block\Designer" name="shapes_images" template="Biztech_Productdesigner::productdesigner/shapes/images.phtml" />
+                
+                <block class="Biztech\Productdesigner\Block\Designer" name="clipart_categories" template="Biztech_Productdesigner::productdesigner/clipart/categories.phtml" />
+                <block class="Biztech\Productdesigner\Block\Designer" name="clipart_images" template="Biztech_Productdesigner::productdesigner/clipart/images.phtml" />
+                
+                <block class="Biztech\Productdesigner\Block\Designer" name="masking_categories" as="masking_categories" template="Biztech_Productdesigner::productdesigner/masking/categories.phtml" />
+                <block class="Biztech\Productdesigner\Block\Designer" name="masking_images" as="masking_images" template="Biztech_Productdesigner::productdesigner/masking/images.phtml" />
+                      
+                <block class="Biztech\Productdesigner\Block\Designer" name="pd_additional_info" as="pd_additional_info" template="Biztech_Productdesigner::productdesigner/additional/colors.phtml" />         
+            </block>                        
+        </referenceContainer>
+    </body>
+</page>

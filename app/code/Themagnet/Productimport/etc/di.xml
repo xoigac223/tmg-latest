@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<!-- <preference for="Magento\Catalog\Block\Product\View\Options\Type\Select" type="Themagnet\Productimport\Block\Product\View\Options\Type\Select" /> -->
+     <type name="Magento\Framework\Console\CommandList">
+	    <arguments>
+	        <argument name="commands" xsi:type="array">
+	            <item name="import_product_command" xsi:type="object">Themagnet\Productimport\Console\Command\ImportProduct</item>
+	        </argument>
+	    </arguments>
+	</type>
+	<type name="Magento\CatalogImportExport\Model\Import\Product">
+        <plugin name="product_import" type="Themagnet\Productimport\Model\Import\Product" sortOrder="1" disabled="false"/>
+    </type>
+    <preference for="Magento\ImportExport\Model\Import\ErrorProcessing\ProcessingErrorAggregator" type="Themagnet\Productimport\Model\Import\ErrorProcessing\ProcessingErrorAggregator" />
+</config>
