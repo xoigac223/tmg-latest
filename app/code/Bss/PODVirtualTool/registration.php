@@ -5,6 +5,6 @@ use Magento\Framework\Component\ComponentRegistrar;
 
 ComponentRegistrar::register(
     ComponentRegistrar::MODULE,
-    'TMG_PDOVirtualTool',
+    'Bss_PODVirtualTool',
     __DIR__
 );

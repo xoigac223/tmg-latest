@@ -1,0 +1,30 @@
+<?php
+/** @var $block \Magento\Catalog\Block\Product\View\Description */
+?>
+
+<button type="button" id="virtual-tool-btn" class="action primary"><?php echo __("Custom Product") ?></button>
+
+<?php
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$_product = $block->getProduct();
+$_sku = $_helper->productAttribute($_product, $_product->getSku(), "sku");
+$_brand = $_product->getAttributeText("brandname");
+echo ($_sku);
+echo ($_brand);
+$url = "/tool/product/custom" . "?sku=BG269&supplierId=323";
+?>
+<script>
+    require([
+        'jquery',
+        'popupWindow'
+    ], function ($) {
+        'use strict';
+
+        $("#virtual-tool-btn").popupWindow({
+            "windowURL": "<?=$url;?>",
+            "centerScreen": 1,
+            "width": 1000,
+            "height": 800,
+        });
+    });
+</script>
